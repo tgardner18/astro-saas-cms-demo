@@ -5730,13 +5730,13 @@ export enum ISystem_Locales {
   Neutral = 'NEUTRAL'
 }
 
+export type IVideoElementFragment = { __typename?: 'VideoElement', title?: string | null, placeholder?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, video?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
+
 export type ICtaElementFragment = { __typename?: 'CTAElement', Text?: string | null, Link?: { __typename?: 'ContentUrl', default?: string | null } | null };
 
 export type IHeadingElementFragment = { __typename?: 'HeadingElement', headingText?: string | null };
 
 export type IImageElementFragment = { __typename?: 'ImageElement', altText?: string | null, imageLink?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', base?: string | null, default?: string | null } | null } | null };
-
-export type IVideoElementFragment = { __typename?: 'VideoElement', title?: string | null, placeholder?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, video?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
 
 export type IContentByIdQueryVariables = Exact<{
   contentId: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
@@ -5860,6 +5860,21 @@ export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __type
 
 export type IDsFragment = { __typename?: 'CompositionDisplaySetting', key?: string | null, value?: string | null };
 
+export const VideoElementFragmentDoc = gql`
+    fragment VideoElement on VideoElement {
+  placeholder {
+    url {
+      default
+    }
+  }
+  title
+  video {
+    url {
+      default
+    }
+  }
+}
+    `;
 export const CtaElementFragmentDoc = gql`
     fragment CTAElement on CTAElement {
   Text
@@ -5879,21 +5894,6 @@ export const ImageElementFragmentDoc = gql`
   imageLink {
     url {
       base
-      default
-    }
-  }
-}
-    `;
-export const VideoElementFragmentDoc = gql`
-    fragment VideoElement on VideoElement {
-  placeholder {
-    url {
-      default
-    }
-  }
-  title
-  video {
-    url {
       default
     }
   }

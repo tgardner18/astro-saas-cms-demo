@@ -1,0 +1,27 @@
+---
+import {gql} from "graphql-request";
+import {IVideoElementFragment} from "../../../../services/graphql/__generated/sdk";
+
+const f_VideoElement = gql`
+  fragment VideoElement on VideoElement {
+    placeholder {
+      url {
+        default
+      }
+    }
+    title
+    video {
+      url {
+        default
+      }
+    }
+  }
+`;
+
+export interface Props {
+    element: IVideoElementFragment;
+}
+const {element} = Astro.props as Props;
+---
+
+<video src={element.video.url.default} autoplay muted/>

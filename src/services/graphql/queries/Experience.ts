@@ -43,6 +43,7 @@ const q_VisualBuilderQuery = gql`
                             ...HeadingElement
                             ...ImageElement
                             ...CTAElement
+                            ...VideoElement
                           }
                         }
                       }

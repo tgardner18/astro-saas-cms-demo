@@ -28,6 +28,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@astrojs/check", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:0.9.4"],\
+          ["@astrojs/compiler", "npm:2.10.3"],\
           ["@astrojs/node", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:8.3.4"],\
           ["@astrojs/tailwind", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:5.1.2"],\
           ["@graphql-codegen/cli", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:5.0.3"],\
@@ -8218,6 +8219,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["opti-astro", "workspace:."],\
           ["@astrojs/check", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:0.9.4"],\
+          ["@astrojs/compiler", "npm:2.10.3"],\
           ["@astrojs/node", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:8.3.4"],\
           ["@astrojs/tailwind", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:5.1.2"],\
           ["@graphql-codegen/cli", "virtual:a58b596e308d39ed32c41141583098da9b08594622cc8988b7063d4fbb3f4ef842cf9d13aaa0f05eec87b97b63d1a74675130a17f0b46d46be763f8cf7d835e1#npm:5.0.3"],\
