@@ -1,0 +1,79 @@
+---
+import { gql, request } from "graphql-request";
+import Layout from "../layouts/Layout.astro";
+import {isPage} from "astro/dist/core/util";
+import Components from "../components/cms/OnPageEditing/components/Components.astro";
+import Experiences from "../components/cms/VisualBuilder/experiences/Experiences.astro";
+import Pages from "../components/cms/OnPageEditing/pages/Pages.astro";
+import {CommonData} from "../components/common/CommonData";
+const key = Astro.url.searchParams.get("key");
+const loc = Astro.url.searchParams.get("loc");
+const ver = Astro.url.searchParams.get("ver");
+const preview_token = Astro.url.searchParams.get("preview_token");
+
+// console.log(key);
+// console.log(loc);
+// console.log(ver);
+// console.log(Astro.url);
+
+const document = gql`
+  query MyQuery($contentId: [String], $lang: [Locales], $version: String!) {
+    _Content(
+      ids: $contentId
+      locale: $lang
+      where: { _metadata: { version: { eq: $version } } }
+    ) {
+      items {
+        _metadata {
+          displayName
+          types
+        }
+      }
+    }
+  }
+`;
+const variables = {
+  contentId: key,
+  lang: loc,
+  version: ver,
+};
+const headers = {
+  authorization:
+    "Basic ***REMOVED***",
+};
+const optiResponse = await request(
+  "https://cg.optimizely.com/content/v2",
+  document,
+  variables,
+  headers
+);
+const types = optiResponse._Content.items[0]._metadata.types;
+const isComponentType = types.includes("_Component");
+const isExperienceType = types.includes("_Experience");
+const isPageType = types.includes("_Page") && isExperienceType === false;
+
+const commonData: CommonData = {
+  types: types,
+  key: key,
+  loc: loc,
+  ver: ver,
+  previewToken: preview_token,
+};
+// console.log(commonData);
+---
+
+<Layout title="Preview">
+  { isComponentType && <Components data={commonData} /> }
+  { isExperienceType && <Experiences data={commonData}/> }
+  { isPageType && <Pages data={commonData}/> }
+</Layout>
+<script src="/communicationinjector.js" is:inline></script>
+<script>
+  function contentSaved(event: any) {
+    window.location = event.detail.previewUrl;
+    window.location.reload();
+  }
+  window.addEventListener("optimizely:cms:contentSaved", (event) =>
+    contentSaved(event)
+  );
+</script>

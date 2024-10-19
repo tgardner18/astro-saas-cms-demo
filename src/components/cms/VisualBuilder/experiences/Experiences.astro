@@ -1,0 +1,127 @@
+---
+import { gql, request } from "graphql-request";
+import { CommonData } from "../../../common/CommonData";
+import Elements from "../elements/Elements.astro";
+const data = Astro.props.data as CommonData;
+const document = gql`
+  query VisualBuilder($key: String, $version: String) {
+    _Experience(
+      where: {
+        _metadata: { key: { eq: $key } }
+        _or: { _metadata: { version: { eq: $version } } }
+      }
+    ) {
+      items {
+        composition {
+          displaySettings {
+            ...ds
+          }
+          grids: nodes {
+            displaySettings {
+              ...ds
+            }
+            displayName
+            ... on CompositionStructureNode {
+              rows: nodes {
+                displaySettings {
+                  ...ds
+                }
+                ... on CompositionStructureNode {
+                  columns: nodes {
+                    displaySettings {
+                      ...ds
+                    }
+                    ... on CompositionStructureNode {
+                      elements: nodes {
+                        displaySettings {
+                          ...ds
+                        }
+                        ... on CompositionElementNode {
+                          displayTemplateKey
+                          element {
+                            _metadata {
+                              types
+                            }
+                            ... on HeadingElement {
+                              headingText
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        _metadata {
+          key
+          version
+        }
+      }
+    }
+  }
+
+  fragment ds on CompositionDisplaySetting {
+    key
+    value
+  }
+`;
+
+const variables = {
+  key: data.key,
+  version: data.ver,
+};
+const headers = {
+  authorization:
+    "Basic ***REMOVED***",
+};
+const optiResponse = await request(
+  "https://cg.optimizely.com/content/v2",
+  document,
+  variables,
+  headers
+);
+
+const experiences = optiResponse?._Experience?.items;
+const experience: any = experiences[experiences.length - 1];
+---
+
+<h1>Experiences</h1>
+<div className="relative w-full flex-1 vb:outline">
+  <div className="relative w-full flex-1 vb:outline">
+    {
+      experience?.composition?.grids?.map((grid: any) => (
+        <div
+          key={grid.key}
+          className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
+          data-epi-block-id={grid.key}
+        >
+          <p>{grid.displayName}</p>
+          {grid.rows?.map((row: any) => (
+            <div
+              key={row.key}
+              className="flex-1 flex flex-row flex-nowrap justify-start vb:row"
+            >
+              <p>{row.displayName}</p>
+              {row.columns?.map((column: any) => (
+                <div
+                  className="flex-1 flex flex-col flex-nowrap justify-start vb:col"
+                  key={column.key}
+                >
+                  <p>{column.displayName}</p>
+                  {column.elements?.map((element: any) => (
+                    <div data-epi-block-id={element?.key} key={element?.key}>
+                      <Elements element={element} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>

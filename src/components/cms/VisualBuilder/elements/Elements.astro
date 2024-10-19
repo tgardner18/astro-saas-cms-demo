@@ -1,0 +1,8 @@
+---
+import HeadingElement from "./HeadingElement/HeadingElement.astro";
+const { element } = Astro.props.element;
+const elementType = element._metadata.types[0];
+console.log(elementType);
+---
+
+{elementType === "HeadingElement" && <HeadingElement element={element} />}
