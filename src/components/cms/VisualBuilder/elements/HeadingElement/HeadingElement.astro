@@ -1,5 +1,10 @@
 ---
-const { element } = Astro.props;
+import {gql} from "graphql-request";
+import {IHeadingElementFragment} from "../../../../../services/graphql/__generated/sdk";
+export interface Props {
+    element: IHeadingElementFragment;
+}
+const {element} = Astro.props as Props;
 ---
 
-<h1>{element.headingText}</h1>
+<h1 class="text-2xl text-red-400">{element.headingText}</h1>

@@ -1,8 +1,14 @@
 ---
 import HeadingElement from "./HeadingElement/HeadingElement.astro";
-const { element } = Astro.props.element;
+import CTAElement from "./CTAElement/CTAElement.astro";
+import ImageElement from "./ImageElement/ImageElement.astro";
+const {element} = Astro.props.element;
 const elementType = element._metadata.types[0];
-console.log(elementType);
 ---
 
-{elementType === "HeadingElement" && <HeadingElement element={element} />}
+{elementType === "HeadingElement" &&
+<HeadingElement element={element}/>}
+{elementType === "CTAElement" &&
+<CTAElement element={element}/>}
+{elementType === "ImageElement" &&
+<ImageElement element={element}/>}

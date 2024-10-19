@@ -14,6 +14,11 @@ export default defineConfig({
   }),
 
   server: { port: 4321 },
+  vite: {
+    ssr:{
+      noExternal: ['graphql','graphql-request'],
+    }
+  },
 
   optimizely: {
     enabled: true,
@@ -27,6 +32,5 @@ export default defineConfig({
       "***REMOVED***",
   },
 
-  plugins: [],
   integrations: [tailwind()],
 });
