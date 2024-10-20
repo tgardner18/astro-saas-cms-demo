@@ -16,7 +16,6 @@ const optiResponse = await optiSdk.contentById({
     lang: loc as ILocales,
     version: ver,
 });
-console.log(optiResponse);
 const types = optiResponse._Content.items[0]._metadata.types;
 const isComponentType = types.includes("_Component");
 const isExperienceType = types.includes("_Experience");

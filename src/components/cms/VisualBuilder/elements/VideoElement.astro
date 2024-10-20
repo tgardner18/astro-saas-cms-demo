@@ -2,22 +2,6 @@
 import {gql} from "graphql-request";
 import {IVideoElementFragment} from "../../../../services/graphql/__generated/sdk";
 
-const f_VideoElement = gql`
-  fragment VideoElement on VideoElement {
-    placeholder {
-      url {
-        default
-      }
-    }
-    title
-    video {
-      url {
-        default
-      }
-    }
-  }
-`;
-
 export interface Props {
     element: IVideoElementFragment;
 }

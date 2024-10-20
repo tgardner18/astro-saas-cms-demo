@@ -11,31 +11,20 @@ const q_VisualBuilderQuery = gql`
     ) {
       items {
         composition {
-          displaySettings {
-            ...ds
-          }
           grids: nodes {
-            displaySettings {
-              ...ds
-            }
+            key
             displayName
             ... on CompositionStructureNode {
+              key
               rows: nodes {
-                displaySettings {
-                  ...ds
-                }
                 ... on CompositionStructureNode {
+                  key
                   columns: nodes {
-                    displaySettings {
-                      ...ds
-                    }
                     ... on CompositionStructureNode {
+                      key
                       elements: nodes {
-                        displaySettings {
-                          ...ds
-                        }
                         ... on CompositionElementNode {
-                          displayTemplateKey
+                          key
                           element {
                             _metadata {
                               types
@@ -61,7 +50,6 @@ const q_VisualBuilderQuery = gql`
       }
     }
   }
-
   fragment ds on CompositionDisplaySetting {
     key
     value
