@@ -10,7 +10,6 @@ import qs from "query-string";
 
 const previewPayload = qs.parse(Astro.url.search) as unknown as IPreviewPayload;
 
-
 const optiResponse = await optiSdk.contentById({
     key: previewPayload.key,
     loc: previewPayload.loc as ILocales,

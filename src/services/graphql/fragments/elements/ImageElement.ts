@@ -5,7 +5,6 @@ export const f_ImageElement = gql`
     altText
     imageLink {
       url {
-        base
         default
       }
     }

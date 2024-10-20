@@ -10,6 +10,13 @@ const q_VisualBuilderQuery = gql`
       }
     ) {
       items {
+        _metadata {
+          key
+          version
+          url {
+            default
+          }
+        }
         composition {
           grids: nodes {
             key
@@ -42,10 +49,6 @@ const q_VisualBuilderQuery = gql`
               }
             }
           }
-        }
-        _metadata {
-          key
-          version
         }
       }
     }
