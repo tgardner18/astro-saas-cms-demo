@@ -1,11 +1,11 @@
 import { gql } from "graphql-request";
 
 const q_Content = gql`
-  query contentById ($contentId: [String]!, $lang: [Locales]!, $version: String!) {
+  query contentById($key: [String]!, $loc: [Locales]!, $ver: String!) {
     _Content(
-      ids: $contentId
-      locale: $lang
-      where: { _metadata: { version: { eq: $version } } }
+      ids: $key
+      locale: $loc
+      where: { _metadata: { version: { eq: $ver } } }
     ) {
       items {
         _metadata {

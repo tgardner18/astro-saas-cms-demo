@@ -5739,9 +5739,9 @@ export type IImageElementFragment = { __typename?: 'ImageElement', altText?: str
 export type IVideoElementFragment = { __typename?: 'VideoElement', title?: string | null, placeholder?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, video?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
 
 export type IContentByIdQueryVariables = Exact<{
-  contentId: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
-  lang: Array<InputMaybe<ILocales>> | InputMaybe<ILocales>;
-  version: Scalars['String']['input'];
+  key: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  loc: Array<InputMaybe<ILocales>> | InputMaybe<ILocales>;
+  ver: Scalars['String']['input'];
 }>;
 
 
@@ -5749,8 +5749,8 @@ export type IContentByIdQuery = { __typename?: 'Query', _Content?: { __typename?
 
 export type IGetExperienceQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']['input']>;
-  version?: InputMaybe<Scalars['String']['input']>;
-  locale?: InputMaybe<Array<InputMaybe<ILocales>> | InputMaybe<ILocales>>;
+  ver?: InputMaybe<Scalars['String']['input']>;
+  loc?: InputMaybe<Array<InputMaybe<ILocales>> | InputMaybe<ILocales>>;
 }>;
 
 
@@ -5828,12 +5828,8 @@ export const DsFragmentDoc = gql`
 }
     `;
 export const ContentByIdDocument = gql`
-    query contentById($contentId: [String]!, $lang: [Locales]!, $version: String!) {
-  _Content(
-    ids: $contentId
-    locale: $lang
-    where: {_metadata: {version: {eq: $version}}}
-  ) {
+    query contentById($key: [String]!, $loc: [Locales]!, $ver: String!) {
+  _Content(ids: $key, locale: $loc, where: {_metadata: {version: {eq: $ver}}}) {
     items {
       _metadata {
         types
@@ -5843,10 +5839,10 @@ export const ContentByIdDocument = gql`
 }
     `;
 export const GetExperienceDocument = gql`
-    query getExperience($key: String, $version: String, $locale: [Locales]) {
+    query getExperience($key: String, $ver: String, $loc: [Locales]) {
   _Experience(
-    locale: $locale
-    where: {_metadata: {key: {eq: $key}}, _or: {_metadata: {version: {eq: $version}}}}
+    locale: $loc
+    where: {_metadata: {key: {eq: $key}}, _or: {_metadata: {version: {eq: $ver}}}}
   ) {
     items {
       composition {

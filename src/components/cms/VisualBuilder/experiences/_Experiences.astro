@@ -1,12 +1,12 @@
 ---
-import {gql, request} from "graphql-request";
-import {CommonData} from "../../../common/CommonData";
+import {IPreviewPayload} from "../../../common/IPreviewPayload";
 import Elements from "../elements/_Elements.astro";
 import {optiSdk} from "../../../../services/graphql/getSdk";
-const data = Astro.props.data as CommonData;
+import {ILocales} from "../../../../services/graphql/__generated/sdk";
+const previewPayload = Astro.props.data as IPreviewPayload;
 
 const optiResponse = await optiSdk.getExperience(
-    {key: data.key, version: data.version, locale: data.locale}
+    {key: previewPayload.key, ver: previewPayload.ver, loc: previewPayload.loc as ILocales}
 );
 
 const experiences = optiResponse?._Experience?.items;
@@ -15,22 +15,22 @@ console.log(experiences);
 ---
 
 <!--<h1 class="text-gray-300">Experiences</h1>-->
-<div className="relative w-full flex-1 vb:outline">
-    <div className="relative w-full flex-1 vb:outline">
+<div class="relative w-full flex-1 vb:outline">
+    <div class="relative w-full flex-1 vb:outline">
         {
             experience?.composition?.grids?.map((grid: any) => (
                     <div
-                            className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
+                            class="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
                             data-epi-block-id={grid.key}
                     >
                         <!--<p class="text-gray-500">{grid.displayName}</p>-->
                         {grid.rows?.map((row: any) => (
-                                <div className="flex-1 flex flex-row flex-nowrap justify-start vb:row"
+                                <div class="flex-1 flex flex-row flex-nowrap justify-start vb:row"
                                      data-epi-block-id={row.key}>
                                     <!--<p>{row.displayName}</p>-->
                                     {row.columns?.map((column: any) => (
                                             <div
-                                                    className="flex-1 flex flex-col flex-nowrap justify-start vb:col"
+                                                    class="flex-1 flex flex-col flex-nowrap justify-start vb:col"
                                                     data-epi-block-id={column.key}
                                             >
                                                 <!--<p>{column.displayName}</p>-->

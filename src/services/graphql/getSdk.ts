@@ -1,7 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 import { print } from "graphql";
 
-
 import { getSdk as getSdkWithClient, Requester } from "./__generated/sdk";
 
 const requester: Requester<any> = async (doc: any, vars: any) => {
@@ -12,12 +11,12 @@ const requester: Requester<any> = async (doc: any, vars: any) => {
         authorization:
           "Basic ***REMOVED***",
       },
-    }
+    },
   );
 
-  const client = new GraphQLClient(
-    `https://cg.optimizely.com/content/v2?auth=***REMOVED***`
-  );
+  // const client = new GraphQLClient(
+  //   `https://cg.optimizely.com/content/v2?auth=***REMOVED***`
+  // );
 
   try {
     const res = await previewClient.rawRequest(print(doc), vars);
@@ -33,12 +32,12 @@ const requester: Requester<any> = async (doc: any, vars: any) => {
     // } else {
     //   console.error(err);
     // }
-      console.error(
-          "Error in GraphQL request:",
-          "\n" + print(doc) + "\n",
-          vars,
-          "\n" + err.message
-      );
+    console.error(
+      "Error in GraphQL request:",
+      "\n" + print(doc) + "\n",
+      vars,
+      "\n" + err.message,
+    );
   }
 };
 

@@ -3,41 +3,34 @@ import Layout from "../layouts/Layout.astro";
 import Components from "../components/cms/OnPageEditing/components/_Components.astro";
 import Experiences from "../components/cms/VisualBuilder/experiences/_Experiences.astro";
 import Pages from "../components/cms/OnPageEditing/pages/_Pages.astro";
-import {CommonData} from "../components/common/CommonData";
+import {IPreviewPayload} from "../components/common/IPreviewPayload";
 import {ILocales} from "../services/graphql/__generated/sdk";
 import {optiSdk} from "../services/graphql/getSdk";
-const key = Astro.url.searchParams.get("key");
-const loc = Astro.url.searchParams.get("loc");
-const ver = Astro.url.searchParams.get("ver");
-const preview_token = Astro.url.searchParams.get("preview_token");
+import qs from "query-string";
+
+const previewPayload = qs.parse(Astro.url.search) as unknown as IPreviewPayload;
+
 
 const optiResponse = await optiSdk.contentById({
-    contentId: key,
-    lang: loc as ILocales,
-    version: ver,
+    key: previewPayload.key,
+    loc: previewPayload.loc as ILocales,
+    ver: previewPayload.ver,
 });
 const types = optiResponse._Content.items[0]._metadata.types;
 const isComponentType = types.includes("_Component");
 const isExperienceType = types.includes("_Experience");
 const isPageType = types.includes("_Page") && isExperienceType === false;
 
-const commonData: CommonData = {
-    types: types,
-    key: key,
-    locale: loc,
-    version: ver,
-    previewToken: preview_token,
-};
 // console.log(commonData);
 ---
 
 <Layout title="Preview">
     {isComponentType &&
-            <Components data={commonData}/>}
+            <Components data={previewPayload}/>}
     {isExperienceType &&
-            <Experiences data={commonData}/>}
+            <Experiences data={previewPayload}/>}
     {isPageType &&
-            <Pages data={commonData}/>}
+            <Pages data={previewPayload}/>}
 </Layout>
 <script src="/communicationinjector.js" is:inline></script>
 <script>

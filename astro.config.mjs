@@ -15,22 +15,22 @@ export default defineConfig({
 
   server: { port: 4321 },
   vite: {
-    ssr:{
-      noExternal: ['graphql','graphql-request'],
-    }
+    ssr: {
+      noExternal: ["graphql", "graphql-request"],
+    },
   },
 
-  optimizely: {
-    enabled: true,
-    projectId: "1234567890",
-    cgAddress: "https://cg.optimizely.com/",
-    cgAppKey: "***REMOVED***",
-    cgSecret:
-      "***REMOVED***",
-    cgSingleKey: "***REMOVED***",
-    cgBasicAuth:
-      "***REMOVED***",
-  },
+  // optimizely: {
+  //   enabled: true,
+  //   projectId: "1234567890",
+  //   cgAddress: "https://cg.optimizely.com/",
+  //   cgAppKey: "***REMOVED***",
+  //   cgSecret:
+  //     "***REMOVED***",
+  //   cgSingleKey: "***REMOVED***",
+  //   cgBasicAuth:
+  //     "***REMOVED***",
+  // },
 
   integrations: [tailwind()],
 });

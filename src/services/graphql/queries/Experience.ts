@@ -1,12 +1,12 @@
 import { gql } from "graphql-request";
 
 const q_VisualBuilderQuery = gql`
-  query getExperience($key: String, $version: String, $locale: [Locales]) {
+  query getExperience($key: String, $ver: String, $loc: [Locales]) {
     _Experience(
-      locale: $locale
+      locale: $loc
       where: {
         _metadata: { key: { eq: $key } }
-        _or: { _metadata: { version: { eq: $version } } }
+        _or: { _metadata: { version: { eq: $ver } } }
       }
     ) {
       items {
