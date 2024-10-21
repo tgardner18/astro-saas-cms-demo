@@ -1,6 +1,6 @@
 import { gql } from "graphql-request";
 
-const q_Content = gql`
+const q_ContentById = gql`
   query contentById($key: [String]!, $loc: [Locales]!, $ver: String!) {
     _Content(
       ids: $key
@@ -10,6 +10,20 @@ const q_Content = gql`
       items {
         _metadata {
           types
+        }
+      }
+    }
+  }
+`;
+
+const q_ContentByPath = gql`
+  query contentByPath($url: String!) {
+    _Content(where: { _metadata: { url: { default: { eq: $url } } } }) {
+      items {
+        _metadata {
+          key
+          version
+          locale
         }
       }
     }

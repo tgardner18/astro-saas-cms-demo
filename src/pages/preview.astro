@@ -3,14 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Components from "../components/cms/OnPageEditing/components/_Components.astro";
 import Experiences from "../components/cms/VisualBuilder/experiences/_Experiences.astro";
 import Pages from "../components/cms/OnPageEditing/pages/_Pages.astro";
-import {IPreviewPayload} from "../components/common/IPreviewPayload";
+import {IContentPayload} from "../services/shared/IContentPayload";
 import {ILocales} from "../services/graphql/__generated/sdk";
-import {optiSdk} from "../services/graphql/getSdk";
+import {optiDraftSdk} from "../services/graphql/getSdk";
 import qs from "query-string";
 
-const previewPayload = qs.parse(Astro.url.search) as unknown as IPreviewPayload;
+const previewPayload = qs.parse(Astro.url.search) as unknown as IContentPayload;
 
-const optiResponse = await optiSdk.contentById({
+const optiResponse = await optiDraftSdk.contentById({
     key: previewPayload.key,
     loc: previewPayload.loc as ILocales,
     ver: previewPayload.ver,
@@ -19,8 +19,6 @@ const types = optiResponse._Content.items[0]._metadata.types;
 const isComponentType = types.includes("_Component");
 const isExperienceType = types.includes("_Experience");
 const isPageType = types.includes("_Page") && isExperienceType === false;
-
-// console.log(commonData);
 ---
 
 <Layout title="Preview">
@@ -35,7 +33,7 @@ const isPageType = types.includes("_Page") && isExperienceType === false;
 <script>
     function contentSaved(event: any) {
         window.location = event.detail.previewUrl;
-        window.location.reload();
+        //window.location.reload();
     }
 
     window.addEventListener("optimizely:cms:contentSaved", (event) =>

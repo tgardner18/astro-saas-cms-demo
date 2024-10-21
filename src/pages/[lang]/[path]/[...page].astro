@@ -1,0 +1,42 @@
+---
+import {optiPublishedSdk} from "../../../services/graphql/getSdk";
+import {ILocales} from "../../../services/graphql/__generated/sdk";
+import Components from "../../../components/cms/OnPageEditing/components/_Components.astro";
+import Pages from "../../../components/cms/OnPageEditing/pages/_Pages.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Experiences from "../../../components/cms/VisualBuilder/experiences/_Experiences.astro";
+import {IContentPayload} from "../../../services/shared/IContentPayload";
+const urlPath = `${Astro.url.pathname.replace(/\/$/, "")}/`;
+const contentByPathResponse = await optiPublishedSdk.contentByPath({url: urlPath});
+if (contentByPathResponse._Content.items.length === 0) {
+    return Astro.redirect("/404");
+}
+const item = contentByPathResponse._Content.items[0];
+const contentByIdResponse = await optiPublishedSdk.contentById({
+    key: item._metadata.key,
+    ver: item._metadata.version,
+    loc: item._metadata.locale as ILocales
+})
+
+
+const contentPayload: IContentPayload = {
+    ctx: "view",
+    key: item._metadata.key,
+    ver: item._metadata.version,
+    loc: item._metadata.locale as ILocales,
+    preview_token: '',
+    types: contentByIdResponse._Content.items[0]._metadata.types
+}
+const isComponentType = contentPayload.types.includes("_Component");
+const isExperienceType = contentPayload.types.includes("_Experience");
+const isPageType = contentPayload.types.includes("_Page") && isExperienceType === false;
+---
+
+<Layout title="Preview">
+    {isComponentType &&
+            <Components data={contentPayload}/>}
+    {isExperienceType &&
+            <Experiences data={contentPayload}/>}
+    {isPageType &&
+            <Pages data={contentPayload}/>}
+</Layout>

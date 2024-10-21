@@ -1,0 +1,9 @@
+---
+import {IParagraphElement} from "../../../../services/graphql/__generated/sdk";
+export interface Props {
+    element: IParagraphElement;
+}
+const {element} = Astro.props as Props;
+---
+
+<div class="text-2xl text-blue-700" set:html={element.text.html}/>

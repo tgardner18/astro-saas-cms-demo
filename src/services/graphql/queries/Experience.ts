@@ -21,17 +21,29 @@ const q_VisualBuilderQuery = gql`
           grids: nodes {
             key
             displayName
+            displaySettings {
+              ...ds
+            }
             ... on CompositionStructureNode {
               key
               rows: nodes {
                 ... on CompositionStructureNode {
                   key
+                  displaySettings {
+                    ...ds
+                  }
                   columns: nodes {
                     ... on CompositionStructureNode {
                       key
+                      displaySettings {
+                        ...ds
+                      }
                       elements: nodes {
                         ... on CompositionElementNode {
                           key
+                          displaySettings {
+                            ...ds
+                          }
                           element {
                             _metadata {
                               types
@@ -40,6 +52,7 @@ const q_VisualBuilderQuery = gql`
                             ...ImageElement
                             ...CTAElement
                             ...VideoElement
+                            ...ParagraphElement
                           }
                         }
                       }

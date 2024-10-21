@@ -1,11 +1,11 @@
 ---
-import {IPreviewPayload} from "../../../common/IPreviewPayload";
+import {IContentPayload} from "../../../../services/shared/IContentPayload";
 import Elements from "../elements/_Elements.astro";
-import {optiSdk} from "../../../../services/graphql/getSdk";
+import {optiDraftSdk} from "../../../../services/graphql/getSdk";
 import {ILocales} from "../../../../services/graphql/__generated/sdk";
-const previewPayload = Astro.props.data as IPreviewPayload;
+const previewPayload = Astro.props.data as IContentPayload;
 
-const optiResponse = await optiSdk.getExperience(
+const optiResponse = await optiDraftSdk.getExperience(
     {key: previewPayload.key, ver: previewPayload.ver, loc: previewPayload.loc as ILocales}
 );
 

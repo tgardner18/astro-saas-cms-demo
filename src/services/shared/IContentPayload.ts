@@ -1,4 +1,4 @@
-export type IPreviewPayload = {
+export type IContentPayload = {
   key: string;
   loc: string;
   ver: string;
