@@ -22,7 +22,7 @@ const q_VisualBuilderQuery = gql`
             key
             displayName
             displaySettings {
-              ...ds
+              ...DisplaySettings
             }
             ... on CompositionStructureNode {
               key
@@ -30,19 +30,19 @@ const q_VisualBuilderQuery = gql`
                 ... on CompositionStructureNode {
                   key
                   displaySettings {
-                    ...ds
+                    ...DisplaySettings
                   }
                   columns: nodes {
                     ... on CompositionStructureNode {
                       key
                       displaySettings {
-                        ...ds
+                        ...DisplaySettings
                       }
                       elements: nodes {
                         ... on CompositionElementNode {
                           key
                           displaySettings {
-                            ...ds
+                            ...DisplaySettings
                           }
                           element {
                             _metadata {
@@ -66,7 +66,7 @@ const q_VisualBuilderQuery = gql`
       }
     }
   }
-  fragment ds on CompositionDisplaySetting {
+  fragment DisplaySettings on CompositionDisplaySetting {
     key
     value
   }

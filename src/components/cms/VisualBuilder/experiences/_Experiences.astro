@@ -2,7 +2,7 @@
 import {IContentPayload} from "../../../../services/shared/IContentPayload";
 import Elements from "../elements/_Elements.astro";
 import {optiDraftSdk} from "../../../../services/graphql/getSdk";
-import {ILocales} from "../../../../services/graphql/__generated/sdk";
+import {IDisplaySettingsFragment, ILocales} from "../../../../services/graphql/__generated/sdk";
 const previewPayload = Astro.props.data as IContentPayload;
 
 const optiResponse = await optiDraftSdk.getExperience(
@@ -11,11 +11,7 @@ const optiResponse = await optiDraftSdk.getExperience(
 
 const experiences = optiResponse?._Experience?.items;
 const experience: any = experiences[experiences.length - 1];
-// console.log(experiences);
 ---
-
-<!--<h1 class="text-gray-300">Experiences</h1>-->
-<!--<h1 class="text-gray-300">{experience._metadata.url.default}</h1>-->
 <div class="relative w-full flex-1 vb:outline">
     <div class="relative w-full flex-1 vb:outline">
         {
@@ -24,18 +20,17 @@ const experience: any = experiences[experiences.length - 1];
                             class="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
                             data-epi-block-id={grid.key}
                     >
-                        <!--<p class="text-gray-500">{grid.displayName}</p>-->
                         {grid.rows?.map((row: any) => (
                                 <div class="flex-1 flex flex-row flex-nowrap justify-start vb:row"
                                      data-epi-block-id={row.key}>
-                                    <!--<p>{row.displayName}</p>-->
                                     {row.columns?.map((column: any) => (
                                             <div
                                                     class="flex-1 flex flex-col flex-nowrap justify-start vb:col"
                                                     data-epi-block-id={column.key}
                                             >
-                                                <!--<p>{column.displayName}</p>-->
                                                 {column.elements?.map((element: any) => (
+                                                    // <p>{element.displaySettings.map((ds: any) => (`${ds.key} : ${ds.value}`))}</p>
+
                                                         <div data-epi-block-id={element?.key}>
                                                             <Elements element={element}/>
                                                         </div>

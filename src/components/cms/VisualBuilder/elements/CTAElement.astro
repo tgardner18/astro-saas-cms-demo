@@ -1,7 +1,9 @@
 ---
-import {ICtaElementFragment} from "../../../../services/graphql/__generated/sdk";
+import {ICtaElementFragment, IDisplaySettingsFragment} from "../../../../services/graphql/__generated/sdk";
 export interface Props {
     element: ICtaElementFragment;
+    displaySettings: IDisplaySettingsFragment[];
+
 }
 const {element} = Astro.props as Props;
 ---

@@ -4,17 +4,17 @@ import CTAElement from "./CTAElement.astro";
 import ImageElement from "./ImageElement.astro";
 import VideoElement from "./VideoElement.astro";
 import ParagraphElement from "./ParagraphElement.astro";
-const {element} = Astro.props.element;
+const {element, displaySettings} = Astro.props.element;
 const elementType = element._metadata.types[0];
 ---
 
 {elementType === "HeadingElement" &&
-<HeadingElement element={element}/>}
+<HeadingElement element={element} displaySettings={displaySettings}/>}
 {elementType === "CTAElement" &&
-<CTAElement element={element}/>}
+<CTAElement element={element} displaySettings={displaySettings}/>}
 {elementType === "ImageElement" &&
-<ImageElement element={element}/>}
+<ImageElement element={element} displaySettings={displaySettings}/>}
 {elementType === "VideoElement" &&
-<VideoElement element={element}/>}
+<VideoElement element={element} displaySettings={displaySettings}/>}
 {elementType === "ParagraphElement" &&
-<ParagraphElement element={element}/>}
+<ParagraphElement element={element} displaySettings={displaySettings}/>}

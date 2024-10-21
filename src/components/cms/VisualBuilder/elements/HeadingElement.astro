@@ -1,10 +1,11 @@
 ---
-import {IHeadingElementFragment} from "../../../../services/graphql/__generated/sdk";
+import {IDisplaySettingsFragment, IHeadingElementFragment} from "../../../../services/graphql/__generated/sdk";
 export interface Props {
     element: IHeadingElementFragment;
+    displaySettings: IDisplaySettingsFragment[];
 }
-const {element} = Astro.props as Props;
+const {element, displaySettings} = Astro.props as Props;
 ---
 
-<h1 class="text-2xl text-red-400">{element.headingText}</h1>
+<h1>{element.headingText}</h1>
 

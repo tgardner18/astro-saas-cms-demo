@@ -1,8 +1,9 @@
 ---
-import {IVideoElementFragment} from "../../../../services/graphql/__generated/sdk";
+import {IDisplaySettingsFragment, IVideoElementFragment} from "../../../../services/graphql/__generated/sdk";
 
 export interface Props {
     element: IVideoElementFragment;
+    displaySettings: IDisplaySettingsFragment[];
 }
 const {element} = Astro.props as Props;
 ---

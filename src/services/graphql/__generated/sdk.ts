@@ -5765,19 +5765,19 @@ export type IGetExperienceQueryVariables = Exact<{
 
 export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<{ __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDsFragment
+            & IDisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDsFragment
+            & IDisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
               { __typename?: 'CompositionDisplaySetting' }
-              & IDsFragment
+              & IDisplaySettingsFragment
             ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
-                & IDsFragment
+                & IDisplaySettingsFragment
               ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
-                  & IDsFragment
+                  & IDisplaySettingsFragment
                 ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
                   & ICtaElementFragment
@@ -5795,22 +5795,22 @@ export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __type
                   & IVideoElementFragment
                 ) | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode' } | null> | null } | null> | null } | null> | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDsFragment
+            & IDisplaySettingsFragment
           ) | null> | null } | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDsFragment
+            & IDisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDsFragment
+            & IDisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
               { __typename?: 'CompositionDisplaySetting' }
-              & IDsFragment
+              & IDisplaySettingsFragment
             ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
-                & IDsFragment
+                & IDisplaySettingsFragment
               ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
-                  & IDsFragment
+                  & IDisplaySettingsFragment
                 ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
                   & ICtaElementFragment
@@ -5828,10 +5828,10 @@ export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __type
                   & IVideoElementFragment
                 ) | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode' } | null> | null } | null> | null } | null> | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDsFragment
+            & IDisplaySettingsFragment
           ) | null> | null } | null> | null } | null } | null> | null } | null };
 
-export type IDsFragment = { __typename?: 'CompositionDisplaySetting', key?: string | null, value?: string | null };
+export type IDisplaySettingsFragment = { __typename?: 'CompositionDisplaySetting', key?: string | null, value?: string | null };
 
 export const CtaElementFragmentDoc = gql`
     fragment CTAElement on CTAElement {
@@ -5878,8 +5878,8 @@ export const VideoElementFragmentDoc = gql`
   }
 }
     `;
-export const DsFragmentDoc = gql`
-    fragment ds on CompositionDisplaySetting {
+export const DisplaySettingsFragmentDoc = gql`
+    fragment DisplaySettings on CompositionDisplaySetting {
   key
   value
 }
@@ -5927,7 +5927,7 @@ export const GetExperienceDocument = gql`
           key
           displayName
           displaySettings {
-            ...ds
+            ...DisplaySettings
           }
           ... on CompositionStructureNode {
             key
@@ -5935,19 +5935,19 @@ export const GetExperienceDocument = gql`
               ... on CompositionStructureNode {
                 key
                 displaySettings {
-                  ...ds
+                  ...DisplaySettings
                 }
                 columns: nodes {
                   ... on CompositionStructureNode {
                     key
                     displaySettings {
-                      ...ds
+                      ...DisplaySettings
                     }
                     elements: nodes {
                       ... on CompositionElementNode {
                         key
                         displaySettings {
-                          ...ds
+                          ...DisplaySettings
                         }
                         element {
                           _metadata {
@@ -5971,7 +5971,7 @@ export const GetExperienceDocument = gql`
     }
   }
 }
-    ${DsFragmentDoc}
+    ${DisplaySettingsFragmentDoc}
 ${HeadingElementFragmentDoc}
 ${ImageElementFragmentDoc}
 ${CtaElementFragmentDoc}
