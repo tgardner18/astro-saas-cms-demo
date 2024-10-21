@@ -1,0 +1,12 @@
+---
+import {IDisplaySettingsFragment, IImageElementFragment} from "../../../../../services/graphql/__generated/sdk";
+import {getImageElementStyles} from "./ImageElementStyling";
+
+export interface Props {
+    element: IImageElementFragment;
+    displaySettings: IDisplaySettingsFragment[];
+}
+const {element, displaySettings} = Astro.props as Props;
+---
+
+<img class:list={getImageElementStyles(displaySettings)} src={element.imageLink.url.default} alt={element.altText}/>
