@@ -5,6 +5,6 @@ export interface Props {
     displaySettings: IDisplaySettingsFragment[];
 
 }
-const {element} = Astro.props as Props;
+const {element, displaySettings} = Astro.props as Props;
 ---
 <a href={element.Link.default} class="text-2xl text-green-400">{element.Text}</a>

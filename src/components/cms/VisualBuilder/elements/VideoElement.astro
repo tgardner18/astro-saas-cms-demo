@@ -5,7 +5,7 @@ export interface Props {
     element: IVideoElementFragment;
     displaySettings: IDisplaySettingsFragment[];
 }
-const {element} = Astro.props as Props;
+const {element, displaySettings} = Astro.props as Props;
 ---
 
 <video src={element.video.url.default} autoplay muted/>
