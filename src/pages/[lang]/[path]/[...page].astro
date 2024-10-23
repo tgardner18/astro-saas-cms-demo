@@ -6,6 +6,7 @@ import Pages from "../../../components/cms/OnPageEditing/pages/_Pages.astro";
 import Layout from "../../../layouts/Layout.astro";
 import Experiences from "../../../components/cms/VisualBuilder/experiences/_Experiences.astro";
 import {IContentPayload} from "../../../services/shared/IContentPayload";
+import {getSeoData} from "../../../components/cms/VisualBuilder/experiences/ExperiencesHelper";
 
 const urlPath = `${Astro.url.pathname.replace(/\/$/, "")}/`;
 const contentByPathResponse = await optiPublishedSdk.contentByPath({url: urlPath});
@@ -31,9 +32,10 @@ const contentPayload: IContentPayload = {
 const isComponentType = contentPayload.types.includes("_Component");
 const isExperienceType = contentPayload.types.includes("_Experience");
 const isPageType = contentPayload.types.includes("_Page") && isExperienceType === false;
+const {metaTitle, metaDescription} = await getSeoData(isExperienceType, isPageType, contentPayload)
 ---
 
-<Layout title="Preview">
+<Layout title={metaTitle} description={metaDescription}>
     {isComponentType &&
             <Components data={contentPayload}/>}
     {isExperienceType &&

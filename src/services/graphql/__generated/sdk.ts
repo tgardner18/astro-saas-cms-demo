@@ -6215,6 +6215,8 @@ export type IParagraphElementFragment = { __typename?: 'ParagraphElement', text?
 
 export type IVideoElementFragment = { __typename?: 'VideoElement', title?: string | null, placeholder?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, video?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
 
+export type IBlankExperienceSeoFragment = { __typename?: 'BlankExperience', BlankExperienceSeoSettings?: { __typename?: 'PageSeoSettingsProperty', MetaTitle?: string | null, MetaDescription?: string | null } | null };
+
 export type IDisplaySettingsFragment = { __typename?: 'CompositionDisplaySetting', key?: string | null, value?: string | null };
 
 export type IContentByIdQueryVariables = Exact<{
@@ -6240,7 +6242,8 @@ export type IGetExperienceQueryVariables = Exact<{
 }>;
 
 
-export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<{ __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
+export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<(
+      { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
             & IDisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
@@ -6279,7 +6282,9 @@ export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __type
                 ) | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode' } | null> | null } | null> | null } | null> | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
             & IDisplaySettingsFragment
-          ) | null> | null } | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
+          ) | null> | null } | null> | null } | null }
+      & IBlankExperienceSeoFragment
+    ) | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
             & IDisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
@@ -6320,6 +6325,18 @@ export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __type
             & IDisplaySettingsFragment
           ) | null> | null } | null> | null } | null } | null> | null } | null };
 
+export type IGetExperienceSeoQueryVariables = Exact<{
+  key?: InputMaybe<Scalars['String']['input']>;
+  ver?: InputMaybe<Scalars['String']['input']>;
+  loc?: InputMaybe<Array<InputMaybe<ILocales>> | InputMaybe<ILocales>>;
+}>;
+
+
+export type IGetExperienceSeoQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<(
+      { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
+      & IBlankExperienceSeoFragment
+    ) | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null> | null } | null };
+
 export type IPageByIdQueryVariables = Exact<{
   key?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
   loc?: InputMaybe<Array<InputMaybe<ILocales>> | InputMaybe<ILocales>>;
@@ -6327,7 +6344,7 @@ export type IPageByIdQueryVariables = Exact<{
 }>;
 
 
-export type IPageByIdQuery = { __typename?: 'Query', _Page?: { __typename?: '_PageOutput', items?: Array<{ __typename?: 'BlankExperience' } | { __typename?: 'BlogPostPage' } | { __typename?: 'ContactPage', Designation?: string | null, Email?: string | null, Location?: string | null, Name?: string | null, Phone?: string | null, Biography?: { __typename?: 'RichText', html?: string | null } | null, Image?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | { __typename?: 'Container' } | { __typename?: 'LandingPage' } | { __typename?: 'StandardPage' } | { __typename?: 'StartPage' } | { __typename?: '_Experience' } | { __typename?: '_Page' } | null> | null } | null };
+export type IPageByIdQuery = { __typename?: 'Query', _Page?: { __typename?: '_PageOutput', items?: Array<{ __typename?: 'BlankExperience', _id?: string | null } | { __typename?: 'BlogPostPage', _id?: string | null } | { __typename?: 'ContactPage', _id?: string | null } | { __typename?: 'Container', _id?: string | null } | { __typename?: 'LandingPage', _id?: string | null } | { __typename?: 'StandardPage', _id?: string | null } | { __typename?: 'StartPage', _id?: string | null } | { __typename?: '_Experience', _id?: string | null } | { __typename?: '_Page', _id?: string | null } | null> | null } | null };
 
 export const ContactElementFragmentDoc = gql`
     fragment ContactElement on ContactElement {
@@ -6388,6 +6405,14 @@ export const VideoElementFragmentDoc = gql`
   }
 }
     `;
+export const BlankExperienceSeoFragmentDoc = gql`
+    fragment BlankExperienceSeo on BlankExperience {
+  BlankExperienceSeoSettings {
+    MetaTitle
+    MetaDescription
+  }
+}
+    `;
 export const DisplaySettingsFragmentDoc = gql`
     fragment DisplaySettings on CompositionDisplaySetting {
   key
@@ -6431,7 +6456,9 @@ export const GetExperienceDocument = gql`
         url {
           default
         }
+        types
       }
+      ...BlankExperienceSeo
       composition {
         grids: nodes {
           key
@@ -6483,7 +6510,8 @@ export const GetExperienceDocument = gql`
     }
   }
 }
-    ${DisplaySettingsFragmentDoc}
+    ${BlankExperienceSeoFragmentDoc}
+${DisplaySettingsFragmentDoc}
 ${HeadingElementFragmentDoc}
 ${ImageElementFragmentDoc}
 ${CtaElementFragmentDoc}
@@ -6491,25 +6519,26 @@ ${VideoElementFragmentDoc}
 ${ParagraphElementFragmentDoc}
 ${ContactElementFragmentDoc}
 ${EventElementFragmentDoc}`;
+export const GetExperienceSeoDocument = gql`
+    query getExperienceSeo($key: String, $ver: String, $loc: [Locales]) {
+  _Experience(
+    locale: $loc
+    where: {_metadata: {key: {eq: $key}}, _or: {_metadata: {version: {eq: $ver}}}}
+  ) {
+    items {
+      _metadata {
+        types
+      }
+      ...BlankExperienceSeo
+    }
+  }
+}
+    ${BlankExperienceSeoFragmentDoc}`;
 export const PageByIdDocument = gql`
     query pageById($key: [String], $loc: [Locales], $ver: String) {
   _Page(ids: $key, locale: $loc, where: {_metadata: {version: {eq: $ver}}}) {
     items {
-      ... on ContactPage {
-        Biography {
-          html
-        }
-        Designation
-        Email
-        Location
-        Image {
-          url {
-            default
-          }
-        }
-        Name
-        Phone
-      }
+      _id
     }
   }
 }
@@ -6525,6 +6554,9 @@ export function getSdk<C>(requester: Requester<C>) {
     },
     getExperience(variables?: IGetExperienceQueryVariables, options?: C): Promise<IGetExperienceQuery> {
       return requester<IGetExperienceQuery, IGetExperienceQueryVariables>(GetExperienceDocument, variables, options) as Promise<IGetExperienceQuery>;
+    },
+    getExperienceSeo(variables?: IGetExperienceSeoQueryVariables, options?: C): Promise<IGetExperienceSeoQuery> {
+      return requester<IGetExperienceSeoQuery, IGetExperienceSeoQueryVariables>(GetExperienceSeoDocument, variables, options) as Promise<IGetExperienceSeoQuery>;
     },
     pageById(variables?: IPageByIdQueryVariables, options?: C): Promise<IPageByIdQuery> {
       return requester<IPageByIdQuery, IPageByIdQueryVariables>(PageByIdDocument, variables, options) as Promise<IPageByIdQuery>;

@@ -5,21 +5,22 @@ query pageById($key: [String], $loc: [Locales], $ver: String) {
         where: { _metadata: { version: { eq: $ver } } }
     ) {
         items {
-            ... on ContactPage {
-                Biography {
-                    html
-                }
-                Designation
-                Email
-                Location
-                Image {
-                    url {
-                        default
-                    }
-                }
-                Name
-                Phone
-            }
+            _id
+            #            ... on ContactPage {
+            #                Biography {
+            #                    html
+            #                }
+            #                Designation
+            #                Email
+            #                Location
+            #                Image {
+            #                    url {
+            #                        default
+            #                    }
+            #                }
+            #                Name
+            #                Phone
+            #            }
         }
     }
 }

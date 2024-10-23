@@ -4,9 +4,10 @@ import Components from "../components/cms/OnPageEditing/components/_Components.a
 import Experiences from "../components/cms/VisualBuilder/experiences/_Experiences.astro";
 import Pages from "../components/cms/OnPageEditing/pages/_Pages.astro";
 import {IContentPayload} from "../services/shared/IContentPayload";
-import {ILocales} from "../services/graphql/__generated/sdk";
+import {IBlankExperience, ILocales} from "../services/graphql/__generated/sdk";
 import {optiDraftSdk} from "../services/graphql/getSdk";
 import qs from "query-string";
+import {getSeoData} from "../components/cms/VisualBuilder/experiences/ExperiencesHelper";
 
 const previewPayload = qs.parse(Astro.url.search) as unknown as IContentPayload;
 
@@ -19,9 +20,10 @@ const types = optiResponse._Content.items[0]?._metadata?.types;
 const isComponentType = types?.includes("_Component");
 const isExperienceType = types?.includes("_Experience");
 const isPageType = types?.includes("_Page") && isExperienceType === false;
+const {metaTitle, metaDescription} = await getSeoData(isExperienceType, isPageType, previewPayload)
 ---
 
-<Layout title="Preview">
+<Layout title={metaTitle} description={metaDescription}>
     {!types &&
             <h1 class="text-5xl text-center">Welcome to the demo site!</h1>}
     {isComponentType &&

@@ -1,6 +1,6 @@
 ---
 import {
-    IContactElement, IContactElementFragment, IContactPage,
+    IContactElementFragment, IContactPage,
     IDisplaySettingsFragment, ILocales
 } from "../../../../../services/graphql/__generated/sdk";
 import {optiDraftSdk, optiPublishedSdk} from "../../../../../services/graphql/getSdk";
@@ -16,7 +16,7 @@ const optiResponse = await optiPublishedSdk.pageById({
 });
 const contactPage = optiResponse._Page.items[0] as IContactPage;
 ---
-{contactPage &&
+{contactPage.Name &&
 <div class="m-4">
     <a
             href="#"
