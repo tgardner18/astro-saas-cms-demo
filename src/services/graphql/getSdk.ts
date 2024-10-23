@@ -4,20 +4,17 @@ import { print } from "graphql";
 import { getSdk as getSdkWithClient, Requester } from "./__generated/sdk";
 
 const requesterDraft: Requester<any> = async (doc: any, vars: any) => {
+  const token = btoa(
+    `${import.meta.env.OPTIMIZELY_GRAPH_APP_KEY}:${import.meta.env.OPTIMIZELY_GRAPH_APP_SECRET}`,
+  );
   const previewClient = new GraphQLClient(
-    `https://cg.optimizely.com/content/v2`,
+    `${import.meta.env.OPTIMIZELY_GRAPH_GATEWAY}/content/v2`,
     {
       headers: {
-        authorization:
-          "Basic ***REMOVED***",
+        authorization: `Basic ${token}`,
       },
     },
   );
-
-  // const client = new GraphQLClient(
-  //   `https://cg.optimizely.com/content/v2?auth=***REMOVED***`
-  // );
-
   try {
     const res = await previewClient.rawRequest(print(doc), vars);
     return res?.data as any;
@@ -43,7 +40,7 @@ const requesterDraft: Requester<any> = async (doc: any, vars: any) => {
 
 const requesterPublished: Requester<any> = async (doc: any, vars: any) => {
   const client = new GraphQLClient(
-    `https://cg.optimizely.com/content/v2?auth=***REMOVED***`,
+    `${import.meta.env.OPTIMIZELY_GRAPH_GATEWAY}/content/v2?auth=${import.meta.env.OPTIMIZELY_GRAPH_SINGLE_KEY}`,
   );
 
   try {
@@ -71,3 +68,6 @@ const requesterPublished: Requester<any> = async (doc: any, vars: any) => {
 
 export const optiDraftSdk = getSdkWithClient(requesterDraft);
 export const optiPublishedSdk = getSdkWithClient(requesterPublished);
+
+export const getSdk = (isDraft: boolean) =>
+  isDraft ? optiDraftSdk : optiPublishedSdk;
