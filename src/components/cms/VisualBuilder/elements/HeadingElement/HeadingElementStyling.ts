@@ -56,14 +56,14 @@ export function getHeadingElementStyles(
     case "h4":
       cssClasses.push("font-bold my-0");
       cssClasses.push("text-[3.6rem]");
-      cssClasses.push("lg:text-[4.2rem]");
-      cssClasses.push("xl:text-[4.8rem]");
+      cssClasses.push("lg:text-[3.8rem]");
+      cssClasses.push("xl:text-[4.2rem]");
       break;
     case "h5":
       cssClasses.push("font-bold my-0");
       cssClasses.push("text-[3.6rem]");
-      cssClasses.push("lg:text-[4.2rem]");
-      cssClasses.push("xl:text-[4.8rem]");
+      cssClasses.push("lg:text-[3.0rem]");
+      cssClasses.push("xl:text-[4.7rem]");
       break;
     case "h6":
       cssClasses.push("font-bold my-0");

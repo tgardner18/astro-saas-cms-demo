@@ -1,0 +1,5 @@
+fragment ParagraphElement on ParagraphElement {
+    text {
+        html
+    }
+}

@@ -605,6 +605,210 @@ input CompositionStructureNodeWhereInput {
   type: StringFilterInput
 }
 
+type Contact implements IData & _IComponent & _IContent & _IElement {
+  Email: String
+  Image: ContentReference
+  Location: String
+  Name: String
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type ContactAutocomplete {
+  Image: ContentReferenceAutocomplete
+  _metadata: IContentMetadataAutocomplete
+}
+
+type ContactElement implements IData & _IComponent & _IContent & _IElement {
+  Contact: ContentReference
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type ContactElementAutocomplete {
+  Contact: ContentReferenceAutocomplete
+  _metadata: IContentMetadataAutocomplete
+}
+
+type ContactElementFacet {
+  Contact: ContentReferenceFacet
+  _metadata: IContentMetadataFacet
+}
+
+input ContactElementOrderByInput {
+  Contact: ContentReferenceOrderByInput
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type ContactElementOutput {
+  autocomplete: ContactElementAutocomplete
+  cursor: String
+  facets: ContactElementFacet
+  items: [ContactElement]
+  total(all: Boolean): Int
+}
+
+input ContactElementWhereInput {
+  Contact: ContentReferenceWhereInput
+  _and: [ContactElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [ContactElementWhereInput]
+  _or: [ContactElementWhereInput]
+}
+
+type ContactFacet {
+  Image: ContentReferenceFacet
+  _metadata: IContentMetadataFacet
+}
+
+input ContactOrderByInput {
+  Image: ContentReferenceOrderByInput
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type ContactOutput {
+  autocomplete: ContactAutocomplete
+  cursor: String
+  facets: ContactFacet
+  items: [Contact]
+  total(all: Boolean): Int
+}
+
+type ContactPage implements IData & _IContent & _IPage {
+  Biography: RichText
+  Designation: String
+  Email: String
+  Image: ContentReference
+  Location: String
+  Name: String
+  Phone: String
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type ContactPageAutocomplete {
+  Biography: RichTextAutocomplete
+  Image: ContentReferenceAutocomplete
+  _metadata: IContentMetadataAutocomplete
+}
+
+type ContactPageFacet {
+  Biography: RichTextFacet
+  Image: ContentReferenceFacet
+  _metadata: IContentMetadataFacet
+}
+
+input ContactPageOrderByInput {
+  Biography: RichTextOrderByInput
+  Image: ContentReferenceOrderByInput
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type ContactPageOutput {
+  autocomplete: ContactPageAutocomplete
+  cursor: String
+  facets: ContactPageFacet
+  items: [ContactPage]
+  total(all: Boolean): Int
+}
+
+input ContactPageWhereInput {
+  Biography: RichTextWhereInput
+  Image: ContentReferenceWhereInput
+  _and: [ContactPageWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [ContactPageWhereInput]
+  _or: [ContactPageWhereInput]
+}
+
+input ContactWhereInput {
+  Image: ContentReferenceWhereInput
+  _and: [ContactWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [ContactWhereInput]
+  _or: [ContactWhereInput]
+}
+
+type Container implements IData & _IContent & _IPage {
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type ContainerAutocomplete {
+  _metadata: IContentMetadataAutocomplete
+}
+
+type ContainerFacet {
+  _metadata: IContentMetadataFacet
+}
+
+input ContainerOrderByInput {
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type ContainerOutput {
+  autocomplete: ContainerAutocomplete
+  cursor: String
+  facets: ContainerFacet
+  items: [Container]
+  total(all: Boolean): Int
+}
+
+input ContainerWhereInput {
+  _and: [ContainerWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [ContainerWhereInput]
+  _or: [ContainerWhereInput]
+}
+
 type ContentMetadata implements IContentMetadata {
   created: DateTime
   displayName(highlight: HighlightOptions): String
@@ -880,6 +1084,53 @@ input Decay {
   origin: String
   rate: Float
   scale: Int = 10
+}
+
+type EventElement implements IData & _IComponent & _IContent & _IElement {
+  Address: String
+  Date: DateTime
+  Title: String
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type EventElementAutocomplete {
+  _metadata: IContentMetadataAutocomplete
+}
+
+type EventElementFacet {
+  _metadata: IContentMetadataFacet
+}
+
+input EventElementOrderByInput {
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type EventElementOutput {
+  autocomplete: EventElementAutocomplete
+  cursor: String
+  facets: EventElementFacet
+  items: [EventElement]
+  total(all: Boolean): Int
+}
+
+input EventElementWhereInput {
+  _and: [EventElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [EventElementWhereInput]
+  _or: [EventElementWhereInput]
 }
 
 type GenericMedia implements IData & _IContent & _IMedia {
@@ -1973,9 +2224,14 @@ type Query {
   CTAElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CTAElementOrderByInput, skip: Int! = 0, where: CTAElementWhereInput): CTAElementOutput
   CardBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CardBlockOrderByInput, skip: Int! = 0, where: CardBlockWhereInput): CardBlockOutput
   CarouselBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CarouselBlockOrderByInput, skip: Int! = 0, where: CarouselBlockWhereInput): CarouselBlockOutput
+  Contact(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactOrderByInput, skip: Int! = 0, where: ContactWhereInput): ContactOutput
+  ContactElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactElementOrderByInput, skip: Int! = 0, where: ContactElementWhereInput): ContactElementOutput
+  ContactPage(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactPageOrderByInput, skip: Int! = 0, where: ContactPageWhereInput): ContactPageOutput
+  Container(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContainerOrderByInput, skip: Int! = 0, where: ContainerWhereInput): ContainerOutput
   ContentRecsBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContentRecsBlockOrderByInput, skip: Int! = 0, where: ContentRecsBlockWhereInput): ContentRecsBlockOutput
   ContentRecsElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContentRecsElementOrderByInput, skip: Int! = 0, where: ContentRecsElementWhereInput): ContentRecsElementOutput
   Data(cursor: String, ids: [String], limit: Int! = 20, locale: [system_Locales], orderBy: DataOrderByInput, skip: Int! = 0, where: DataWhereInput): DataOutput
+  EventElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: EventElementOrderByInput, skip: Int! = 0, where: EventElementWhereInput): EventElementOutput
   GenericMedia(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: GenericMediaOrderByInput, skip: Int! = 0, where: GenericMediaWhereInput): GenericMediaOutput
   HeadingElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeadingElementOrderByInput, skip: Int! = 0, where: HeadingElementWhereInput): HeadingElementOutput
   HeroBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeroBlockOrderByInput, skip: Int! = 0, where: HeroBlockWhereInput): HeroBlockOutput
@@ -2022,9 +2278,14 @@ type QueryRef {
   CTAElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CTAElementOrderByInput, skip: Int! = 0, where: CTAElementWhereInput): CTAElementOutput
   CardBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CardBlockOrderByInput, skip: Int! = 0, where: CardBlockWhereInput): CardBlockOutput
   CarouselBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CarouselBlockOrderByInput, skip: Int! = 0, where: CarouselBlockWhereInput): CarouselBlockOutput
+  Contact(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactOrderByInput, skip: Int! = 0, where: ContactWhereInput): ContactOutput
+  ContactElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactElementOrderByInput, skip: Int! = 0, where: ContactElementWhereInput): ContactElementOutput
+  ContactPage(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactPageOrderByInput, skip: Int! = 0, where: ContactPageWhereInput): ContactPageOutput
+  Container(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContainerOrderByInput, skip: Int! = 0, where: ContainerWhereInput): ContainerOutput
   ContentRecsBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContentRecsBlockOrderByInput, skip: Int! = 0, where: ContentRecsBlockWhereInput): ContentRecsBlockOutput
   ContentRecsElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContentRecsElementOrderByInput, skip: Int! = 0, where: ContentRecsElementWhereInput): ContentRecsElementOutput
   Data(cursor: String, ids: [String], limit: Int! = 20, locale: [system_Locales], orderBy: DataOrderByInput, skip: Int! = 0, where: DataWhereInput): DataOutput
+  EventElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: EventElementOrderByInput, skip: Int! = 0, where: EventElementWhereInput): EventElementOutput
   GenericMedia(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: GenericMediaOrderByInput, skip: Int! = 0, where: GenericMediaWhereInput): GenericMediaOutput
   HeadingElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeadingElementOrderByInput, skip: Int! = 0, where: HeadingElementWhereInput): HeadingElementOutput
   HeroBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeroBlockOrderByInput, skip: Int! = 0, where: HeroBlockWhereInput): HeroBlockOutput

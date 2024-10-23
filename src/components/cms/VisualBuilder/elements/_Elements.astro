@@ -4,6 +4,8 @@ import CTAElement from "./CTAElement/CTAElement.astro";
 import ImageElement from "./ImageElement/ImageElement.astro";
 import VideoElement from "./VideoElement/VideoElement.astro";
 import ParagraphElement from "./ParagraphElement/ParagraphElement.astro";
+import ContactElement from "./Contact/ContactElement.astro";
+import EventElement from "./EventElement/EventElement.astro";
 const {element, displaySettings} = Astro.props.element;
 const elementType = element._metadata.types[0];
 ---
@@ -18,3 +20,7 @@ const elementType = element._metadata.types[0];
 <VideoElement element={element} displaySettings={displaySettings}/>}
 {elementType === "ParagraphElement" &&
 <ParagraphElement element={element} displaySettings={displaySettings}/>}
+{elementType === "ContactElement" &&
+<ContactElement element={element} displaySettings={displaySettings}/>}
+{elementType === "EventElement" &&
+<EventElement element={element} displaySettings={displaySettings}/>}

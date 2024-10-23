@@ -15,13 +15,15 @@ const optiResponse = await optiDraftSdk.contentById({
     loc: previewPayload.loc as ILocales,
     ver: previewPayload.ver,
 });
-const types = optiResponse._Content.items[0]._metadata.types;
-const isComponentType = types.includes("_Component");
-const isExperienceType = types.includes("_Experience");
-const isPageType = types.includes("_Page") && isExperienceType === false;
+const types = optiResponse._Content.items[0]?._metadata?.types;
+const isComponentType = types?.includes("_Component");
+const isExperienceType = types?.includes("_Experience");
+const isPageType = types?.includes("_Page") && isExperienceType === false;
 ---
 
 <Layout title="Preview">
+    {!types &&
+            <h1 class="text-5xl text-center">Welcome to the demo site!</h1>}
     {isComponentType &&
             <Components data={previewPayload}/>}
     {isExperienceType &&
