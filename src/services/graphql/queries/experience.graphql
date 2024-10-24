@@ -20,6 +20,7 @@ query getExperience($key: String, $ver: String, $loc: [Locales]) {
                 grids: nodes {
                     key
                     displayName
+                    displayTemplateKey
                     displaySettings {
                         ...DisplaySettings
                     }
@@ -28,18 +29,21 @@ query getExperience($key: String, $ver: String, $loc: [Locales]) {
                         rows: nodes {
                             ... on CompositionStructureNode {
                                 key
+                                displayTemplateKey
                                 displaySettings {
                                     ...DisplaySettings
                                 }
                                 columns: nodes {
                                     ... on CompositionStructureNode {
                                         key
+                                        displayTemplateKey
                                         displaySettings {
                                             ...DisplaySettings
                                         }
                                         elements: nodes {
                                             ... on CompositionElementNode {
                                                 key
+                                                displayTemplateKey
                                                 displaySettings {
                                                     ...DisplaySettings
                                                 }

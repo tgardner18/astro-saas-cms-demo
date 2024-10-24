@@ -6243,19 +6243,19 @@ export type GetExperienceQueryVariables = Exact<{
 
 
 export type GetExperienceQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<(
-      { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
+      { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
             & DisplaySettingsFragment
-          ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
+          ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
             & DisplaySettingsFragment
-          ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
+          ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, displayTemplateKey?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
               { __typename?: 'CompositionDisplaySetting' }
               & DisplaySettingsFragment
-            ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
+            ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
                 & DisplaySettingsFragment
-              ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displaySettings?: Array<(
+              ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
                   & DisplaySettingsFragment
                 ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
@@ -6284,19 +6284,19 @@ export type GetExperienceQuery = { __typename?: 'Query', _Experience?: { __typen
             & DisplaySettingsFragment
           ) | null> | null } | null> | null } | null }
       & BlankExperienceSeoFragment
-    ) | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
+    ) | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
             & DisplaySettingsFragment
-          ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
+          ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
             & DisplaySettingsFragment
-          ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
+          ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, displayTemplateKey?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
               { __typename?: 'CompositionDisplaySetting' }
               & DisplaySettingsFragment
-            ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
+            ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
                 & DisplaySettingsFragment
-              ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displaySettings?: Array<(
+              ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
                   & DisplaySettingsFragment
                 ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
@@ -6463,6 +6463,7 @@ export const GetExperienceDocument = gql`
         grids: nodes {
           key
           displayName
+          displayTemplateKey
           displaySettings {
             ...DisplaySettings
           }
@@ -6471,18 +6472,21 @@ export const GetExperienceDocument = gql`
             rows: nodes {
               ... on CompositionStructureNode {
                 key
+                displayTemplateKey
                 displaySettings {
                   ...DisplaySettings
                 }
                 columns: nodes {
                   ... on CompositionStructureNode {
                     key
+                    displayTemplateKey
                     displaySettings {
                       ...DisplaySettings
                     }
                     elements: nodes {
                       ... on CompositionElementNode {
                         key
+                        displayTemplateKey
                         displaySettings {
                           ...DisplaySettings
                         }
