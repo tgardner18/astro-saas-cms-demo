@@ -20,10 +20,10 @@ const types = optiResponse._Content.items[0]?._metadata?.types;
 const isComponentType = types?.includes("_Component");
 const isExperienceType = types?.includes("_Experience");
 const isPageType = types?.includes("_Page") && isExperienceType === false;
-const {metaTitle, metaDescription} = await getSeoData(isExperienceType, isPageType, previewPayload)
+//const {metaTitle, metaDescription} = await getSeoData(isExperienceType, isPageType, previewPayload)
 ---
+<>
 
-<Layout title={metaTitle} description={metaDescription}>
     {!types &&
             <h1 class="text-5xl text-center">Welcome to the demo site!</h1>}
     {isComponentType &&
@@ -32,7 +32,7 @@ const {metaTitle, metaDescription} = await getSeoData(isExperienceType, isPageTy
             <Experiences data={previewPayload}/>}
     {isPageType &&
             <Pages data={previewPayload}/>}
-</Layout>
+</>
 <script src="/communicationinjector.js" is:inline></script>
 <script>
     function contentSaved(event: any) {
