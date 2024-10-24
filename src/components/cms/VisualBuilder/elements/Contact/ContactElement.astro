@@ -1,20 +1,20 @@
 ---
 import {
-    IContactElementFragment, IContactPage,
-    IDisplaySettingsFragment, ILocales
+    ContactElementFragment, ContactPage,
+    DisplaySettingsFragment, Locales
 } from "../../../../../services/graphql/__generated/sdk";
 import {optiDraftSdk, optiPublishedSdk} from "../../../../../services/graphql/getSdk";
 export interface Props {
-    element: IContactElementFragment;
-    displaySettings: IDisplaySettingsFragment[];
+    element: ContactElementFragment;
+    displaySettings: DisplaySettingsFragment[];
 }
 const {element, displaySettings} = Astro.props as Props;
 
 const optiResponse = await optiPublishedSdk.pageById({
     key: element.Contact.key,
-    loc: ILocales.En
+    loc: Locales.En
 });
-const contactPage = optiResponse._Page.items[0] as IContactPage;
+const contactPage = optiResponse._Page.items[0] as ContactPage;
 ---
 {contactPage.Name &&
 <div class="m-4">

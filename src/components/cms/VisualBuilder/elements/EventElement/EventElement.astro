@@ -1,11 +1,11 @@
 ---
 import {
-    IDisplaySettingsFragment,
-    IEventElementFragment,
+    DisplaySettingsFragment,
+    EventElementFragment,
 } from "../../../../../services/graphql/__generated/sdk";
 export interface Props {
-    element: IEventElementFragment;
-    displaySettings: IDisplaySettingsFragment[];
+    element: EventElementFragment;
+    displaySettings: DisplaySettingsFragment[];
 }
 const {element, displaySettings} = Astro.props as Props;
 ---

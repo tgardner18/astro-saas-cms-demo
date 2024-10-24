@@ -1,12 +1,10 @@
 ---
 import {optiPublishedSdk} from "../../../services/graphql/getSdk";
-import {ILocales} from "../../../services/graphql/__generated/sdk";
+import {Locales} from "../../../services/graphql/__generated/sdk";
 import Components from "../../../components/cms/OnPageEditing/components/_Components.astro";
 import Pages from "../../../components/cms/OnPageEditing/pages/_Pages.astro";
-import Layout from "../../../layouts/Layout.astro";
 import Experiences from "../../../components/cms/VisualBuilder/experiences/_Experiences.astro";
-import {IContentPayload} from "../../../services/shared/IContentPayload";
-import {getSeoData} from "../../../components/cms/VisualBuilder/experiences/ExperiencesHelper";
+import {ContentPayload} from "../../../services/shared/ContentPayload";
 
 const urlPath = `${Astro.url.pathname.replace(/\/$/, "")}/`;
 const contentByPathResponse = await optiPublishedSdk.contentByPath({url: urlPath});
@@ -17,15 +15,15 @@ const item = contentByPathResponse._Content.items[0];
 const contentByIdResponse = await optiPublishedSdk.contentById({
     key: item._metadata.key,
     ver: item._metadata.version,
-    loc: item._metadata.locale as ILocales
+    loc: item._metadata.locale as Locales
 });
 
 
-const contentPayload: IContentPayload = {
+const contentPayload: ContentPayload = {
     ctx: "view",
     key: item._metadata.key,
     ver: item._metadata.version,
-    loc: item._metadata.locale as ILocales,
+    loc: item._metadata.locale as Locales,
     preview_token: '',
     types: contentByIdResponse._Content.items[0]._metadata.types
 }

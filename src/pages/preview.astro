@@ -1,19 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import Components from "../components/cms/OnPageEditing/components/_Components.astro";
 import Experiences from "../components/cms/VisualBuilder/experiences/_Experiences.astro";
 import Pages from "../components/cms/OnPageEditing/pages/_Pages.astro";
-import {IContentPayload} from "../services/shared/IContentPayload";
-import {IBlankExperience, ILocales} from "../services/graphql/__generated/sdk";
+import {ContentPayload} from "../services/shared/ContentPayload";
+import {Locales} from "../services/graphql/__generated/sdk";
 import {optiDraftSdk} from "../services/graphql/getSdk";
 import qs from "query-string";
-import {getSeoData} from "../components/cms/VisualBuilder/experiences/ExperiencesHelper";
 
-const previewPayload = qs.parse(Astro.url.search) as unknown as IContentPayload;
+const previewPayload = qs.parse(Astro.url.search) as unknown as ContentPayload;
 
 const optiResponse = await optiDraftSdk.contentById({
     key: previewPayload.key,
-    loc: previewPayload.loc as ILocales,
+    loc: previewPayload.loc as Locales,
     ver: previewPayload.ver,
 });
 const types = optiResponse._Content.items[0]?._metadata?.types;

@@ -1,9 +1,9 @@
 ---
-import {IDisplaySettingsFragment, IHeadingElementFragment} from "../../../../../services/graphql/__generated/sdk";
+import {DisplaySettingsFragment, HeadingElementFragment} from "../../../../../services/graphql/__generated/sdk";
 import {getHeadingElementStyles} from "./HeadingElementStyling";
 export interface Props {
-    element: IHeadingElementFragment;
-    displaySettings: IDisplaySettingsFragment[];
+    element: HeadingElementFragment;
+    displaySettings: DisplaySettingsFragment[];
 }
 const {element, displaySettings} = Astro.props as Props;
 ---

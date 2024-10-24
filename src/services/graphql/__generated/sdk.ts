@@ -20,1190 +20,1190 @@ export type Scalars = {
   JSON: { input: any; output: any; }
 };
 
-export type IArticleListElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type ArticleListElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'ArticleListElement';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
   articleListCount?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IArticleListElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ArticleListElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IArticleListElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ArticleListElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IArticleListElementAutocomplete = {
+export type ArticleListElementAutocomplete = {
   __typename?: 'ArticleListElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IArticleListElementFacet = {
+export type ArticleListElementFacet = {
   __typename?: 'ArticleListElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IArticleListElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ArticleListElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IArticleListElementOutput = {
+export type ArticleListElementOutput = {
   __typename?: 'ArticleListElementOutput';
-  autocomplete?: Maybe<IArticleListElementAutocomplete>;
+  autocomplete?: Maybe<ArticleListElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IArticleListElementFacet>;
-  items?: Maybe<Array<Maybe<IArticleListElement>>>;
+  facets?: Maybe<ArticleListElementFacet>;
+  items?: Maybe<Array<Maybe<ArticleListElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IArticleListElementOutputTotalArgs = {
+export type ArticleListElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IArticleListElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IArticleListElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IArticleListElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IArticleListElementWhereInput>>>;
+export type ArticleListElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<ArticleListElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ArticleListElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ArticleListElementWhereInput>>>;
 };
 
-export type IBlankExperience = IIData & I_IContent & I_IExperience & I_IPage & {
+export type BlankExperience = IData & _IContent & _IExperience & _IPage & {
   __typename?: 'BlankExperience';
-  BlankExperienceSeoSettings?: Maybe<IPageSeoSettingsProperty>;
+  BlankExperienceSeoSettings?: Maybe<PageSeoSettingsProperty>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  composition?: Maybe<ICompositionStructureNode>;
+  composition?: Maybe<CompositionStructureNode>;
 };
 
 
-export type IBlankExperience_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type BlankExperience_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IBlankExperience_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type BlankExperience_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IBlankExperienceAutocomplete = {
+export type BlankExperienceAutocomplete = {
   __typename?: 'BlankExperienceAutocomplete';
-  BlankExperienceSeoSettings?: Maybe<IPageSeoSettingsPropertyAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  composition?: Maybe<ICompositionStructureNodeAutocomplete>;
+  BlankExperienceSeoSettings?: Maybe<PageSeoSettingsPropertyAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  composition?: Maybe<CompositionStructureNodeAutocomplete>;
 };
 
-export type IBlankExperienceFacet = {
+export type BlankExperienceFacet = {
   __typename?: 'BlankExperienceFacet';
-  BlankExperienceSeoSettings?: Maybe<IPageSeoSettingsPropertyFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  composition?: Maybe<ICompositionStructureNodeFacet>;
+  BlankExperienceSeoSettings?: Maybe<PageSeoSettingsPropertyFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  composition?: Maybe<CompositionStructureNodeFacet>;
 };
 
-export type IBlankExperienceOrderByInput = {
-  BlankExperienceSeoSettings?: InputMaybe<IPageSeoSettingsPropertyOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type BlankExperienceOrderByInput = {
+  BlankExperienceSeoSettings?: InputMaybe<PageSeoSettingsPropertyOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  composition?: InputMaybe<ICompositionStructureNodeOrderByInput>;
+  composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
-export type IBlankExperienceOutput = {
+export type BlankExperienceOutput = {
   __typename?: 'BlankExperienceOutput';
-  autocomplete?: Maybe<IBlankExperienceAutocomplete>;
+  autocomplete?: Maybe<BlankExperienceAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IBlankExperienceFacet>;
-  items?: Maybe<Array<Maybe<IBlankExperience>>>;
+  facets?: Maybe<BlankExperienceFacet>;
+  items?: Maybe<Array<Maybe<BlankExperience>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IBlankExperienceOutputTotalArgs = {
+export type BlankExperienceOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IBlankExperienceWhereInput = {
-  BlankExperienceSeoSettings?: InputMaybe<IPageSeoSettingsPropertyWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IBlankExperienceWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IBlankExperienceWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IBlankExperienceWhereInput>>>;
-  composition?: InputMaybe<ICompositionStructureNodeWhereInput>;
+export type BlankExperienceWhereInput = {
+  BlankExperienceSeoSettings?: InputMaybe<PageSeoSettingsPropertyWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<BlankExperienceWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<BlankExperienceWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<BlankExperienceWhereInput>>>;
+  composition?: InputMaybe<CompositionStructureNodeWhereInput>;
 };
 
-export type IBlankSection = IIData & I_IComponent & I_IContent & I_ISection & {
+export type BlankSection = IData & _IComponent & _IContent & _ISection & {
   __typename?: 'BlankSection';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  composition?: Maybe<ICompositionStructureNode>;
+  composition?: Maybe<CompositionStructureNode>;
 };
 
 
-export type IBlankSection_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type BlankSection_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IBlankSection_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type BlankSection_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IBlankSectionAutocomplete = {
+export type BlankSectionAutocomplete = {
   __typename?: 'BlankSectionAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  composition?: Maybe<ICompositionStructureNodeAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  composition?: Maybe<CompositionStructureNodeAutocomplete>;
 };
 
-export type IBlankSectionFacet = {
+export type BlankSectionFacet = {
   __typename?: 'BlankSectionFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  composition?: Maybe<ICompositionStructureNodeFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  composition?: Maybe<CompositionStructureNodeFacet>;
 };
 
-export type IBlankSectionOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type BlankSectionOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  composition?: InputMaybe<ICompositionStructureNodeOrderByInput>;
+  composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
-export type IBlankSectionOutput = {
+export type BlankSectionOutput = {
   __typename?: 'BlankSectionOutput';
-  autocomplete?: Maybe<IBlankSectionAutocomplete>;
+  autocomplete?: Maybe<BlankSectionAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IBlankSectionFacet>;
-  items?: Maybe<Array<Maybe<IBlankSection>>>;
+  facets?: Maybe<BlankSectionFacet>;
+  items?: Maybe<Array<Maybe<BlankSection>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IBlankSectionOutputTotalArgs = {
+export type BlankSectionOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IBlankSectionWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IBlankSectionWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IBlankSectionWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IBlankSectionWhereInput>>>;
-  composition?: InputMaybe<ICompositionStructureNodeWhereInput>;
+export type BlankSectionWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<BlankSectionWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<BlankSectionWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<BlankSectionWhereInput>>>;
+  composition?: InputMaybe<CompositionStructureNodeWhereInput>;
 };
 
-export type IBlogListingBlock = IIData & I_IComponent & I_IContent & {
+export type BlogListingBlock = IData & _IComponent & _IContent & {
   __typename?: 'BlogListingBlock';
   BlogListingItemCount?: Maybe<Scalars['Int']['output']>;
   BlogListingShowFilters?: Maybe<Scalars['Boolean']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IBlogListingBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type BlogListingBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IBlogListingBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type BlogListingBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IBlogListingBlockAutocomplete = {
+export type BlogListingBlockAutocomplete = {
   __typename?: 'BlogListingBlockAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IBlogListingBlockFacet = {
+export type BlogListingBlockFacet = {
   __typename?: 'BlogListingBlockFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IBlogListingBlockOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type BlogListingBlockOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IBlogListingBlockOutput = {
+export type BlogListingBlockOutput = {
   __typename?: 'BlogListingBlockOutput';
-  autocomplete?: Maybe<IBlogListingBlockAutocomplete>;
+  autocomplete?: Maybe<BlogListingBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IBlogListingBlockFacet>;
-  items?: Maybe<Array<Maybe<IBlogListingBlock>>>;
+  facets?: Maybe<BlogListingBlockFacet>;
+  items?: Maybe<Array<Maybe<BlogListingBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IBlogListingBlockOutputTotalArgs = {
+export type BlogListingBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IBlogListingBlockWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IBlogListingBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IBlogListingBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IBlogListingBlockWhereInput>>>;
+export type BlogListingBlockWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<BlogListingBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<BlogListingBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<BlogListingBlockWhereInput>>>;
 };
 
-export type IBlogPostPage = IIData & I_IContent & I_IPage & {
+export type BlogPostPage = IData & _IContent & _IPage & {
   __typename?: 'BlogPostPage';
   ArticleAuthor?: Maybe<Scalars['String']['output']>;
   ArticleSubHeading?: Maybe<Scalars['String']['output']>;
-  BlogPostBody?: Maybe<IRichText>;
-  BlogPostPromoImage?: Maybe<IContentReference>;
+  BlogPostBody?: Maybe<RichText>;
+  BlogPostPromoImage?: Maybe<ContentReference>;
   Heading?: Maybe<Scalars['String']['output']>;
-  SeoSettings?: Maybe<IPageSeoSettingsProperty>;
+  SeoSettings?: Maybe<PageSeoSettingsProperty>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IBlogPostPageArticleAuthorArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type BlogPostPageArticleAuthorArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IBlogPostPage_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type BlogPostPage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IBlogPostPage_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type BlogPostPage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IBlogPostPageAutocomplete = {
+export type BlogPostPageAutocomplete = {
   __typename?: 'BlogPostPageAutocomplete';
-  BlogPostBody?: Maybe<IRichTextAutocomplete>;
-  BlogPostPromoImage?: Maybe<IContentReferenceAutocomplete>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  BlogPostBody?: Maybe<RichTextAutocomplete>;
+  BlogPostPromoImage?: Maybe<ContentReferenceAutocomplete>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IBlogPostPageFacet = {
+export type BlogPostPageFacet = {
   __typename?: 'BlogPostPageFacet';
-  ArticleAuthor?: Maybe<Array<Maybe<IStringFacet>>>;
-  BlogPostBody?: Maybe<IRichTextFacet>;
-  BlogPostPromoImage?: Maybe<IContentReferenceFacet>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  ArticleAuthor?: Maybe<Array<Maybe<StringFacet>>>;
+  BlogPostBody?: Maybe<RichTextFacet>;
+  BlogPostPromoImage?: Maybe<ContentReferenceFacet>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
 
-export type IBlogPostPageFacetArticleAuthorArgs = {
+export type BlogPostPageFacetArticleAuthorArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type IBlogPostPageOrderByInput = {
-  ArticleAuthor?: InputMaybe<IOrderBy>;
-  BlogPostBody?: InputMaybe<IRichTextOrderByInput>;
-  BlogPostPromoImage?: InputMaybe<IContentReferenceOrderByInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type BlogPostPageOrderByInput = {
+  ArticleAuthor?: InputMaybe<OrderBy>;
+  BlogPostBody?: InputMaybe<RichTextOrderByInput>;
+  BlogPostPromoImage?: InputMaybe<ContentReferenceOrderByInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IBlogPostPageOutput = {
+export type BlogPostPageOutput = {
   __typename?: 'BlogPostPageOutput';
-  autocomplete?: Maybe<IBlogPostPageAutocomplete>;
+  autocomplete?: Maybe<BlogPostPageAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IBlogPostPageFacet>;
-  items?: Maybe<Array<Maybe<IBlogPostPage>>>;
+  facets?: Maybe<BlogPostPageFacet>;
+  items?: Maybe<Array<Maybe<BlogPostPage>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IBlogPostPageOutputTotalArgs = {
+export type BlogPostPageOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IBlogPostPageWhereInput = {
-  ArticleAuthor?: InputMaybe<ISearchableStringFilterInput>;
-  BlogPostBody?: InputMaybe<IRichTextWhereInput>;
-  BlogPostPromoImage?: InputMaybe<IContentReferenceWhereInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IBlogPostPageWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IBlogPostPageWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IBlogPostPageWhereInput>>>;
+export type BlogPostPageWhereInput = {
+  ArticleAuthor?: InputMaybe<SearchableStringFilterInput>;
+  BlogPostBody?: InputMaybe<RichTextWhereInput>;
+  BlogPostPromoImage?: InputMaybe<ContentReferenceWhereInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<BlogPostPageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<BlogPostPageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<BlogPostPageWhereInput>>>;
 };
 
-export type IButtonBlock = IIData & I_IComponent & I_IContent & {
+export type ButtonBlock = IData & _IComponent & _IContent & {
   __typename?: 'ButtonBlock';
   ButtonClass?: Maybe<Scalars['String']['output']>;
   ButtonText?: Maybe<Scalars['String']['output']>;
   ButtonType?: Maybe<Scalars['String']['output']>;
-  ButtonUrl?: Maybe<IContentUrl>;
+  ButtonUrl?: Maybe<ContentUrl>;
   ButtonVariant?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IButtonBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ButtonBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IButtonBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ButtonBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IButtonBlockAutocomplete = {
+export type ButtonBlockAutocomplete = {
   __typename?: 'ButtonBlockAutocomplete';
-  ButtonUrl?: Maybe<IContentUrlAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  ButtonUrl?: Maybe<ContentUrlAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IButtonBlockFacet = {
+export type ButtonBlockFacet = {
   __typename?: 'ButtonBlockFacet';
-  ButtonUrl?: Maybe<IContentUrlFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  ButtonUrl?: Maybe<ContentUrlFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IButtonBlockOrderByInput = {
-  ButtonUrl?: InputMaybe<IContentUrlOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ButtonBlockOrderByInput = {
+  ButtonUrl?: InputMaybe<ContentUrlOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IButtonBlockOutput = {
+export type ButtonBlockOutput = {
   __typename?: 'ButtonBlockOutput';
-  autocomplete?: Maybe<IButtonBlockAutocomplete>;
+  autocomplete?: Maybe<ButtonBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IButtonBlockFacet>;
-  items?: Maybe<Array<Maybe<IButtonBlock>>>;
+  facets?: Maybe<ButtonBlockFacet>;
+  items?: Maybe<Array<Maybe<ButtonBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IButtonBlockOutputTotalArgs = {
+export type ButtonBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IButtonBlockProperty = {
+export type ButtonBlockProperty = {
   __typename?: 'ButtonBlockProperty';
   ButtonClass?: Maybe<Scalars['String']['output']>;
   ButtonText?: Maybe<Scalars['String']['output']>;
   ButtonType?: Maybe<Scalars['String']['output']>;
-  ButtonUrl?: Maybe<IContentUrl>;
+  ButtonUrl?: Maybe<ContentUrl>;
   ButtonVariant?: Maybe<Scalars['String']['output']>;
 };
 
-export type IButtonBlockPropertyAutocomplete = {
+export type ButtonBlockPropertyAutocomplete = {
   __typename?: 'ButtonBlockPropertyAutocomplete';
-  ButtonUrl?: Maybe<IContentUrlAutocomplete>;
+  ButtonUrl?: Maybe<ContentUrlAutocomplete>;
 };
 
-export type IButtonBlockPropertyFacet = {
+export type ButtonBlockPropertyFacet = {
   __typename?: 'ButtonBlockPropertyFacet';
-  ButtonUrl?: Maybe<IContentUrlFacet>;
+  ButtonUrl?: Maybe<ContentUrlFacet>;
 };
 
-export type IButtonBlockPropertyOrderByInput = {
-  ButtonUrl?: InputMaybe<IContentUrlOrderByInput>;
+export type ButtonBlockPropertyOrderByInput = {
+  ButtonUrl?: InputMaybe<ContentUrlOrderByInput>;
 };
 
-export type IButtonBlockPropertyWhereInput = {
-  ButtonUrl?: InputMaybe<IContentUrlWhereInput>;
+export type ButtonBlockPropertyWhereInput = {
+  ButtonUrl?: InputMaybe<ContentUrlWhereInput>;
 };
 
-export type IButtonBlockWhereInput = {
-  ButtonUrl?: InputMaybe<IContentUrlWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IButtonBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IButtonBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IButtonBlockWhereInput>>>;
+export type ButtonBlockWhereInput = {
+  ButtonUrl?: InputMaybe<ContentUrlWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<ButtonBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ButtonBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ButtonBlockWhereInput>>>;
 };
 
-export type ICtaElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type CtaElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'CTAElement';
-  Link?: Maybe<IContentUrl>;
+  Link?: Maybe<ContentUrl>;
   Text?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type ICtaElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type CtaElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ICtaElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type CtaElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ICtaElementAutocomplete = {
+export type CtaElementAutocomplete = {
   __typename?: 'CTAElementAutocomplete';
-  Link?: Maybe<IContentUrlAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  Link?: Maybe<ContentUrlAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type ICtaElementFacet = {
+export type CtaElementFacet = {
   __typename?: 'CTAElementFacet';
-  Link?: Maybe<IContentUrlFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  Link?: Maybe<ContentUrlFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type ICtaElementOrderByInput = {
-  Link?: InputMaybe<IContentUrlOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type CtaElementOrderByInput = {
+  Link?: InputMaybe<ContentUrlOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type ICtaElementOutput = {
+export type CtaElementOutput = {
   __typename?: 'CTAElementOutput';
-  autocomplete?: Maybe<ICtaElementAutocomplete>;
+  autocomplete?: Maybe<CtaElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ICtaElementFacet>;
-  items?: Maybe<Array<Maybe<ICtaElement>>>;
+  facets?: Maybe<CtaElementFacet>;
+  items?: Maybe<Array<Maybe<CtaElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ICtaElementOutputTotalArgs = {
+export type CtaElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ICtaElementWhereInput = {
-  Link?: InputMaybe<IContentUrlWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<ICtaElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ICtaElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ICtaElementWhereInput>>>;
+export type CtaElementWhereInput = {
+  Link?: InputMaybe<ContentUrlWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<CtaElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<CtaElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<CtaElementWhereInput>>>;
 };
 
-export type ICardBlock = IIData & I_IComponent & I_IContent & {
+export type CardBlock = IData & _IComponent & _IContent & {
   __typename?: 'CardBlock';
-  CardButton?: Maybe<IButtonBlockProperty>;
+  CardButton?: Maybe<ButtonBlockProperty>;
   CardColor?: Maybe<Scalars['String']['output']>;
-  CardDescription?: Maybe<IRichText>;
+  CardDescription?: Maybe<RichText>;
   CardHeading?: Maybe<Scalars['String']['output']>;
-  CardIcon?: Maybe<IContentReference>;
-  CardImage?: Maybe<IContentReference>;
+  CardIcon?: Maybe<ContentReference>;
+  CardImage?: Maybe<ContentReference>;
   CardSubHeading?: Maybe<Scalars['String']['output']>;
   ImageLayout?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type ICardBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type CardBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ICardBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type CardBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ICardBlockAutocomplete = {
+export type CardBlockAutocomplete = {
   __typename?: 'CardBlockAutocomplete';
-  CardButton?: Maybe<IButtonBlockPropertyAutocomplete>;
-  CardDescription?: Maybe<IRichTextAutocomplete>;
-  CardIcon?: Maybe<IContentReferenceAutocomplete>;
-  CardImage?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  CardButton?: Maybe<ButtonBlockPropertyAutocomplete>;
+  CardDescription?: Maybe<RichTextAutocomplete>;
+  CardIcon?: Maybe<ContentReferenceAutocomplete>;
+  CardImage?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type ICardBlockFacet = {
+export type CardBlockFacet = {
   __typename?: 'CardBlockFacet';
-  CardButton?: Maybe<IButtonBlockPropertyFacet>;
-  CardDescription?: Maybe<IRichTextFacet>;
-  CardIcon?: Maybe<IContentReferenceFacet>;
-  CardImage?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  CardButton?: Maybe<ButtonBlockPropertyFacet>;
+  CardDescription?: Maybe<RichTextFacet>;
+  CardIcon?: Maybe<ContentReferenceFacet>;
+  CardImage?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type ICardBlockOrderByInput = {
-  CardButton?: InputMaybe<IButtonBlockPropertyOrderByInput>;
-  CardDescription?: InputMaybe<IRichTextOrderByInput>;
-  CardIcon?: InputMaybe<IContentReferenceOrderByInput>;
-  CardImage?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type CardBlockOrderByInput = {
+  CardButton?: InputMaybe<ButtonBlockPropertyOrderByInput>;
+  CardDescription?: InputMaybe<RichTextOrderByInput>;
+  CardIcon?: InputMaybe<ContentReferenceOrderByInput>;
+  CardImage?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type ICardBlockOutput = {
+export type CardBlockOutput = {
   __typename?: 'CardBlockOutput';
-  autocomplete?: Maybe<ICardBlockAutocomplete>;
+  autocomplete?: Maybe<CardBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ICardBlockFacet>;
-  items?: Maybe<Array<Maybe<ICardBlock>>>;
+  facets?: Maybe<CardBlockFacet>;
+  items?: Maybe<Array<Maybe<CardBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ICardBlockOutputTotalArgs = {
+export type CardBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ICardBlockWhereInput = {
-  CardButton?: InputMaybe<IButtonBlockPropertyWhereInput>;
-  CardDescription?: InputMaybe<IRichTextWhereInput>;
-  CardIcon?: InputMaybe<IContentReferenceWhereInput>;
-  CardImage?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<ICardBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ICardBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ICardBlockWhereInput>>>;
+export type CardBlockWhereInput = {
+  CardButton?: InputMaybe<ButtonBlockPropertyWhereInput>;
+  CardDescription?: InputMaybe<RichTextWhereInput>;
+  CardIcon?: InputMaybe<ContentReferenceWhereInput>;
+  CardImage?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<CardBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<CardBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<CardBlockWhereInput>>>;
 };
 
-export type ICarouselBlock = IIData & I_IComponent & I_IContent & {
+export type CarouselBlock = IData & _IComponent & _IContent & {
   __typename?: 'CarouselBlock';
-  CarouselItemsContentArea?: Maybe<Array<Maybe<I_IContent>>>;
+  CarouselItemsContentArea?: Maybe<Array<Maybe<_IContent>>>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type ICarouselBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type CarouselBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ICarouselBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type CarouselBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ICarouselBlockAutocomplete = {
+export type CarouselBlockAutocomplete = {
   __typename?: 'CarouselBlockAutocomplete';
-  CarouselItemsContentArea?: Maybe<I_IContentAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  CarouselItemsContentArea?: Maybe<_IContentAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type ICarouselBlockFacet = {
+export type CarouselBlockFacet = {
   __typename?: 'CarouselBlockFacet';
-  CarouselItemsContentArea?: Maybe<I_IContentFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  CarouselItemsContentArea?: Maybe<_IContentFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type ICarouselBlockOrderByInput = {
-  CarouselItemsContentArea?: InputMaybe<I_IContentOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type CarouselBlockOrderByInput = {
+  CarouselItemsContentArea?: InputMaybe<_IContentOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type ICarouselBlockOutput = {
+export type CarouselBlockOutput = {
   __typename?: 'CarouselBlockOutput';
-  autocomplete?: Maybe<ICarouselBlockAutocomplete>;
+  autocomplete?: Maybe<CarouselBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ICarouselBlockFacet>;
-  items?: Maybe<Array<Maybe<ICarouselBlock>>>;
+  facets?: Maybe<CarouselBlockFacet>;
+  items?: Maybe<Array<Maybe<CarouselBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ICarouselBlockOutputTotalArgs = {
+export type CarouselBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ICarouselBlockWhereInput = {
-  CarouselItemsContentArea?: InputMaybe<I_IContentWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<ICarouselBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ICarouselBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ICarouselBlockWhereInput>>>;
+export type CarouselBlockWhereInput = {
+  CarouselItemsContentArea?: InputMaybe<_IContentWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<CarouselBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<CarouselBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<CarouselBlockWhereInput>>>;
 };
 
-export type ICompositionDisplaySetting = {
+export type CompositionDisplaySetting = {
   __typename?: 'CompositionDisplaySetting';
   key?: Maybe<Scalars['String']['output']>;
   value?: Maybe<Scalars['String']['output']>;
 };
 
-export type ICompositionDisplaySettingAutocomplete = {
+export type CompositionDisplaySettingAutocomplete = {
   __typename?: 'CompositionDisplaySettingAutocomplete';
   key?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   value?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type ICompositionDisplaySettingAutocompleteKeyArgs = {
+export type CompositionDisplaySettingAutocompleteKeyArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type ICompositionDisplaySettingAutocompleteValueArgs = {
+export type CompositionDisplaySettingAutocompleteValueArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type ICompositionDisplaySettingFacet = {
+export type CompositionDisplaySettingFacet = {
   __typename?: 'CompositionDisplaySettingFacet';
-  key?: Maybe<Array<Maybe<IStringFacet>>>;
-  value?: Maybe<Array<Maybe<IStringFacet>>>;
+  key?: Maybe<Array<Maybe<StringFacet>>>;
+  value?: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type ICompositionDisplaySettingFacetKeyArgs = {
+export type CompositionDisplaySettingFacetKeyArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type ICompositionDisplaySettingFacetValueArgs = {
+export type CompositionDisplaySettingFacetValueArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type ICompositionDisplaySettingOrderByInput = {
-  key?: InputMaybe<IOrderBy>;
-  value?: InputMaybe<IOrderBy>;
+export type CompositionDisplaySettingOrderByInput = {
+  key?: InputMaybe<OrderBy>;
+  value?: InputMaybe<OrderBy>;
 };
 
-export type ICompositionDisplaySettingWhereInput = {
-  key?: InputMaybe<IStringFilterInput>;
-  value?: InputMaybe<IStringFilterInput>;
+export type CompositionDisplaySettingWhereInput = {
+  key?: InputMaybe<StringFilterInput>;
+  value?: InputMaybe<StringFilterInput>;
 };
 
-export type ICompositionElementNode = IICompositionElementNode & IICompositionNode & {
+export type CompositionElementNode = ICompositionElementNode & ICompositionNode & {
   __typename?: 'CompositionElementNode';
   displayName?: Maybe<Scalars['String']['output']>;
-  displaySettings?: Maybe<Array<Maybe<ICompositionDisplaySetting>>>;
+  displaySettings?: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
   displayTemplateKey?: Maybe<Scalars['String']['output']>;
-  element?: Maybe<I_IElement>;
+  element?: Maybe<_IElement>;
   key?: Maybe<Scalars['String']['output']>;
   nodeType?: Maybe<Scalars['String']['output']>;
   type?: Maybe<Scalars['String']['output']>;
 };
 
-export type ICompositionNode = IICompositionNode & {
+export type CompositionNode = ICompositionNode & {
   __typename?: 'CompositionNode';
   displayName?: Maybe<Scalars['String']['output']>;
-  displaySettings?: Maybe<Array<Maybe<ICompositionDisplaySetting>>>;
+  displaySettings?: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
   displayTemplateKey?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   nodeType?: Maybe<Scalars['String']['output']>;
   type?: Maybe<Scalars['String']['output']>;
 };
 
-export type ICompositionStructureNode = IICompositionNode & IICompositionStructureNode & {
+export type CompositionStructureNode = ICompositionNode & ICompositionStructureNode & {
   __typename?: 'CompositionStructureNode';
   displayName?: Maybe<Scalars['String']['output']>;
-  displaySettings?: Maybe<Array<Maybe<ICompositionDisplaySetting>>>;
+  displaySettings?: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
   displayTemplateKey?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   nodeType?: Maybe<Scalars['String']['output']>;
-  nodes?: Maybe<Array<Maybe<IICompositionNode>>>;
+  nodes?: Maybe<Array<Maybe<ICompositionNode>>>;
   type?: Maybe<Scalars['String']['output']>;
 };
 
-export type ICompositionStructureNodeAutocomplete = {
+export type CompositionStructureNodeAutocomplete = {
   __typename?: 'CompositionStructureNodeAutocomplete';
   displayName?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  displaySettings?: Maybe<ICompositionDisplaySettingAutocomplete>;
+  displaySettings?: Maybe<CompositionDisplaySettingAutocomplete>;
   displayTemplateKey?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   key?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   nodeType?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  nodes?: Maybe<IICompositionNodeAutocomplete>;
+  nodes?: Maybe<ICompositionNodeAutocomplete>;
   type?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type ICompositionStructureNodeAutocompleteDisplayNameArgs = {
+export type CompositionStructureNodeAutocompleteDisplayNameArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type ICompositionStructureNodeAutocompleteDisplayTemplateKeyArgs = {
+export type CompositionStructureNodeAutocompleteDisplayTemplateKeyArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type ICompositionStructureNodeAutocompleteKeyArgs = {
+export type CompositionStructureNodeAutocompleteKeyArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type ICompositionStructureNodeAutocompleteNodeTypeArgs = {
+export type CompositionStructureNodeAutocompleteNodeTypeArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type ICompositionStructureNodeAutocompleteTypeArgs = {
+export type CompositionStructureNodeAutocompleteTypeArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type ICompositionStructureNodeFacet = {
+export type CompositionStructureNodeFacet = {
   __typename?: 'CompositionStructureNodeFacet';
-  displayName?: Maybe<Array<Maybe<IStringFacet>>>;
-  displaySettings?: Maybe<ICompositionDisplaySettingFacet>;
-  displayTemplateKey?: Maybe<Array<Maybe<IStringFacet>>>;
-  key?: Maybe<Array<Maybe<IStringFacet>>>;
-  nodeType?: Maybe<Array<Maybe<IStringFacet>>>;
-  nodes?: Maybe<IICompositionNodeFacet>;
-  type?: Maybe<Array<Maybe<IStringFacet>>>;
+  displayName?: Maybe<Array<Maybe<StringFacet>>>;
+  displaySettings?: Maybe<CompositionDisplaySettingFacet>;
+  displayTemplateKey?: Maybe<Array<Maybe<StringFacet>>>;
+  key?: Maybe<Array<Maybe<StringFacet>>>;
+  nodeType?: Maybe<Array<Maybe<StringFacet>>>;
+  nodes?: Maybe<ICompositionNodeFacet>;
+  type?: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type ICompositionStructureNodeFacetDisplayNameArgs = {
+export type CompositionStructureNodeFacetDisplayNameArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type ICompositionStructureNodeFacetDisplayTemplateKeyArgs = {
+export type CompositionStructureNodeFacetDisplayTemplateKeyArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type ICompositionStructureNodeFacetKeyArgs = {
+export type CompositionStructureNodeFacetKeyArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type ICompositionStructureNodeFacetNodeTypeArgs = {
+export type CompositionStructureNodeFacetNodeTypeArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type ICompositionStructureNodeFacetTypeArgs = {
+export type CompositionStructureNodeFacetTypeArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type ICompositionStructureNodeOrderByInput = {
-  displayName?: InputMaybe<IOrderBy>;
-  displaySettings?: InputMaybe<ICompositionDisplaySettingOrderByInput>;
-  displayTemplateKey?: InputMaybe<IOrderBy>;
-  key?: InputMaybe<IOrderBy>;
-  nodeType?: InputMaybe<IOrderBy>;
-  nodes?: InputMaybe<IICompositionNodeOrderByInput>;
-  type?: InputMaybe<IOrderBy>;
+export type CompositionStructureNodeOrderByInput = {
+  displayName?: InputMaybe<OrderBy>;
+  displaySettings?: InputMaybe<CompositionDisplaySettingOrderByInput>;
+  displayTemplateKey?: InputMaybe<OrderBy>;
+  key?: InputMaybe<OrderBy>;
+  nodeType?: InputMaybe<OrderBy>;
+  nodes?: InputMaybe<ICompositionNodeOrderByInput>;
+  type?: InputMaybe<OrderBy>;
 };
 
-export type ICompositionStructureNodeWhereInput = {
-  displayName?: InputMaybe<IStringFilterInput>;
-  displaySettings?: InputMaybe<ICompositionDisplaySettingWhereInput>;
-  displayTemplateKey?: InputMaybe<IStringFilterInput>;
-  key?: InputMaybe<IStringFilterInput>;
-  nodeType?: InputMaybe<IStringFilterInput>;
-  nodes?: InputMaybe<IICompositionNodeWhereInput>;
-  type?: InputMaybe<IStringFilterInput>;
+export type CompositionStructureNodeWhereInput = {
+  displayName?: InputMaybe<StringFilterInput>;
+  displaySettings?: InputMaybe<CompositionDisplaySettingWhereInput>;
+  displayTemplateKey?: InputMaybe<StringFilterInput>;
+  key?: InputMaybe<StringFilterInput>;
+  nodeType?: InputMaybe<StringFilterInput>;
+  nodes?: InputMaybe<ICompositionNodeWhereInput>;
+  type?: InputMaybe<StringFilterInput>;
 };
 
-export type IContact = IIData & I_IComponent & I_IContent & I_IElement & {
+export type Contact = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'Contact';
   Email?: Maybe<Scalars['String']['output']>;
-  Image?: Maybe<IContentReference>;
+  Image?: Maybe<ContentReference>;
   Location?: Maybe<Scalars['String']['output']>;
   Name?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IContact_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type Contact_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IContact_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type Contact_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IContactAutocomplete = {
+export type ContactAutocomplete = {
   __typename?: 'ContactAutocomplete';
-  Image?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  Image?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IContactElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type ContactElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'ContactElement';
-  Contact?: Maybe<IContentReference>;
+  Contact?: Maybe<ContentReference>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IContactElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ContactElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IContactElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ContactElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IContactElementAutocomplete = {
+export type ContactElementAutocomplete = {
   __typename?: 'ContactElementAutocomplete';
-  Contact?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  Contact?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IContactElementFacet = {
+export type ContactElementFacet = {
   __typename?: 'ContactElementFacet';
-  Contact?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  Contact?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IContactElementOrderByInput = {
-  Contact?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ContactElementOrderByInput = {
+  Contact?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IContactElementOutput = {
+export type ContactElementOutput = {
   __typename?: 'ContactElementOutput';
-  autocomplete?: Maybe<IContactElementAutocomplete>;
+  autocomplete?: Maybe<ContactElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IContactElementFacet>;
-  items?: Maybe<Array<Maybe<IContactElement>>>;
+  facets?: Maybe<ContactElementFacet>;
+  items?: Maybe<Array<Maybe<ContactElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IContactElementOutputTotalArgs = {
+export type ContactElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IContactElementWhereInput = {
-  Contact?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IContactElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IContactElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IContactElementWhereInput>>>;
+export type ContactElementWhereInput = {
+  Contact?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<ContactElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ContactElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ContactElementWhereInput>>>;
 };
 
-export type IContactFacet = {
+export type ContactFacet = {
   __typename?: 'ContactFacet';
-  Image?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  Image?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IContactOrderByInput = {
-  Image?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ContactOrderByInput = {
+  Image?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IContactOutput = {
+export type ContactOutput = {
   __typename?: 'ContactOutput';
-  autocomplete?: Maybe<IContactAutocomplete>;
+  autocomplete?: Maybe<ContactAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IContactFacet>;
-  items?: Maybe<Array<Maybe<IContact>>>;
+  facets?: Maybe<ContactFacet>;
+  items?: Maybe<Array<Maybe<Contact>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IContactOutputTotalArgs = {
+export type ContactOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IContactPage = IIData & I_IContent & I_IPage & {
+export type ContactPage = IData & _IContent & _IPage & {
   __typename?: 'ContactPage';
-  Biography?: Maybe<IRichText>;
+  Biography?: Maybe<RichText>;
   Designation?: Maybe<Scalars['String']['output']>;
   Email?: Maybe<Scalars['String']['output']>;
-  Image?: Maybe<IContentReference>;
+  Image?: Maybe<ContentReference>;
   Location?: Maybe<Scalars['String']['output']>;
   Name?: Maybe<Scalars['String']['output']>;
   Phone?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IContactPage_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ContactPage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IContactPage_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ContactPage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IContactPageAutocomplete = {
+export type ContactPageAutocomplete = {
   __typename?: 'ContactPageAutocomplete';
-  Biography?: Maybe<IRichTextAutocomplete>;
-  Image?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  Biography?: Maybe<RichTextAutocomplete>;
+  Image?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IContactPageFacet = {
+export type ContactPageFacet = {
   __typename?: 'ContactPageFacet';
-  Biography?: Maybe<IRichTextFacet>;
-  Image?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  Biography?: Maybe<RichTextFacet>;
+  Image?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IContactPageOrderByInput = {
-  Biography?: InputMaybe<IRichTextOrderByInput>;
-  Image?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ContactPageOrderByInput = {
+  Biography?: InputMaybe<RichTextOrderByInput>;
+  Image?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IContactPageOutput = {
+export type ContactPageOutput = {
   __typename?: 'ContactPageOutput';
-  autocomplete?: Maybe<IContactPageAutocomplete>;
+  autocomplete?: Maybe<ContactPageAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IContactPageFacet>;
-  items?: Maybe<Array<Maybe<IContactPage>>>;
+  facets?: Maybe<ContactPageFacet>;
+  items?: Maybe<Array<Maybe<ContactPage>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IContactPageOutputTotalArgs = {
+export type ContactPageOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IContactPageWhereInput = {
-  Biography?: InputMaybe<IRichTextWhereInput>;
-  Image?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IContactPageWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IContactPageWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IContactPageWhereInput>>>;
+export type ContactPageWhereInput = {
+  Biography?: InputMaybe<RichTextWhereInput>;
+  Image?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<ContactPageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ContactPageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ContactPageWhereInput>>>;
 };
 
-export type IContactWhereInput = {
-  Image?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IContactWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IContactWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IContactWhereInput>>>;
+export type ContactWhereInput = {
+  Image?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<ContactWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ContactWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ContactWhereInput>>>;
 };
 
-export type IContainer = IIData & I_IContent & I_IPage & {
+export type Container = IData & _IContent & _IPage & {
   __typename?: 'Container';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IContainer_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type Container_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IContainer_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type Container_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IContainerAutocomplete = {
+export type ContainerAutocomplete = {
   __typename?: 'ContainerAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IContainerFacet = {
+export type ContainerFacet = {
   __typename?: 'ContainerFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IContainerOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ContainerOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IContainerOutput = {
+export type ContainerOutput = {
   __typename?: 'ContainerOutput';
-  autocomplete?: Maybe<IContainerAutocomplete>;
+  autocomplete?: Maybe<ContainerAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IContainerFacet>;
-  items?: Maybe<Array<Maybe<IContainer>>>;
+  facets?: Maybe<ContainerFacet>;
+  items?: Maybe<Array<Maybe<Container>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IContainerOutputTotalArgs = {
+export type ContainerOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IContainerWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IContainerWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IContainerWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IContainerWhereInput>>>;
+export type ContainerWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<ContainerWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ContainerWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ContainerWhereInput>>>;
 };
 
-export type IContentMetadata = IIContentMetadata & {
+export type ContentMetadata = IContentMetadata & {
   __typename?: 'ContentMetadata';
   created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
@@ -1213,190 +1213,190 @@ export type IContentMetadata = IIContentMetadata & {
   published?: Maybe<Scalars['DateTime']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IContentMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ContentMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type IContentRecsBlock = IIData & I_IComponent & I_IContent & {
+export type ContentRecsBlock = IData & _IComponent & _IContent & {
   __typename?: 'ContentRecsBlock';
   BlockDeliveryApiKey?: Maybe<Scalars['String']['output']>;
   BlockRecommendationCount?: Maybe<Scalars['Int']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IContentRecsBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ContentRecsBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IContentRecsBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ContentRecsBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IContentRecsBlockAutocomplete = {
+export type ContentRecsBlockAutocomplete = {
   __typename?: 'ContentRecsBlockAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IContentRecsBlockFacet = {
+export type ContentRecsBlockFacet = {
   __typename?: 'ContentRecsBlockFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IContentRecsBlockOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ContentRecsBlockOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IContentRecsBlockOutput = {
+export type ContentRecsBlockOutput = {
   __typename?: 'ContentRecsBlockOutput';
-  autocomplete?: Maybe<IContentRecsBlockAutocomplete>;
+  autocomplete?: Maybe<ContentRecsBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IContentRecsBlockFacet>;
-  items?: Maybe<Array<Maybe<IContentRecsBlock>>>;
+  facets?: Maybe<ContentRecsBlockFacet>;
+  items?: Maybe<Array<Maybe<ContentRecsBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IContentRecsBlockOutputTotalArgs = {
+export type ContentRecsBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IContentRecsBlockWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IContentRecsBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IContentRecsBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IContentRecsBlockWhereInput>>>;
+export type ContentRecsBlockWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<ContentRecsBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ContentRecsBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ContentRecsBlockWhereInput>>>;
 };
 
-export type IContentRecsElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type ContentRecsElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'ContentRecsElement';
   ElementDeliveryApiKey?: Maybe<Scalars['String']['output']>;
   ElementRecommendationCount?: Maybe<Scalars['Int']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IContentRecsElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ContentRecsElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IContentRecsElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ContentRecsElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IContentRecsElementAutocomplete = {
+export type ContentRecsElementAutocomplete = {
   __typename?: 'ContentRecsElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IContentRecsElementFacet = {
+export type ContentRecsElementFacet = {
   __typename?: 'ContentRecsElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IContentRecsElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ContentRecsElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IContentRecsElementOutput = {
+export type ContentRecsElementOutput = {
   __typename?: 'ContentRecsElementOutput';
-  autocomplete?: Maybe<IContentRecsElementAutocomplete>;
+  autocomplete?: Maybe<ContentRecsElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IContentRecsElementFacet>;
-  items?: Maybe<Array<Maybe<IContentRecsElement>>>;
+  facets?: Maybe<ContentRecsElementFacet>;
+  items?: Maybe<Array<Maybe<ContentRecsElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IContentRecsElementOutputTotalArgs = {
+export type ContentRecsElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IContentRecsElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IContentRecsElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IContentRecsElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IContentRecsElementWhereInput>>>;
+export type ContentRecsElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<ContentRecsElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ContentRecsElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ContentRecsElementWhereInput>>>;
 };
 
-export type IContentReference = {
+export type ContentReference = {
   __typename?: 'ContentReference';
   key?: Maybe<Scalars['String']['output']>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
 };
 
-export type IContentReferenceAutocomplete = {
+export type ContentReferenceAutocomplete = {
   __typename?: 'ContentReferenceAutocomplete';
   key?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrlAutocomplete>;
+  url?: Maybe<ContentUrlAutocomplete>;
 };
 
 
-export type IContentReferenceAutocompleteKeyArgs = {
+export type ContentReferenceAutocompleteKeyArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type IContentReferenceFacet = {
+export type ContentReferenceFacet = {
   __typename?: 'ContentReferenceFacet';
-  key?: Maybe<Array<Maybe<IStringFacet>>>;
-  url?: Maybe<IContentUrlFacet>;
+  key?: Maybe<Array<Maybe<StringFacet>>>;
+  url?: Maybe<ContentUrlFacet>;
 };
 
 
-export type IContentReferenceFacetKeyArgs = {
+export type ContentReferenceFacetKeyArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type IContentReferenceOrderByInput = {
-  key?: InputMaybe<IOrderBy>;
-  url?: InputMaybe<IContentUrlOrderByInput>;
+export type ContentReferenceOrderByInput = {
+  key?: InputMaybe<OrderBy>;
+  url?: InputMaybe<ContentUrlOrderByInput>;
 };
 
-export type IContentReferenceWhereInput = {
-  key?: InputMaybe<IStringFilterInput>;
-  url?: InputMaybe<IContentUrlWhereInput>;
+export type ContentReferenceWhereInput = {
+  key?: InputMaybe<StringFilterInput>;
+  url?: InputMaybe<ContentUrlWhereInput>;
 };
 
-export type IContentUrl = {
+export type ContentUrl = {
   __typename?: 'ContentUrl';
   base?: Maybe<Scalars['String']['output']>;
   default?: Maybe<Scalars['String']['output']>;
@@ -1405,7 +1405,7 @@ export type IContentUrl = {
   type?: Maybe<Scalars['String']['output']>;
 };
 
-export type IContentUrlAutocomplete = {
+export type ContentUrlAutocomplete = {
   __typename?: 'ContentUrlAutocomplete';
   base?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   default?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
@@ -1415,156 +1415,156 @@ export type IContentUrlAutocomplete = {
 };
 
 
-export type IContentUrlAutocompleteBaseArgs = {
+export type ContentUrlAutocompleteBaseArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IContentUrlAutocompleteDefaultArgs = {
+export type ContentUrlAutocompleteDefaultArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IContentUrlAutocompleteHierarchicalArgs = {
+export type ContentUrlAutocompleteHierarchicalArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IContentUrlAutocompleteInternalArgs = {
+export type ContentUrlAutocompleteInternalArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IContentUrlAutocompleteTypeArgs = {
+export type ContentUrlAutocompleteTypeArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type IContentUrlFacet = {
+export type ContentUrlFacet = {
   __typename?: 'ContentUrlFacet';
-  base?: Maybe<Array<Maybe<IStringFacet>>>;
-  default?: Maybe<Array<Maybe<IStringFacet>>>;
-  hierarchical?: Maybe<Array<Maybe<IStringFacet>>>;
-  internal?: Maybe<Array<Maybe<IStringFacet>>>;
-  type?: Maybe<Array<Maybe<IStringFacet>>>;
+  base?: Maybe<Array<Maybe<StringFacet>>>;
+  default?: Maybe<Array<Maybe<StringFacet>>>;
+  hierarchical?: Maybe<Array<Maybe<StringFacet>>>;
+  internal?: Maybe<Array<Maybe<StringFacet>>>;
+  type?: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type IContentUrlFacetBaseArgs = {
+export type ContentUrlFacetBaseArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IContentUrlFacetDefaultArgs = {
+export type ContentUrlFacetDefaultArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IContentUrlFacetHierarchicalArgs = {
+export type ContentUrlFacetHierarchicalArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IContentUrlFacetInternalArgs = {
+export type ContentUrlFacetInternalArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IContentUrlFacetTypeArgs = {
+export type ContentUrlFacetTypeArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type IContentUrlOrderByInput = {
-  base?: InputMaybe<IOrderBy>;
-  default?: InputMaybe<IOrderBy>;
-  hierarchical?: InputMaybe<IOrderBy>;
-  internal?: InputMaybe<IOrderBy>;
-  type?: InputMaybe<IOrderBy>;
+export type ContentUrlOrderByInput = {
+  base?: InputMaybe<OrderBy>;
+  default?: InputMaybe<OrderBy>;
+  hierarchical?: InputMaybe<OrderBy>;
+  internal?: InputMaybe<OrderBy>;
+  type?: InputMaybe<OrderBy>;
 };
 
-export type IContentUrlWhereInput = {
-  base?: InputMaybe<IStringFilterInput>;
-  default?: InputMaybe<IStringFilterInput>;
-  hierarchical?: InputMaybe<IStringFilterInput>;
-  internal?: InputMaybe<IStringFilterInput>;
-  type?: InputMaybe<IStringFilterInput>;
+export type ContentUrlWhereInput = {
+  base?: InputMaybe<StringFilterInput>;
+  default?: InputMaybe<StringFilterInput>;
+  hierarchical?: InputMaybe<StringFilterInput>;
+  internal?: InputMaybe<StringFilterInput>;
+  type?: InputMaybe<StringFilterInput>;
 };
 
-export type IData = IIData & {
+export type Data = IData & {
   __typename?: 'Data';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
+  _link?: Maybe<QueryRef>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IData_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type Data_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IData_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type Data_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IDataOrderByInput = {
+export type DataOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IDataOutput = {
+export type DataOutput = {
   __typename?: 'DataOutput';
   cursor?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<IIData>>>;
+  items?: Maybe<Array<Maybe<IData>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IDataOutputTotalArgs = {
+export type DataOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IDataWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IDataWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IDataWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IDataWhereInput>>>;
+export type DataWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<DataWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<DataWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<DataWhereInput>>>;
 };
 
-export type IDateFacet = {
+export type DateFacet = {
   __typename?: 'DateFacet';
   count?: Maybe<Scalars['Int']['output']>;
   name?: Maybe<Scalars['String']['output']>;
 };
 
-export enum IDateFacetUnit {
+export enum DateFacetUnit {
   /** Defined as 24 hours (86,400,000 milliseconds). All days begin at the earliest possible time, which is usually 00:00:00 (midnight). */
   Day = 'DAY',
   /** Defined as 60 minutes each (3,600,000 milliseconds). All hours begin at 00 minutes and 00 seconds. */
@@ -1573,11 +1573,11 @@ export enum IDateFacetUnit {
   Minute = 'MINUTE'
 }
 
-export type IDateFilterInput = {
+export type DateFilterInput = {
   /** `boost` influences the weight of a field by boosting a match with a number (default: 1) — counts more towards the eventual relevance score which can be projected with `_score` — at query time. Note that `boost` cannot be a negative number. */
   boost?: InputMaybe<Scalars['Int']['input']>;
   /** `decay` influences the weight of the score with a decay function. For example, results that have a more recent datetime will be ranked higher. The `origin` will be `now()` in case not specified. The `scale` is by default 10. The `rate` must be in the range `[0..1]`. */
-  decay?: InputMaybe<IDecay>;
+  decay?: InputMaybe<Decay>;
   /** `eq` matches on an exact value, but the value is case-insensitive. */
   eq?: InputMaybe<Scalars['Date']['input']>;
   /** `exist` matches results that have this field. */
@@ -1595,473 +1595,473 @@ export type IDateFilterInput = {
 };
 
 /** Decay influences the weight of the score based on field values with a decay function */
-export type IDecay = {
+export type Decay = {
   origin?: InputMaybe<Scalars['String']['input']>;
   rate?: InputMaybe<Scalars['Float']['input']>;
   scale?: InputMaybe<Scalars['Int']['input']>;
 };
 
-export type IEventElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type EventElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'EventElement';
   Address?: Maybe<Scalars['String']['output']>;
   Date?: Maybe<Scalars['DateTime']['output']>;
   Title?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IEventElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type EventElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IEventElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type EventElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IEventElementAutocomplete = {
+export type EventElementAutocomplete = {
   __typename?: 'EventElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IEventElementFacet = {
+export type EventElementFacet = {
   __typename?: 'EventElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IEventElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type EventElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IEventElementOutput = {
+export type EventElementOutput = {
   __typename?: 'EventElementOutput';
-  autocomplete?: Maybe<IEventElementAutocomplete>;
+  autocomplete?: Maybe<EventElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IEventElementFacet>;
-  items?: Maybe<Array<Maybe<IEventElement>>>;
+  facets?: Maybe<EventElementFacet>;
+  items?: Maybe<Array<Maybe<EventElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IEventElementOutputTotalArgs = {
+export type EventElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IEventElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IEventElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IEventElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IEventElementWhereInput>>>;
+export type EventElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<EventElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<EventElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<EventElementWhereInput>>>;
 };
 
-export type IGenericMedia = IIData & I_IContent & I_IMedia & {
+export type GenericMedia = IData & _IContent & _IMedia & {
   __typename?: 'GenericMedia';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IGenericMedia_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type GenericMedia_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IGenericMedia_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type GenericMedia_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IGenericMediaAutocomplete = {
+export type GenericMediaAutocomplete = {
   __typename?: 'GenericMediaAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IGenericMediaFacet = {
+export type GenericMediaFacet = {
   __typename?: 'GenericMediaFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IGenericMediaOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type GenericMediaOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IGenericMediaOutput = {
+export type GenericMediaOutput = {
   __typename?: 'GenericMediaOutput';
-  autocomplete?: Maybe<IGenericMediaAutocomplete>;
+  autocomplete?: Maybe<GenericMediaAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IGenericMediaFacet>;
-  items?: Maybe<Array<Maybe<IGenericMedia>>>;
+  facets?: Maybe<GenericMediaFacet>;
+  items?: Maybe<Array<Maybe<GenericMedia>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IGenericMediaOutputTotalArgs = {
+export type GenericMediaOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IGenericMediaWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IGenericMediaWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IGenericMediaWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IGenericMediaWhereInput>>>;
+export type GenericMediaWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<GenericMediaWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<GenericMediaWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<GenericMediaWhereInput>>>;
 };
 
-export type IHeadingElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type HeadingElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'HeadingElement';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
   headingText?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IHeadingElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type HeadingElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IHeadingElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type HeadingElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IHeadingElementAutocomplete = {
+export type HeadingElementAutocomplete = {
   __typename?: 'HeadingElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IHeadingElementFacet = {
+export type HeadingElementFacet = {
   __typename?: 'HeadingElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IHeadingElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type HeadingElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IHeadingElementOutput = {
+export type HeadingElementOutput = {
   __typename?: 'HeadingElementOutput';
-  autocomplete?: Maybe<IHeadingElementAutocomplete>;
+  autocomplete?: Maybe<HeadingElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IHeadingElementFacet>;
-  items?: Maybe<Array<Maybe<IHeadingElement>>>;
+  facets?: Maybe<HeadingElementFacet>;
+  items?: Maybe<Array<Maybe<HeadingElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IHeadingElementOutputTotalArgs = {
+export type HeadingElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IHeadingElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IHeadingElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IHeadingElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IHeadingElementWhereInput>>>;
+export type HeadingElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<HeadingElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<HeadingElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<HeadingElementWhereInput>>>;
 };
 
-export type IHeroBlock = IIData & I_IComponent & I_IContent & {
+export type HeroBlock = IData & _IComponent & _IContent & {
   __typename?: 'HeroBlock';
-  Description?: Maybe<IRichText>;
+  Description?: Maybe<RichText>;
   Eyebrow?: Maybe<Scalars['String']['output']>;
   Heading?: Maybe<Scalars['String']['output']>;
-  HeroButton?: Maybe<IButtonBlockProperty>;
+  HeroButton?: Maybe<ButtonBlockProperty>;
   HeroColor?: Maybe<Scalars['String']['output']>;
-  HeroImage?: Maybe<IContentReference>;
+  HeroImage?: Maybe<ContentReference>;
   Icon?: Maybe<Scalars['String']['output']>;
   SubHeading?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IHeroBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type HeroBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IHeroBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type HeroBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IHeroBlockAutocomplete = {
+export type HeroBlockAutocomplete = {
   __typename?: 'HeroBlockAutocomplete';
-  Description?: Maybe<IRichTextAutocomplete>;
-  HeroButton?: Maybe<IButtonBlockPropertyAutocomplete>;
-  HeroImage?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  Description?: Maybe<RichTextAutocomplete>;
+  HeroButton?: Maybe<ButtonBlockPropertyAutocomplete>;
+  HeroImage?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IHeroBlockFacet = {
+export type HeroBlockFacet = {
   __typename?: 'HeroBlockFacet';
-  Description?: Maybe<IRichTextFacet>;
-  HeroButton?: Maybe<IButtonBlockPropertyFacet>;
-  HeroImage?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  Description?: Maybe<RichTextFacet>;
+  HeroButton?: Maybe<ButtonBlockPropertyFacet>;
+  HeroImage?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IHeroBlockOrderByInput = {
-  Description?: InputMaybe<IRichTextOrderByInput>;
-  HeroButton?: InputMaybe<IButtonBlockPropertyOrderByInput>;
-  HeroImage?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type HeroBlockOrderByInput = {
+  Description?: InputMaybe<RichTextOrderByInput>;
+  HeroButton?: InputMaybe<ButtonBlockPropertyOrderByInput>;
+  HeroImage?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IHeroBlockOutput = {
+export type HeroBlockOutput = {
   __typename?: 'HeroBlockOutput';
-  autocomplete?: Maybe<IHeroBlockAutocomplete>;
+  autocomplete?: Maybe<HeroBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IHeroBlockFacet>;
-  items?: Maybe<Array<Maybe<IHeroBlock>>>;
+  facets?: Maybe<HeroBlockFacet>;
+  items?: Maybe<Array<Maybe<HeroBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IHeroBlockOutputTotalArgs = {
+export type HeroBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IHeroBlockWhereInput = {
-  Description?: InputMaybe<IRichTextWhereInput>;
-  HeroButton?: InputMaybe<IButtonBlockPropertyWhereInput>;
-  HeroImage?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IHeroBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IHeroBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IHeroBlockWhereInput>>>;
+export type HeroBlockWhereInput = {
+  Description?: InputMaybe<RichTextWhereInput>;
+  HeroButton?: InputMaybe<ButtonBlockPropertyWhereInput>;
+  HeroImage?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<HeroBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<HeroBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<HeroBlockWhereInput>>>;
 };
 
 /** Options for highlighting */
-export type IHighlightOptions = {
+export type HighlightOptions = {
   enabled?: InputMaybe<Scalars['Boolean']['input']>;
   endToken?: InputMaybe<Scalars['String']['input']>;
   startToken?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type IHomePageHeroBlock = IIData & I_IComponent & I_IContent & {
+export type HomePageHeroBlock = IData & _IComponent & _IContent & {
   __typename?: 'HomePageHeroBlock';
   HomeHeroBlockHeading?: Maybe<Scalars['String']['output']>;
   HomeHeroBlockSubHeading?: Maybe<Scalars['String']['output']>;
-  HomeHeroButtonBlock?: Maybe<IButtonBlockProperty>;
-  HomeHeroLeftImage?: Maybe<IContentReference>;
-  HomeHeroRightImage?: Maybe<IContentReference>;
+  HomeHeroButtonBlock?: Maybe<ButtonBlockProperty>;
+  HomeHeroLeftImage?: Maybe<ContentReference>;
+  HomeHeroRightImage?: Maybe<ContentReference>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IHomePageHeroBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type HomePageHeroBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IHomePageHeroBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type HomePageHeroBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IHomePageHeroBlockAutocomplete = {
+export type HomePageHeroBlockAutocomplete = {
   __typename?: 'HomePageHeroBlockAutocomplete';
-  HomeHeroButtonBlock?: Maybe<IButtonBlockPropertyAutocomplete>;
-  HomeHeroLeftImage?: Maybe<IContentReferenceAutocomplete>;
-  HomeHeroRightImage?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  HomeHeroButtonBlock?: Maybe<ButtonBlockPropertyAutocomplete>;
+  HomeHeroLeftImage?: Maybe<ContentReferenceAutocomplete>;
+  HomeHeroRightImage?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IHomePageHeroBlockFacet = {
+export type HomePageHeroBlockFacet = {
   __typename?: 'HomePageHeroBlockFacet';
-  HomeHeroButtonBlock?: Maybe<IButtonBlockPropertyFacet>;
-  HomeHeroLeftImage?: Maybe<IContentReferenceFacet>;
-  HomeHeroRightImage?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  HomeHeroButtonBlock?: Maybe<ButtonBlockPropertyFacet>;
+  HomeHeroLeftImage?: Maybe<ContentReferenceFacet>;
+  HomeHeroRightImage?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IHomePageHeroBlockOrderByInput = {
-  HomeHeroButtonBlock?: InputMaybe<IButtonBlockPropertyOrderByInput>;
-  HomeHeroLeftImage?: InputMaybe<IContentReferenceOrderByInput>;
-  HomeHeroRightImage?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type HomePageHeroBlockOrderByInput = {
+  HomeHeroButtonBlock?: InputMaybe<ButtonBlockPropertyOrderByInput>;
+  HomeHeroLeftImage?: InputMaybe<ContentReferenceOrderByInput>;
+  HomeHeroRightImage?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IHomePageHeroBlockOutput = {
+export type HomePageHeroBlockOutput = {
   __typename?: 'HomePageHeroBlockOutput';
-  autocomplete?: Maybe<IHomePageHeroBlockAutocomplete>;
+  autocomplete?: Maybe<HomePageHeroBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IHomePageHeroBlockFacet>;
-  items?: Maybe<Array<Maybe<IHomePageHeroBlock>>>;
+  facets?: Maybe<HomePageHeroBlockFacet>;
+  items?: Maybe<Array<Maybe<HomePageHeroBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IHomePageHeroBlockOutputTotalArgs = {
+export type HomePageHeroBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IHomePageHeroBlockWhereInput = {
-  HomeHeroButtonBlock?: InputMaybe<IButtonBlockPropertyWhereInput>;
-  HomeHeroLeftImage?: InputMaybe<IContentReferenceWhereInput>;
-  HomeHeroRightImage?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IHomePageHeroBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IHomePageHeroBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IHomePageHeroBlockWhereInput>>>;
+export type HomePageHeroBlockWhereInput = {
+  HomeHeroButtonBlock?: InputMaybe<ButtonBlockPropertyWhereInput>;
+  HomeHeroLeftImage?: InputMaybe<ContentReferenceWhereInput>;
+  HomeHeroRightImage?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<HomePageHeroBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<HomePageHeroBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<HomePageHeroBlockWhereInput>>>;
 };
 
-export type IHtmlBlock = IIData & I_IComponent & I_IContent & {
+export type HtmlBlock = IData & _IComponent & _IContent & {
   __typename?: 'HtmlBlock';
   HtmlBlockHeading?: Maybe<Scalars['String']['output']>;
-  HtmlContent?: Maybe<IRichText>;
+  HtmlContent?: Maybe<RichText>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IHtmlBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type HtmlBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IHtmlBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type HtmlBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IHtmlBlockAutocomplete = {
+export type HtmlBlockAutocomplete = {
   __typename?: 'HtmlBlockAutocomplete';
-  HtmlContent?: Maybe<IRichTextAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  HtmlContent?: Maybe<RichTextAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IHtmlBlockFacet = {
+export type HtmlBlockFacet = {
   __typename?: 'HtmlBlockFacet';
-  HtmlContent?: Maybe<IRichTextFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  HtmlContent?: Maybe<RichTextFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IHtmlBlockOrderByInput = {
-  HtmlContent?: InputMaybe<IRichTextOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type HtmlBlockOrderByInput = {
+  HtmlContent?: InputMaybe<RichTextOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IHtmlBlockOutput = {
+export type HtmlBlockOutput = {
   __typename?: 'HtmlBlockOutput';
-  autocomplete?: Maybe<IHtmlBlockAutocomplete>;
+  autocomplete?: Maybe<HtmlBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IHtmlBlockFacet>;
-  items?: Maybe<Array<Maybe<IHtmlBlock>>>;
+  facets?: Maybe<HtmlBlockFacet>;
+  items?: Maybe<Array<Maybe<HtmlBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IHtmlBlockOutputTotalArgs = {
+export type HtmlBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IHtmlBlockWhereInput = {
-  HtmlContent?: InputMaybe<IRichTextWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IHtmlBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IHtmlBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IHtmlBlockWhereInput>>>;
+export type HtmlBlockWhereInput = {
+  HtmlContent?: InputMaybe<RichTextWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<HtmlBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<HtmlBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<HtmlBlockWhereInput>>>;
 };
 
-export type IICompositionElementNode = {
+export type ICompositionElementNode = {
   displayName?: Maybe<Scalars['String']['output']>;
-  displaySettings?: Maybe<Array<Maybe<ICompositionDisplaySetting>>>;
+  displaySettings?: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
   displayTemplateKey?: Maybe<Scalars['String']['output']>;
-  element?: Maybe<I_IElement>;
+  element?: Maybe<_IElement>;
   key?: Maybe<Scalars['String']['output']>;
   nodeType?: Maybe<Scalars['String']['output']>;
   type?: Maybe<Scalars['String']['output']>;
 };
 
-export type IICompositionNode = {
+export type ICompositionNode = {
   displayName?: Maybe<Scalars['String']['output']>;
-  displaySettings?: Maybe<Array<Maybe<ICompositionDisplaySetting>>>;
+  displaySettings?: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
   displayTemplateKey?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   nodeType?: Maybe<Scalars['String']['output']>;
   type?: Maybe<Scalars['String']['output']>;
 };
 
-export type IICompositionNodeAutocomplete = {
+export type ICompositionNodeAutocomplete = {
   __typename?: 'ICompositionNodeAutocomplete';
   displayName?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  displaySettings?: Maybe<ICompositionDisplaySettingAutocomplete>;
+  displaySettings?: Maybe<CompositionDisplaySettingAutocomplete>;
   displayTemplateKey?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   key?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   nodeType?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
@@ -2069,114 +2069,114 @@ export type IICompositionNodeAutocomplete = {
 };
 
 
-export type IICompositionNodeAutocompleteDisplayNameArgs = {
+export type ICompositionNodeAutocompleteDisplayNameArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IICompositionNodeAutocompleteDisplayTemplateKeyArgs = {
+export type ICompositionNodeAutocompleteDisplayTemplateKeyArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IICompositionNodeAutocompleteKeyArgs = {
+export type ICompositionNodeAutocompleteKeyArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IICompositionNodeAutocompleteNodeTypeArgs = {
+export type ICompositionNodeAutocompleteNodeTypeArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IICompositionNodeAutocompleteTypeArgs = {
+export type ICompositionNodeAutocompleteTypeArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type IICompositionNodeFacet = {
+export type ICompositionNodeFacet = {
   __typename?: 'ICompositionNodeFacet';
-  displayName?: Maybe<Array<Maybe<IStringFacet>>>;
-  displaySettings?: Maybe<ICompositionDisplaySettingFacet>;
-  displayTemplateKey?: Maybe<Array<Maybe<IStringFacet>>>;
-  key?: Maybe<Array<Maybe<IStringFacet>>>;
-  nodeType?: Maybe<Array<Maybe<IStringFacet>>>;
-  type?: Maybe<Array<Maybe<IStringFacet>>>;
+  displayName?: Maybe<Array<Maybe<StringFacet>>>;
+  displaySettings?: Maybe<CompositionDisplaySettingFacet>;
+  displayTemplateKey?: Maybe<Array<Maybe<StringFacet>>>;
+  key?: Maybe<Array<Maybe<StringFacet>>>;
+  nodeType?: Maybe<Array<Maybe<StringFacet>>>;
+  type?: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type IICompositionNodeFacetDisplayNameArgs = {
+export type ICompositionNodeFacetDisplayNameArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IICompositionNodeFacetDisplayTemplateKeyArgs = {
+export type ICompositionNodeFacetDisplayTemplateKeyArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IICompositionNodeFacetKeyArgs = {
+export type ICompositionNodeFacetKeyArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IICompositionNodeFacetNodeTypeArgs = {
+export type ICompositionNodeFacetNodeTypeArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IICompositionNodeFacetTypeArgs = {
+export type ICompositionNodeFacetTypeArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type IICompositionNodeOrderByInput = {
-  displayName?: InputMaybe<IOrderBy>;
-  displaySettings?: InputMaybe<ICompositionDisplaySettingOrderByInput>;
-  displayTemplateKey?: InputMaybe<IOrderBy>;
-  key?: InputMaybe<IOrderBy>;
-  nodeType?: InputMaybe<IOrderBy>;
-  type?: InputMaybe<IOrderBy>;
+export type ICompositionNodeOrderByInput = {
+  displayName?: InputMaybe<OrderBy>;
+  displaySettings?: InputMaybe<CompositionDisplaySettingOrderByInput>;
+  displayTemplateKey?: InputMaybe<OrderBy>;
+  key?: InputMaybe<OrderBy>;
+  nodeType?: InputMaybe<OrderBy>;
+  type?: InputMaybe<OrderBy>;
 };
 
-export type IICompositionNodeWhereInput = {
-  displayName?: InputMaybe<IStringFilterInput>;
-  displaySettings?: InputMaybe<ICompositionDisplaySettingWhereInput>;
-  displayTemplateKey?: InputMaybe<IStringFilterInput>;
-  key?: InputMaybe<IStringFilterInput>;
-  nodeType?: InputMaybe<IStringFilterInput>;
-  type?: InputMaybe<IStringFilterInput>;
+export type ICompositionNodeWhereInput = {
+  displayName?: InputMaybe<StringFilterInput>;
+  displaySettings?: InputMaybe<CompositionDisplaySettingWhereInput>;
+  displayTemplateKey?: InputMaybe<StringFilterInput>;
+  key?: InputMaybe<StringFilterInput>;
+  nodeType?: InputMaybe<StringFilterInput>;
+  type?: InputMaybe<StringFilterInput>;
 };
 
-export type IICompositionStructureNode = {
+export type ICompositionStructureNode = {
   displayName?: Maybe<Scalars['String']['output']>;
-  displaySettings?: Maybe<Array<Maybe<ICompositionDisplaySetting>>>;
+  displaySettings?: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
   displayTemplateKey?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   nodeType?: Maybe<Scalars['String']['output']>;
-  nodes?: Maybe<Array<Maybe<IICompositionNode>>>;
+  nodes?: Maybe<Array<Maybe<ICompositionNode>>>;
   type?: Maybe<Scalars['String']['output']>;
 };
 
-export type IIContentMetadata = {
+export type IContentMetadata = {
   created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
@@ -2185,183 +2185,183 @@ export type IIContentMetadata = {
   published?: Maybe<Scalars['DateTime']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IIContentMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type IContentMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type IIContentMetadataAutocomplete = {
+export type IContentMetadataAutocomplete = {
   __typename?: 'IContentMetadataAutocomplete';
   key?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   locale?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   status?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrlAutocomplete>;
+  url?: Maybe<ContentUrlAutocomplete>;
   version?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type IIContentMetadataAutocompleteKeyArgs = {
+export type IContentMetadataAutocompleteKeyArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IIContentMetadataAutocompleteLocaleArgs = {
+export type IContentMetadataAutocompleteLocaleArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IIContentMetadataAutocompleteStatusArgs = {
+export type IContentMetadataAutocompleteStatusArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IIContentMetadataAutocompleteTypesArgs = {
+export type IContentMetadataAutocompleteTypesArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type IIContentMetadataAutocompleteVersionArgs = {
+export type IContentMetadataAutocompleteVersionArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type IIContentMetadataFacet = {
+export type IContentMetadataFacet = {
   __typename?: 'IContentMetadataFacet';
-  created?: Maybe<Array<Maybe<IDateFacet>>>;
-  displayName?: Maybe<Array<Maybe<IStringFacet>>>;
-  key?: Maybe<Array<Maybe<IStringFacet>>>;
-  lastModified?: Maybe<Array<Maybe<IDateFacet>>>;
-  locale?: Maybe<Array<Maybe<IStringFacet>>>;
-  published?: Maybe<Array<Maybe<IDateFacet>>>;
-  status?: Maybe<Array<Maybe<IStringFacet>>>;
-  types?: Maybe<Array<Maybe<IStringFacet>>>;
-  url?: Maybe<IContentUrlFacet>;
-  version?: Maybe<Array<Maybe<IStringFacet>>>;
+  created?: Maybe<Array<Maybe<DateFacet>>>;
+  displayName?: Maybe<Array<Maybe<StringFacet>>>;
+  key?: Maybe<Array<Maybe<StringFacet>>>;
+  lastModified?: Maybe<Array<Maybe<DateFacet>>>;
+  locale?: Maybe<Array<Maybe<StringFacet>>>;
+  published?: Maybe<Array<Maybe<DateFacet>>>;
+  status?: Maybe<Array<Maybe<StringFacet>>>;
+  types?: Maybe<Array<Maybe<StringFacet>>>;
+  url?: Maybe<ContentUrlFacet>;
+  version?: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type IIContentMetadataFacetCreatedArgs = {
-  unit?: InputMaybe<IDateFacetUnit>;
+export type IContentMetadataFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
   value?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
-export type IIContentMetadataFacetDisplayNameArgs = {
+export type IContentMetadataFacetDisplayNameArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IIContentMetadataFacetKeyArgs = {
+export type IContentMetadataFacetKeyArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IIContentMetadataFacetLastModifiedArgs = {
-  unit?: InputMaybe<IDateFacetUnit>;
+export type IContentMetadataFacetLastModifiedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
   value?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
-export type IIContentMetadataFacetLocaleArgs = {
+export type IContentMetadataFacetLocaleArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IIContentMetadataFacetPublishedArgs = {
-  unit?: InputMaybe<IDateFacetUnit>;
+export type IContentMetadataFacetPublishedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
   value?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
-export type IIContentMetadataFacetStatusArgs = {
+export type IContentMetadataFacetStatusArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IIContentMetadataFacetTypesArgs = {
+export type IContentMetadataFacetTypesArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type IIContentMetadataFacetVersionArgs = {
+export type IContentMetadataFacetVersionArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type IIContentMetadataOrderByInput = {
-  created?: InputMaybe<IOrderBy>;
-  displayName?: InputMaybe<IOrderBy>;
-  key?: InputMaybe<IOrderBy>;
-  lastModified?: InputMaybe<IOrderBy>;
-  locale?: InputMaybe<IOrderBy>;
-  published?: InputMaybe<IOrderBy>;
-  status?: InputMaybe<IOrderBy>;
-  types?: InputMaybe<IOrderBy>;
-  url?: InputMaybe<IContentUrlOrderByInput>;
-  version?: InputMaybe<IOrderBy>;
+export type IContentMetadataOrderByInput = {
+  created?: InputMaybe<OrderBy>;
+  displayName?: InputMaybe<OrderBy>;
+  key?: InputMaybe<OrderBy>;
+  lastModified?: InputMaybe<OrderBy>;
+  locale?: InputMaybe<OrderBy>;
+  published?: InputMaybe<OrderBy>;
+  status?: InputMaybe<OrderBy>;
+  types?: InputMaybe<OrderBy>;
+  url?: InputMaybe<ContentUrlOrderByInput>;
+  version?: InputMaybe<OrderBy>;
 };
 
-export type IIContentMetadataWhereInput = {
-  created?: InputMaybe<IDateFilterInput>;
-  displayName?: InputMaybe<ISearchableStringFilterInput>;
-  key?: InputMaybe<IStringFilterInput>;
-  lastModified?: InputMaybe<IDateFilterInput>;
-  locale?: InputMaybe<IStringFilterInput>;
-  published?: InputMaybe<IDateFilterInput>;
-  status?: InputMaybe<IStringFilterInput>;
-  types?: InputMaybe<IStringFilterInput>;
-  url?: InputMaybe<IContentUrlWhereInput>;
-  version?: InputMaybe<IStringFilterInput>;
+export type IContentMetadataWhereInput = {
+  created?: InputMaybe<DateFilterInput>;
+  displayName?: InputMaybe<SearchableStringFilterInput>;
+  key?: InputMaybe<StringFilterInput>;
+  lastModified?: InputMaybe<DateFilterInput>;
+  locale?: InputMaybe<StringFilterInput>;
+  published?: InputMaybe<DateFilterInput>;
+  status?: InputMaybe<StringFilterInput>;
+  types?: InputMaybe<StringFilterInput>;
+  url?: InputMaybe<ContentUrlWhereInput>;
+  version?: InputMaybe<StringFilterInput>;
 };
 
-export type IIData = {
+export type IData = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
+  _link?: Maybe<QueryRef>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IIData_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type IData_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IIData_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type IData_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IIInstanceMetadata = {
+export type IInstanceMetadata = {
   container?: Maybe<Scalars['String']['output']>;
   created?: Maybe<Scalars['DateTime']['output']>;
   createdBy?: Maybe<Scalars['String']['output']>;
@@ -2378,16 +2378,16 @@ export type IIInstanceMetadata = {
   routeSegment?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IIInstanceMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type IInstanceMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type IIItemMetadata = {
+export type IItemMetadata = {
   created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   displayOption?: Maybe<Scalars['String']['output']>;
@@ -2397,16 +2397,16 @@ export type IIItemMetadata = {
   published?: Maybe<Scalars['DateTime']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IIItemMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type IItemMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type IIMediaMetadata = {
+export type IMediaMetadata = {
   container?: Maybe<Scalars['String']['output']>;
   content?: Maybe<Scalars['String']['output']>;
   created?: Maybe<Scalars['DateTime']['output']>;
@@ -2426,156 +2426,156 @@ export type IIMediaMetadata = {
   status?: Maybe<Scalars['String']['output']>;
   thumbnail?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IIMediaMetadataContentArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type IMediaMetadataContentArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IIMediaMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type IMediaMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type IImageElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type ImageElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'ImageElement';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
   altText?: Maybe<Scalars['String']['output']>;
-  imageLink?: Maybe<IContentReference>;
+  imageLink?: Maybe<ContentReference>;
 };
 
 
-export type IImageElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ImageElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IImageElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ImageElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IImageElementAutocomplete = {
+export type ImageElementAutocomplete = {
   __typename?: 'ImageElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  imageLink?: Maybe<IContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  imageLink?: Maybe<ContentReferenceAutocomplete>;
 };
 
-export type IImageElementFacet = {
+export type ImageElementFacet = {
   __typename?: 'ImageElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  imageLink?: Maybe<IContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  imageLink?: Maybe<ContentReferenceFacet>;
 };
 
-export type IImageElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ImageElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  imageLink?: InputMaybe<IContentReferenceOrderByInput>;
+  imageLink?: InputMaybe<ContentReferenceOrderByInput>;
 };
 
-export type IImageElementOutput = {
+export type ImageElementOutput = {
   __typename?: 'ImageElementOutput';
-  autocomplete?: Maybe<IImageElementAutocomplete>;
+  autocomplete?: Maybe<ImageElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IImageElementFacet>;
-  items?: Maybe<Array<Maybe<IImageElement>>>;
+  facets?: Maybe<ImageElementFacet>;
+  items?: Maybe<Array<Maybe<ImageElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IImageElementOutputTotalArgs = {
+export type ImageElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IImageElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IImageElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IImageElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IImageElementWhereInput>>>;
-  imageLink?: InputMaybe<IContentReferenceWhereInput>;
+export type ImageElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<ImageElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ImageElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ImageElementWhereInput>>>;
+  imageLink?: InputMaybe<ContentReferenceWhereInput>;
 };
 
-export type IImageMedia = IIData & I_IContent & I_IImage & I_IMedia & {
+export type ImageMedia = IData & _IContent & _IImage & _IMedia & {
   __typename?: 'ImageMedia';
   AltText?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IImageMedia_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ImageMedia_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IImageMedia_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ImageMedia_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IImageMediaAutocomplete = {
+export type ImageMediaAutocomplete = {
   __typename?: 'ImageMediaAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IImageMediaFacet = {
+export type ImageMediaFacet = {
   __typename?: 'ImageMediaFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IImageMediaOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ImageMediaOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IImageMediaOutput = {
+export type ImageMediaOutput = {
   __typename?: 'ImageMediaOutput';
-  autocomplete?: Maybe<IImageMediaAutocomplete>;
+  autocomplete?: Maybe<ImageMediaAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IImageMediaFacet>;
-  items?: Maybe<Array<Maybe<IImageMedia>>>;
+  facets?: Maybe<ImageMediaFacet>;
+  items?: Maybe<Array<Maybe<ImageMedia>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IImageMediaOutputTotalArgs = {
+export type ImageMediaOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IImageMediaWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IImageMediaWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IImageMediaWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IImageMediaWhereInput>>>;
+export type ImageMediaWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<ImageMediaWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ImageMediaWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ImageMediaWhereInput>>>;
 };
 
-export type IInstanceMetadata = IIContentMetadata & IIInstanceMetadata & {
+export type InstanceMetadata = IContentMetadata & IInstanceMetadata & {
   __typename?: 'InstanceMetadata';
   container?: Maybe<Scalars['String']['output']>;
   created?: Maybe<Scalars['DateTime']['output']>;
@@ -2593,16 +2593,16 @@ export type IInstanceMetadata = IIContentMetadata & IIInstanceMetadata & {
   routeSegment?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IInstanceMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type InstanceMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type IItemMetadata = IIContentMetadata & IIItemMetadata & {
+export type ItemMetadata = IContentMetadata & IItemMetadata & {
   __typename?: 'ItemMetadata';
   created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
@@ -2613,272 +2613,272 @@ export type IItemMetadata = IIContentMetadata & IIItemMetadata & {
   published?: Maybe<Scalars['DateTime']['output']>;
   status?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IItemMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ItemMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type ILandingPage = IIData & I_IContent & I_IPage & {
+export type LandingPage = IData & _IContent & _IPage & {
   __typename?: 'LandingPage';
-  MainContentArea?: Maybe<Array<Maybe<I_IContent>>>;
-  SeoSettings?: Maybe<IPageSeoSettingsProperty>;
-  TopContentArea?: Maybe<Array<Maybe<I_IContent>>>;
+  MainContentArea?: Maybe<Array<Maybe<_IContent>>>;
+  SeoSettings?: Maybe<PageSeoSettingsProperty>;
+  TopContentArea?: Maybe<Array<Maybe<_IContent>>>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type ILandingPage_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type LandingPage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ILandingPage_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type LandingPage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ILandingPageAutocomplete = {
+export type LandingPageAutocomplete = {
   __typename?: 'LandingPageAutocomplete';
-  MainContentArea?: Maybe<I_IContentAutocomplete>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyAutocomplete>;
-  TopContentArea?: Maybe<I_IContentAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  MainContentArea?: Maybe<_IContentAutocomplete>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyAutocomplete>;
+  TopContentArea?: Maybe<_IContentAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type ILandingPageFacet = {
+export type LandingPageFacet = {
   __typename?: 'LandingPageFacet';
-  MainContentArea?: Maybe<I_IContentFacet>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyFacet>;
-  TopContentArea?: Maybe<I_IContentFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  MainContentArea?: Maybe<_IContentFacet>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyFacet>;
+  TopContentArea?: Maybe<_IContentFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type ILandingPageOrderByInput = {
-  MainContentArea?: InputMaybe<I_IContentOrderByInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyOrderByInput>;
-  TopContentArea?: InputMaybe<I_IContentOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type LandingPageOrderByInput = {
+  MainContentArea?: InputMaybe<_IContentOrderByInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyOrderByInput>;
+  TopContentArea?: InputMaybe<_IContentOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type ILandingPageOutput = {
+export type LandingPageOutput = {
   __typename?: 'LandingPageOutput';
-  autocomplete?: Maybe<ILandingPageAutocomplete>;
+  autocomplete?: Maybe<LandingPageAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ILandingPageFacet>;
-  items?: Maybe<Array<Maybe<ILandingPage>>>;
+  facets?: Maybe<LandingPageFacet>;
+  items?: Maybe<Array<Maybe<LandingPage>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ILandingPageOutputTotalArgs = {
+export type LandingPageOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ILandingPageWhereInput = {
-  MainContentArea?: InputMaybe<I_IContentWhereInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyWhereInput>;
-  TopContentArea?: InputMaybe<I_IContentWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<ILandingPageWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ILandingPageWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ILandingPageWhereInput>>>;
+export type LandingPageWhereInput = {
+  MainContentArea?: InputMaybe<_IContentWhereInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyWhereInput>;
+  TopContentArea?: InputMaybe<_IContentWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<LandingPageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<LandingPageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<LandingPageWhereInput>>>;
 };
 
-export type ILayoutContainerBlock = IIData & I_IComponent & I_IContent & {
+export type LayoutContainerBlock = IData & _IComponent & _IContent & {
   __typename?: 'LayoutContainerBlock';
   ColumnsCount?: Maybe<Scalars['Int']['output']>;
   ContainerBackgroundColor?: Maybe<Scalars['String']['output']>;
-  ContainerBackgroundImage?: Maybe<IContentReference>;
+  ContainerBackgroundImage?: Maybe<ContentReference>;
   ContainerMarginBottom?: Maybe<Scalars['String']['output']>;
   ContainerMarginTop?: Maybe<Scalars['String']['output']>;
   ContainerPaddingBottom?: Maybe<Scalars['String']['output']>;
   ContainerPaddingTop?: Maybe<Scalars['String']['output']>;
   GapSize?: Maybe<Scalars['String']['output']>;
-  LayoutContentArea?: Maybe<Array<Maybe<I_IContent>>>;
+  LayoutContentArea?: Maybe<Array<Maybe<_IContent>>>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type ILayoutContainerBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type LayoutContainerBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ILayoutContainerBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type LayoutContainerBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ILayoutContainerBlockAutocomplete = {
+export type LayoutContainerBlockAutocomplete = {
   __typename?: 'LayoutContainerBlockAutocomplete';
-  ContainerBackgroundImage?: Maybe<IContentReferenceAutocomplete>;
-  LayoutContentArea?: Maybe<I_IContentAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  ContainerBackgroundImage?: Maybe<ContentReferenceAutocomplete>;
+  LayoutContentArea?: Maybe<_IContentAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type ILayoutContainerBlockFacet = {
+export type LayoutContainerBlockFacet = {
   __typename?: 'LayoutContainerBlockFacet';
-  ContainerBackgroundImage?: Maybe<IContentReferenceFacet>;
-  LayoutContentArea?: Maybe<I_IContentFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  ContainerBackgroundImage?: Maybe<ContentReferenceFacet>;
+  LayoutContentArea?: Maybe<_IContentFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type ILayoutContainerBlockOrderByInput = {
-  ContainerBackgroundImage?: InputMaybe<IContentReferenceOrderByInput>;
-  LayoutContentArea?: InputMaybe<I_IContentOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type LayoutContainerBlockOrderByInput = {
+  ContainerBackgroundImage?: InputMaybe<ContentReferenceOrderByInput>;
+  LayoutContentArea?: InputMaybe<_IContentOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type ILayoutContainerBlockOutput = {
+export type LayoutContainerBlockOutput = {
   __typename?: 'LayoutContainerBlockOutput';
-  autocomplete?: Maybe<ILayoutContainerBlockAutocomplete>;
+  autocomplete?: Maybe<LayoutContainerBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ILayoutContainerBlockFacet>;
-  items?: Maybe<Array<Maybe<ILayoutContainerBlock>>>;
+  facets?: Maybe<LayoutContainerBlockFacet>;
+  items?: Maybe<Array<Maybe<LayoutContainerBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ILayoutContainerBlockOutputTotalArgs = {
+export type LayoutContainerBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ILayoutContainerBlockWhereInput = {
-  ContainerBackgroundImage?: InputMaybe<IContentReferenceWhereInput>;
-  LayoutContentArea?: InputMaybe<I_IContentWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<ILayoutContainerBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ILayoutContainerBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ILayoutContainerBlockWhereInput>>>;
+export type LayoutContainerBlockWhereInput = {
+  ContainerBackgroundImage?: InputMaybe<ContentReferenceWhereInput>;
+  LayoutContentArea?: InputMaybe<_IContentWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<LayoutContainerBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<LayoutContainerBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<LayoutContainerBlockWhereInput>>>;
 };
 
-export type ILink = {
+export type Link = {
   __typename?: 'Link';
   target?: Maybe<Scalars['String']['output']>;
   text?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
 };
 
 
-export type ILinkTextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type LinkTextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type ILinkAutocomplete = {
+export type LinkAutocomplete = {
   __typename?: 'LinkAutocomplete';
   target?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   title?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrlAutocomplete>;
+  url?: Maybe<ContentUrlAutocomplete>;
 };
 
 
-export type ILinkAutocompleteTargetArgs = {
+export type LinkAutocompleteTargetArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type ILinkAutocompleteTitleArgs = {
+export type LinkAutocompleteTitleArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type ILinkConfig = {
+export type LinkConfig = {
   from?: InputMaybe<Scalars['String']['input']>;
   to?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ILinkFacet = {
+export type LinkFacet = {
   __typename?: 'LinkFacet';
-  target?: Maybe<Array<Maybe<IStringFacet>>>;
-  text?: Maybe<Array<Maybe<IStringFacet>>>;
-  title?: Maybe<Array<Maybe<IStringFacet>>>;
-  url?: Maybe<IContentUrlFacet>;
+  target?: Maybe<Array<Maybe<StringFacet>>>;
+  text?: Maybe<Array<Maybe<StringFacet>>>;
+  title?: Maybe<Array<Maybe<StringFacet>>>;
+  url?: Maybe<ContentUrlFacet>;
 };
 
 
-export type ILinkFacetTargetArgs = {
+export type LinkFacetTargetArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type ILinkFacetTextArgs = {
+export type LinkFacetTextArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type ILinkFacetTitleArgs = {
+export type LinkFacetTitleArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type ILinkOrderByInput = {
-  target?: InputMaybe<IOrderBy>;
-  text?: InputMaybe<IOrderBy>;
-  title?: InputMaybe<IOrderBy>;
-  url?: InputMaybe<IContentUrlOrderByInput>;
+export type LinkOrderByInput = {
+  target?: InputMaybe<OrderBy>;
+  text?: InputMaybe<OrderBy>;
+  title?: InputMaybe<OrderBy>;
+  url?: InputMaybe<ContentUrlOrderByInput>;
 };
 
-export enum ILinkTypes {
+export enum LinkTypes {
   Assets = 'ASSETS',
   Default = 'DEFAULT',
   Items = 'ITEMS',
   Path = 'PATH'
 }
 
-export type ILinkWhereInput = {
-  target?: InputMaybe<IStringFilterInput>;
-  text?: InputMaybe<ISearchableStringFilterInput>;
-  title?: InputMaybe<IStringFilterInput>;
-  url?: InputMaybe<IContentUrlWhereInput>;
+export type LinkWhereInput = {
+  target?: InputMaybe<StringFilterInput>;
+  text?: InputMaybe<SearchableStringFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  url?: InputMaybe<ContentUrlWhereInput>;
 };
 
-export enum ILocales {
+export enum Locales {
   All = 'ALL',
   Neutral = 'NEUTRAL',
   En = 'en'
 }
 
-export type IMediaMetadata = IIContentMetadata & IIInstanceMetadata & IIMediaMetadata & {
+export type MediaMetadata = IContentMetadata & IInstanceMetadata & IMediaMetadata & {
   __typename?: 'MediaMetadata';
   container?: Maybe<Scalars['String']['output']>;
   content?: Maybe<Scalars['String']['output']>;
@@ -2899,1735 +2899,1735 @@ export type IMediaMetadata = IIContentMetadata & IIInstanceMetadata & IIMediaMet
   status?: Maybe<Scalars['String']['output']>;
   thumbnail?: Maybe<Scalars['String']['output']>;
   types?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url?: Maybe<IContentUrl>;
+  url?: Maybe<ContentUrl>;
   version?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type IMediaMetadataContentArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type MediaMetadataContentArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IMediaMetadataDisplayNameArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type MediaMetadataDisplayNameArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
-export type IMegaMenuGroupBlock = IIData & I_IComponent & I_IContent & {
+export type MegaMenuGroupBlock = IData & _IComponent & _IContent & {
   __typename?: 'MegaMenuGroupBlock';
-  MegaMenuContentArea?: Maybe<Array<Maybe<I_IContent>>>;
-  MegaMenuUrl?: Maybe<IContentUrl>;
+  MegaMenuContentArea?: Maybe<Array<Maybe<_IContent>>>;
+  MegaMenuUrl?: Maybe<ContentUrl>;
   MenuMenuHeading?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IMegaMenuGroupBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type MegaMenuGroupBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IMegaMenuGroupBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type MegaMenuGroupBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IMegaMenuGroupBlockAutocomplete = {
+export type MegaMenuGroupBlockAutocomplete = {
   __typename?: 'MegaMenuGroupBlockAutocomplete';
-  MegaMenuContentArea?: Maybe<I_IContentAutocomplete>;
-  MegaMenuUrl?: Maybe<IContentUrlAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  MegaMenuContentArea?: Maybe<_IContentAutocomplete>;
+  MegaMenuUrl?: Maybe<ContentUrlAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IMegaMenuGroupBlockFacet = {
+export type MegaMenuGroupBlockFacet = {
   __typename?: 'MegaMenuGroupBlockFacet';
-  MegaMenuContentArea?: Maybe<I_IContentFacet>;
-  MegaMenuUrl?: Maybe<IContentUrlFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  MegaMenuContentArea?: Maybe<_IContentFacet>;
+  MegaMenuUrl?: Maybe<ContentUrlFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IMegaMenuGroupBlockOrderByInput = {
-  MegaMenuContentArea?: InputMaybe<I_IContentOrderByInput>;
-  MegaMenuUrl?: InputMaybe<IContentUrlOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type MegaMenuGroupBlockOrderByInput = {
+  MegaMenuContentArea?: InputMaybe<_IContentOrderByInput>;
+  MegaMenuUrl?: InputMaybe<ContentUrlOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IMegaMenuGroupBlockOutput = {
+export type MegaMenuGroupBlockOutput = {
   __typename?: 'MegaMenuGroupBlockOutput';
-  autocomplete?: Maybe<IMegaMenuGroupBlockAutocomplete>;
+  autocomplete?: Maybe<MegaMenuGroupBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IMegaMenuGroupBlockFacet>;
-  items?: Maybe<Array<Maybe<IMegaMenuGroupBlock>>>;
+  facets?: Maybe<MegaMenuGroupBlockFacet>;
+  items?: Maybe<Array<Maybe<MegaMenuGroupBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IMegaMenuGroupBlockOutputTotalArgs = {
+export type MegaMenuGroupBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IMegaMenuGroupBlockWhereInput = {
-  MegaMenuContentArea?: InputMaybe<I_IContentWhereInput>;
-  MegaMenuUrl?: InputMaybe<IContentUrlWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IMegaMenuGroupBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IMegaMenuGroupBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IMegaMenuGroupBlockWhereInput>>>;
+export type MegaMenuGroupBlockWhereInput = {
+  MegaMenuContentArea?: InputMaybe<_IContentWhereInput>;
+  MegaMenuUrl?: InputMaybe<ContentUrlWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<MegaMenuGroupBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<MegaMenuGroupBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<MegaMenuGroupBlockWhereInput>>>;
 };
 
-export type IMenuNavigationBlock = IIData & I_IComponent & I_IContent & {
+export type MenuNavigationBlock = IData & _IComponent & _IContent & {
   __typename?: 'MenuNavigationBlock';
   MenuNavigationHeading?: Maybe<Scalars['String']['output']>;
-  NavigationLinks?: Maybe<Array<Maybe<ILink>>>;
+  NavigationLinks?: Maybe<Array<Maybe<Link>>>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IMenuNavigationBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type MenuNavigationBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IMenuNavigationBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type MenuNavigationBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IMenuNavigationBlockAutocomplete = {
+export type MenuNavigationBlockAutocomplete = {
   __typename?: 'MenuNavigationBlockAutocomplete';
-  NavigationLinks?: Maybe<ILinkAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  NavigationLinks?: Maybe<LinkAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IMenuNavigationBlockFacet = {
+export type MenuNavigationBlockFacet = {
   __typename?: 'MenuNavigationBlockFacet';
-  NavigationLinks?: Maybe<ILinkFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  NavigationLinks?: Maybe<LinkFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IMenuNavigationBlockOrderByInput = {
-  NavigationLinks?: InputMaybe<ILinkOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type MenuNavigationBlockOrderByInput = {
+  NavigationLinks?: InputMaybe<LinkOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IMenuNavigationBlockOutput = {
+export type MenuNavigationBlockOutput = {
   __typename?: 'MenuNavigationBlockOutput';
-  autocomplete?: Maybe<IMenuNavigationBlockAutocomplete>;
+  autocomplete?: Maybe<MenuNavigationBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IMenuNavigationBlockFacet>;
-  items?: Maybe<Array<Maybe<IMenuNavigationBlock>>>;
+  facets?: Maybe<MenuNavigationBlockFacet>;
+  items?: Maybe<Array<Maybe<MenuNavigationBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IMenuNavigationBlockOutputTotalArgs = {
+export type MenuNavigationBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IMenuNavigationBlockWhereInput = {
-  NavigationLinks?: InputMaybe<ILinkWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IMenuNavigationBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IMenuNavigationBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IMenuNavigationBlockWhereInput>>>;
+export type MenuNavigationBlockWhereInput = {
+  NavigationLinks?: InputMaybe<LinkWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<MenuNavigationBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<MenuNavigationBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<MenuNavigationBlockWhereInput>>>;
 };
 
-export type IOdpEmbedBlock = IIData & I_IComponent & I_IContent & {
+export type OdpEmbedBlock = IData & _IComponent & _IContent & {
   __typename?: 'OdpEmbedBlock';
   ContentId?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IOdpEmbedBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type OdpEmbedBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IOdpEmbedBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type OdpEmbedBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IOdpEmbedBlockAutocomplete = {
+export type OdpEmbedBlockAutocomplete = {
   __typename?: 'OdpEmbedBlockAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IOdpEmbedBlockFacet = {
+export type OdpEmbedBlockFacet = {
   __typename?: 'OdpEmbedBlockFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IOdpEmbedBlockOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type OdpEmbedBlockOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IOdpEmbedBlockOutput = {
+export type OdpEmbedBlockOutput = {
   __typename?: 'OdpEmbedBlockOutput';
-  autocomplete?: Maybe<IOdpEmbedBlockAutocomplete>;
+  autocomplete?: Maybe<OdpEmbedBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IOdpEmbedBlockFacet>;
-  items?: Maybe<Array<Maybe<IOdpEmbedBlock>>>;
+  facets?: Maybe<OdpEmbedBlockFacet>;
+  items?: Maybe<Array<Maybe<OdpEmbedBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IOdpEmbedBlockOutputTotalArgs = {
+export type OdpEmbedBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IOdpEmbedBlockWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IOdpEmbedBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IOdpEmbedBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IOdpEmbedBlockWhereInput>>>;
+export type OdpEmbedBlockWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<OdpEmbedBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<OdpEmbedBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<OdpEmbedBlockWhereInput>>>;
 };
 
-export enum IOrderBy {
+export enum OrderBy {
   Asc = 'ASC',
   Desc = 'DESC'
 }
 
-export enum IOrderByFacetType {
+export enum OrderByFacetType {
   Count = 'COUNT',
   Value = 'VALUE'
 }
 
-export type IPageSeoSettings = IIData & I_IComponent & I_IContent & {
+export type PageSeoSettings = IData & _IComponent & _IContent & {
   __typename?: 'PageSeoSettings';
   GraphType?: Maybe<Scalars['String']['output']>;
   MetaDescription?: Maybe<Scalars['String']['output']>;
   MetaTitle?: Maybe<Scalars['String']['output']>;
-  SharingImage?: Maybe<IContentReference>;
+  SharingImage?: Maybe<ContentReference>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IPageSeoSettings_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type PageSeoSettings_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IPageSeoSettings_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type PageSeoSettings_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IPageSeoSettingsAutocomplete = {
+export type PageSeoSettingsAutocomplete = {
   __typename?: 'PageSeoSettingsAutocomplete';
-  SharingImage?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  SharingImage?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IPageSeoSettingsFacet = {
+export type PageSeoSettingsFacet = {
   __typename?: 'PageSeoSettingsFacet';
-  SharingImage?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  SharingImage?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IPageSeoSettingsOrderByInput = {
-  SharingImage?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type PageSeoSettingsOrderByInput = {
+  SharingImage?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IPageSeoSettingsOutput = {
+export type PageSeoSettingsOutput = {
   __typename?: 'PageSeoSettingsOutput';
-  autocomplete?: Maybe<IPageSeoSettingsAutocomplete>;
+  autocomplete?: Maybe<PageSeoSettingsAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IPageSeoSettingsFacet>;
-  items?: Maybe<Array<Maybe<IPageSeoSettings>>>;
+  facets?: Maybe<PageSeoSettingsFacet>;
+  items?: Maybe<Array<Maybe<PageSeoSettings>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IPageSeoSettingsOutputTotalArgs = {
+export type PageSeoSettingsOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IPageSeoSettingsProperty = {
+export type PageSeoSettingsProperty = {
   __typename?: 'PageSeoSettingsProperty';
   GraphType?: Maybe<Scalars['String']['output']>;
   MetaDescription?: Maybe<Scalars['String']['output']>;
   MetaTitle?: Maybe<Scalars['String']['output']>;
-  SharingImage?: Maybe<IContentReference>;
+  SharingImage?: Maybe<ContentReference>;
 };
 
-export type IPageSeoSettingsPropertyAutocomplete = {
+export type PageSeoSettingsPropertyAutocomplete = {
   __typename?: 'PageSeoSettingsPropertyAutocomplete';
-  SharingImage?: Maybe<IContentReferenceAutocomplete>;
+  SharingImage?: Maybe<ContentReferenceAutocomplete>;
 };
 
-export type IPageSeoSettingsPropertyFacet = {
+export type PageSeoSettingsPropertyFacet = {
   __typename?: 'PageSeoSettingsPropertyFacet';
-  SharingImage?: Maybe<IContentReferenceFacet>;
+  SharingImage?: Maybe<ContentReferenceFacet>;
 };
 
-export type IPageSeoSettingsPropertyOrderByInput = {
-  SharingImage?: InputMaybe<IContentReferenceOrderByInput>;
+export type PageSeoSettingsPropertyOrderByInput = {
+  SharingImage?: InputMaybe<ContentReferenceOrderByInput>;
 };
 
-export type IPageSeoSettingsPropertyWhereInput = {
-  SharingImage?: InputMaybe<IContentReferenceWhereInput>;
+export type PageSeoSettingsPropertyWhereInput = {
+  SharingImage?: InputMaybe<ContentReferenceWhereInput>;
 };
 
-export type IPageSeoSettingsWhereInput = {
-  SharingImage?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IPageSeoSettingsWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IPageSeoSettingsWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IPageSeoSettingsWhereInput>>>;
+export type PageSeoSettingsWhereInput = {
+  SharingImage?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<PageSeoSettingsWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<PageSeoSettingsWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<PageSeoSettingsWhereInput>>>;
 };
 
-export type IParagraphElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type ParagraphElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'ParagraphElement';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  text?: Maybe<IRichText>;
+  text?: Maybe<RichText>;
 };
 
 
-export type IParagraphElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type ParagraphElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IParagraphElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type ParagraphElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IParagraphElementAutocomplete = {
+export type ParagraphElementAutocomplete = {
   __typename?: 'ParagraphElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  text?: Maybe<IRichTextAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  text?: Maybe<RichTextAutocomplete>;
 };
 
-export type IParagraphElementFacet = {
+export type ParagraphElementFacet = {
   __typename?: 'ParagraphElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  text?: Maybe<IRichTextFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  text?: Maybe<RichTextFacet>;
 };
 
-export type IParagraphElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type ParagraphElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  text?: InputMaybe<IRichTextOrderByInput>;
+  text?: InputMaybe<RichTextOrderByInput>;
 };
 
-export type IParagraphElementOutput = {
+export type ParagraphElementOutput = {
   __typename?: 'ParagraphElementOutput';
-  autocomplete?: Maybe<IParagraphElementAutocomplete>;
+  autocomplete?: Maybe<ParagraphElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IParagraphElementFacet>;
-  items?: Maybe<Array<Maybe<IParagraphElement>>>;
+  facets?: Maybe<ParagraphElementFacet>;
+  items?: Maybe<Array<Maybe<ParagraphElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IParagraphElementOutputTotalArgs = {
+export type ParagraphElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IParagraphElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IParagraphElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IParagraphElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IParagraphElementWhereInput>>>;
-  text?: InputMaybe<IRichTextWhereInput>;
+export type ParagraphElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<ParagraphElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<ParagraphElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<ParagraphElementWhereInput>>>;
+  text?: InputMaybe<RichTextWhereInput>;
 };
 
-export type IQuery = {
+export type Query = {
   __typename?: 'Query';
-  ArticleListElement?: Maybe<IArticleListElementOutput>;
-  BlankExperience?: Maybe<IBlankExperienceOutput>;
-  BlankSection?: Maybe<IBlankSectionOutput>;
-  BlogListingBlock?: Maybe<IBlogListingBlockOutput>;
-  BlogPostPage?: Maybe<IBlogPostPageOutput>;
-  ButtonBlock?: Maybe<IButtonBlockOutput>;
-  CTAElement?: Maybe<ICtaElementOutput>;
-  CardBlock?: Maybe<ICardBlockOutput>;
-  CarouselBlock?: Maybe<ICarouselBlockOutput>;
-  Contact?: Maybe<IContactOutput>;
-  ContactElement?: Maybe<IContactElementOutput>;
-  ContactPage?: Maybe<IContactPageOutput>;
-  Container?: Maybe<IContainerOutput>;
-  ContentRecsBlock?: Maybe<IContentRecsBlockOutput>;
-  ContentRecsElement?: Maybe<IContentRecsElementOutput>;
-  Data?: Maybe<IDataOutput>;
-  EventElement?: Maybe<IEventElementOutput>;
-  GenericMedia?: Maybe<IGenericMediaOutput>;
-  HeadingElement?: Maybe<IHeadingElementOutput>;
-  HeroBlock?: Maybe<IHeroBlockOutput>;
-  HomePageHeroBlock?: Maybe<IHomePageHeroBlockOutput>;
-  HtmlBlock?: Maybe<IHtmlBlockOutput>;
-  ImageElement?: Maybe<IImageElementOutput>;
-  ImageMedia?: Maybe<IImageMediaOutput>;
-  LandingPage?: Maybe<ILandingPageOutput>;
-  LayoutContainerBlock?: Maybe<ILayoutContainerBlockOutput>;
-  MegaMenuGroupBlock?: Maybe<IMegaMenuGroupBlockOutput>;
-  MenuNavigationBlock?: Maybe<IMenuNavigationBlockOutput>;
-  OdpEmbedBlock?: Maybe<IOdpEmbedBlockOutput>;
-  PageSeoSettings?: Maybe<IPageSeoSettingsOutput>;
-  ParagraphElement?: Maybe<IParagraphElementOutput>;
-  QuoteBlock?: Maybe<IQuoteBlockOutput>;
-  StandardPage?: Maybe<IStandardPageOutput>;
-  StartPage?: Maybe<IStartPageOutput>;
-  SysContentFolder?: Maybe<ISysContentFolderOutput>;
-  TestimonialElement?: Maybe<ITestimonialElementOutput>;
-  TextBlock?: Maybe<ITextBlockOutput>;
-  Video?: Maybe<IVideoOutput>;
-  VideoElement?: Maybe<IVideoElementOutput>;
-  VideoMedia?: Maybe<IVideoMediaOutput>;
-  _Component?: Maybe<I_ComponentOutput>;
-  _Content?: Maybe<I_ContentOutput>;
-  _Element?: Maybe<I_ElementOutput>;
-  _Experience?: Maybe<I_ExperienceOutput>;
-  _Folder?: Maybe<I_FolderOutput>;
-  _Image?: Maybe<I_ImageOutput>;
-  _Media?: Maybe<I_MediaOutput>;
-  _Page?: Maybe<I_PageOutput>;
-  _Section?: Maybe<I_SectionOutput>;
-  _Video?: Maybe<I_VideoOutput>;
+  ArticleListElement?: Maybe<ArticleListElementOutput>;
+  BlankExperience?: Maybe<BlankExperienceOutput>;
+  BlankSection?: Maybe<BlankSectionOutput>;
+  BlogListingBlock?: Maybe<BlogListingBlockOutput>;
+  BlogPostPage?: Maybe<BlogPostPageOutput>;
+  ButtonBlock?: Maybe<ButtonBlockOutput>;
+  CTAElement?: Maybe<CtaElementOutput>;
+  CardBlock?: Maybe<CardBlockOutput>;
+  CarouselBlock?: Maybe<CarouselBlockOutput>;
+  Contact?: Maybe<ContactOutput>;
+  ContactElement?: Maybe<ContactElementOutput>;
+  ContactPage?: Maybe<ContactPageOutput>;
+  Container?: Maybe<ContainerOutput>;
+  ContentRecsBlock?: Maybe<ContentRecsBlockOutput>;
+  ContentRecsElement?: Maybe<ContentRecsElementOutput>;
+  Data?: Maybe<DataOutput>;
+  EventElement?: Maybe<EventElementOutput>;
+  GenericMedia?: Maybe<GenericMediaOutput>;
+  HeadingElement?: Maybe<HeadingElementOutput>;
+  HeroBlock?: Maybe<HeroBlockOutput>;
+  HomePageHeroBlock?: Maybe<HomePageHeroBlockOutput>;
+  HtmlBlock?: Maybe<HtmlBlockOutput>;
+  ImageElement?: Maybe<ImageElementOutput>;
+  ImageMedia?: Maybe<ImageMediaOutput>;
+  LandingPage?: Maybe<LandingPageOutput>;
+  LayoutContainerBlock?: Maybe<LayoutContainerBlockOutput>;
+  MegaMenuGroupBlock?: Maybe<MegaMenuGroupBlockOutput>;
+  MenuNavigationBlock?: Maybe<MenuNavigationBlockOutput>;
+  OdpEmbedBlock?: Maybe<OdpEmbedBlockOutput>;
+  PageSeoSettings?: Maybe<PageSeoSettingsOutput>;
+  ParagraphElement?: Maybe<ParagraphElementOutput>;
+  QuoteBlock?: Maybe<QuoteBlockOutput>;
+  StandardPage?: Maybe<StandardPageOutput>;
+  StartPage?: Maybe<StartPageOutput>;
+  SysContentFolder?: Maybe<SysContentFolderOutput>;
+  TestimonialElement?: Maybe<TestimonialElementOutput>;
+  TextBlock?: Maybe<TextBlockOutput>;
+  Video?: Maybe<VideoOutput>;
+  VideoElement?: Maybe<VideoElementOutput>;
+  VideoMedia?: Maybe<VideoMediaOutput>;
+  _Component?: Maybe<_ComponentOutput>;
+  _Content?: Maybe<_ContentOutput>;
+  _Element?: Maybe<_ElementOutput>;
+  _Experience?: Maybe<_ExperienceOutput>;
+  _Folder?: Maybe<_FolderOutput>;
+  _Image?: Maybe<_ImageOutput>;
+  _Media?: Maybe<_MediaOutput>;
+  _Page?: Maybe<_PageOutput>;
+  _Section?: Maybe<_SectionOutput>;
+  _Video?: Maybe<_VideoOutput>;
 };
 
 
-export type IQueryArticleListElementArgs = {
+export type QueryArticleListElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IArticleListElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ArticleListElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IArticleListElementWhereInput>;
+  where?: InputMaybe<ArticleListElementWhereInput>;
 };
 
 
-export type IQueryBlankExperienceArgs = {
+export type QueryBlankExperienceArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlankExperienceOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlankExperienceOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlankExperienceWhereInput>;
+  where?: InputMaybe<BlankExperienceWhereInput>;
 };
 
 
-export type IQueryBlankSectionArgs = {
+export type QueryBlankSectionArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlankSectionOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlankSectionOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlankSectionWhereInput>;
+  where?: InputMaybe<BlankSectionWhereInput>;
 };
 
 
-export type IQueryBlogListingBlockArgs = {
+export type QueryBlogListingBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlogListingBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlogListingBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlogListingBlockWhereInput>;
+  where?: InputMaybe<BlogListingBlockWhereInput>;
 };
 
 
-export type IQueryBlogPostPageArgs = {
+export type QueryBlogPostPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlogPostPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlogPostPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlogPostPageWhereInput>;
+  where?: InputMaybe<BlogPostPageWhereInput>;
 };
 
 
-export type IQueryButtonBlockArgs = {
+export type QueryButtonBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IButtonBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ButtonBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IButtonBlockWhereInput>;
+  where?: InputMaybe<ButtonBlockWhereInput>;
 };
 
 
-export type IQueryCtaElementArgs = {
+export type QueryCtaElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ICtaElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CtaElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ICtaElementWhereInput>;
+  where?: InputMaybe<CtaElementWhereInput>;
 };
 
 
-export type IQueryCardBlockArgs = {
+export type QueryCardBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ICardBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CardBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ICardBlockWhereInput>;
+  where?: InputMaybe<CardBlockWhereInput>;
 };
 
 
-export type IQueryCarouselBlockArgs = {
+export type QueryCarouselBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ICarouselBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CarouselBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ICarouselBlockWhereInput>;
+  where?: InputMaybe<CarouselBlockWhereInput>;
 };
 
 
-export type IQueryContactArgs = {
+export type QueryContactArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContactOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContactOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContactWhereInput>;
+  where?: InputMaybe<ContactWhereInput>;
 };
 
 
-export type IQueryContactElementArgs = {
+export type QueryContactElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContactElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContactElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContactElementWhereInput>;
+  where?: InputMaybe<ContactElementWhereInput>;
 };
 
 
-export type IQueryContactPageArgs = {
+export type QueryContactPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContactPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContactPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContactPageWhereInput>;
+  where?: InputMaybe<ContactPageWhereInput>;
 };
 
 
-export type IQueryContainerArgs = {
+export type QueryContainerArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContainerOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContainerOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContainerWhereInput>;
+  where?: InputMaybe<ContainerWhereInput>;
 };
 
 
-export type IQueryContentRecsBlockArgs = {
+export type QueryContentRecsBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContentRecsBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContentRecsBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContentRecsBlockWhereInput>;
+  where?: InputMaybe<ContentRecsBlockWhereInput>;
 };
 
 
-export type IQueryContentRecsElementArgs = {
+export type QueryContentRecsElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContentRecsElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContentRecsElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContentRecsElementWhereInput>;
+  where?: InputMaybe<ContentRecsElementWhereInput>;
 };
 
 
-export type IQueryDataArgs = {
+export type QueryDataArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ISystem_Locales>>>;
-  orderBy?: InputMaybe<IDataOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<System_Locales>>>;
+  orderBy?: InputMaybe<DataOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IDataWhereInput>;
+  where?: InputMaybe<DataWhereInput>;
 };
 
 
-export type IQueryEventElementArgs = {
+export type QueryEventElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IEventElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<EventElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IEventElementWhereInput>;
+  where?: InputMaybe<EventElementWhereInput>;
 };
 
 
-export type IQueryGenericMediaArgs = {
+export type QueryGenericMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IGenericMediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<GenericMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IGenericMediaWhereInput>;
+  where?: InputMaybe<GenericMediaWhereInput>;
 };
 
 
-export type IQueryHeadingElementArgs = {
+export type QueryHeadingElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHeadingElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HeadingElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHeadingElementWhereInput>;
+  where?: InputMaybe<HeadingElementWhereInput>;
 };
 
 
-export type IQueryHeroBlockArgs = {
+export type QueryHeroBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHeroBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HeroBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHeroBlockWhereInput>;
+  where?: InputMaybe<HeroBlockWhereInput>;
 };
 
 
-export type IQueryHomePageHeroBlockArgs = {
+export type QueryHomePageHeroBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHomePageHeroBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HomePageHeroBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHomePageHeroBlockWhereInput>;
+  where?: InputMaybe<HomePageHeroBlockWhereInput>;
 };
 
 
-export type IQueryHtmlBlockArgs = {
+export type QueryHtmlBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHtmlBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HtmlBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHtmlBlockWhereInput>;
+  where?: InputMaybe<HtmlBlockWhereInput>;
 };
 
 
-export type IQueryImageElementArgs = {
+export type QueryImageElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IImageElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ImageElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IImageElementWhereInput>;
+  where?: InputMaybe<ImageElementWhereInput>;
 };
 
 
-export type IQueryImageMediaArgs = {
+export type QueryImageMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IImageMediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ImageMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IImageMediaWhereInput>;
+  where?: InputMaybe<ImageMediaWhereInput>;
 };
 
 
-export type IQueryLandingPageArgs = {
+export type QueryLandingPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ILandingPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<LandingPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ILandingPageWhereInput>;
+  where?: InputMaybe<LandingPageWhereInput>;
 };
 
 
-export type IQueryLayoutContainerBlockArgs = {
+export type QueryLayoutContainerBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ILayoutContainerBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<LayoutContainerBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ILayoutContainerBlockWhereInput>;
+  where?: InputMaybe<LayoutContainerBlockWhereInput>;
 };
 
 
-export type IQueryMegaMenuGroupBlockArgs = {
+export type QueryMegaMenuGroupBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IMegaMenuGroupBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<MegaMenuGroupBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IMegaMenuGroupBlockWhereInput>;
+  where?: InputMaybe<MegaMenuGroupBlockWhereInput>;
 };
 
 
-export type IQueryMenuNavigationBlockArgs = {
+export type QueryMenuNavigationBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IMenuNavigationBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<MenuNavigationBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IMenuNavigationBlockWhereInput>;
+  where?: InputMaybe<MenuNavigationBlockWhereInput>;
 };
 
 
-export type IQueryOdpEmbedBlockArgs = {
+export type QueryOdpEmbedBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IOdpEmbedBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OdpEmbedBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IOdpEmbedBlockWhereInput>;
+  where?: InputMaybe<OdpEmbedBlockWhereInput>;
 };
 
 
-export type IQueryPageSeoSettingsArgs = {
+export type QueryPageSeoSettingsArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IPageSeoSettingsOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<PageSeoSettingsOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IPageSeoSettingsWhereInput>;
+  where?: InputMaybe<PageSeoSettingsWhereInput>;
 };
 
 
-export type IQueryParagraphElementArgs = {
+export type QueryParagraphElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IParagraphElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ParagraphElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IParagraphElementWhereInput>;
+  where?: InputMaybe<ParagraphElementWhereInput>;
 };
 
 
-export type IQueryQuoteBlockArgs = {
+export type QueryQuoteBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IQuoteBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<QuoteBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IQuoteBlockWhereInput>;
+  where?: InputMaybe<QuoteBlockWhereInput>;
 };
 
 
-export type IQueryStandardPageArgs = {
+export type QueryStandardPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IStandardPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<StandardPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IStandardPageWhereInput>;
+  where?: InputMaybe<StandardPageWhereInput>;
 };
 
 
-export type IQueryStartPageArgs = {
+export type QueryStartPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IStartPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<StartPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IStartPageWhereInput>;
+  where?: InputMaybe<StartPageWhereInput>;
 };
 
 
-export type IQuerySysContentFolderArgs = {
+export type QuerySysContentFolderArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ISysContentFolderOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<SysContentFolderOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ISysContentFolderWhereInput>;
+  where?: InputMaybe<SysContentFolderWhereInput>;
 };
 
 
-export type IQueryTestimonialElementArgs = {
+export type QueryTestimonialElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ITestimonialElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<TestimonialElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ITestimonialElementWhereInput>;
+  where?: InputMaybe<TestimonialElementWhereInput>;
 };
 
 
-export type IQueryTextBlockArgs = {
+export type QueryTextBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ITextBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<TextBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ITextBlockWhereInput>;
+  where?: InputMaybe<TextBlockWhereInput>;
 };
 
 
-export type IQueryVideoArgs = {
+export type QueryVideoArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IVideoOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<VideoOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IVideoWhereInput>;
+  where?: InputMaybe<VideoWhereInput>;
 };
 
 
-export type IQueryVideoElementArgs = {
+export type QueryVideoElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IVideoElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<VideoElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IVideoElementWhereInput>;
+  where?: InputMaybe<VideoElementWhereInput>;
 };
 
 
-export type IQueryVideoMediaArgs = {
+export type QueryVideoMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IVideoMediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<VideoMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IVideoMediaWhereInput>;
+  where?: InputMaybe<VideoMediaWhereInput>;
 };
 
 
-export type IQuery_ComponentArgs = {
+export type Query_ComponentArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ComponentOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ComponentOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ComponentWhereInput>;
+  where?: InputMaybe<_ComponentWhereInput>;
 };
 
 
-export type IQuery_ContentArgs = {
+export type Query_ContentArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ContentOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ContentOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ContentWhereInput>;
+  where?: InputMaybe<_ContentWhereInput>;
 };
 
 
-export type IQuery_ElementArgs = {
+export type Query_ElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ElementWhereInput>;
+  where?: InputMaybe<_ElementWhereInput>;
 };
 
 
-export type IQuery_ExperienceArgs = {
+export type Query_ExperienceArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ExperienceOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ExperienceOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ExperienceWhereInput>;
+  where?: InputMaybe<_ExperienceWhereInput>;
 };
 
 
-export type IQuery_FolderArgs = {
+export type Query_FolderArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_FolderOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_FolderOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_FolderWhereInput>;
+  where?: InputMaybe<_FolderWhereInput>;
 };
 
 
-export type IQuery_ImageArgs = {
+export type Query_ImageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ImageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ImageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ImageWhereInput>;
+  where?: InputMaybe<_ImageWhereInput>;
 };
 
 
-export type IQuery_MediaArgs = {
+export type Query_MediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_MediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_MediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_MediaWhereInput>;
+  where?: InputMaybe<_MediaWhereInput>;
 };
 
 
-export type IQuery_PageArgs = {
+export type Query_PageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_PageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_PageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_PageWhereInput>;
+  where?: InputMaybe<_PageWhereInput>;
 };
 
 
-export type IQuery_SectionArgs = {
+export type Query_SectionArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_SectionOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_SectionOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_SectionWhereInput>;
+  where?: InputMaybe<_SectionWhereInput>;
 };
 
 
-export type IQuery_VideoArgs = {
+export type Query_VideoArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_VideoOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_VideoOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_VideoWhereInput>;
+  where?: InputMaybe<_VideoWhereInput>;
 };
 
-export type IQueryRef = {
+export type QueryRef = {
   __typename?: 'QueryRef';
-  ArticleListElement?: Maybe<IArticleListElementOutput>;
-  BlankExperience?: Maybe<IBlankExperienceOutput>;
-  BlankSection?: Maybe<IBlankSectionOutput>;
-  BlogListingBlock?: Maybe<IBlogListingBlockOutput>;
-  BlogPostPage?: Maybe<IBlogPostPageOutput>;
-  ButtonBlock?: Maybe<IButtonBlockOutput>;
-  CTAElement?: Maybe<ICtaElementOutput>;
-  CardBlock?: Maybe<ICardBlockOutput>;
-  CarouselBlock?: Maybe<ICarouselBlockOutput>;
-  Contact?: Maybe<IContactOutput>;
-  ContactElement?: Maybe<IContactElementOutput>;
-  ContactPage?: Maybe<IContactPageOutput>;
-  Container?: Maybe<IContainerOutput>;
-  ContentRecsBlock?: Maybe<IContentRecsBlockOutput>;
-  ContentRecsElement?: Maybe<IContentRecsElementOutput>;
-  Data?: Maybe<IDataOutput>;
-  EventElement?: Maybe<IEventElementOutput>;
-  GenericMedia?: Maybe<IGenericMediaOutput>;
-  HeadingElement?: Maybe<IHeadingElementOutput>;
-  HeroBlock?: Maybe<IHeroBlockOutput>;
-  HomePageHeroBlock?: Maybe<IHomePageHeroBlockOutput>;
-  HtmlBlock?: Maybe<IHtmlBlockOutput>;
-  ImageElement?: Maybe<IImageElementOutput>;
-  ImageMedia?: Maybe<IImageMediaOutput>;
-  LandingPage?: Maybe<ILandingPageOutput>;
-  LayoutContainerBlock?: Maybe<ILayoutContainerBlockOutput>;
-  MegaMenuGroupBlock?: Maybe<IMegaMenuGroupBlockOutput>;
-  MenuNavigationBlock?: Maybe<IMenuNavigationBlockOutput>;
-  OdpEmbedBlock?: Maybe<IOdpEmbedBlockOutput>;
-  PageSeoSettings?: Maybe<IPageSeoSettingsOutput>;
-  ParagraphElement?: Maybe<IParagraphElementOutput>;
-  QuoteBlock?: Maybe<IQuoteBlockOutput>;
-  StandardPage?: Maybe<IStandardPageOutput>;
-  StartPage?: Maybe<IStartPageOutput>;
-  SysContentFolder?: Maybe<ISysContentFolderOutput>;
-  TestimonialElement?: Maybe<ITestimonialElementOutput>;
-  TextBlock?: Maybe<ITextBlockOutput>;
-  Video?: Maybe<IVideoOutput>;
-  VideoElement?: Maybe<IVideoElementOutput>;
-  VideoMedia?: Maybe<IVideoMediaOutput>;
-  _Component?: Maybe<I_ComponentOutput>;
-  _Content?: Maybe<I_ContentOutput>;
-  _Element?: Maybe<I_ElementOutput>;
-  _Experience?: Maybe<I_ExperienceOutput>;
-  _Folder?: Maybe<I_FolderOutput>;
-  _Image?: Maybe<I_ImageOutput>;
-  _Media?: Maybe<I_MediaOutput>;
-  _Page?: Maybe<I_PageOutput>;
-  _Section?: Maybe<I_SectionOutput>;
-  _Video?: Maybe<I_VideoOutput>;
+  ArticleListElement?: Maybe<ArticleListElementOutput>;
+  BlankExperience?: Maybe<BlankExperienceOutput>;
+  BlankSection?: Maybe<BlankSectionOutput>;
+  BlogListingBlock?: Maybe<BlogListingBlockOutput>;
+  BlogPostPage?: Maybe<BlogPostPageOutput>;
+  ButtonBlock?: Maybe<ButtonBlockOutput>;
+  CTAElement?: Maybe<CtaElementOutput>;
+  CardBlock?: Maybe<CardBlockOutput>;
+  CarouselBlock?: Maybe<CarouselBlockOutput>;
+  Contact?: Maybe<ContactOutput>;
+  ContactElement?: Maybe<ContactElementOutput>;
+  ContactPage?: Maybe<ContactPageOutput>;
+  Container?: Maybe<ContainerOutput>;
+  ContentRecsBlock?: Maybe<ContentRecsBlockOutput>;
+  ContentRecsElement?: Maybe<ContentRecsElementOutput>;
+  Data?: Maybe<DataOutput>;
+  EventElement?: Maybe<EventElementOutput>;
+  GenericMedia?: Maybe<GenericMediaOutput>;
+  HeadingElement?: Maybe<HeadingElementOutput>;
+  HeroBlock?: Maybe<HeroBlockOutput>;
+  HomePageHeroBlock?: Maybe<HomePageHeroBlockOutput>;
+  HtmlBlock?: Maybe<HtmlBlockOutput>;
+  ImageElement?: Maybe<ImageElementOutput>;
+  ImageMedia?: Maybe<ImageMediaOutput>;
+  LandingPage?: Maybe<LandingPageOutput>;
+  LayoutContainerBlock?: Maybe<LayoutContainerBlockOutput>;
+  MegaMenuGroupBlock?: Maybe<MegaMenuGroupBlockOutput>;
+  MenuNavigationBlock?: Maybe<MenuNavigationBlockOutput>;
+  OdpEmbedBlock?: Maybe<OdpEmbedBlockOutput>;
+  PageSeoSettings?: Maybe<PageSeoSettingsOutput>;
+  ParagraphElement?: Maybe<ParagraphElementOutput>;
+  QuoteBlock?: Maybe<QuoteBlockOutput>;
+  StandardPage?: Maybe<StandardPageOutput>;
+  StartPage?: Maybe<StartPageOutput>;
+  SysContentFolder?: Maybe<SysContentFolderOutput>;
+  TestimonialElement?: Maybe<TestimonialElementOutput>;
+  TextBlock?: Maybe<TextBlockOutput>;
+  Video?: Maybe<VideoOutput>;
+  VideoElement?: Maybe<VideoElementOutput>;
+  VideoMedia?: Maybe<VideoMediaOutput>;
+  _Component?: Maybe<_ComponentOutput>;
+  _Content?: Maybe<_ContentOutput>;
+  _Element?: Maybe<_ElementOutput>;
+  _Experience?: Maybe<_ExperienceOutput>;
+  _Folder?: Maybe<_FolderOutput>;
+  _Image?: Maybe<_ImageOutput>;
+  _Media?: Maybe<_MediaOutput>;
+  _Page?: Maybe<_PageOutput>;
+  _Section?: Maybe<_SectionOutput>;
+  _Video?: Maybe<_VideoOutput>;
 };
 
 
-export type IQueryRefArticleListElementArgs = {
+export type QueryRefArticleListElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IArticleListElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ArticleListElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IArticleListElementWhereInput>;
+  where?: InputMaybe<ArticleListElementWhereInput>;
 };
 
 
-export type IQueryRefBlankExperienceArgs = {
+export type QueryRefBlankExperienceArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlankExperienceOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlankExperienceOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlankExperienceWhereInput>;
+  where?: InputMaybe<BlankExperienceWhereInput>;
 };
 
 
-export type IQueryRefBlankSectionArgs = {
+export type QueryRefBlankSectionArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlankSectionOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlankSectionOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlankSectionWhereInput>;
+  where?: InputMaybe<BlankSectionWhereInput>;
 };
 
 
-export type IQueryRefBlogListingBlockArgs = {
+export type QueryRefBlogListingBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlogListingBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlogListingBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlogListingBlockWhereInput>;
+  where?: InputMaybe<BlogListingBlockWhereInput>;
 };
 
 
-export type IQueryRefBlogPostPageArgs = {
+export type QueryRefBlogPostPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IBlogPostPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<BlogPostPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IBlogPostPageWhereInput>;
+  where?: InputMaybe<BlogPostPageWhereInput>;
 };
 
 
-export type IQueryRefButtonBlockArgs = {
+export type QueryRefButtonBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IButtonBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ButtonBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IButtonBlockWhereInput>;
+  where?: InputMaybe<ButtonBlockWhereInput>;
 };
 
 
-export type IQueryRefCtaElementArgs = {
+export type QueryRefCtaElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ICtaElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CtaElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ICtaElementWhereInput>;
+  where?: InputMaybe<CtaElementWhereInput>;
 };
 
 
-export type IQueryRefCardBlockArgs = {
+export type QueryRefCardBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ICardBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CardBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ICardBlockWhereInput>;
+  where?: InputMaybe<CardBlockWhereInput>;
 };
 
 
-export type IQueryRefCarouselBlockArgs = {
+export type QueryRefCarouselBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ICarouselBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CarouselBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ICarouselBlockWhereInput>;
+  where?: InputMaybe<CarouselBlockWhereInput>;
 };
 
 
-export type IQueryRefContactArgs = {
+export type QueryRefContactArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContactOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContactOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContactWhereInput>;
+  where?: InputMaybe<ContactWhereInput>;
 };
 
 
-export type IQueryRefContactElementArgs = {
+export type QueryRefContactElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContactElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContactElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContactElementWhereInput>;
+  where?: InputMaybe<ContactElementWhereInput>;
 };
 
 
-export type IQueryRefContactPageArgs = {
+export type QueryRefContactPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContactPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContactPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContactPageWhereInput>;
+  where?: InputMaybe<ContactPageWhereInput>;
 };
 
 
-export type IQueryRefContainerArgs = {
+export type QueryRefContainerArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContainerOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContainerOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContainerWhereInput>;
+  where?: InputMaybe<ContainerWhereInput>;
 };
 
 
-export type IQueryRefContentRecsBlockArgs = {
+export type QueryRefContentRecsBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContentRecsBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContentRecsBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContentRecsBlockWhereInput>;
+  where?: InputMaybe<ContentRecsBlockWhereInput>;
 };
 
 
-export type IQueryRefContentRecsElementArgs = {
+export type QueryRefContentRecsElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IContentRecsElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ContentRecsElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IContentRecsElementWhereInput>;
+  where?: InputMaybe<ContentRecsElementWhereInput>;
 };
 
 
-export type IQueryRefDataArgs = {
+export type QueryRefDataArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ISystem_Locales>>>;
-  orderBy?: InputMaybe<IDataOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<System_Locales>>>;
+  orderBy?: InputMaybe<DataOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IDataWhereInput>;
+  where?: InputMaybe<DataWhereInput>;
 };
 
 
-export type IQueryRefEventElementArgs = {
+export type QueryRefEventElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IEventElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<EventElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IEventElementWhereInput>;
+  where?: InputMaybe<EventElementWhereInput>;
 };
 
 
-export type IQueryRefGenericMediaArgs = {
+export type QueryRefGenericMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IGenericMediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<GenericMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IGenericMediaWhereInput>;
+  where?: InputMaybe<GenericMediaWhereInput>;
 };
 
 
-export type IQueryRefHeadingElementArgs = {
+export type QueryRefHeadingElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHeadingElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HeadingElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHeadingElementWhereInput>;
+  where?: InputMaybe<HeadingElementWhereInput>;
 };
 
 
-export type IQueryRefHeroBlockArgs = {
+export type QueryRefHeroBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHeroBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HeroBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHeroBlockWhereInput>;
+  where?: InputMaybe<HeroBlockWhereInput>;
 };
 
 
-export type IQueryRefHomePageHeroBlockArgs = {
+export type QueryRefHomePageHeroBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHomePageHeroBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HomePageHeroBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHomePageHeroBlockWhereInput>;
+  where?: InputMaybe<HomePageHeroBlockWhereInput>;
 };
 
 
-export type IQueryRefHtmlBlockArgs = {
+export type QueryRefHtmlBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IHtmlBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HtmlBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IHtmlBlockWhereInput>;
+  where?: InputMaybe<HtmlBlockWhereInput>;
 };
 
 
-export type IQueryRefImageElementArgs = {
+export type QueryRefImageElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IImageElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ImageElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IImageElementWhereInput>;
+  where?: InputMaybe<ImageElementWhereInput>;
 };
 
 
-export type IQueryRefImageMediaArgs = {
+export type QueryRefImageMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IImageMediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ImageMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IImageMediaWhereInput>;
+  where?: InputMaybe<ImageMediaWhereInput>;
 };
 
 
-export type IQueryRefLandingPageArgs = {
+export type QueryRefLandingPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ILandingPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<LandingPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ILandingPageWhereInput>;
+  where?: InputMaybe<LandingPageWhereInput>;
 };
 
 
-export type IQueryRefLayoutContainerBlockArgs = {
+export type QueryRefLayoutContainerBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ILayoutContainerBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<LayoutContainerBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ILayoutContainerBlockWhereInput>;
+  where?: InputMaybe<LayoutContainerBlockWhereInput>;
 };
 
 
-export type IQueryRefMegaMenuGroupBlockArgs = {
+export type QueryRefMegaMenuGroupBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IMegaMenuGroupBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<MegaMenuGroupBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IMegaMenuGroupBlockWhereInput>;
+  where?: InputMaybe<MegaMenuGroupBlockWhereInput>;
 };
 
 
-export type IQueryRefMenuNavigationBlockArgs = {
+export type QueryRefMenuNavigationBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IMenuNavigationBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<MenuNavigationBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IMenuNavigationBlockWhereInput>;
+  where?: InputMaybe<MenuNavigationBlockWhereInput>;
 };
 
 
-export type IQueryRefOdpEmbedBlockArgs = {
+export type QueryRefOdpEmbedBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IOdpEmbedBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<OdpEmbedBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IOdpEmbedBlockWhereInput>;
+  where?: InputMaybe<OdpEmbedBlockWhereInput>;
 };
 
 
-export type IQueryRefPageSeoSettingsArgs = {
+export type QueryRefPageSeoSettingsArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IPageSeoSettingsOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<PageSeoSettingsOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IPageSeoSettingsWhereInput>;
+  where?: InputMaybe<PageSeoSettingsWhereInput>;
 };
 
 
-export type IQueryRefParagraphElementArgs = {
+export type QueryRefParagraphElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IParagraphElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<ParagraphElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IParagraphElementWhereInput>;
+  where?: InputMaybe<ParagraphElementWhereInput>;
 };
 
 
-export type IQueryRefQuoteBlockArgs = {
+export type QueryRefQuoteBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IQuoteBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<QuoteBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IQuoteBlockWhereInput>;
+  where?: InputMaybe<QuoteBlockWhereInput>;
 };
 
 
-export type IQueryRefStandardPageArgs = {
+export type QueryRefStandardPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IStandardPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<StandardPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IStandardPageWhereInput>;
+  where?: InputMaybe<StandardPageWhereInput>;
 };
 
 
-export type IQueryRefStartPageArgs = {
+export type QueryRefStartPageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IStartPageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<StartPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IStartPageWhereInput>;
+  where?: InputMaybe<StartPageWhereInput>;
 };
 
 
-export type IQueryRefSysContentFolderArgs = {
+export type QueryRefSysContentFolderArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ISysContentFolderOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<SysContentFolderOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ISysContentFolderWhereInput>;
+  where?: InputMaybe<SysContentFolderWhereInput>;
 };
 
 
-export type IQueryRefTestimonialElementArgs = {
+export type QueryRefTestimonialElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ITestimonialElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<TestimonialElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ITestimonialElementWhereInput>;
+  where?: InputMaybe<TestimonialElementWhereInput>;
 };
 
 
-export type IQueryRefTextBlockArgs = {
+export type QueryRefTextBlockArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<ITextBlockOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<TextBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<ITextBlockWhereInput>;
+  where?: InputMaybe<TextBlockWhereInput>;
 };
 
 
-export type IQueryRefVideoArgs = {
+export type QueryRefVideoArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IVideoOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<VideoOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IVideoWhereInput>;
+  where?: InputMaybe<VideoWhereInput>;
 };
 
 
-export type IQueryRefVideoElementArgs = {
+export type QueryRefVideoElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IVideoElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<VideoElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IVideoElementWhereInput>;
+  where?: InputMaybe<VideoElementWhereInput>;
 };
 
 
-export type IQueryRefVideoMediaArgs = {
+export type QueryRefVideoMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<IVideoMediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<VideoMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<IVideoMediaWhereInput>;
+  where?: InputMaybe<VideoMediaWhereInput>;
 };
 
 
-export type IQueryRef_ComponentArgs = {
+export type QueryRef_ComponentArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ComponentOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ComponentOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ComponentWhereInput>;
+  where?: InputMaybe<_ComponentWhereInput>;
 };
 
 
-export type IQueryRef_ContentArgs = {
+export type QueryRef_ContentArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ContentOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ContentOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ContentWhereInput>;
+  where?: InputMaybe<_ContentWhereInput>;
 };
 
 
-export type IQueryRef_ElementArgs = {
+export type QueryRef_ElementArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ElementOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ElementOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ElementWhereInput>;
+  where?: InputMaybe<_ElementWhereInput>;
 };
 
 
-export type IQueryRef_ExperienceArgs = {
+export type QueryRef_ExperienceArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ExperienceOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ExperienceOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ExperienceWhereInput>;
+  where?: InputMaybe<_ExperienceWhereInput>;
 };
 
 
-export type IQueryRef_FolderArgs = {
+export type QueryRef_FolderArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_FolderOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_FolderOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_FolderWhereInput>;
+  where?: InputMaybe<_FolderWhereInput>;
 };
 
 
-export type IQueryRef_ImageArgs = {
+export type QueryRef_ImageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_ImageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_ImageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_ImageWhereInput>;
+  where?: InputMaybe<_ImageWhereInput>;
 };
 
 
-export type IQueryRef_MediaArgs = {
+export type QueryRef_MediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_MediaOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_MediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_MediaWhereInput>;
+  where?: InputMaybe<_MediaWhereInput>;
 };
 
 
-export type IQueryRef_PageArgs = {
+export type QueryRef_PageArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_PageOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_PageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_PageWhereInput>;
+  where?: InputMaybe<_PageWhereInput>;
 };
 
 
-export type IQueryRef_SectionArgs = {
+export type QueryRef_SectionArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_SectionOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_SectionOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_SectionWhereInput>;
+  where?: InputMaybe<_SectionWhereInput>;
 };
 
 
-export type IQueryRef_VideoArgs = {
+export type QueryRef_VideoArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
-  locale?: InputMaybe<Array<InputMaybe<ILocales>>>;
-  orderBy?: InputMaybe<I_VideoOrderByInput>;
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<_VideoOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where?: InputMaybe<I_VideoWhereInput>;
+  where?: InputMaybe<_VideoWhereInput>;
 };
 
-export type IQuoteBlock = IIData & I_IComponent & I_IContent & {
+export type QuoteBlock = IData & _IComponent & _IContent & {
   __typename?: 'QuoteBlock';
   QuoteActive?: Maybe<Scalars['Boolean']['output']>;
   QuoteColor?: Maybe<Scalars['String']['output']>;
   QuoteProfileLocation?: Maybe<Scalars['String']['output']>;
   QuoteProfileName?: Maybe<Scalars['String']['output']>;
-  QuoteProfilePicture?: Maybe<IContentReference>;
+  QuoteProfilePicture?: Maybe<ContentReference>;
   QuoteText?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IQuoteBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type QuoteBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IQuoteBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type QuoteBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IQuoteBlockAutocomplete = {
+export type QuoteBlockAutocomplete = {
   __typename?: 'QuoteBlockAutocomplete';
-  QuoteProfilePicture?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  QuoteProfilePicture?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IQuoteBlockFacet = {
+export type QuoteBlockFacet = {
   __typename?: 'QuoteBlockFacet';
-  QuoteProfilePicture?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  QuoteProfilePicture?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IQuoteBlockOrderByInput = {
-  QuoteProfilePicture?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type QuoteBlockOrderByInput = {
+  QuoteProfilePicture?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IQuoteBlockOutput = {
+export type QuoteBlockOutput = {
   __typename?: 'QuoteBlockOutput';
-  autocomplete?: Maybe<IQuoteBlockAutocomplete>;
+  autocomplete?: Maybe<QuoteBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IQuoteBlockFacet>;
-  items?: Maybe<Array<Maybe<IQuoteBlock>>>;
+  facets?: Maybe<QuoteBlockFacet>;
+  items?: Maybe<Array<Maybe<QuoteBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IQuoteBlockOutputTotalArgs = {
+export type QuoteBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IQuoteBlockWhereInput = {
-  QuoteProfilePicture?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IQuoteBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IQuoteBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IQuoteBlockWhereInput>>>;
+export type QuoteBlockWhereInput = {
+  QuoteProfilePicture?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<QuoteBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<QuoteBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<QuoteBlockWhereInput>>>;
 };
 
-export enum IRanking {
+export enum Ranking {
   BoostOnly = 'BOOST_ONLY',
   Doc = 'DOC',
   Relevance = 'RELEVANCE',
   Semantic = 'SEMANTIC'
 }
 
-export type IRichText = {
+export type RichText = {
   __typename?: 'RichText';
   html?: Maybe<Scalars['String']['output']>;
   json?: Maybe<Scalars['JSON']['output']>;
 };
 
-export type IRichTextAutocomplete = {
+export type RichTextAutocomplete = {
   __typename?: 'RichTextAutocomplete';
   html?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type IRichTextAutocompleteHtmlArgs = {
+export type RichTextAutocompleteHtmlArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type IRichTextFacet = {
+export type RichTextFacet = {
   __typename?: 'RichTextFacet';
-  html?: Maybe<Array<Maybe<IStringFacet>>>;
+  html?: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type IRichTextFacetHtmlArgs = {
+export type RichTextFacetHtmlArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<IOrderBy>;
-  orderType?: InputMaybe<IOrderByFacetType>;
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type IRichTextOrderByInput = {
-  html?: InputMaybe<IOrderBy>;
+export type RichTextOrderByInput = {
+  html?: InputMaybe<OrderBy>;
 };
 
-export type IRichTextWhereInput = {
-  html?: InputMaybe<IStringFilterInput>;
+export type RichTextWhereInput = {
+  html?: InputMaybe<StringFilterInput>;
 };
 
-export type ISearchableStringFilterInput = {
+export type SearchableStringFilterInput = {
   /** `boost` influences the weight of a field by boosting a match with a number (default: 1) — counts more towards the eventual relevance score which can be projected with `_score` — at query time. Note that `boost` cannot be a negative number. */
   boost?: InputMaybe<Scalars['Int']['input']>;
   /** `contains` performs full-text search on a word or phrase. */
@@ -4651,202 +4651,202 @@ export type ISearchableStringFilterInput = {
   /** `starts_with` retrieves matches that start with a certain value (prefix). */
   startsWith?: InputMaybe<Scalars['String']['input']>;
   /** expands query value with synonyms. Example: if `H2O` is a synonym of `water`, then querying for `water` will also return results with `H2O`. */
-  synonyms?: InputMaybe<Array<InputMaybe<ISynonymSlot>>>;
+  synonyms?: InputMaybe<Array<InputMaybe<SynonymSlot>>>;
 };
 
-export type IStandardPage = IIData & I_IContent & I_IPage & {
+export type StandardPage = IData & _IContent & _IPage & {
   __typename?: 'StandardPage';
-  MainBody?: Maybe<IRichText>;
-  SeoSettings?: Maybe<IPageSeoSettingsProperty>;
+  MainBody?: Maybe<RichText>;
+  SeoSettings?: Maybe<PageSeoSettingsProperty>;
   StandardPageHeading?: Maybe<Scalars['String']['output']>;
-  StandardPromoImage?: Maybe<IContentReference>;
+  StandardPromoImage?: Maybe<ContentReference>;
   StandardSubHeading?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IStandardPage_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type StandardPage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IStandardPage_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type StandardPage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IStandardPageAutocomplete = {
+export type StandardPageAutocomplete = {
   __typename?: 'StandardPageAutocomplete';
-  MainBody?: Maybe<IRichTextAutocomplete>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyAutocomplete>;
-  StandardPromoImage?: Maybe<IContentReferenceAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  MainBody?: Maybe<RichTextAutocomplete>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyAutocomplete>;
+  StandardPromoImage?: Maybe<ContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IStandardPageFacet = {
+export type StandardPageFacet = {
   __typename?: 'StandardPageFacet';
-  MainBody?: Maybe<IRichTextFacet>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyFacet>;
-  StandardPromoImage?: Maybe<IContentReferenceFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  MainBody?: Maybe<RichTextFacet>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyFacet>;
+  StandardPromoImage?: Maybe<ContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IStandardPageOrderByInput = {
-  MainBody?: InputMaybe<IRichTextOrderByInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyOrderByInput>;
-  StandardPromoImage?: InputMaybe<IContentReferenceOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type StandardPageOrderByInput = {
+  MainBody?: InputMaybe<RichTextOrderByInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyOrderByInput>;
+  StandardPromoImage?: InputMaybe<ContentReferenceOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IStandardPageOutput = {
+export type StandardPageOutput = {
   __typename?: 'StandardPageOutput';
-  autocomplete?: Maybe<IStandardPageAutocomplete>;
+  autocomplete?: Maybe<StandardPageAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IStandardPageFacet>;
-  items?: Maybe<Array<Maybe<IStandardPage>>>;
+  facets?: Maybe<StandardPageFacet>;
+  items?: Maybe<Array<Maybe<StandardPage>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IStandardPageOutputTotalArgs = {
+export type StandardPageOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IStandardPageWhereInput = {
-  MainBody?: InputMaybe<IRichTextWhereInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyWhereInput>;
-  StandardPromoImage?: InputMaybe<IContentReferenceWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IStandardPageWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IStandardPageWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IStandardPageWhereInput>>>;
+export type StandardPageWhereInput = {
+  MainBody?: InputMaybe<RichTextWhereInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyWhereInput>;
+  StandardPromoImage?: InputMaybe<ContentReferenceWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<StandardPageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<StandardPageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<StandardPageWhereInput>>>;
 };
 
-export type IStartPage = IIData & I_IContent & I_IPage & {
+export type StartPage = IData & _IContent & _IPage & {
   __typename?: 'StartPage';
-  FooterNavigationContentArea?: Maybe<Array<Maybe<I_IContent>>>;
+  FooterNavigationContentArea?: Maybe<Array<Maybe<_IContent>>>;
   FooterNavigationCopyrightText?: Maybe<Scalars['String']['output']>;
-  FooterNavigationSubLinks?: Maybe<Array<Maybe<ILink>>>;
-  HomePageHeroContentArea?: Maybe<Array<Maybe<I_IContent>>>;
-  HomePageMainContentArea?: Maybe<Array<Maybe<I_IContent>>>;
-  MainNavigationContentArea?: Maybe<Array<Maybe<I_IContent>>>;
-  SeoSettings?: Maybe<IPageSeoSettingsProperty>;
-  SiteImageLogo?: Maybe<IContentReference>;
-  UtilityNavigationContentArea?: Maybe<Array<Maybe<I_IContent>>>;
+  FooterNavigationSubLinks?: Maybe<Array<Maybe<Link>>>;
+  HomePageHeroContentArea?: Maybe<Array<Maybe<_IContent>>>;
+  HomePageMainContentArea?: Maybe<Array<Maybe<_IContent>>>;
+  MainNavigationContentArea?: Maybe<Array<Maybe<_IContent>>>;
+  SeoSettings?: Maybe<PageSeoSettingsProperty>;
+  SiteImageLogo?: Maybe<ContentReference>;
+  UtilityNavigationContentArea?: Maybe<Array<Maybe<_IContent>>>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IStartPage_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type StartPage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IStartPage_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type StartPage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IStartPageAutocomplete = {
+export type StartPageAutocomplete = {
   __typename?: 'StartPageAutocomplete';
-  FooterNavigationContentArea?: Maybe<I_IContentAutocomplete>;
-  FooterNavigationSubLinks?: Maybe<ILinkAutocomplete>;
-  HomePageHeroContentArea?: Maybe<I_IContentAutocomplete>;
-  HomePageMainContentArea?: Maybe<I_IContentAutocomplete>;
-  MainNavigationContentArea?: Maybe<I_IContentAutocomplete>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyAutocomplete>;
-  SiteImageLogo?: Maybe<IContentReferenceAutocomplete>;
-  UtilityNavigationContentArea?: Maybe<I_IContentAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  FooterNavigationContentArea?: Maybe<_IContentAutocomplete>;
+  FooterNavigationSubLinks?: Maybe<LinkAutocomplete>;
+  HomePageHeroContentArea?: Maybe<_IContentAutocomplete>;
+  HomePageMainContentArea?: Maybe<_IContentAutocomplete>;
+  MainNavigationContentArea?: Maybe<_IContentAutocomplete>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyAutocomplete>;
+  SiteImageLogo?: Maybe<ContentReferenceAutocomplete>;
+  UtilityNavigationContentArea?: Maybe<_IContentAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IStartPageFacet = {
+export type StartPageFacet = {
   __typename?: 'StartPageFacet';
-  FooterNavigationContentArea?: Maybe<I_IContentFacet>;
-  FooterNavigationSubLinks?: Maybe<ILinkFacet>;
-  HomePageHeroContentArea?: Maybe<I_IContentFacet>;
-  HomePageMainContentArea?: Maybe<I_IContentFacet>;
-  MainNavigationContentArea?: Maybe<I_IContentFacet>;
-  SeoSettings?: Maybe<IPageSeoSettingsPropertyFacet>;
-  SiteImageLogo?: Maybe<IContentReferenceFacet>;
-  UtilityNavigationContentArea?: Maybe<I_IContentFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  FooterNavigationContentArea?: Maybe<_IContentFacet>;
+  FooterNavigationSubLinks?: Maybe<LinkFacet>;
+  HomePageHeroContentArea?: Maybe<_IContentFacet>;
+  HomePageMainContentArea?: Maybe<_IContentFacet>;
+  MainNavigationContentArea?: Maybe<_IContentFacet>;
+  SeoSettings?: Maybe<PageSeoSettingsPropertyFacet>;
+  SiteImageLogo?: Maybe<ContentReferenceFacet>;
+  UtilityNavigationContentArea?: Maybe<_IContentFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IStartPageOrderByInput = {
-  FooterNavigationContentArea?: InputMaybe<I_IContentOrderByInput>;
-  FooterNavigationSubLinks?: InputMaybe<ILinkOrderByInput>;
-  HomePageHeroContentArea?: InputMaybe<I_IContentOrderByInput>;
-  HomePageMainContentArea?: InputMaybe<I_IContentOrderByInput>;
-  MainNavigationContentArea?: InputMaybe<I_IContentOrderByInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyOrderByInput>;
-  SiteImageLogo?: InputMaybe<IContentReferenceOrderByInput>;
-  UtilityNavigationContentArea?: InputMaybe<I_IContentOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type StartPageOrderByInput = {
+  FooterNavigationContentArea?: InputMaybe<_IContentOrderByInput>;
+  FooterNavigationSubLinks?: InputMaybe<LinkOrderByInput>;
+  HomePageHeroContentArea?: InputMaybe<_IContentOrderByInput>;
+  HomePageMainContentArea?: InputMaybe<_IContentOrderByInput>;
+  MainNavigationContentArea?: InputMaybe<_IContentOrderByInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyOrderByInput>;
+  SiteImageLogo?: InputMaybe<ContentReferenceOrderByInput>;
+  UtilityNavigationContentArea?: InputMaybe<_IContentOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IStartPageOutput = {
+export type StartPageOutput = {
   __typename?: 'StartPageOutput';
-  autocomplete?: Maybe<IStartPageAutocomplete>;
+  autocomplete?: Maybe<StartPageAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IStartPageFacet>;
-  items?: Maybe<Array<Maybe<IStartPage>>>;
+  facets?: Maybe<StartPageFacet>;
+  items?: Maybe<Array<Maybe<StartPage>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IStartPageOutputTotalArgs = {
+export type StartPageOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IStartPageWhereInput = {
-  FooterNavigationContentArea?: InputMaybe<I_IContentWhereInput>;
-  FooterNavigationSubLinks?: InputMaybe<ILinkWhereInput>;
-  HomePageHeroContentArea?: InputMaybe<I_IContentWhereInput>;
-  HomePageMainContentArea?: InputMaybe<I_IContentWhereInput>;
-  MainNavigationContentArea?: InputMaybe<I_IContentWhereInput>;
-  SeoSettings?: InputMaybe<IPageSeoSettingsPropertyWhereInput>;
-  SiteImageLogo?: InputMaybe<IContentReferenceWhereInput>;
-  UtilityNavigationContentArea?: InputMaybe<I_IContentWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<IStartPageWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IStartPageWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IStartPageWhereInput>>>;
+export type StartPageWhereInput = {
+  FooterNavigationContentArea?: InputMaybe<_IContentWhereInput>;
+  FooterNavigationSubLinks?: InputMaybe<LinkWhereInput>;
+  HomePageHeroContentArea?: InputMaybe<_IContentWhereInput>;
+  HomePageMainContentArea?: InputMaybe<_IContentWhereInput>;
+  MainNavigationContentArea?: InputMaybe<_IContentWhereInput>;
+  SeoSettings?: InputMaybe<PageSeoSettingsPropertyWhereInput>;
+  SiteImageLogo?: InputMaybe<ContentReferenceWhereInput>;
+  UtilityNavigationContentArea?: InputMaybe<_IContentWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
 };
 
-export type IStringFacet = {
+export type StringFacet = {
   __typename?: 'StringFacet';
   count?: Maybe<Scalars['Int']['output']>;
   name?: Maybe<Scalars['String']['output']>;
 };
 
-export type IStringFilterInput = {
+export type StringFilterInput = {
   /** `boost` influences the weight of a field by boosting a match with a number (default: 1) — counts more towards the eventual relevance score which can be projected with `_score` — at query time. Note that `boost` cannot be a negative number. */
   boost?: InputMaybe<Scalars['Int']['input']>;
   /** `ends_with` retrieves matches that end with a certain value (suffix). */
@@ -4868,160 +4868,160 @@ export type IStringFilterInput = {
   /** `starts_with` retrieves matches that start with a certain value (prefix). */
   startsWith?: InputMaybe<Scalars['String']['input']>;
   /** expands query value with synonyms. Example: if `H2O` is a synonym of `water`, then querying for `water` will also return results with `H2O`. */
-  synonyms?: InputMaybe<Array<InputMaybe<ISynonymSlot>>>;
+  synonyms?: InputMaybe<Array<InputMaybe<SynonymSlot>>>;
 };
 
-export enum ISynonymSlot {
+export enum SynonymSlot {
   /** synonym slot 1 */
   One = 'ONE',
   /** synonym slot 2 */
   Two = 'TWO'
 }
 
-export type ISysContentFolder = IIData & I_IContent & I_IFolder & {
+export type SysContentFolder = IData & _IContent & _IFolder & {
   __typename?: 'SysContentFolder';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type ISysContentFolder_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type SysContentFolder_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ISysContentFolder_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type SysContentFolder_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ISysContentFolderAutocomplete = {
+export type SysContentFolderAutocomplete = {
   __typename?: 'SysContentFolderAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type ISysContentFolderFacet = {
+export type SysContentFolderFacet = {
   __typename?: 'SysContentFolderFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type ISysContentFolderOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type SysContentFolderOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type ISysContentFolderOutput = {
+export type SysContentFolderOutput = {
   __typename?: 'SysContentFolderOutput';
-  autocomplete?: Maybe<ISysContentFolderAutocomplete>;
+  autocomplete?: Maybe<SysContentFolderAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ISysContentFolderFacet>;
-  items?: Maybe<Array<Maybe<ISysContentFolder>>>;
+  facets?: Maybe<SysContentFolderFacet>;
+  items?: Maybe<Array<Maybe<SysContentFolder>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ISysContentFolderOutputTotalArgs = {
+export type SysContentFolderOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ISysContentFolderWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<ISysContentFolderWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ISysContentFolderWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ISysContentFolderWhereInput>>>;
+export type SysContentFolderWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<SysContentFolderWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<SysContentFolderWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<SysContentFolderWhereInput>>>;
 };
 
-export type ITestimonialElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type TestimonialElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'TestimonialElement';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  customerImage?: Maybe<IContentReference>;
+  customerImage?: Maybe<ContentReference>;
   customerLocation?: Maybe<Scalars['String']['output']>;
   customerName?: Maybe<Scalars['String']['output']>;
-  referenceText?: Maybe<IRichText>;
+  referenceText?: Maybe<RichText>;
   referenceTitle?: Maybe<Scalars['String']['output']>;
 };
 
 
-export type ITestimonialElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type TestimonialElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ITestimonialElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type TestimonialElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ITestimonialElementAutocomplete = {
+export type TestimonialElementAutocomplete = {
   __typename?: 'TestimonialElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  customerImage?: Maybe<IContentReferenceAutocomplete>;
-  referenceText?: Maybe<IRichTextAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  customerImage?: Maybe<ContentReferenceAutocomplete>;
+  referenceText?: Maybe<RichTextAutocomplete>;
 };
 
-export type ITestimonialElementFacet = {
+export type TestimonialElementFacet = {
   __typename?: 'TestimonialElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  customerImage?: Maybe<IContentReferenceFacet>;
-  referenceText?: Maybe<IRichTextFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  customerImage?: Maybe<ContentReferenceFacet>;
+  referenceText?: Maybe<RichTextFacet>;
 };
 
-export type ITestimonialElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type TestimonialElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  customerImage?: InputMaybe<IContentReferenceOrderByInput>;
-  referenceText?: InputMaybe<IRichTextOrderByInput>;
+  customerImage?: InputMaybe<ContentReferenceOrderByInput>;
+  referenceText?: InputMaybe<RichTextOrderByInput>;
 };
 
-export type ITestimonialElementOutput = {
+export type TestimonialElementOutput = {
   __typename?: 'TestimonialElementOutput';
-  autocomplete?: Maybe<ITestimonialElementAutocomplete>;
+  autocomplete?: Maybe<TestimonialElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ITestimonialElementFacet>;
-  items?: Maybe<Array<Maybe<ITestimonialElement>>>;
+  facets?: Maybe<TestimonialElementFacet>;
+  items?: Maybe<Array<Maybe<TestimonialElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ITestimonialElementOutputTotalArgs = {
+export type TestimonialElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ITestimonialElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<ITestimonialElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ITestimonialElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ITestimonialElementWhereInput>>>;
-  customerImage?: InputMaybe<IContentReferenceWhereInput>;
-  referenceText?: InputMaybe<IRichTextWhereInput>;
+export type TestimonialElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<TestimonialElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<TestimonialElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<TestimonialElementWhereInput>>>;
+  customerImage?: InputMaybe<ContentReferenceWhereInput>;
+  referenceText?: InputMaybe<RichTextWhereInput>;
 };
 
-export type ITextBlock = IIData & I_IComponent & I_IContent & {
+export type TextBlock = IData & _IComponent & _IContent & {
   __typename?: 'TextBlock';
-  TextBlockDescription?: Maybe<IRichText>;
+  TextBlockDescription?: Maybe<RichText>;
   TextBlockHeading?: Maybe<Scalars['String']['output']>;
   TextBlockHeadingSize?: Maybe<Scalars['String']['output']>;
   TextBlockOverline?: Maybe<Scalars['String']['output']>;
@@ -5029,1322 +5029,1322 @@ export type ITextBlock = IIData & I_IComponent & I_IContent & {
   TextCenter?: Maybe<Scalars['Boolean']['output']>;
   TextClassName?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type ITextBlock_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type TextBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type ITextBlock_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type TextBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type ITextBlockAutocomplete = {
+export type TextBlockAutocomplete = {
   __typename?: 'TextBlockAutocomplete';
-  TextBlockDescription?: Maybe<IRichTextAutocomplete>;
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  TextBlockDescription?: Maybe<RichTextAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type ITextBlockFacet = {
+export type TextBlockFacet = {
   __typename?: 'TextBlockFacet';
-  TextBlockDescription?: Maybe<IRichTextFacet>;
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  TextBlockDescription?: Maybe<RichTextFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type ITextBlockOrderByInput = {
-  TextBlockDescription?: InputMaybe<IRichTextOrderByInput>;
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type TextBlockOrderByInput = {
+  TextBlockDescription?: InputMaybe<RichTextOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type ITextBlockOutput = {
+export type TextBlockOutput = {
   __typename?: 'TextBlockOutput';
-  autocomplete?: Maybe<ITextBlockAutocomplete>;
+  autocomplete?: Maybe<TextBlockAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<ITextBlockFacet>;
-  items?: Maybe<Array<Maybe<ITextBlock>>>;
+  facets?: Maybe<TextBlockFacet>;
+  items?: Maybe<Array<Maybe<TextBlock>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ITextBlockOutputTotalArgs = {
+export type TextBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ITextBlockWhereInput = {
-  TextBlockDescription?: InputMaybe<IRichTextWhereInput>;
-  _and?: InputMaybe<Array<InputMaybe<ITextBlockWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<ITextBlockWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<ITextBlockWhereInput>>>;
+export type TextBlockWhereInput = {
+  TextBlockDescription?: InputMaybe<RichTextWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<TextBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<TextBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<TextBlockWhereInput>>>;
 };
 
-export type IVideo = IIData & I_IContent & I_IMedia & I_IVideo & {
+export type Video = IData & _IContent & _IMedia & _IVideo & {
   __typename?: 'Video';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IVideo_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type Video_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IVideo_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type Video_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IVideoAutocomplete = {
+export type VideoAutocomplete = {
   __typename?: 'VideoAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IVideoElement = IIData & I_IComponent & I_IContent & I_IElement & {
+export type VideoElement = IData & _IComponent & _IContent & _IElement & {
   __typename?: 'VideoElement';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  placeholder?: Maybe<IContentReference>;
+  placeholder?: Maybe<ContentReference>;
   title?: Maybe<Scalars['String']['output']>;
-  video?: Maybe<IContentReference>;
+  video?: Maybe<ContentReference>;
 };
 
 
-export type IVideoElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type VideoElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IVideoElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type VideoElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IVideoElementAutocomplete = {
+export type VideoElementAutocomplete = {
   __typename?: 'VideoElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  placeholder?: Maybe<IContentReferenceAutocomplete>;
-  video?: Maybe<IContentReferenceAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  placeholder?: Maybe<ContentReferenceAutocomplete>;
+  video?: Maybe<ContentReferenceAutocomplete>;
 };
 
-export type IVideoElementFacet = {
+export type VideoElementFacet = {
   __typename?: 'VideoElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  placeholder?: Maybe<IContentReferenceFacet>;
-  video?: Maybe<IContentReferenceFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  placeholder?: Maybe<ContentReferenceFacet>;
+  video?: Maybe<ContentReferenceFacet>;
 };
 
-export type IVideoElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type VideoElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  placeholder?: InputMaybe<IContentReferenceOrderByInput>;
-  video?: InputMaybe<IContentReferenceOrderByInput>;
+  placeholder?: InputMaybe<ContentReferenceOrderByInput>;
+  video?: InputMaybe<ContentReferenceOrderByInput>;
 };
 
-export type IVideoElementOutput = {
+export type VideoElementOutput = {
   __typename?: 'VideoElementOutput';
-  autocomplete?: Maybe<IVideoElementAutocomplete>;
+  autocomplete?: Maybe<VideoElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IVideoElementFacet>;
-  items?: Maybe<Array<Maybe<IVideoElement>>>;
+  facets?: Maybe<VideoElementFacet>;
+  items?: Maybe<Array<Maybe<VideoElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IVideoElementOutputTotalArgs = {
+export type VideoElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IVideoElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IVideoElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IVideoElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IVideoElementWhereInput>>>;
-  placeholder?: InputMaybe<IContentReferenceWhereInput>;
-  video?: InputMaybe<IContentReferenceWhereInput>;
+export type VideoElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<VideoElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<VideoElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<VideoElementWhereInput>>>;
+  placeholder?: InputMaybe<ContentReferenceWhereInput>;
+  video?: InputMaybe<ContentReferenceWhereInput>;
 };
 
-export type IVideoFacet = {
+export type VideoFacet = {
   __typename?: 'VideoFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IVideoMedia = IIData & I_IContent & I_IMedia & I_IVideo & {
+export type VideoMedia = IData & _IContent & _IMedia & _IVideo & {
   __typename?: 'VideoMedia';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type IVideoMedia_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type VideoMedia_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type IVideoMedia_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type VideoMedia_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type IVideoMediaAutocomplete = {
+export type VideoMediaAutocomplete = {
   __typename?: 'VideoMediaAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type IVideoMediaFacet = {
+export type VideoMediaFacet = {
   __typename?: 'VideoMediaFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type IVideoMediaOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type VideoMediaOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IVideoMediaOutput = {
+export type VideoMediaOutput = {
   __typename?: 'VideoMediaOutput';
-  autocomplete?: Maybe<IVideoMediaAutocomplete>;
+  autocomplete?: Maybe<VideoMediaAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IVideoMediaFacet>;
-  items?: Maybe<Array<Maybe<IVideoMedia>>>;
+  facets?: Maybe<VideoMediaFacet>;
+  items?: Maybe<Array<Maybe<VideoMedia>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IVideoMediaOutputTotalArgs = {
+export type VideoMediaOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IVideoMediaWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IVideoMediaWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IVideoMediaWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IVideoMediaWhereInput>>>;
+export type VideoMediaWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<VideoMediaWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<VideoMediaWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<VideoMediaWhereInput>>>;
 };
 
-export type IVideoOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type VideoOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IVideoOutput = {
+export type VideoOutput = {
   __typename?: 'VideoOutput';
-  autocomplete?: Maybe<IVideoAutocomplete>;
+  autocomplete?: Maybe<VideoAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<IVideoFacet>;
-  items?: Maybe<Array<Maybe<IVideo>>>;
+  facets?: Maybe<VideoFacet>;
+  items?: Maybe<Array<Maybe<Video>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type IVideoOutputTotalArgs = {
+export type VideoOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IVideoWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<IVideoWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<IVideoWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<IVideoWhereInput>>>;
+export type VideoWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<VideoWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<VideoWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<VideoWhereInput>>>;
 };
 
-export type I_Component = IIData & I_IComponent & I_IContent & {
+export type _Component = IData & _IComponent & _IContent & {
   __typename?: '_Component';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Component_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Component_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Component_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Component_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_ComponentAutocomplete = {
+export type _ComponentAutocomplete = {
   __typename?: '_ComponentAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_ComponentFacet = {
+export type _ComponentFacet = {
   __typename?: '_ComponentFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_ComponentOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _ComponentOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_ComponentOutput = {
+export type _ComponentOutput = {
   __typename?: '_ComponentOutput';
-  autocomplete?: Maybe<I_ComponentAutocomplete>;
+  autocomplete?: Maybe<_ComponentAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_ComponentFacet>;
-  items?: Maybe<Array<Maybe<I_IComponent>>>;
+  facets?: Maybe<_ComponentFacet>;
+  items?: Maybe<Array<Maybe<_IComponent>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_ComponentOutputTotalArgs = {
+export type _ComponentOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_ComponentWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_ComponentWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_ComponentWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_ComponentWhereInput>>>;
+export type _ComponentWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_ComponentWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_ComponentWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_ComponentWhereInput>>>;
 };
 
-export type I_Content = IIData & I_IContent & {
+export type _Content = IData & _IContent & {
   __typename?: '_Content';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Content_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Content_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Content_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Content_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_ContentAutocomplete = {
+export type _ContentAutocomplete = {
   __typename?: '_ContentAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_ContentFacet = {
+export type _ContentFacet = {
   __typename?: '_ContentFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_ContentOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _ContentOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_ContentOutput = {
+export type _ContentOutput = {
   __typename?: '_ContentOutput';
-  autocomplete?: Maybe<I_ContentAutocomplete>;
+  autocomplete?: Maybe<_ContentAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_ContentFacet>;
-  items?: Maybe<Array<Maybe<I_IContent>>>;
+  facets?: Maybe<_ContentFacet>;
+  items?: Maybe<Array<Maybe<_IContent>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_ContentOutputTotalArgs = {
+export type _ContentOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_ContentWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_ContentWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_ContentWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_ContentWhereInput>>>;
+export type _ContentWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_ContentWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_ContentWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_ContentWhereInput>>>;
 };
 
-export type I_Element = IIData & I_IComponent & I_IContent & I_IElement & {
+export type _Element = IData & _IComponent & _IContent & _IElement & {
   __typename?: '_Element';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Element_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Element_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Element_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Element_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_ElementAutocomplete = {
+export type _ElementAutocomplete = {
   __typename?: '_ElementAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_ElementFacet = {
+export type _ElementFacet = {
   __typename?: '_ElementFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_ElementOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _ElementOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_ElementOutput = {
+export type _ElementOutput = {
   __typename?: '_ElementOutput';
-  autocomplete?: Maybe<I_ElementAutocomplete>;
+  autocomplete?: Maybe<_ElementAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_ElementFacet>;
-  items?: Maybe<Array<Maybe<I_IElement>>>;
+  facets?: Maybe<_ElementFacet>;
+  items?: Maybe<Array<Maybe<_IElement>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_ElementOutputTotalArgs = {
+export type _ElementOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_ElementWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_ElementWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_ElementWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_ElementWhereInput>>>;
+export type _ElementWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_ElementWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_ElementWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_ElementWhereInput>>>;
 };
 
-export type I_Experience = IIData & I_IContent & I_IExperience & I_IPage & {
+export type _Experience = IData & _IContent & _IExperience & _IPage & {
   __typename?: '_Experience';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  composition?: Maybe<ICompositionStructureNode>;
+  composition?: Maybe<CompositionStructureNode>;
 };
 
 
-export type I_Experience_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Experience_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Experience_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Experience_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_ExperienceAutocomplete = {
+export type _ExperienceAutocomplete = {
   __typename?: '_ExperienceAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  composition?: Maybe<ICompositionStructureNodeAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  composition?: Maybe<CompositionStructureNodeAutocomplete>;
 };
 
-export type I_ExperienceFacet = {
+export type _ExperienceFacet = {
   __typename?: '_ExperienceFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  composition?: Maybe<ICompositionStructureNodeFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  composition?: Maybe<CompositionStructureNodeFacet>;
 };
 
-export type I_ExperienceOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _ExperienceOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  composition?: InputMaybe<ICompositionStructureNodeOrderByInput>;
+  composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
-export type I_ExperienceOutput = {
+export type _ExperienceOutput = {
   __typename?: '_ExperienceOutput';
-  autocomplete?: Maybe<I_ExperienceAutocomplete>;
+  autocomplete?: Maybe<_ExperienceAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_ExperienceFacet>;
-  items?: Maybe<Array<Maybe<I_IExperience>>>;
+  facets?: Maybe<_ExperienceFacet>;
+  items?: Maybe<Array<Maybe<_IExperience>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_ExperienceOutputTotalArgs = {
+export type _ExperienceOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_ExperienceWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_ExperienceWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_ExperienceWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_ExperienceWhereInput>>>;
-  composition?: InputMaybe<ICompositionStructureNodeWhereInput>;
+export type _ExperienceWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_ExperienceWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_ExperienceWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_ExperienceWhereInput>>>;
+  composition?: InputMaybe<CompositionStructureNodeWhereInput>;
 };
 
-export type I_Folder = IIData & I_IContent & I_IFolder & {
+export type _Folder = IData & _IContent & _IFolder & {
   __typename?: '_Folder';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Folder_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Folder_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Folder_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Folder_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_FolderAutocomplete = {
+export type _FolderAutocomplete = {
   __typename?: '_FolderAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_FolderFacet = {
+export type _FolderFacet = {
   __typename?: '_FolderFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_FolderOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _FolderOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_FolderOutput = {
+export type _FolderOutput = {
   __typename?: '_FolderOutput';
-  autocomplete?: Maybe<I_FolderAutocomplete>;
+  autocomplete?: Maybe<_FolderAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_FolderFacet>;
-  items?: Maybe<Array<Maybe<I_IFolder>>>;
+  facets?: Maybe<_FolderFacet>;
+  items?: Maybe<Array<Maybe<_IFolder>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_FolderOutputTotalArgs = {
+export type _FolderOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_FolderWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_FolderWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_FolderWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_FolderWhereInput>>>;
+export type _FolderWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_FolderWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_FolderWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_FolderWhereInput>>>;
 };
 
-export type I_IComponent = {
+export type _IComponent = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_IComponent_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IComponent_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IComponent_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IComponent_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_IContent = {
+export type _IContent = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_IContent_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IContent_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IContent_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IContent_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_IContentAutocomplete = {
+export type _IContentAutocomplete = {
   __typename?: '_IContentAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_IContentFacet = {
+export type _IContentFacet = {
   __typename?: '_IContentFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_IContentOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _IContentOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_IContentWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_IContentWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_IContentWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_IContentWhereInput>>>;
+export type _IContentWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_IContentWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_IContentWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_IContentWhereInput>>>;
 };
 
-export type I_IElement = {
+export type _IElement = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_IElement_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IElement_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IElement_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IElement_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_IExperience = {
+export type _IExperience = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  composition?: Maybe<ICompositionStructureNode>;
+  composition?: Maybe<CompositionStructureNode>;
 };
 
 
-export type I_IExperience_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IExperience_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IExperience_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IExperience_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_IFolder = {
+export type _IFolder = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
-  _modified?: Maybe<Scalars['Date']['output']>;
-  _score?: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type I_IFolder_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
-};
-
-
-export type I_IFolder_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
-};
-
-export type I_IImage = {
-  /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
-  _deleted?: Maybe<Scalars['Bool']['output']>;
-  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_IImage_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IFolder_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IImage_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IFolder_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_IMedia = {
+export type _IImage = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_IMedia_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IImage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IMedia_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IImage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_IPage = {
+export type _IMedia = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_IPage_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IMedia_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IPage_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IMedia_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_ISection = {
+export type _IPage = {
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
-  _modified?: Maybe<Scalars['Date']['output']>;
-  _score?: Maybe<Scalars['Float']['output']>;
-  composition?: Maybe<ICompositionStructureNode>;
-};
-
-
-export type I_ISection_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
-};
-
-
-export type I_ISection_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
-};
-
-export type I_IVideo = {
-  /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
-  _deleted?: Maybe<Scalars['Bool']['output']>;
-  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_IVideo_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _IPage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_IVideo_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _IPage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_Image = IIData & I_IContent & I_IImage & I_IMedia & {
+export type _ISection = {
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  composition?: Maybe<CompositionStructureNode>;
+};
+
+
+export type _ISection_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type _ISection_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type _IVideo = {
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+};
+
+
+export type _IVideo_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type _IVideo_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type _Image = IData & _IContent & _IImage & _IMedia & {
   __typename?: '_Image';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Image_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Image_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Image_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Image_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_ImageAutocomplete = {
+export type _ImageAutocomplete = {
   __typename?: '_ImageAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_ImageFacet = {
+export type _ImageFacet = {
   __typename?: '_ImageFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_ImageOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _ImageOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_ImageOutput = {
+export type _ImageOutput = {
   __typename?: '_ImageOutput';
-  autocomplete?: Maybe<I_ImageAutocomplete>;
+  autocomplete?: Maybe<_ImageAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_ImageFacet>;
-  items?: Maybe<Array<Maybe<I_IImage>>>;
+  facets?: Maybe<_ImageFacet>;
+  items?: Maybe<Array<Maybe<_IImage>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_ImageOutputTotalArgs = {
+export type _ImageOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_ImageWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_ImageWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_ImageWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_ImageWhereInput>>>;
+export type _ImageWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_ImageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_ImageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_ImageWhereInput>>>;
 };
 
-export type I_Media = IIData & I_IContent & I_IMedia & {
+export type _Media = IData & _IContent & _IMedia & {
   __typename?: '_Media';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Media_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Media_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Media_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Media_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_MediaAutocomplete = {
+export type _MediaAutocomplete = {
   __typename?: '_MediaAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_MediaFacet = {
+export type _MediaFacet = {
   __typename?: '_MediaFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_MediaOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _MediaOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_MediaOutput = {
+export type _MediaOutput = {
   __typename?: '_MediaOutput';
-  autocomplete?: Maybe<I_MediaAutocomplete>;
+  autocomplete?: Maybe<_MediaAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_MediaFacet>;
-  items?: Maybe<Array<Maybe<I_IMedia>>>;
+  facets?: Maybe<_MediaFacet>;
+  items?: Maybe<Array<Maybe<_IMedia>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_MediaOutputTotalArgs = {
+export type _MediaOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_MediaWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_MediaWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_MediaWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_MediaWhereInput>>>;
+export type _MediaWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_MediaWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_MediaWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_MediaWhereInput>>>;
 };
 
-export type I_Page = IIData & I_IContent & I_IPage & {
+export type _Page = IData & _IContent & _IPage & {
   __typename?: '_Page';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Page_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Page_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Page_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Page_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_PageAutocomplete = {
+export type _PageAutocomplete = {
   __typename?: '_PageAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_PageFacet = {
+export type _PageFacet = {
   __typename?: '_PageFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_PageOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _PageOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_PageOutput = {
+export type _PageOutput = {
   __typename?: '_PageOutput';
-  autocomplete?: Maybe<I_PageAutocomplete>;
+  autocomplete?: Maybe<_PageAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_PageFacet>;
-  items?: Maybe<Array<Maybe<I_IPage>>>;
+  facets?: Maybe<_PageFacet>;
+  items?: Maybe<Array<Maybe<_IPage>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_PageOutputTotalArgs = {
+export type _PageOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_PageWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_PageWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_PageWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_PageWhereInput>>>;
+export type _PageWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_PageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_PageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_PageWhereInput>>>;
 };
 
-export type I_Section = IIData & I_IComponent & I_IContent & I_ISection & {
+export type _Section = IData & _IComponent & _IContent & _ISection & {
   __typename?: '_Section';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  composition?: Maybe<ICompositionStructureNode>;
+  composition?: Maybe<CompositionStructureNode>;
 };
 
 
-export type I_Section_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Section_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Section_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Section_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_SectionAutocomplete = {
+export type _SectionAutocomplete = {
   __typename?: '_SectionAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
-  composition?: Maybe<ICompositionStructureNodeAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+  composition?: Maybe<CompositionStructureNodeAutocomplete>;
 };
 
-export type I_SectionFacet = {
+export type _SectionFacet = {
   __typename?: '_SectionFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
-  composition?: Maybe<ICompositionStructureNodeFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+  composition?: Maybe<CompositionStructureNodeFacet>;
 };
 
-export type I_SectionOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _SectionOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
-  composition?: InputMaybe<ICompositionStructureNodeOrderByInput>;
+  composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
-export type I_SectionOutput = {
+export type _SectionOutput = {
   __typename?: '_SectionOutput';
-  autocomplete?: Maybe<I_SectionAutocomplete>;
+  autocomplete?: Maybe<_SectionAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_SectionFacet>;
-  items?: Maybe<Array<Maybe<I_ISection>>>;
+  facets?: Maybe<_SectionFacet>;
+  items?: Maybe<Array<Maybe<_ISection>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_SectionOutputTotalArgs = {
+export type _SectionOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_SectionWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_SectionWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_SectionWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_SectionWhereInput>>>;
-  composition?: InputMaybe<ICompositionStructureNodeWhereInput>;
+export type _SectionWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_SectionWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_SectionWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_SectionWhereInput>>>;
+  composition?: InputMaybe<CompositionStructureNodeWhereInput>;
 };
 
-export type I_Video = IIData & I_IContent & I_IMedia & I_IVideo & {
+export type _Video = IData & _IContent & _IMedia & _IVideo & {
   __typename?: '_Video';
   /** @deprecated Use `_link` field instead */
-  _children?: Maybe<IQueryRef>;
+  _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
   _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id?: Maybe<Scalars['String']['output']>;
-  _link?: Maybe<IQueryRef>;
-  _metadata?: Maybe<IIContentMetadata>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
 };
 
 
-export type I_Video_FulltextArgs = {
-  highlight?: InputMaybe<IHighlightOptions>;
+export type _Video_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
 };
 
 
-export type I_Video_LinkArgs = {
-  type?: InputMaybe<ILinkTypes>;
+export type _Video_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
 };
 
-export type I_VideoAutocomplete = {
+export type _VideoAutocomplete = {
   __typename?: '_VideoAutocomplete';
-  _metadata?: Maybe<IIContentMetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
-export type I_VideoFacet = {
+export type _VideoFacet = {
   __typename?: '_VideoFacet';
-  _metadata?: Maybe<IIContentMetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
 };
 
-export type I_VideoOrderByInput = {
-  _metadata?: InputMaybe<IIContentMetadataOrderByInput>;
+export type _VideoOrderByInput = {
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
-  _modified?: InputMaybe<IOrderBy>;
-  _ranking?: InputMaybe<IRanking>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
   _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type I_VideoOutput = {
+export type _VideoOutput = {
   __typename?: '_VideoOutput';
-  autocomplete?: Maybe<I_VideoAutocomplete>;
+  autocomplete?: Maybe<_VideoAutocomplete>;
   cursor?: Maybe<Scalars['String']['output']>;
-  facets?: Maybe<I_VideoFacet>;
-  items?: Maybe<Array<Maybe<I_IVideo>>>;
+  facets?: Maybe<_VideoFacet>;
+  items?: Maybe<Array<Maybe<_IVideo>>>;
   total?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type I_VideoOutputTotalArgs = {
+export type _VideoOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type I_VideoWhereInput = {
-  _and?: InputMaybe<Array<InputMaybe<I_VideoWhereInput>>>;
-  _fulltext?: InputMaybe<ISearchableStringFilterInput>;
-  _metadata?: InputMaybe<IIContentMetadataWhereInput>;
-  _modified?: InputMaybe<IDateFilterInput>;
-  _not?: InputMaybe<Array<InputMaybe<I_VideoWhereInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<I_VideoWhereInput>>>;
+export type _VideoWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<_VideoWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<_VideoWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<_VideoWhereInput>>>;
 };
 
-export enum ISystem_Locales {
+export enum System_Locales {
   All = 'ALL',
   Neutral = 'NEUTRAL'
 }
 
-export type IContactElementFragment = { __typename?: 'ContactElement', Contact?: { __typename?: 'ContentReference', key?: string | null } | null };
+export type ContactElementFragment = { __typename?: 'ContactElement', Contact?: { __typename?: 'ContentReference', key?: string | null } | null };
 
-export type ICtaElementFragment = { __typename?: 'CTAElement', Text?: string | null, Link?: { __typename?: 'ContentUrl', default?: string | null } | null };
+export type CtaElementFragment = { __typename?: 'CTAElement', Text?: string | null, Link?: { __typename?: 'ContentUrl', default?: string | null } | null };
 
-export type IEventElementFragment = { __typename?: 'EventElement', Title?: string | null, Date?: any | null, Address?: string | null };
+export type EventElementFragment = { __typename?: 'EventElement', Title?: string | null, Date?: any | null, Address?: string | null };
 
-export type IHeadingElementFragment = { __typename?: 'HeadingElement', headingText?: string | null };
+export type HeadingElementFragment = { __typename?: 'HeadingElement', headingText?: string | null };
 
-export type IImageElementFragment = { __typename?: 'ImageElement', altText?: string | null, imageLink?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
+export type ImageElementFragment = { __typename?: 'ImageElement', altText?: string | null, imageLink?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
 
-export type IParagraphElementFragment = { __typename?: 'ParagraphElement', text?: { __typename?: 'RichText', html?: string | null } | null };
+export type ParagraphElementFragment = { __typename?: 'ParagraphElement', text?: { __typename?: 'RichText', html?: string | null } | null };
 
-export type IVideoElementFragment = { __typename?: 'VideoElement', title?: string | null, placeholder?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, video?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
+export type VideoElementFragment = { __typename?: 'VideoElement', title?: string | null, placeholder?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, video?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
 
-export type IBlankExperienceSeoFragment = { __typename?: 'BlankExperience', BlankExperienceSeoSettings?: { __typename?: 'PageSeoSettingsProperty', MetaTitle?: string | null, MetaDescription?: string | null } | null };
+export type BlankExperienceSeoFragment = { __typename?: 'BlankExperience', BlankExperienceSeoSettings?: { __typename?: 'PageSeoSettingsProperty', MetaTitle?: string | null, MetaDescription?: string | null } | null };
 
-export type IDisplaySettingsFragment = { __typename?: 'CompositionDisplaySetting', key?: string | null, value?: string | null };
+export type DisplaySettingsFragment = { __typename?: 'CompositionDisplaySetting', key?: string | null, value?: string | null };
 
-export type IContentByIdQueryVariables = Exact<{
+export type ContentByIdQueryVariables = Exact<{
   key: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
-  loc: Array<InputMaybe<ILocales>> | InputMaybe<ILocales>;
+  loc: Array<InputMaybe<Locales>> | InputMaybe<Locales>;
   ver: Scalars['String']['input'];
 }>;
 
 
-export type IContentByIdQuery = { __typename?: 'Query', _Content?: { __typename?: '_ContentOutput', items?: Array<{ __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogListingBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CardBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Contact', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContactElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContactPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Container', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'EventElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HomePageHeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HtmlBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LayoutContainerBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'StandardPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'StartPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null> | null } | null };
+export type ContentByIdQuery = { __typename?: 'Query', _Content?: { __typename?: '_ContentOutput', items?: Array<{ __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogListingBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CardBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Contact', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContactElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContactPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Container', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'EventElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HomePageHeroBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'HtmlBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'LayoutContainerBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'StandardPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'StartPage', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null> | null } | null };
 
-export type IContentByPathQueryVariables = Exact<{
+export type ContentByPathQueryVariables = Exact<{
   url: Scalars['String']['input'];
 }>;
 
 
-export type IContentByPathQuery = { __typename?: 'Query', _Content?: { __typename?: '_ContentOutput', items?: Array<{ __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlogListingBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'CardBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'Contact', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContactElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContactPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'Container', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContentRecsBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'EventElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HomePageHeroBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HtmlBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'LayoutContainerBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'StandardPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'StartPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'Video', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | null> | null } | null };
+export type ContentByPathQuery = { __typename?: 'Query', _Content?: { __typename?: '_ContentOutput', items?: Array<{ __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlankSection', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlogListingBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'BlogPostPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ButtonBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'CardBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'CarouselBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'Contact', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContactElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContactPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'Container', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContentRecsBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'EventElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'GenericMedia', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HeroBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HomePageHeroBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'HtmlBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ImageMedia', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'LandingPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'LayoutContainerBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'MegaMenuGroupBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'MenuNavigationBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'OdpEmbedBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'PageSeoSettings', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'QuoteBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'StandardPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'StartPage', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'SysContentFolder', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'TextBlock', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'Video', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: 'VideoMedia', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Component', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Content', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Folder', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Image', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Media', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Page', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Section', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | { __typename?: '_Video', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, locale?: string | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, locale?: string | null } | null } | null> | null } | null };
 
-export type IGetExperienceQueryVariables = Exact<{
+export type GetExperienceQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']['input']>;
   ver?: InputMaybe<Scalars['String']['input']>;
-  loc?: InputMaybe<Array<InputMaybe<ILocales>> | InputMaybe<ILocales>>;
+  loc?: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
 }>;
 
 
-export type IGetExperienceQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<(
+export type GetExperienceQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<(
       { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDisplaySettingsFragment
+            & DisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDisplaySettingsFragment
+            & DisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
               { __typename?: 'CompositionDisplaySetting' }
-              & IDisplaySettingsFragment
+              & DisplaySettingsFragment
             ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
-                & IDisplaySettingsFragment
+                & DisplaySettingsFragment
               ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
-                  & IDisplaySettingsFragment
+                  & DisplaySettingsFragment
                 ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & ICtaElementFragment
+                  & CtaElementFragment
                 ) | { __typename?: 'Contact', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'ContactElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IContactElementFragment
+                  & ContactElementFragment
                 ) | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'EventElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IEventElementFragment
+                  & EventElementFragment
                 ) | (
                   { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IHeadingElementFragment
+                  & HeadingElementFragment
                 ) | (
                   { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IImageElementFragment
+                  & ImageElementFragment
                 ) | (
                   { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IParagraphElementFragment
+                  & ParagraphElementFragment
                 ) | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IVideoElementFragment
+                  & VideoElementFragment
                 ) | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode' } | null> | null } | null> | null } | null> | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDisplaySettingsFragment
+            & DisplaySettingsFragment
           ) | null> | null } | null> | null } | null }
-      & IBlankExperienceSeoFragment
+      & BlankExperienceSeoFragment
     ) | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', key?: string | null, version?: string | null, types?: Array<string | null> | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, composition?: { __typename?: 'CompositionStructureNode', grids?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDisplaySettingsFragment
+            & DisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionNode', key?: string | null, displayName?: string | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDisplaySettingsFragment
+            & DisplaySettingsFragment
           ) | null> | null } | { __typename?: 'CompositionStructureNode', key?: string | null, displayName?: string | null, rows?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
               { __typename?: 'CompositionDisplaySetting' }
-              & IDisplaySettingsFragment
+              & DisplaySettingsFragment
             ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
-                & IDisplaySettingsFragment
+                & DisplaySettingsFragment
               ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
-                  & IDisplaySettingsFragment
+                  & DisplaySettingsFragment
                 ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & ICtaElementFragment
+                  & CtaElementFragment
                 ) | { __typename?: 'Contact', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'ContactElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IContactElementFragment
+                  & ContactElementFragment
                 ) | { __typename?: 'ContentRecsElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'EventElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IEventElementFragment
+                  & EventElementFragment
                 ) | (
                   { __typename?: 'HeadingElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IHeadingElementFragment
+                  & HeadingElementFragment
                 ) | (
                   { __typename?: 'ImageElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IImageElementFragment
+                  & ImageElementFragment
                 ) | (
                   { __typename?: 'ParagraphElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IParagraphElementFragment
+                  & ParagraphElementFragment
                 ) | { __typename?: 'TestimonialElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
                   { __typename?: 'VideoElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-                  & IVideoElementFragment
+                  & VideoElementFragment
                 ) | { __typename?: '_Element', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode' } | null> | null } | null> | null } | null> | null, displaySettings?: Array<(
             { __typename?: 'CompositionDisplaySetting' }
-            & IDisplaySettingsFragment
+            & DisplaySettingsFragment
           ) | null> | null } | null> | null } | null } | null> | null } | null };
 
-export type IGetExperienceSeoQueryVariables = Exact<{
+export type GetExperienceSeoQueryVariables = Exact<{
   key?: InputMaybe<Scalars['String']['input']>;
   ver?: InputMaybe<Scalars['String']['input']>;
-  loc?: InputMaybe<Array<InputMaybe<ILocales>> | InputMaybe<ILocales>>;
+  loc?: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
 }>;
 
 
-export type IGetExperienceSeoQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<(
+export type GetExperienceSeoQuery = { __typename?: 'Query', _Experience?: { __typename?: '_ExperienceOutput', items?: Array<(
       { __typename?: 'BlankExperience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
-      & IBlankExperienceSeoFragment
+      & BlankExperienceSeoFragment
     ) | { __typename?: '_Experience', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | null> | null } | null };
 
-export type IPageByIdQueryVariables = Exact<{
+export type PageByIdQueryVariables = Exact<{
   key?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
-  loc?: InputMaybe<Array<InputMaybe<ILocales>> | InputMaybe<ILocales>>;
+  loc?: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
   ver?: InputMaybe<Scalars['String']['input']>;
 }>;
 
 
-export type IPageByIdQuery = { __typename?: 'Query', _Page?: { __typename?: '_PageOutput', items?: Array<{ __typename?: 'BlankExperience', _id?: string | null } | { __typename?: 'BlogPostPage', _id?: string | null } | { __typename?: 'ContactPage', _id?: string | null } | { __typename?: 'Container', _id?: string | null } | { __typename?: 'LandingPage', _id?: string | null } | { __typename?: 'StandardPage', _id?: string | null } | { __typename?: 'StartPage', _id?: string | null } | { __typename?: '_Experience', _id?: string | null } | { __typename?: '_Page', _id?: string | null } | null> | null } | null };
+export type PageByIdQuery = { __typename?: 'Query', _Page?: { __typename?: '_PageOutput', items?: Array<{ __typename?: 'BlankExperience', _id?: string | null } | { __typename?: 'BlogPostPage', _id?: string | null } | { __typename?: 'ContactPage', _id?: string | null } | { __typename?: 'Container', _id?: string | null } | { __typename?: 'LandingPage', _id?: string | null } | { __typename?: 'StandardPage', _id?: string | null } | { __typename?: 'StartPage', _id?: string | null } | { __typename?: '_Experience', _id?: string | null } | { __typename?: '_Page', _id?: string | null } | null> | null } | null };
 
 export const ContactElementFragmentDoc = gql`
     fragment ContactElement on ContactElement {
@@ -6546,20 +6546,20 @@ export const PageByIdDocument = gql`
 export type Requester<C = {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C>(requester: Requester<C>) {
   return {
-    contentById(variables: IContentByIdQueryVariables, options?: C): Promise<IContentByIdQuery> {
-      return requester<IContentByIdQuery, IContentByIdQueryVariables>(ContentByIdDocument, variables, options) as Promise<IContentByIdQuery>;
+    contentById(variables: ContentByIdQueryVariables, options?: C): Promise<ContentByIdQuery> {
+      return requester<ContentByIdQuery, ContentByIdQueryVariables>(ContentByIdDocument, variables, options) as Promise<ContentByIdQuery>;
     },
-    contentByPath(variables: IContentByPathQueryVariables, options?: C): Promise<IContentByPathQuery> {
-      return requester<IContentByPathQuery, IContentByPathQueryVariables>(ContentByPathDocument, variables, options) as Promise<IContentByPathQuery>;
+    contentByPath(variables: ContentByPathQueryVariables, options?: C): Promise<ContentByPathQuery> {
+      return requester<ContentByPathQuery, ContentByPathQueryVariables>(ContentByPathDocument, variables, options) as Promise<ContentByPathQuery>;
     },
-    getExperience(variables?: IGetExperienceQueryVariables, options?: C): Promise<IGetExperienceQuery> {
-      return requester<IGetExperienceQuery, IGetExperienceQueryVariables>(GetExperienceDocument, variables, options) as Promise<IGetExperienceQuery>;
+    getExperience(variables?: GetExperienceQueryVariables, options?: C): Promise<GetExperienceQuery> {
+      return requester<GetExperienceQuery, GetExperienceQueryVariables>(GetExperienceDocument, variables, options) as Promise<GetExperienceQuery>;
     },
-    getExperienceSeo(variables?: IGetExperienceSeoQueryVariables, options?: C): Promise<IGetExperienceSeoQuery> {
-      return requester<IGetExperienceSeoQuery, IGetExperienceSeoQueryVariables>(GetExperienceSeoDocument, variables, options) as Promise<IGetExperienceSeoQuery>;
+    getExperienceSeo(variables?: GetExperienceSeoQueryVariables, options?: C): Promise<GetExperienceSeoQuery> {
+      return requester<GetExperienceSeoQuery, GetExperienceSeoQueryVariables>(GetExperienceSeoDocument, variables, options) as Promise<GetExperienceSeoQuery>;
     },
-    pageById(variables?: IPageByIdQueryVariables, options?: C): Promise<IPageByIdQuery> {
-      return requester<IPageByIdQuery, IPageByIdQueryVariables>(PageByIdDocument, variables, options) as Promise<IPageByIdQuery>;
+    pageById(variables?: PageByIdQueryVariables, options?: C): Promise<PageByIdQuery> {
+      return requester<PageByIdQuery, PageByIdQueryVariables>(PageByIdDocument, variables, options) as Promise<PageByIdQuery>;
     }
   };
 }

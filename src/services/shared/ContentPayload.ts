@@ -1,4 +1,4 @@
-export type IContentPayload = {
+export type ContentPayload = {
   key: string;
   loc: string;
   ver: string;

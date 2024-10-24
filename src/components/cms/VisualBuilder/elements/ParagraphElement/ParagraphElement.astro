@@ -1,8 +1,8 @@
 ---
-import {IDisplaySettingsFragment, IParagraphElement} from "../../../../../services/graphql/__generated/sdk";
+import {DisplaySettingsFragment, ParagraphElement} from "../../../../../services/graphql/__generated/sdk";
 export interface Props {
-    element: IParagraphElement;
-    displaySettings: IDisplaySettingsFragment[];
+    element: ParagraphElement;
+    displaySettings: DisplaySettingsFragment[];
 }
 const {element, displaySettings} = Astro.props as Props;
 ---

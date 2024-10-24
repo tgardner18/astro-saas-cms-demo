@@ -1,8 +1,8 @@
-import { IDisplaySettingsFragment } from "../../../../../services/graphql/__generated/sdk.ts";
+import { DisplaySettingsFragment } from "../../../../../services/graphql/__generated/sdk.ts";
 import { getDictionaryFromDisplaySettings } from "../../../../../services/shared/displaySettingsHelpers.ts";
 
 export function getImageElementStyles(
-  displaySettings: IDisplaySettingsFragment[],
+  displaySettings: DisplaySettingsFragment[],
 ): string[] {
   const settings: Record<string, string> =
     getDictionaryFromDisplaySettings(displaySettings);

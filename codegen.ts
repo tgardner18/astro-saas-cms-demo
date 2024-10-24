@@ -36,7 +36,7 @@ const config: CodegenConfig = {
         exportFragmentSpreadSubTypes: true,
         dedupeFragments: true,
         preResolveTypes: true,
-        typesPrefix: "I",
+        //typesPrefix: "I",
       },
     },
   },

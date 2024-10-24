@@ -1,7 +1,7 @@
-import { IDisplaySettingsFragment } from "../graphql/__generated/sdk.ts";
+import { DisplaySettingsFragment } from "../graphql/__generated/sdk.ts";
 
 export function getDictionaryFromDisplaySettings(
-  displaySettings: IDisplaySettingsFragment[],
+  displaySettings: DisplaySettingsFragment[],
 ): Record<string, string> {
   const dictionary: Record<string, string> = {};
   displaySettings.forEach((setting) => {

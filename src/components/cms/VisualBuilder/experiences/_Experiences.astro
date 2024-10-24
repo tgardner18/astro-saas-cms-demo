@@ -1,20 +1,21 @@
 ---
-import {IContentPayload} from "../../../../services/shared/IContentPayload";
+import {ContentPayload} from "../../../../services/shared/ContentPayload";
 import Elements from "../elements/_Elements.astro";
 import {optiDraftSdk} from "../../../../services/graphql/getSdk";
-import {IBlankExperience, IDisplaySettingsFragment, ILocales} from "../../../../services/graphql/__generated/sdk";
 import Layout from "../../../../layouts/Layout.astro";
-const previewPayload = Astro.props.data as IContentPayload;
+import {BlankExperience} from "../../../../services/graphql/__generated/sdk";
+import {Locales} from "astro";
+const previewPayload = Astro.props.data as ContentPayload;
 
 const optiResponse = await optiDraftSdk.getExperience(
-    {key: previewPayload.key, ver: previewPayload.ver, loc: previewPayload.loc as ILocales}
+    {key: previewPayload.key, ver: previewPayload.ver, loc: previewPayload.loc as Locales}
 );
 
 const experiences = optiResponse?._Experience?.items;
 const experience: any = experiences[experiences.length - 1];
 let metaTitle = "", metaDescription = "";
 if (experience._metadata.types.includes("BlankExperience")) {
-    const blankExperience = experience as IBlankExperience;
+    const blankExperience = experience as BlankExperience;
     metaTitle = blankExperience.BlankExperienceSeoSettings?.MetaTitle || "";
     metaDescription = blankExperience.BlankExperienceSeoSettings?.MetaDescription || "";
 }

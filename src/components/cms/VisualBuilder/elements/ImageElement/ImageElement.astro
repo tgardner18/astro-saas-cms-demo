@@ -1,10 +1,10 @@
 ---
-import {IDisplaySettingsFragment, IImageElementFragment} from "../../../../../services/graphql/__generated/sdk";
+import {DisplaySettingsFragment, ImageElementFragment} from "../../../../../services/graphql/__generated/sdk";
 import {getImageElementStyles} from "./ImageElementStyling";
 
 export interface Props {
-    element: IImageElementFragment;
-    displaySettings: IDisplaySettingsFragment[];
+    element: ImageElementFragment;
+    displaySettings: DisplaySettingsFragment[];
 }
 const {element, displaySettings} = Astro.props as Props;
 ---

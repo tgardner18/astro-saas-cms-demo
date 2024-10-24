@@ -1,14 +1,14 @@
 import {
-  IBlankExperience,
-  ILocales,
+  BlankExperience,
+  Locales,
 } from "../../../../services/graphql/__generated/sdk.ts";
 import { optiDraftSdk } from "../../../../services/graphql/getSdk.ts";
-import { IContentPayload } from "../../../../services/shared/IContentPayload.ts";
+import { ContentPayload } from "../../../../services/shared/ContentPayload.ts";
 
 export async function getSeoData(
   isExperienceType: boolean,
   isPageType: boolean,
-  previewPayload: IContentPayload,
+  previewPayload: ContentPayload,
 ) {
   let metaTitle: string = "",
     metaDescription: string = "";
@@ -17,7 +17,7 @@ export async function getSeoData(
     const metaResponse = await optiDraftSdk.getExperienceSeo({
       key: previewPayload.key,
       ver: previewPayload.ver,
-      loc: previewPayload.loc as ILocales,
+      loc: previewPayload.loc as Locales,
     });
     if (
       metaResponse?._Experience?.items[0]?._metadata?.types?.includes(
@@ -25,7 +25,7 @@ export async function getSeoData(
       )
     ) {
       const blankExperience = metaResponse?._Experience
-        ?.items[0] as IBlankExperience;
+        ?.items[0] as BlankExperience;
       metaTitle = blankExperience?.BlankExperienceSeoSettings?.MetaTitle || "";
       metaDescription =
         blankExperience?.BlankExperienceSeoSettings?.MetaDescription || "";
