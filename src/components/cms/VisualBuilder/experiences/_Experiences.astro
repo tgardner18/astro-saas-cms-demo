@@ -1,10 +1,10 @@
 ---
 import {ContentPayload} from "../../../../services/shared/ContentPayload";
-import Elements from "../elements/_Elements.astro";
 import {optiDraftSdk} from "../../../../services/graphql/getSdk";
 import Layout from "../../../../layouts/Layout.astro";
 import {BlankExperience} from "../../../../services/graphql/__generated/sdk";
 import {Locales} from "astro";
+import Section from "../compositions/Section/Section.astro";
 const previewPayload = Astro.props.data as ContentPayload;
 
 const optiResponse = await optiDraftSdk.getExperience(
@@ -21,35 +21,11 @@ if (experience._metadata.types.includes("BlankExperience")) {
 }
 ---
 <Layout title={metaTitle} description={metaDescription}>
-
     <div class="relative w-full flex-1 vb:outline">
         <div class="relative w-full flex-1 vb:outline">
             {
                 experience?.composition?.grids?.map((grid: any) => (
-                        <div
-                                class="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
-                                data-epi-block-id={grid.key}
-                        >
-                            {grid.rows?.map((row: any) => (
-                                    <div class="p-10 flex-1 flex flex-row flex-nowrap justify-start vb:row"
-                                         data-epi-block-id={row.key}>
-                                        {row.columns?.map((column: any) => (
-                                                <div
-                                                        class="flex-1 flex flex-col flex-nowrap justify-start vb:col"
-                                                        data-epi-block-id={column.key}
-                                                >
-                                                    {column.elements?.map((element: any) => (
-                                                        // <p>{element.displaySettings.map((ds: any) => (`${ds.key} : ${ds.value}`))}</p>
-
-                                                            <div data-epi-block-id={element?.key}>
-                                                                <Elements element={element}/>
-                                                            </div>
-                                                    ))}
-                                                </div>
-                                        ))}
-                                    </div>
-                            ))}
-                        </div>
+                        <Section grid={grid}/>
                 ))
             }
         </div>

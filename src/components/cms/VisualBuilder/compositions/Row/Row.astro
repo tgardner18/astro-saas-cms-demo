@@ -1,0 +1,32 @@
+---
+import Elements from "../../elements/_Elements.astro";
+import Column from "../Column/Column.astro";
+import {CompositionElementNode, CompositionNode} from "../../../../../services/graphql/__generated/sdk";
+import CarouselRow from "./CarouselRow.astro";
+export interface Props {
+    row: any;
+}
+const {row} = Astro.props as Props;
+const rowNode = row as CompositionElementNode;
+const displayTemplateKey = rowNode.displayTemplateKey;
+
+// if (rowNode.displaySettings) {
+//     console.log(rowNode.displaySettings.map((ds: any) => (`${ds.key} : ${ds.value}`)));
+// }
+---
+<!--<h2>this is a row</h2>-->
+{displayTemplateKey !== "CarouselRow" &&
+<div class="p-10 flex-1 flex flex-row flex-nowrap justify-start vb:row"
+     data-epi-block-id={row.key}>
+    {row.columns?.map((column: any) => (
+            <Column column={column}/>
+    ))}
+</div>
+    }
+
+{displayTemplateKey === "CarouselRow" &&
+<div class="p-10 h-[50vh] flex-none flex flex-row flex-nowrap justify-start vb:row"
+     data-epi-block-id={row.key}>
+    <CarouselRow row={row}/>
+</div>
+    }

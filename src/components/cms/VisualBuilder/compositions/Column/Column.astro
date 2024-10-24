@@ -1,0 +1,20 @@
+---
+import Elements from "../../elements/_Elements.astro";
+export interface Props {
+    column: any;
+}
+const {column} = Astro.props as Props;
+---
+<!--<h3>this is a column</h3>-->
+<div
+        class="flex-1 flex flex-col flex-nowrap justify-start vb:col"
+        data-epi-block-id={column.key}
+>
+    {column.elements?.map((element: any) => (
+        // <p>{element.displaySettings.map((ds: any) => (`${ds.key} : ${ds.value}`))}</p>
+
+            <div data-epi-block-id={element?.key}>
+                <Elements element={element}/>
+            </div>
+    ))}
+</div>
