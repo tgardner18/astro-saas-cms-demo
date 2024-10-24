@@ -1,10 +1,10 @@
 ---
-import {optiPublishedSdk} from "../../../services/graphql/getSdk";
-import {Locales} from "../../../services/graphql/__generated/sdk";
-import Components from "../../../components/cms/OnPageEditing/components/_Components.astro";
-import Pages from "../../../components/cms/OnPageEditing/pages/_Pages.astro";
-import Experiences from "../../../components/cms/VisualBuilder/experiences/_Experiences.astro";
-import {ContentPayload} from "../../../services/shared/ContentPayload";
+import {optiPublishedSdk} from "../services/graphql/getSdk";
+import {ContentPayload} from "../services/shared/ContentPayload";
+import Components from "../components/cms/OnPageEditing/components/_Components.astro";
+import Pages from "../components/cms/OnPageEditing/pages/_Pages.astro";
+import Experiences from "../components/cms/VisualBuilder/experiences/_Experiences.astro";
+import {Locales} from "../services/graphql/__generated/sdk";
 
 const urlPath = `${Astro.url.pathname.replace(/\/$/, "")}/`;
 const contentByPathResponse = await optiPublishedSdk.contentByPath({url: urlPath});
