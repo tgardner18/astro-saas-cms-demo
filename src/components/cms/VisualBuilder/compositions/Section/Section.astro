@@ -1,12 +1,18 @@
 ---
 import Row from "../Row/Row.astro";
+import {getSectionStyles} from "./SectionHelper";
 export interface Props {
     grid: any;
 }
 const {grid} = Astro.props as Props;
+if (grid.displayTemplateKey === "grid") {
+    console.log(grid.displaySettings);
+}
+const styles = getSectionStyles(grid);
 ---
 <!--<h1>this is a grid!</h1>-->
 <div
+        class:list={styles}
         class="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
         data-epi-block-id={grid.key}
 >
