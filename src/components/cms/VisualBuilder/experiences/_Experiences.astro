@@ -22,12 +22,10 @@ if (experience._metadata.types.includes("BlankExperience")) {
 ---
 <Layout title={metaTitle} description={metaDescription}>
     <div class="relative w-full flex-1 vb:outline">
-        <div class="relative w-full flex-1 vb:outline">
-            {
-                experience?.composition?.grids?.map((grid: any) => (
-                        <Section grid={grid}/>
-                ))
-            }
-        </div>
+        {
+            experience?.composition?.grids?.map((grid: any) => (
+                    <Section grid={grid}/>
+            ))
+        }
     </div>
 </Layout>
