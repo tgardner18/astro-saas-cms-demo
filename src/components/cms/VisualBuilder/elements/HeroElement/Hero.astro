@@ -1,0 +1,57 @@
+---
+import {Image} from 'astro:assets';
+import {
+    HeroElementFragment,
+    DisplaySettingsFragment
+} from "../../../../../services/graphql/__generated/sdk";
+export interface Props {
+    element: HeroElementFragment;
+    displaySettings: DisplaySettingsFragment[];
+
+}
+const {element, displaySettings} = Astro.props as Props;
+const videoUrl = element.Video?.url.default || null;
+const imageUrl = element.Image?.url.default || null;
+const hasVideo = videoUrl !== null;
+console.log(element);
+---
+<!--
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+-->
+<section class="relative h-[50vh] w-full overflow-hidden text-white">
+    <!-- Video Background -->
+    {hasVideo &&
+            <video autoplay muted loop class="absolute inset-0 w-full object-cover">
+                <source src={videoUrl} type="video/mp4">
+                Your browser does not support the video tag.
+            </video>}
+
+    <!-- Image Background -->
+    {imageUrl && !hasVideo &&
+            <Image
+                    alt="Hero"
+                    src={imageUrl}
+                    class="absolute inset-0 w-full object-cover"
+                    inferSize={true}
+            />}
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+    <!-- Content Overlay -->
+    <div class="relative flex flex-col items-center justify-center text-center p-16 z-10">
+        {element.Heading && <h1 class="text-4xl md:text-6xl font-bold mb-4">{element.Heading}</h1>}
+        {element.SubHeading && <p class="text-lg md:text-xl max-w-2xl mb-8">
+            {element.SubHeading}
+        </p>}
+        {element.RichText &&
+                <div class="text-sm max-w-2xl mb-8" set:html={element.RichText.html}/>}
+        {element.CallToAction.url &&
+                <a href={element.CallToAction.url.default}
+                   class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition duration-300">
+                    {element.CallToAction.text}
+                </a>
+        }
+    </div>
+</section>

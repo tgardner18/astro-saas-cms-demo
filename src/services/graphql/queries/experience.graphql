@@ -56,10 +56,10 @@ query getExperience($key: String, $ver: String, $loc: [Locales]) {
                                                     ...CTAElement
                                                     ...VideoElement
                                                     ...ParagraphElement
-                                                    #...TomraHeroElement
-                                                    #...TomraBannerElement
                                                     ...ContactElement
                                                     ...EventElement
+                                                    ...CardElement
+                                                    ...HeroElement
                                                 }
                                             }
                                         }

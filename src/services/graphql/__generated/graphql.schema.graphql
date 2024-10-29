@@ -462,6 +462,59 @@ input CardBlockWhereInput {
   _or: [CardBlockWhereInput]
 }
 
+type CardElement implements IData & _IComponent & _IContent & _IElement {
+  CoverImage: ContentReference
+  DisplayAs: String
+  Heading: String
+  OverlayText: String
+  Subheading: String
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type CardElementAutocomplete {
+  CoverImage: ContentReferenceAutocomplete
+  _metadata: IContentMetadataAutocomplete
+}
+
+type CardElementFacet {
+  CoverImage: ContentReferenceFacet
+  _metadata: IContentMetadataFacet
+}
+
+input CardElementOrderByInput {
+  CoverImage: ContentReferenceOrderByInput
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type CardElementOutput {
+  autocomplete: CardElementAutocomplete
+  cursor: String
+  facets: CardElementFacet
+  items: [CardElement]
+  total(all: Boolean): Int
+}
+
+input CardElementWhereInput {
+  CoverImage: ContentReferenceWhereInput
+  _and: [CardElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [CardElementWhereInput]
+  _or: [CardElementWhereInput]
+}
+
 type CarouselBlock implements IData & _IComponent & _IContent {
   CarouselItemsContentArea: [_IContent]
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
@@ -1081,7 +1134,7 @@ scalar DateTime
 Decay influences the weight of the score based on field values with a decay function
 """
 input Decay {
-  origin: String
+  origin: Date
   rate: Float
   scale: Int = 10
 }
@@ -1131,6 +1184,57 @@ input EventElementWhereInput {
   _modified: DateFilterInput
   _not: [EventElementWhereInput]
   _or: [EventElementWhereInput]
+}
+
+type FormElement implements IData & _IComponent & _IContent & _IElement {
+  Submit: Link
+  Subtitle: String
+  Title: String
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type FormElementAutocomplete {
+  Submit: LinkAutocomplete
+  _metadata: IContentMetadataAutocomplete
+}
+
+type FormElementFacet {
+  Submit: LinkFacet
+  _metadata: IContentMetadataFacet
+}
+
+input FormElementOrderByInput {
+  Submit: LinkOrderByInput
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type FormElementOutput {
+  autocomplete: FormElementAutocomplete
+  cursor: String
+  facets: FormElementFacet
+  items: [FormElement]
+  total(all: Boolean): Int
+}
+
+input FormElementWhereInput {
+  Submit: LinkWhereInput
+  _and: [FormElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [FormElementWhereInput]
+  _or: [FormElementWhereInput]
 }
 
 type GenericMedia implements IData & _IContent & _IMedia {
@@ -1284,6 +1388,72 @@ input HeroBlockWhereInput {
   _modified: DateFilterInput
   _not: [HeroBlockWhereInput]
   _or: [HeroBlockWhereInput]
+}
+
+type HeroElement implements IData & _IComponent & _IContent & _IElement {
+  CallToAction: Link
+  Heading: String
+  Image: ContentReference
+  RichText: RichText
+  SubHeading: String
+  Video: ContentReference
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type HeroElementAutocomplete {
+  CallToAction: LinkAutocomplete
+  Image: ContentReferenceAutocomplete
+  RichText: RichTextAutocomplete
+  Video: ContentReferenceAutocomplete
+  _metadata: IContentMetadataAutocomplete
+}
+
+type HeroElementFacet {
+  CallToAction: LinkFacet
+  Image: ContentReferenceFacet
+  RichText: RichTextFacet
+  Video: ContentReferenceFacet
+  _metadata: IContentMetadataFacet
+}
+
+input HeroElementOrderByInput {
+  CallToAction: LinkOrderByInput
+  Image: ContentReferenceOrderByInput
+  RichText: RichTextOrderByInput
+  Video: ContentReferenceOrderByInput
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type HeroElementOutput {
+  autocomplete: HeroElementAutocomplete
+  cursor: String
+  facets: HeroElementFacet
+  items: [HeroElement]
+  total(all: Boolean): Int
+}
+
+input HeroElementWhereInput {
+  CallToAction: LinkWhereInput
+  Image: ContentReferenceWhereInput
+  RichText: RichTextWhereInput
+  Video: ContentReferenceWhereInput
+  _and: [HeroElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [HeroElementWhereInput]
+  _or: [HeroElementWhereInput]
 }
 
 """Options for highlighting"""
@@ -2223,6 +2393,7 @@ type Query {
   ButtonBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ButtonBlockOrderByInput, skip: Int! = 0, where: ButtonBlockWhereInput): ButtonBlockOutput
   CTAElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CTAElementOrderByInput, skip: Int! = 0, where: CTAElementWhereInput): CTAElementOutput
   CardBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CardBlockOrderByInput, skip: Int! = 0, where: CardBlockWhereInput): CardBlockOutput
+  CardElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CardElementOrderByInput, skip: Int! = 0, where: CardElementWhereInput): CardElementOutput
   CarouselBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CarouselBlockOrderByInput, skip: Int! = 0, where: CarouselBlockWhereInput): CarouselBlockOutput
   Contact(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactOrderByInput, skip: Int! = 0, where: ContactWhereInput): ContactOutput
   ContactElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactElementOrderByInput, skip: Int! = 0, where: ContactElementWhereInput): ContactElementOutput
@@ -2232,9 +2403,11 @@ type Query {
   ContentRecsElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContentRecsElementOrderByInput, skip: Int! = 0, where: ContentRecsElementWhereInput): ContentRecsElementOutput
   Data(cursor: String, ids: [String], limit: Int! = 20, locale: [system_Locales], orderBy: DataOrderByInput, skip: Int! = 0, where: DataWhereInput): DataOutput
   EventElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: EventElementOrderByInput, skip: Int! = 0, where: EventElementWhereInput): EventElementOutput
+  FormElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: FormElementOrderByInput, skip: Int! = 0, where: FormElementWhereInput): FormElementOutput
   GenericMedia(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: GenericMediaOrderByInput, skip: Int! = 0, where: GenericMediaWhereInput): GenericMediaOutput
   HeadingElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeadingElementOrderByInput, skip: Int! = 0, where: HeadingElementWhereInput): HeadingElementOutput
   HeroBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeroBlockOrderByInput, skip: Int! = 0, where: HeroBlockWhereInput): HeroBlockOutput
+  HeroElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeroElementOrderByInput, skip: Int! = 0, where: HeroElementWhereInput): HeroElementOutput
   HomePageHeroBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HomePageHeroBlockOrderByInput, skip: Int! = 0, where: HomePageHeroBlockWhereInput): HomePageHeroBlockOutput
   HtmlBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HtmlBlockOrderByInput, skip: Int! = 0, where: HtmlBlockWhereInput): HtmlBlockOutput
   ImageElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ImageElementOrderByInput, skip: Int! = 0, where: ImageElementWhereInput): ImageElementOutput
@@ -2277,6 +2450,7 @@ type QueryRef {
   ButtonBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ButtonBlockOrderByInput, skip: Int! = 0, where: ButtonBlockWhereInput): ButtonBlockOutput
   CTAElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CTAElementOrderByInput, skip: Int! = 0, where: CTAElementWhereInput): CTAElementOutput
   CardBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CardBlockOrderByInput, skip: Int! = 0, where: CardBlockWhereInput): CardBlockOutput
+  CardElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CardElementOrderByInput, skip: Int! = 0, where: CardElementWhereInput): CardElementOutput
   CarouselBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: CarouselBlockOrderByInput, skip: Int! = 0, where: CarouselBlockWhereInput): CarouselBlockOutput
   Contact(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactOrderByInput, skip: Int! = 0, where: ContactWhereInput): ContactOutput
   ContactElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContactElementOrderByInput, skip: Int! = 0, where: ContactElementWhereInput): ContactElementOutput
@@ -2286,9 +2460,11 @@ type QueryRef {
   ContentRecsElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ContentRecsElementOrderByInput, skip: Int! = 0, where: ContentRecsElementWhereInput): ContentRecsElementOutput
   Data(cursor: String, ids: [String], limit: Int! = 20, locale: [system_Locales], orderBy: DataOrderByInput, skip: Int! = 0, where: DataWhereInput): DataOutput
   EventElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: EventElementOrderByInput, skip: Int! = 0, where: EventElementWhereInput): EventElementOutput
+  FormElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: FormElementOrderByInput, skip: Int! = 0, where: FormElementWhereInput): FormElementOutput
   GenericMedia(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: GenericMediaOrderByInput, skip: Int! = 0, where: GenericMediaWhereInput): GenericMediaOutput
   HeadingElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeadingElementOrderByInput, skip: Int! = 0, where: HeadingElementWhereInput): HeadingElementOutput
   HeroBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeroBlockOrderByInput, skip: Int! = 0, where: HeroBlockWhereInput): HeroBlockOutput
+  HeroElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HeroElementOrderByInput, skip: Int! = 0, where: HeroElementWhereInput): HeroElementOutput
   HomePageHeroBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HomePageHeroBlockOrderByInput, skip: Int! = 0, where: HomePageHeroBlockWhereInput): HomePageHeroBlockOutput
   HtmlBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: HtmlBlockOrderByInput, skip: Int! = 0, where: HtmlBlockWhereInput): HtmlBlockOutput
   ImageElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ImageElementOrderByInput, skip: Int! = 0, where: ImageElementWhereInput): ImageElementOutput

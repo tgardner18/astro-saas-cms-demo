@@ -1,0 +1,24 @@
+fragment HeroElement on HeroElement {
+    Video {
+        url {
+            default
+        }
+    }
+    Image {
+        url {
+            default
+        }
+    }
+    Heading
+    SubHeading
+    RichText {
+        html
+    }
+    CallToAction {
+        url {
+            default
+        }
+        title
+        text
+    }
+}

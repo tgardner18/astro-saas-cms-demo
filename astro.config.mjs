@@ -7,6 +7,16 @@ import tailwind from "@astrojs/tailwind"; // https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    domains: ["images.unsplash.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.cms.optimizely.com",
+      },
+    ],
+  },
+
   output: "server",
 
   adapter: node({

@@ -1,0 +1,11 @@
+fragment CardElement on CardElement {
+    Heading
+    Subheading
+    OverlayText
+    CoverImage {
+        url {
+            default
+        }
+    }
+    DisplayAs
+}

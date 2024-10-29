@@ -19,9 +19,9 @@ const config: CodegenConfig = {
     },
     "./src/services/graphql/__generated/sdk.ts": {
       documents: [
-        "./src/services/graphql/**/*.graphql",
-        "./src/services/graphql/fragments/**/*.ts",
-        "./src/services/graphql/queries/**/*.ts",
+        //"./src/services/graphql/**/*.graphql",
+        "./src/services/graphql/fragments/**/*.graphql",
+        "./src/services/graphql/queries/**/*.graphql",
         //"./src/components/**/*.astro",
       ],
       plugins: [

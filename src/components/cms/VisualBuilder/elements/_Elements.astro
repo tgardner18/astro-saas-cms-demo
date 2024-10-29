@@ -6,7 +6,9 @@ import VideoElement from "./VideoElement/VideoElement.astro";
 import ParagraphElement from "./ParagraphElement/ParagraphElement.astro";
 import ContactElement from "./Contact/ContactElement.astro";
 import EventElement from "./EventElement/EventElement.astro";
-const {element, displaySettings} = Astro.props.element;
+import Card from "./CardElement/Card.astro";
+import Hero from "./HeroElement/Hero.astro";
+const {element, displaySettings, displayTemplateKey} = Astro.props.element;
 const elementType = element._metadata.types[0];
 ---
 
@@ -24,3 +26,7 @@ const elementType = element._metadata.types[0];
 <ContactElement element={element} displaySettings={displaySettings}/>}
 {elementType === "EventElement" &&
 <EventElement element={element} displaySettings={displaySettings}/>}
+{elementType === "CardElement" &&
+<Card element={element} displaySettings={displaySettings} displayTemplateKey={displayTemplateKey}/>}
+{elementType === "HeroElement" &&
+<Hero element={element} displaySettings={displaySettings}/>}
