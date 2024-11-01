@@ -8,4 +8,10 @@ fragment CardElement on CardElement {
         }
     }
     DisplayAs
+    CallToAction {
+        text
+        url {
+            default
+        }
+    }
 }

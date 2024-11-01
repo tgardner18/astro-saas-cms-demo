@@ -6,21 +6,7 @@ query pageById($key: [String], $loc: [Locales], $ver: String) {
     ) {
         items {
             _id
-            #            ... on ContactPage {
-            #                Biography {
-            #                    html
-            #                }
-            #                Designation
-            #                Email
-            #                Location
-            #                Image {
-            #                    url {
-            #                        default
-            #                    }
-            #                }
-            #                Name
-            #                Phone
-            #            }
+            ...BlogPostPage
         }
     }
 }

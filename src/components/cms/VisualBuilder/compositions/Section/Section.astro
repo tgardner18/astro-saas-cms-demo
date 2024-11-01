@@ -5,9 +5,9 @@ export interface Props {
     grid: any;
 }
 const {grid} = Astro.props as Props;
-if (grid.displayTemplateKey === "grid") {
-    console.log(grid.displaySettings);
-}
+// if (grid.displayTemplateKey === "grid") {
+//     console.log(grid.displaySettings);
+// }
 const styles = getSectionStyles(grid);
 ---
 <!--<h1>this is a grid!</h1>-->

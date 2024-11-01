@@ -463,6 +463,7 @@ input CardBlockWhereInput {
 }
 
 type CardElement implements IData & _IComponent & _IContent & _IElement {
+  CallToAction: Link
   CoverImage: ContentReference
   DisplayAs: String
   Heading: String
@@ -479,16 +480,19 @@ type CardElement implements IData & _IComponent & _IContent & _IElement {
 }
 
 type CardElementAutocomplete {
+  CallToAction: LinkAutocomplete
   CoverImage: ContentReferenceAutocomplete
   _metadata: IContentMetadataAutocomplete
 }
 
 type CardElementFacet {
+  CallToAction: LinkFacet
   CoverImage: ContentReferenceFacet
   _metadata: IContentMetadataFacet
 }
 
 input CardElementOrderByInput {
+  CallToAction: LinkOrderByInput
   CoverImage: ContentReferenceOrderByInput
   _metadata: IContentMetadataOrderByInput
   _minimumScore: Float
@@ -506,6 +510,7 @@ type CardElementOutput {
 }
 
 input CardElementWhereInput {
+  CallToAction: LinkWhereInput
   CoverImage: ContentReferenceWhereInput
   _and: [CardElementWhereInput]
   _fulltext: SearchableStringFilterInput
@@ -658,7 +663,7 @@ input CompositionStructureNodeWhereInput {
   type: StringFilterInput
 }
 
-type Contact implements IData & _IComponent & _IContent & _IElement {
+type Contact implements IData & _IComponent & _IContent {
   Email: String
   Image: ContentReference
   Location: String
@@ -2074,6 +2079,7 @@ enum Locales {
   ALL
   NEUTRAL
   en
+  nl
 }
 
 type MediaMetadata implements IContentMetadata & IInstanceMetadata & IMediaMetadata {
@@ -2423,6 +2429,7 @@ type Query {
   StandardPage(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: StandardPageOrderByInput, skip: Int! = 0, where: StandardPageWhereInput): StandardPageOutput
   StartPage(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: StartPageOrderByInput, skip: Int! = 0, where: StartPageWhereInput): StartPageOutput
   SysContentFolder(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: SysContentFolderOrderByInput, skip: Int! = 0, where: SysContentFolderWhereInput): SysContentFolderOutput
+  TeamElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: TeamElementOrderByInput, skip: Int! = 0, where: TeamElementWhereInput): TeamElementOutput
   TestimonialElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: TestimonialElementOrderByInput, skip: Int! = 0, where: TestimonialElementWhereInput): TestimonialElementOutput
   TextBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: TextBlockOrderByInput, skip: Int! = 0, where: TextBlockWhereInput): TextBlockOutput
   Video(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: VideoOrderByInput, skip: Int! = 0, where: VideoWhereInput): VideoOutput
@@ -2480,6 +2487,7 @@ type QueryRef {
   StandardPage(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: StandardPageOrderByInput, skip: Int! = 0, where: StandardPageWhereInput): StandardPageOutput
   StartPage(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: StartPageOrderByInput, skip: Int! = 0, where: StartPageWhereInput): StartPageOutput
   SysContentFolder(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: SysContentFolderOrderByInput, skip: Int! = 0, where: SysContentFolderWhereInput): SysContentFolderOutput
+  TeamElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: TeamElementOrderByInput, skip: Int! = 0, where: TeamElementWhereInput): TeamElementOutput
   TestimonialElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: TestimonialElementOrderByInput, skip: Int! = 0, where: TestimonialElementWhereInput): TestimonialElementOutput
   TextBlock(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: TextBlockOrderByInput, skip: Int! = 0, where: TextBlockWhereInput): TextBlockOutput
   Video(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: VideoOrderByInput, skip: Int! = 0, where: VideoWhereInput): VideoOutput
@@ -2887,6 +2895,62 @@ input SysContentFolderWhereInput {
   _modified: DateFilterInput
   _not: [SysContentFolderWhereInput]
   _or: [SysContentFolderWhereInput]
+}
+
+type TeamElement implements IData & _IComponent & _IContent & _IElement {
+  Heading: String
+  Members: [ContentReference]
+  Subheading: String
+  TeamMembers: [ContentReference]
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type TeamElementAutocomplete {
+  Members: ContentReferenceAutocomplete
+  TeamMembers: ContentReferenceAutocomplete
+  _metadata: IContentMetadataAutocomplete
+}
+
+type TeamElementFacet {
+  Members: ContentReferenceFacet
+  TeamMembers: ContentReferenceFacet
+  _metadata: IContentMetadataFacet
+}
+
+input TeamElementOrderByInput {
+  Members: ContentReferenceOrderByInput
+  TeamMembers: ContentReferenceOrderByInput
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type TeamElementOutput {
+  autocomplete: TeamElementAutocomplete
+  cursor: String
+  facets: TeamElementFacet
+  items: [TeamElement]
+  total(all: Boolean): Int
+}
+
+input TeamElementWhereInput {
+  Members: ContentReferenceWhereInput
+  TeamMembers: ContentReferenceWhereInput
+  _and: [TeamElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [TeamElementWhereInput]
+  _or: [TeamElementWhereInput]
 }
 
 type TestimonialElement implements IData & _IComponent & _IContent & _IElement {

@@ -25,12 +25,12 @@ const imageUrl = element.CoverImage?.url.default || null;
 
         <p class="text-xl font-bold text-white sm:text-2xl">{element.Subheading}</p>
 
-        <div class="mt-32 sm:mt-48 lg:mt-64">
+        <div class="mt-20 sm:mt-36 lg:mt-48">
             <div
                     class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
             >
-                <p class="text-2xl text-white">
-                    {element.OverlayText?.slice(0, 100)}...
+                <p class="text-lg text-white">
+                    {element.OverlayText}
                 </p>
             </div>
         </div>
@@ -52,3 +52,66 @@ const imageUrl = element.CoverImage?.url.default || null;
     </p>
 </a>
     }
+{element.DisplayAs === "textOnLeft" &&
+<section class="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2">
+    <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+        <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+            <h2 class="text-5xl font-bold text-gray-900 md:text-5xl">
+                {element.Heading}
+            </h2>
+
+            <p class="hidden text-gray-500 md:mt-4 md:block">
+                {element.OverlayText}
+            </p>
+
+            <div class="mt-4 md:mt-8">
+                <a
+                        href={element.CallToAction?.url}
+                        class="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                >
+                    {element.CallToAction?.text}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <img
+            alt=""
+            src={element.CoverImage?.url.default}
+            class="h-56 w-full object-cover sm:h-full"
+    />
+</section>
+    }
+
+{element.DisplayAs === "textOnRight" &&
+<section class="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2">
+    <img
+            alt=""
+            src={element.CoverImage?.url.default}
+            class="h-56 w-full object-cover sm:h-full"
+    />
+    <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+        <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+            <h2 class="text-5xl font-bold text-gray-900 md:text-5xl">
+                {element.Heading}
+            </h2>
+
+            <p class="hidden text-gray-500 md:mt-4 md:block">
+                {element.OverlayText}
+            </p>
+
+            <div class="mt-4 md:mt-8">
+                <a
+                        href={element.CallToAction?.url}
+                        class="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                >
+                    {element.CallToAction?.text}
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+    }
+

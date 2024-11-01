@@ -1,9 +1,11 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import htmx from "astro-htmx";
 
 import node from "@astrojs/node";
 
 import tailwind from "@astrojs/tailwind"; // https://astro.build/config
+import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,5 +44,5 @@ export default defineConfig({
   //     "***REMOVED***",
   // },
 
-  integrations: [tailwind()],
+  integrations: [tailwind(), alpinejs(), htmx()],
 });
