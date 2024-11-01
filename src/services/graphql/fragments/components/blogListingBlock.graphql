@@ -1,0 +1,4 @@
+fragment BlogListingBlock on BlogListingBlock{
+    BlogListingItemCount
+    BlogListingShowFilters
+}

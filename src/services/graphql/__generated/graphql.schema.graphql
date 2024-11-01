@@ -2899,7 +2899,6 @@ input SysContentFolderWhereInput {
 
 type TeamElement implements IData & _IComponent & _IContent & _IElement {
   Heading: String
-  Members: [ContentReference]
   Subheading: String
   TeamMembers: [ContentReference]
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
@@ -2913,19 +2912,16 @@ type TeamElement implements IData & _IComponent & _IContent & _IElement {
 }
 
 type TeamElementAutocomplete {
-  Members: ContentReferenceAutocomplete
   TeamMembers: ContentReferenceAutocomplete
   _metadata: IContentMetadataAutocomplete
 }
 
 type TeamElementFacet {
-  Members: ContentReferenceFacet
   TeamMembers: ContentReferenceFacet
   _metadata: IContentMetadataFacet
 }
 
 input TeamElementOrderByInput {
-  Members: ContentReferenceOrderByInput
   TeamMembers: ContentReferenceOrderByInput
   _metadata: IContentMetadataOrderByInput
   _minimumScore: Float
@@ -2943,7 +2939,6 @@ type TeamElementOutput {
 }
 
 input TeamElementWhereInput {
-  Members: ContentReferenceWhereInput
   TeamMembers: ContentReferenceWhereInput
   _and: [TeamElementWhereInput]
   _fulltext: SearchableStringFilterInput

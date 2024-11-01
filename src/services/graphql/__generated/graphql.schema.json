@@ -43271,22 +43271,6 @@
             "deprecationReason": null
           },
           {
-            "name": "Members",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ContentReference",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "Subheading",
             "description": null,
             "args": [],
@@ -43474,18 +43458,6 @@
         "isOneOf": null,
         "fields": [
           {
-            "name": "Members",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ContentReferenceAutocomplete",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "TeamMembers",
             "description": null,
             "args": [],
@@ -43521,18 +43493,6 @@
         "description": null,
         "isOneOf": null,
         "fields": [
-          {
-            "name": "Members",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ContentReferenceFacet",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
           {
             "name": "TeamMembers",
             "description": null,
@@ -43570,18 +43530,6 @@
         "isOneOf": false,
         "fields": null,
         "inputFields": [
-          {
-            "name": "Members",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "ContentReferenceOrderByInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
           {
             "name": "TeamMembers",
             "description": null,
@@ -43755,18 +43703,6 @@
         "isOneOf": false,
         "fields": null,
         "inputFields": [
-          {
-            "name": "Members",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "ContentReferenceWhereInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
           {
             "name": "TeamMembers",
             "description": null,

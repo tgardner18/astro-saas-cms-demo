@@ -1,0 +1,7 @@
+query getAllBlogPosts($loc: [Locales]) {
+    BlogPostPage(locale: $loc, orderBy: {_metadata: {published: DESC}}) {
+        items {
+            ...BlogPostPage
+        }
+    }
+}
