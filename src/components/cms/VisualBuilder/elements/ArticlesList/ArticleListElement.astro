@@ -8,8 +8,7 @@ interface Props {
   element: ArticleListElementFragment;
 }
 const { contentPayload, element } = Astro.props
-console.log(contentPayload)
-console.log(element)
+
 const optiResponse = await optiPublishedSdk.getBlogPosts({
   loc: contentPayload.loc,
   limit: element.articleListCount

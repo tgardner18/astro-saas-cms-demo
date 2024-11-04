@@ -4,7 +4,7 @@ import { getDictionaryFromDisplaySettings } from "../../../../../services/shared
 export function getRowStyles(row: CompositionStructureNode) {
   const displaySettings = row.displaySettings;
   const dictionary = getDictionaryFromDisplaySettings(displaySettings);
-  console.log(row.displayTemplateKey);
+  //console.log(row.displayTemplateKey);
 
   // console.log(dictionary);
 
