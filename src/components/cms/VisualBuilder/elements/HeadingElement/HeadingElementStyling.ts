@@ -63,7 +63,7 @@ export function getHeadingElementStyles(
       cssClasses.push("font-bold my-0");
       cssClasses.push("text-[3.6rem]");
       cssClasses.push("lg:text-[3.0rem]");
-      cssClasses.push("xl:text-[4.7rem]");
+      cssClasses.push("xl:text-[3.2rem]");
       break;
     case "h6":
       cssClasses.push("font-bold my-0");
