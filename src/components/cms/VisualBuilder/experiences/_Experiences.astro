@@ -1,31 +1,31 @@
 ---
-import {ContentPayload} from "../../../../services/shared/ContentPayload";
-import {optiDraftSdk} from "../../../../services/graphql/getSdk";
-import Layout from "../../../../layouts/Layout.astro";
-import {BlankExperience} from "../../../../services/graphql/__generated/sdk";
-import {Locales} from "astro";
-import Section from "../compositions/Section/Section.astro";
-const previewPayload = Astro.props.data as ContentPayload;
+import { ContentPayload } from '../../../../services/shared/ContentPayload'
+import { optiDraftSdk } from '../../../../services/graphql/getSdk'
+import Layout from '../../../../layouts/Layout.astro'
+import { BlankExperience } from '../../../../services/graphql/__generated/sdk'
+import { Locales } from 'astro'
+import Section from '../compositions/Section/Section.astro'
+const previewPayload = Astro.props.data as ContentPayload
 
 const optiResponse = await optiDraftSdk.getExperience(
-    {key: previewPayload.key, ver: previewPayload.ver, loc: previewPayload.loc as Locales}
-);
+  { key: previewPayload.key, ver: previewPayload.ver, loc: previewPayload.loc as Locales }
+)
 
-const experiences = optiResponse?._Experience?.items;
-const experience: any = experiences[experiences.length - 1];
-let metaTitle = "", metaDescription = "";
-if (experience._metadata.types.includes("BlankExperience")) {
-    const blankExperience = experience as BlankExperience;
-    metaTitle = blankExperience.BlankExperienceSeoSettings?.MetaTitle || "";
-    metaDescription = blankExperience.BlankExperienceSeoSettings?.MetaDescription || "";
+const experiences = optiResponse?._Experience?.items
+const experience: any = experiences[experiences.length - 1]
+let metaTitle = '', metaDescription = ''
+if (experience._metadata.types.includes('BlankExperience')) {
+  const blankExperience = experience as BlankExperience
+  metaTitle = blankExperience.BlankExperienceSeoSettings?.MetaTitle || ''
+  metaDescription = blankExperience.BlankExperienceSeoSettings?.MetaDescription || ''
 }
 ---
 <Layout title={metaTitle} description={metaDescription}>
-    <div class="relative w-full flex-1 vb:outline">
-        {
-            experience?.composition?.grids?.map((grid: any) => (
-                    <Section grid={grid}/>
-            ))
-        }
-    </div>
+  <div class="relative w-full flex-1 vb:outline">
+    {
+      experience?.composition?.grids?.map((grid: any) => (
+        <Section contentPayload={previewPayload} grid={grid} />
+      ))
+    }
+  </div>
 </Layout>

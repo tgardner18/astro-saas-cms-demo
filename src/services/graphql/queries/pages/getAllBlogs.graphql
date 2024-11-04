@@ -1,5 +1,5 @@
-query getAllBlogPosts($loc: [Locales]) {
-    BlogPostPage(locale: $loc, orderBy: {_metadata: {published: DESC}}) {
+query getBlogPosts($loc: [Locales], $limit: Int! = 50) {
+    BlogPostPage(locale: $loc, orderBy: {_metadata: {published: DESC}}, limit: $limit) {
         items {
             ...BlogPostPage
         }

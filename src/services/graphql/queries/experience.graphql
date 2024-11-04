@@ -60,6 +60,7 @@ query getExperience($key: String, $ver: String, $loc: [Locales]) {
                                                     ...EventElement
                                                     ...CardElement
                                                     ...HeroElement
+                                                    ...ArticleListElement
                                                 }
                                             }
                                         }

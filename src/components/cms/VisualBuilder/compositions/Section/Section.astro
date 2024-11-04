@@ -1,21 +1,23 @@
 ---
-import Row from "../Row/Row.astro";
-import {getSectionStyles} from "./SectionHelper";
+import Row from '../Row/Row.astro'
+import { getSectionStyles } from './SectionHelper'
+import { ContentPayload } from '../../../../../services/shared/ContentPayload'
 export interface Props {
-    grid: any;
+  grid: any;
+  contentPayload: ContentPayload
 }
-const {grid} = Astro.props as Props;
+const { grid, contentPayload } = Astro.props as Props
 // if (grid.displayTemplateKey === "grid") {
 //     console.log(grid.displaySettings);
 // }
-const styles = getSectionStyles(grid);
+const styles = getSectionStyles(grid)
 ---
 <!--<h1>this is a grid!</h1>-->
 <div
-        class:list={styles}
-        class="relative w-full flex flex-col justify-start flex-nowrap vb:grid"
-        data-epi-block-id={grid.key}
+  class:list={styles}
+  class="relative w-full flex flex-col justify-start flex-nowrap vb:grid"
+  data-epi-block-id={grid.key}
 >
-    {grid.rows?.map((row: any) =>
-            <Row row={row}/>)}
+  {grid.rows?.map((row: any) =>
+    <Row contentPayload={contentPayload} row={row} />)}
 </div>

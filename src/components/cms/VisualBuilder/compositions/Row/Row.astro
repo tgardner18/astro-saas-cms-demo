@@ -1,31 +1,33 @@
 ---
-import Column from "../Column/Column.astro";
-import {CompositionStructureNode} from "../../../../../services/graphql/__generated/sdk";
-import CarouselRow from "./CarouselRow.astro";
-import {getRowStyles} from "./RowHelper";
+import Column from '../Column/Column.astro'
+import { CompositionStructureNode } from '../../../../../services/graphql/__generated/sdk'
+import CarouselRow from './CarouselRow.astro'
+import { getRowStyles } from './RowHelper'
+import { ContentPayload } from '../../../../../services/shared/ContentPayload'
 export interface Props {
-    row: any;
+  row: any;
+  contentPayload: ContentPayload;
 }
-const {row} = Astro.props as Props;
-const rowNode = row as CompositionStructureNode;
-const displayTemplateKey = rowNode.displayTemplateKey;
-const styles = getRowStyles(rowNode);
+const { row, contentPayload } = Astro.props as Props
+const rowNode = row as CompositionStructureNode
+const displayTemplateKey = rowNode.displayTemplateKey
+const styles = getRowStyles(rowNode)
 ---
 <!--<h2>this is a row</h2>-->
-{displayTemplateKey !== "CarouselRow" &&
+{displayTemplateKey !== 'CarouselRow' &&
 <div class="p-1 flex-1 flex flex-row flex-nowrap justify-start vb:row"
      class:list={styles}
      data-epi-block-id={row.key}>
-    {row.columns?.map((column: any) => (
-            <Column column={column}/>
-    ))}
+  {row.columns?.map((column: any) => (
+    <Column contentPayload={contentPayload} column={column} />
+  ))}
 </div>
-    }
+  }
 
-{displayTemplateKey === "CarouselRow" &&
+{displayTemplateKey === 'CarouselRow' &&
 <div class="p-1 h-[50vh] flex-none flex flex-row flex-nowrap justify-start vb:row"
      class:list={styles}
      data-epi-block-id={row.key}>
-    <CarouselRow row={row}/>
+  <CarouselRow contentPayload={contentPayload} row={row} />
 </div>
-    }
+  }

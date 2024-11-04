@@ -6606,6 +6606,8 @@ export enum System_Locales {
 
 export type BlogListingBlockFragment = { __typename?: 'BlogListingBlock', BlogListingItemCount?: number | null, BlogListingShowFilters?: boolean | null };
 
+export type ArticleListElementFragment = { __typename?: 'ArticleListElement', articleListCount?: number | null };
+
 export type CardElementFragment = { __typename?: 'CardElement', Heading?: string | null, Subheading?: string | null, OverlayText?: string | null, DisplayAs?: string | null, CoverImage?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, CallToAction?: { __typename?: 'Link', text?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null };
 
 export type ContactElementFragment = { __typename?: 'ContactElement', Contact?: { __typename?: 'ContentReference', key?: string | null } | null };
@@ -6682,7 +6684,10 @@ export type GetExperienceQuery = { __typename?: 'Query', _Experience?: { __typen
               ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
                   & DisplaySettingsFragment
-                ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
+                ) | null> | null, element?: (
+                  { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
+                  & ArticleListElementFragment
+                ) | (
                   { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
                   & CtaElementFragment
                 ) | (
@@ -6729,7 +6734,10 @@ export type GetExperienceQuery = { __typename?: 'Query', _Experience?: { __typen
               ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
                   & DisplaySettingsFragment
-                ) | null> | null, element?: { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null } | (
+                ) | null> | null, element?: (
+                  { __typename?: 'ArticleListElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
+                  & ArticleListElementFragment
+                ) | (
                   { __typename?: 'CTAElement', _metadata?: { __typename?: 'ContentMetadata', types?: Array<string | null> | null } | { __typename?: 'InstanceMetadata', types?: Array<string | null> | null } | { __typename?: 'ItemMetadata', types?: Array<string | null> | null } | { __typename?: 'MediaMetadata', types?: Array<string | null> | null } | null }
                   & CtaElementFragment
                 ) | (
@@ -6788,16 +6796,22 @@ export type PageByIdQuery = { __typename?: 'Query', _Page?: { __typename?: '_Pag
       & LandingPageFragment
     ) | { __typename?: 'StandardPage' } | { __typename?: 'StartPage' } | { __typename?: '_Experience' } | { __typename?: '_Page' } | null> | null } | null };
 
-export type GetAllBlogPostsQueryVariables = Exact<{
+export type GetBlogPostsQueryVariables = Exact<{
   loc?: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
+  limit?: Scalars['Int']['input'];
 }>;
 
 
-export type GetAllBlogPostsQuery = { __typename?: 'Query', BlogPostPage?: { __typename?: 'BlogPostPageOutput', items?: Array<(
+export type GetBlogPostsQuery = { __typename?: 'Query', BlogPostPage?: { __typename?: 'BlogPostPageOutput', items?: Array<(
       { __typename?: 'BlogPostPage' }
       & BlogPostPageFragment
     ) | null> | null } | null };
 
+export const ArticleListElementFragmentDoc = gql`
+    fragment ArticleListElement on ArticleListElement {
+  articleListCount
+}
+    `;
 export const CardElementFragmentDoc = gql`
     fragment CardElement on CardElement {
   Heading
@@ -7054,6 +7068,7 @@ export const GetExperienceDocument = gql`
                           ...EventElement
                           ...CardElement
                           ...HeroElement
+                          ...ArticleListElement
                         }
                       }
                     }
@@ -7077,7 +7092,8 @@ ${ParagraphElementFragmentDoc}
 ${ContactElementFragmentDoc}
 ${EventElementFragmentDoc}
 ${CardElementFragmentDoc}
-${HeroElementFragmentDoc}`;
+${HeroElementFragmentDoc}
+${ArticleListElementFragmentDoc}`;
 export const GetExperienceSeoDocument = gql`
     query getExperienceSeo($key: String, $ver: String, $loc: [Locales]) {
   _Experience(
@@ -7106,9 +7122,13 @@ export const PageByIdDocument = gql`
 ${PageSeoSettingsPropertyFragmentDoc}
 ${LandingPageFragmentDoc}
 ${BlogListingBlockFragmentDoc}`;
-export const GetAllBlogPostsDocument = gql`
-    query getAllBlogPosts($loc: [Locales]) {
-  BlogPostPage(locale: $loc, orderBy: {_metadata: {published: DESC}}) {
+export const GetBlogPostsDocument = gql`
+    query getBlogPosts($loc: [Locales], $limit: Int! = 50) {
+  BlogPostPage(
+    locale: $loc
+    orderBy: {_metadata: {published: DESC}}
+    limit: $limit
+  ) {
     items {
       ...BlogPostPage
     }
@@ -7134,8 +7154,8 @@ export function getSdk<C>(requester: Requester<C>) {
     pageById(variables?: PageByIdQueryVariables, options?: C): Promise<PageByIdQuery> {
       return requester<PageByIdQuery, PageByIdQueryVariables>(PageByIdDocument, variables, options) as Promise<PageByIdQuery>;
     },
-    getAllBlogPosts(variables?: GetAllBlogPostsQueryVariables, options?: C): Promise<GetAllBlogPostsQuery> {
-      return requester<GetAllBlogPostsQuery, GetAllBlogPostsQueryVariables>(GetAllBlogPostsDocument, variables, options) as Promise<GetAllBlogPostsQuery>;
+    getBlogPosts(variables?: GetBlogPostsQueryVariables, options?: C): Promise<GetBlogPostsQuery> {
+      return requester<GetBlogPostsQuery, GetBlogPostsQueryVariables>(GetBlogPostsDocument, variables, options) as Promise<GetBlogPostsQuery>;
     }
   };
 }
