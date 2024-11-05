@@ -31,18 +31,5 @@ export default defineConfig({
       noExternal: ["graphql", "graphql-request"],
     },
   },
-
-  // optimizely: {
-  //   enabled: true,
-  //   projectId: "1234567890",
-  //   cgAddress: "https://cg.optimizely.com/",
-  //   cgAppKey: "***REMOVED***",
-  //   cgSecret:
-  //     "***REMOVED***",
-  //   cgSingleKey: "***REMOVED***",
-  //   cgBasicAuth:
-  //     "***REMOVED***",
-  // },
-
   integrations: [tailwind(), alpinejs(), htmx()],
 });
