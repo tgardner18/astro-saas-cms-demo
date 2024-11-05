@@ -1,15 +1,16 @@
 ---
+import { Locales } from '../../../../../services/graphql/__generated/sdk'
 import { BlogPostPageFragment } from '../../../../../services/graphql/__generated/sdk'
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
-import { optiDraftSdk } from '../../../../../services/graphql/getSdk'
 import Layout from '../../../../../layouts/Layout.astro'
+import { getOptimizelySdk } from '../../../../../services/graphql/getSdk'
 export interface Props {
   contentPayload: ContentPayload;
 }
 const { contentPayload } = Astro.props as Props
-const optiResponse = await optiDraftSdk.pageById({
+const optiResponse = await getOptimizelySdk(contentPayload.ctx).pageById({
   key: contentPayload.key,
-  loc: contentPayload.loc,
+  loc: contentPayload.loc as Locales,
   ver: contentPayload.ver
 })
 const post = optiResponse._Page.items[0] as BlogPostPageFragment

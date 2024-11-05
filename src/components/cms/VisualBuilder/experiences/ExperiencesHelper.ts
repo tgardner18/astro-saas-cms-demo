@@ -2,7 +2,7 @@ import {
   BlankExperience,
   Locales,
 } from "../../../../services/graphql/__generated/sdk.ts";
-import { optiDraftSdk } from "../../../../services/graphql/getSdk.ts";
+import { getOptimizelySdk } from "../../../../services/graphql/getSdk.ts";
 import { ContentPayload } from "../../../../services/shared/ContentPayload.ts";
 
 export async function getSeoData(
@@ -14,7 +14,9 @@ export async function getSeoData(
     metaDescription: string = "";
 
   if (isExperienceType || isPageType) {
-    const metaResponse = await optiDraftSdk.getExperienceSeo({
+    const metaResponse = await getOptimizelySdk(
+      previewPayload.ctx,
+    ).getExperienceSeo({
       key: previewPayload.key,
       ver: previewPayload.ver,
       loc: previewPayload.loc as Locales,

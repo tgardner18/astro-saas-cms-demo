@@ -1,11 +1,13 @@
 ---
-import {DisplaySettingsFragment, HeadingElementFragment} from "../../../../../services/graphql/__generated/sdk";
-import {getHeadingElementStyles} from "./HeadingElementStyling";
+import { DisplaySettingsFragment, HeadingElementFragment } from '../../../../../services/graphql/__generated/sdk'
+import { getHeadingElementStyles } from './HeadingElementStyling'
+import { ContentPayload } from '../../../../../services/shared/ContentPayload'
 export interface Props {
-    element: HeadingElementFragment;
-    displaySettings: DisplaySettingsFragment[];
+  element: HeadingElementFragment;
+  contentPayload: ContentPayload;
+  displaySettings: DisplaySettingsFragment[];
 }
-const {element, displaySettings} = Astro.props as Props;
+const { element, displaySettings } = Astro.props as Props
 ---
 
 <div class:list={getHeadingElementStyles(displaySettings)}>{element.headingText}</div>

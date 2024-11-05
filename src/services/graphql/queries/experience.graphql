@@ -40,7 +40,7 @@ query getExperience($key: String, $ver: String, $loc: [Locales]) {
                                         displaySettings {
                                             ...DisplaySettings
                                         }
-                                        elements: nodes {
+                                        nodes {
                                             ... on CompositionElementNode {
                                                 key
                                                 displayTemplateKey

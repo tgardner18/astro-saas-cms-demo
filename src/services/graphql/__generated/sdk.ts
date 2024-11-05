@@ -6681,7 +6681,7 @@ export type GetExperienceQuery = { __typename?: 'Query', _Experience?: { __typen
             ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
                 & DisplaySettingsFragment
-              ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
+              ) | null> | null, nodes?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
                   & DisplaySettingsFragment
                 ) | null> | null, element?: (
@@ -6731,7 +6731,7 @@ export type GetExperienceQuery = { __typename?: 'Query', _Experience?: { __typen
             ) | null> | null, columns?: Array<{ __typename?: 'CompositionElementNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                 { __typename?: 'CompositionDisplaySetting' }
                 & DisplaySettingsFragment
-              ) | null> | null, elements?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
+              ) | null> | null, nodes?: Array<{ __typename?: 'CompositionElementNode', key?: string | null, displayTemplateKey?: string | null, displaySettings?: Array<(
                   { __typename?: 'CompositionDisplaySetting' }
                   & DisplaySettingsFragment
                 ) | null> | null, element?: (
@@ -6799,13 +6799,11 @@ export type PageByIdQuery = { __typename?: 'Query', _Page?: { __typename?: '_Pag
 export type GetBlogPostsQueryVariables = Exact<{
   loc?: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
   limit?: Scalars['Int']['input'];
+  status?: Scalars['String']['input'];
 }>;
 
 
-export type GetBlogPostsQuery = { __typename?: 'Query', BlogPostPage?: { __typename?: 'BlogPostPageOutput', items?: Array<(
-      { __typename?: 'BlogPostPage' }
-      & BlogPostPageFragment
-    ) | null> | null } | null };
+export type GetBlogPostsQuery = { __typename?: 'Query', BlogPostPage?: { __typename?: 'BlogPostPageOutput', items?: Array<{ __typename?: 'BlogPostPage', Heading?: string | null, ArticleSubHeading?: string | null, BlogPostPromoImage?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, _metadata?: { __typename?: 'ContentMetadata', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'InstanceMetadata', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'ItemMetadata', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | { __typename?: 'MediaMetadata', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null> | null } | null };
 
 export const ArticleListElementFragmentDoc = gql`
     fragment ArticleListElement on ArticleListElement {
@@ -7048,7 +7046,7 @@ export const GetExperienceDocument = gql`
                     displaySettings {
                       ...DisplaySettings
                     }
-                    elements: nodes {
+                    nodes {
                       ... on CompositionElementNode {
                         key
                         displayTemplateKey
@@ -7123,19 +7121,32 @@ ${PageSeoSettingsPropertyFragmentDoc}
 ${LandingPageFragmentDoc}
 ${BlogListingBlockFragmentDoc}`;
 export const GetBlogPostsDocument = gql`
-    query getBlogPosts($loc: [Locales], $limit: Int! = 50) {
+    query getBlogPosts($loc: [Locales], $limit: Int! = 15, $status: String! = "Published") {
   BlogPostPage(
     locale: $loc
     orderBy: {_metadata: {published: DESC}}
     limit: $limit
+    where: {_metadata: {status: {eq: $status}}}
   ) {
     items {
-      ...BlogPostPage
+      _metadata {
+        url {
+          default
+        }
+      }
+      ... on BlogPostPage {
+        Heading
+        ArticleSubHeading
+        BlogPostPromoImage {
+          url {
+            default
+          }
+        }
+      }
     }
   }
 }
-    ${BlogPostPageFragmentDoc}
-${PageSeoSettingsPropertyFragmentDoc}`;
+    `;
 export type Requester<C = {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C>(requester: Requester<C>) {
   return {

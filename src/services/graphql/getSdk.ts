@@ -69,5 +69,6 @@ const requesterPublished: Requester<any> = async (doc: any, vars: any) => {
 export const optiDraftSdk = getSdkWithClient(requesterDraft);
 export const optiPublishedSdk = getSdkWithClient(requesterPublished);
 
-export const getSdk = (isDraft: boolean) =>
-  isDraft ? optiDraftSdk : optiPublishedSdk;
+export function getOptimizelySdk(mode: string) {
+  return mode === "edit" ? optiDraftSdk : optiPublishedSdk;
+}

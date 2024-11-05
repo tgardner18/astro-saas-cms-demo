@@ -1,17 +1,17 @@
 ---
 import ContentArea from '../../shared/ContentArea/ContentArea.astro'
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
-import { optiDraftSdk } from '../../../../../services/graphql/getSdk'
-import { LandingPageFragment } from '../../../../../services/graphql/__generated/sdk'
+import { LandingPageFragment, Locales } from '../../../../../services/graphql/__generated/sdk'
 import Layout from '../../../../../layouts/Layout.astro'
+import { getOptimizelySdk } from '../../../../../services/graphql/getSdk'
 export interface Props {
   contentPayload: ContentPayload;
 }
 const { contentPayload } = Astro.props as Props
 
-const optiResponse = await optiDraftSdk.pageById({
+const optiResponse = await getOptimizelySdk(contentPayload.ctx).pageById({
   key: contentPayload.key,
-  loc: contentPayload.loc,
+  loc: contentPayload.loc as Locales,
   ver: contentPayload.ver
 })
 
@@ -19,12 +19,11 @@ const optiResponse = await optiDraftSdk.pageById({
 const page = optiResponse._Page.items[0] as LandingPageFragment
 ---
 <Layout title="todo" , description="todo">
+  <!--Main content area-->
   {
-    page.MainContentArea?.map((contentAreaItem, index) => (
+    page.MainContentArea?.map((contentAreaItem) => (
       <ContentArea contentPayload={contentPayload} contentAreaItem={contentAreaItem} />
     ))
   }
 </Layout>
-<!--Top Content Area-->
-<!--Main content area-->
 

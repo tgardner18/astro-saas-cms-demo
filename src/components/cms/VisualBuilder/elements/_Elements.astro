@@ -15,23 +15,24 @@ const elementType = element._metadata.types[0]
 ---
 
 {elementType === 'HeadingElement' &&
-<HeadingElement element={element} displaySettings={displaySettings} />}
+<HeadingElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'CTAElement' &&
-<CTAElement element={element} displaySettings={displaySettings} />}
+<CTAElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'ImageElement' &&
-<ImageElement element={element} displaySettings={displaySettings} />}
+<ImageElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'VideoElement' &&
-<VideoElement element={element} displaySettings={displaySettings} />}
+<VideoElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'ParagraphElement' &&
-<ParagraphElement element={element} displaySettings={displaySettings} />}
+<ParagraphElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'ContactElement' &&
-<ContactElement element={element} displaySettings={displaySettings} />}
+<ContactElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'EventElement' &&
-<EventElement element={element} displaySettings={displaySettings} />}
+<EventElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'CardElement' &&
-<Card element={element} displaySettings={displaySettings} displayTemplateKey={displayTemplateKey} />}
+<Card contentPayload={contentPayload} element={element} displaySettings={displaySettings}
+      displayTemplateKey={displayTemplateKey} />}
 {elementType === 'HeroElement' &&
-<Hero element={element} displaySettings={displaySettings} />}
+<Hero contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 {elementType === 'ArticleListElement' &&
 <ArticleListElement contentPayload={contentPayload} element={element} displaySettings={displaySettings} />}
 

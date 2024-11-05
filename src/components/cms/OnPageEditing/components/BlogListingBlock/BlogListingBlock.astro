@@ -1,19 +1,19 @@
 ---
 import BlogListingItem from './BlogListingItem.astro'
-import { BlogListingBlockFragment } from '../../../../../services/graphql/__generated/sdk'
-import { optiPublishedSdk } from '../../../../../services/graphql/getSdk'
+import { BlogListingBlockFragment, Locales } from '../../../../../services/graphql/__generated/sdk'
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
+import { getOptimizelySdk } from '../../../../../services/graphql/getSdk'
 export interface Props {
   data: BlogListingBlockFragment;
   contentPayload: ContentPayload;
 }
 const { data, contentPayload } = Astro.props as Props
-const optiResponse = await optiPublishedSdk.getBlogPosts({
-  loc: contentPayload.loc
+const optiResponse = await getOptimizelySdk(contentPayload.ctx).getBlogPosts({
+  loc: contentPayload.loc as Locales
 })
 ---
 <div class="grid grid-cols-3 gap-20">
-  {optiResponse.BlogPostPage.items.map((item, index) => (
+  {optiResponse.BlogPostPage.items.map((item) => (
     <BlogListingItem data={item} />
   ))}
 </div>

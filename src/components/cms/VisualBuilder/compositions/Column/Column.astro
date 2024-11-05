@@ -16,7 +16,7 @@ const styles = getColumnStyles(column)
   class="flex-1 flex flex-col flex-nowrap vb:col"
   data-epi-block-id={column.key}
 >
-  {column.elements?.map((element: any) => (
+  {column.nodes?.map((element: any) => (
     // <p>{element.displaySettings.map((ds: any) => (`${ds.key} : ${ds.value}`))}</p>
 
     <div data-epi-block-id={element?.key}>

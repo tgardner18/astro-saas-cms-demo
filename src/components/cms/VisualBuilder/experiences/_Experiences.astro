@@ -1,13 +1,12 @@
 ---
 import { ContentPayload } from '../../../../services/shared/ContentPayload'
-import { optiDraftSdk } from '../../../../services/graphql/getSdk'
+import { getOptimizelySdk } from '../../../../services/graphql/getSdk'
 import Layout from '../../../../layouts/Layout.astro'
-import { BlankExperience } from '../../../../services/graphql/__generated/sdk'
-import { Locales } from 'astro'
+import { BlankExperience, Locales } from '../../../../services/graphql/__generated/sdk'
 import Section from '../compositions/Section/Section.astro'
 const previewPayload = Astro.props.data as ContentPayload
 
-const optiResponse = await optiDraftSdk.getExperience(
+const optiResponse = await getOptimizelySdk(previewPayload.ctx).getExperience(
   { key: previewPayload.key, ver: previewPayload.ver, loc: previewPayload.loc as Locales }
 )
 
