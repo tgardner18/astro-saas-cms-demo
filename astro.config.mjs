@@ -7,6 +7,8 @@ import node from "@astrojs/node";
 import tailwind from "@astrojs/tailwind"; // https://astro.build/config
 import alpinejs from "@astrojs/alpinejs";
 
+import pageInsight from "astro-page-insight";
+
 // https://astro.build/config
 export default defineConfig({
   image: {
@@ -31,5 +33,5 @@ export default defineConfig({
       noExternal: ["graphql", "graphql-request"],
     },
   },
-  integrations: [tailwind(), alpinejs(), htmx()],
+  integrations: [tailwind(), alpinejs(), htmx(), pageInsight()],
 });
