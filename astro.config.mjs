@@ -1,11 +1,12 @@
 // @ts-check
-import { defineConfig } from "astro/config";
 import htmx from "astro-htmx";
+import { defineConfig } from "astro/config";
+import mkcert from "vite-plugin-mkcert";
 
 import node from "@astrojs/node";
 
-import tailwind from "@astrojs/tailwind"; // https://astro.build/config
 import alpinejs from "@astrojs/alpinejs";
+import tailwind from "@astrojs/tailwind"; // https://astro.build/config
 
 import pageInsight from "astro-page-insight";
 
@@ -32,6 +33,7 @@ export default defineConfig({
     ssr: {
       noExternal: ["graphql", "graphql-request"],
     },
+    plugins: [mkcert()],
   },
   integrations: [tailwind(), alpinejs(), htmx(), pageInsight()],
 });

@@ -45,6 +45,7 @@
     "@graphql-codegen/typescript-operations": "^4.3.0",
     "@parcel/watcher": "^2.4.1",
     "@types/node": "^22.7.5",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "vite-plugin-mkcert": "^1.17.6"
   }
 }
