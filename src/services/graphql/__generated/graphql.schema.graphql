@@ -6,7 +6,98 @@ directive @recursive(
   depth: Int = 1
 ) on FIELD | INLINE_FRAGMENT
 
-type ArticleListElement implements IData & _IComponent & _IContent & _IElement {
+type AlertElement implements IData & _IComponent & _IContent {
+  Heading: String
+  Subheading: String
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type AlertElementAutocomplete {
+  _metadata: IContentMetadataAutocomplete
+}
+
+type AlertElementFacet {
+  _metadata: IContentMetadataFacet
+}
+
+input AlertElementOrderByInput {
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type AlertElementOutput {
+  autocomplete: AlertElementAutocomplete
+  cursor: String
+  facets: AlertElementFacet
+  items: [AlertElement]
+  total(all: Boolean): Int
+}
+
+input AlertElementWhereInput {
+  _and: [AlertElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [AlertElementWhereInput]
+  _or: [AlertElementWhereInput]
+}
+
+type AnnouncementElement implements IData & _IComponent & _IContent {
+  Announcement: String
+  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
+  _deleted: Bool
+  _fulltext(highlight: HighlightOptions): [String]
+  _id: String
+  _link(type: LinkTypes): QueryRef
+  _metadata: IContentMetadata
+  _modified: Date
+  _score: Float
+}
+
+type AnnouncementElementAutocomplete {
+  _metadata: IContentMetadataAutocomplete
+}
+
+type AnnouncementElementFacet {
+  _metadata: IContentMetadataFacet
+}
+
+input AnnouncementElementOrderByInput {
+  _metadata: IContentMetadataOrderByInput
+  _minimumScore: Float
+  _modified: OrderBy
+  _ranking: Ranking
+  _semanticWeight: Float
+}
+
+type AnnouncementElementOutput {
+  autocomplete: AnnouncementElementAutocomplete
+  cursor: String
+  facets: AnnouncementElementFacet
+  items: [AnnouncementElement]
+  total(all: Boolean): Int
+}
+
+input AnnouncementElementWhereInput {
+  _and: [AnnouncementElementWhereInput]
+  _fulltext: SearchableStringFilterInput
+  _metadata: IContentMetadataWhereInput
+  _modified: DateFilterInput
+  _not: [AnnouncementElementWhereInput]
+  _or: [AnnouncementElementWhereInput]
+}
+
+type ArticleListElement implements IData & _IComponent & _IContent {
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
   _fulltext(highlight: HighlightOptions): [String]
@@ -344,7 +435,7 @@ input ButtonBlockWhereInput {
   _or: [ButtonBlockWhereInput]
 }
 
-type CTAElement implements IData & _IComponent & _IContent & _IElement {
+type CTAElement implements IData & _IComponent & _IContent {
   Link: ContentUrl
   Text: String
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
@@ -462,7 +553,7 @@ input CardBlockWhereInput {
   _or: [CardBlockWhereInput]
 }
 
-type CardElement implements IData & _IComponent & _IContent & _IElement {
+type CardElement implements IData & _IComponent & _IContent {
   CallToAction: Link
   CoverImage: ContentReference
   DisplayAs: String
@@ -569,6 +660,16 @@ input CarouselBlockWhereInput {
   _or: [CarouselBlockWhereInput]
 }
 
+type CompositionComponentNode implements ICompositionComponentNode & ICompositionNode {
+  component: _IComponent
+  displayName: String
+  displaySettings: [CompositionDisplaySetting]
+  displayTemplateKey: String
+  key: String
+  nodeType: String
+  type: String
+}
+
 type CompositionDisplaySetting {
   key: String
   value: String
@@ -592,16 +693,6 @@ input CompositionDisplaySettingOrderByInput {
 input CompositionDisplaySettingWhereInput {
   key: StringFilterInput
   value: StringFilterInput
-}
-
-type CompositionElementNode implements ICompositionElementNode & ICompositionNode {
-  displayName: String
-  displaySettings: [CompositionDisplaySetting]
-  displayTemplateKey: String
-  element: _IElement
-  key: String
-  nodeType: String
-  type: String
 }
 
 type CompositionNode implements ICompositionNode {
@@ -683,7 +774,7 @@ type ContactAutocomplete {
   _metadata: IContentMetadataAutocomplete
 }
 
-type ContactElement implements IData & _IComponent & _IContent & _IElement {
+type ContactElement implements IData & _IComponent & _IContent {
   Contact: ContentReference
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
@@ -870,6 +961,7 @@ input ContainerWhereInput {
 type ContentMetadata implements IContentMetadata {
   created: DateTime
   displayName(highlight: HighlightOptions): String
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   locale: String
@@ -926,7 +1018,7 @@ input ContentRecsBlockWhereInput {
   _or: [ContentRecsBlockWhereInput]
 }
 
-type ContentRecsElement implements IData & _IComponent & _IContent & _IElement {
+type ContentRecsElement implements IData & _IComponent & _IContent {
   ElementDeliveryApiKey: String
   ElementRecommendationCount: Int
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
@@ -1144,7 +1236,7 @@ input Decay {
   scale: Int = 10
 }
 
-type EventElement implements IData & _IComponent & _IContent & _IElement {
+type EventElement implements IData & _IComponent & _IContent {
   Address: String
   Date: DateTime
   Title: String
@@ -1191,7 +1283,7 @@ input EventElementWhereInput {
   _or: [EventElementWhereInput]
 }
 
-type FormElement implements IData & _IComponent & _IContent & _IElement {
+type FormElement implements IData & _IComponent & _IContent {
   Submit: Link
   Subtitle: String
   Title: String
@@ -1286,7 +1378,7 @@ input GenericMediaWhereInput {
   _or: [GenericMediaWhereInput]
 }
 
-type HeadingElement implements IData & _IComponent & _IContent & _IElement {
+type HeadingElement implements IData & _IComponent & _IContent {
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
   _fulltext(highlight: HighlightOptions): [String]
@@ -1395,7 +1487,7 @@ input HeroBlockWhereInput {
   _or: [HeroBlockWhereInput]
 }
 
-type HeroElement implements IData & _IComponent & _IContent & _IElement {
+type HeroElement implements IData & _IComponent & _IContent {
   CallToAction: Link
   Heading: String
   Image: ContentReference
@@ -1579,11 +1671,11 @@ input HtmlBlockWhereInput {
   _or: [HtmlBlockWhereInput]
 }
 
-interface ICompositionElementNode implements ICompositionNode {
+interface ICompositionComponentNode implements ICompositionNode {
+  component: _IComponent
   displayName: String
   displaySettings: [CompositionDisplaySetting]
   displayTemplateKey: String
-  element: _IElement
   key: String
   nodeType: String
   type: String
@@ -1647,6 +1739,7 @@ interface ICompositionStructureNode implements ICompositionNode {
 interface IContentMetadata {
   created: DateTime
   displayName(highlight: HighlightOptions): String
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   locale: String
@@ -1658,6 +1751,7 @@ interface IContentMetadata {
 }
 
 type IContentMetadataAutocomplete {
+  fallbackForLocale(limit: Int! = 10, value: String!): [String]
   key(limit: Int! = 10, value: String!): [String]
   locale(limit: Int! = 10, value: String!): [String]
   status(limit: Int! = 10, value: String!): [String]
@@ -1669,6 +1763,7 @@ type IContentMetadataAutocomplete {
 type IContentMetadataFacet {
   created(unit: DateFacetUnit = DAY, value: Int = 1): [DateFacet]
   displayName(filters: [String!], limit: Int! = 10, orderBy: OrderBy = DESC, orderType: OrderByFacetType = COUNT): [StringFacet]
+  fallbackForLocale(filters: [String!], limit: Int! = 10, orderBy: OrderBy = DESC, orderType: OrderByFacetType = COUNT): [StringFacet]
   key(filters: [String!], limit: Int! = 10, orderBy: OrderBy = DESC, orderType: OrderByFacetType = COUNT): [StringFacet]
   lastModified(unit: DateFacetUnit = DAY, value: Int = 1): [DateFacet]
   locale(filters: [String!], limit: Int! = 10, orderBy: OrderBy = DESC, orderType: OrderByFacetType = COUNT): [StringFacet]
@@ -1682,6 +1777,7 @@ type IContentMetadataFacet {
 input IContentMetadataOrderByInput {
   created: OrderBy
   displayName: OrderBy
+  fallbackForLocale: OrderBy
   key: OrderBy
   lastModified: OrderBy
   locale: OrderBy
@@ -1695,6 +1791,7 @@ input IContentMetadataOrderByInput {
 input IContentMetadataWhereInput {
   created: DateFilterInput
   displayName: SearchableStringFilterInput
+  fallbackForLocale: StringFilterInput
   key: StringFilterInput
   lastModified: DateFilterInput
   locale: StringFilterInput
@@ -1721,6 +1818,7 @@ interface IInstanceMetadata implements IContentMetadata {
   createdBy: String
   displayName(highlight: HighlightOptions): String
   expired: DateTime
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   lastModifiedBy: String
@@ -1740,6 +1838,7 @@ interface IItemMetadata implements IContentMetadata {
   created: DateTime
   displayName(highlight: HighlightOptions): String
   displayOption: String
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   locale: String
@@ -1757,6 +1856,7 @@ interface IMediaMetadata implements IContentMetadata & IInstanceMetadata {
   createdBy: String
   displayName(highlight: HighlightOptions): String
   expired: DateTime
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   lastModifiedBy: String
@@ -1774,7 +1874,7 @@ interface IMediaMetadata implements IContentMetadata & IInstanceMetadata {
   version: String
 }
 
-type ImageElement implements IData & _IComponent & _IContent & _IElement {
+type ImageElement implements IData & _IComponent & _IContent {
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
   _fulltext(highlight: HighlightOptions): [String]
@@ -1875,6 +1975,7 @@ type InstanceMetadata implements IContentMetadata & IInstanceMetadata {
   createdBy: String
   displayName(highlight: HighlightOptions): String
   expired: DateTime
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   lastModifiedBy: String
@@ -1894,6 +1995,7 @@ type ItemMetadata implements IContentMetadata & IItemMetadata {
   created: DateTime
   displayName(highlight: HighlightOptions): String
   displayOption: String
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   locale: String
@@ -2079,7 +2181,6 @@ enum Locales {
   ALL
   NEUTRAL
   en
-  nl
 }
 
 type MediaMetadata implements IContentMetadata & IInstanceMetadata & IMediaMetadata {
@@ -2089,6 +2190,7 @@ type MediaMetadata implements IContentMetadata & IInstanceMetadata & IMediaMetad
   createdBy: String
   displayName(highlight: HighlightOptions): String
   expired: DateTime
+  fallbackForLocale: String
   key: String
   lastModified: DateTime
   lastModifiedBy: String
@@ -2341,7 +2443,7 @@ input PageSeoSettingsWhereInput {
   _or: [PageSeoSettingsWhereInput]
 }
 
-type ParagraphElement implements IData & _IComponent & _IContent & _IElement {
+type ParagraphElement implements IData & _IComponent & _IContent {
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
   _fulltext(highlight: HighlightOptions): [String]
@@ -2391,6 +2493,8 @@ input ParagraphElementWhereInput {
 }
 
 type Query {
+  AlertElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AlertElementOrderByInput, skip: Int! = 0, where: AlertElementWhereInput): AlertElementOutput
+  AnnouncementElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AnnouncementElementOrderByInput, skip: Int! = 0, where: AnnouncementElementWhereInput): AnnouncementElementOutput
   ArticleListElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ArticleListElementOrderByInput, skip: Int! = 0, where: ArticleListElementWhereInput): ArticleListElementOutput
   BlankExperience(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: BlankExperienceOrderByInput, skip: Int! = 0, where: BlankExperienceWhereInput): BlankExperienceOutput
   BlankSection(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: BlankSectionOrderByInput, skip: Int! = 0, where: BlankSectionWhereInput): BlankSectionOutput
@@ -2437,7 +2541,6 @@ type Query {
   VideoMedia(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: VideoMediaOrderByInput, skip: Int! = 0, where: VideoMediaWhereInput): VideoMediaOutput
   _Component(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ComponentOrderByInput, skip: Int! = 0, where: _ComponentWhereInput): _ComponentOutput
   _Content(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ContentOrderByInput, skip: Int! = 0, where: _ContentWhereInput): _ContentOutput
-  _Element(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ElementOrderByInput, skip: Int! = 0, where: _ElementWhereInput): _ElementOutput
   _Experience(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ExperienceOrderByInput, skip: Int! = 0, where: _ExperienceWhereInput): _ExperienceOutput
   _Folder(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _FolderOrderByInput, skip: Int! = 0, where: _FolderWhereInput): _FolderOutput
   _Image(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ImageOrderByInput, skip: Int! = 0, where: _ImageWhereInput): _ImageOutput
@@ -2449,6 +2552,8 @@ type Query {
 
 """"""
 type QueryRef {
+  AlertElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AlertElementOrderByInput, skip: Int! = 0, where: AlertElementWhereInput): AlertElementOutput
+  AnnouncementElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AnnouncementElementOrderByInput, skip: Int! = 0, where: AnnouncementElementWhereInput): AnnouncementElementOutput
   ArticleListElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ArticleListElementOrderByInput, skip: Int! = 0, where: ArticleListElementWhereInput): ArticleListElementOutput
   BlankExperience(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: BlankExperienceOrderByInput, skip: Int! = 0, where: BlankExperienceWhereInput): BlankExperienceOutput
   BlankSection(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: BlankSectionOrderByInput, skip: Int! = 0, where: BlankSectionWhereInput): BlankSectionOutput
@@ -2495,7 +2600,6 @@ type QueryRef {
   VideoMedia(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: VideoMediaOrderByInput, skip: Int! = 0, where: VideoMediaWhereInput): VideoMediaOutput
   _Component(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ComponentOrderByInput, skip: Int! = 0, where: _ComponentWhereInput): _ComponentOutput
   _Content(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ContentOrderByInput, skip: Int! = 0, where: _ContentWhereInput): _ContentOutput
-  _Element(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ElementOrderByInput, skip: Int! = 0, where: _ElementWhereInput): _ElementOutput
   _Experience(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ExperienceOrderByInput, skip: Int! = 0, where: _ExperienceWhereInput): _ExperienceOutput
   _Folder(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _FolderOrderByInput, skip: Int! = 0, where: _FolderWhereInput): _FolderOutput
   _Image(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: _ImageOrderByInput, skip: Int! = 0, where: _ImageWhereInput): _ImageOutput
@@ -2897,7 +3001,7 @@ input SysContentFolderWhereInput {
   _or: [SysContentFolderWhereInput]
 }
 
-type TeamElement implements IData & _IComponent & _IContent & _IElement {
+type TeamElement implements IData & _IComponent & _IContent {
   Heading: String
   Subheading: String
   TeamMembers: [ContentReference]
@@ -2948,7 +3052,7 @@ input TeamElementWhereInput {
   _or: [TeamElementWhereInput]
 }
 
-type TestimonialElement implements IData & _IComponent & _IContent & _IElement {
+type TestimonialElement implements IData & _IComponent & _IContent {
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
   _fulltext(highlight: HighlightOptions): [String]
@@ -3075,7 +3179,7 @@ type VideoAutocomplete {
   _metadata: IContentMetadataAutocomplete
 }
 
-type VideoElement implements IData & _IComponent & _IContent & _IElement {
+type VideoElement implements IData & _IComponent & _IContent {
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
   _fulltext(highlight: HighlightOptions): [String]
@@ -3291,50 +3395,6 @@ input _ContentWhereInput {
   _or: [_ContentWhereInput]
 }
 
-type _Element implements IData & _IComponent & _IContent & _IElement {
-  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
-  _deleted: Bool
-  _fulltext(highlight: HighlightOptions): [String]
-  _id: String
-  _link(type: LinkTypes): QueryRef
-  _metadata: IContentMetadata
-  _modified: Date
-  _score: Float
-}
-
-type _ElementAutocomplete {
-  _metadata: IContentMetadataAutocomplete
-}
-
-type _ElementFacet {
-  _metadata: IContentMetadataFacet
-}
-
-input _ElementOrderByInput {
-  _metadata: IContentMetadataOrderByInput
-  _minimumScore: Float
-  _modified: OrderBy
-  _ranking: Ranking
-  _semanticWeight: Float
-}
-
-type _ElementOutput {
-  autocomplete: _ElementAutocomplete
-  cursor: String
-  facets: _ElementFacet
-  items: [_IElement]
-  total(all: Boolean): Int
-}
-
-input _ElementWhereInput {
-  _and: [_ElementWhereInput]
-  _fulltext: SearchableStringFilterInput
-  _metadata: IContentMetadataWhereInput
-  _modified: DateFilterInput
-  _not: [_ElementWhereInput]
-  _or: [_ElementWhereInput]
-}
-
 type _Experience implements IData & _IContent & _IExperience & _IPage {
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
   _deleted: Bool
@@ -3473,17 +3533,6 @@ input _IContentWhereInput {
   _modified: DateFilterInput
   _not: [_IContentWhereInput]
   _or: [_IContentWhereInput]
-}
-
-interface _IElement implements IData & _IComponent & _IContent {
-  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
-  _deleted: Bool
-  _fulltext(highlight: HighlightOptions): [String]
-  _id: String
-  _link(type: LinkTypes): QueryRef
-  _metadata: IContentMetadata
-  _modified: Date
-  _score: Float
 }
 
 interface _IExperience implements IData & _IContent & _IPage {
