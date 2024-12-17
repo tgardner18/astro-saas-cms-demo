@@ -1,23 +1,35 @@
 ---
-import Row from '../Row/Row.astro'
-import { getSectionStyles } from './SectionHelper'
-import { ContentPayload } from '../../../../../services/shared/ContentPayload'
+import Elements from '../../elements/_Elements.astro';
+import Row from '../Row/Row.astro';
+import { getSectionStyles } from './SectionHelper';
+import { ContentPayload } from '../../../../../services/shared/ContentPayload';
 export interface Props {
   grid: any;
-  contentPayload: ContentPayload
+  contentPayload: ContentPayload;
 }
-const { grid, contentPayload } = Astro.props as Props
-// if (grid.displayTemplateKey === "grid") {
-//     console.log(grid.displaySettings);
-// }
-const styles = getSectionStyles(grid)
+const { grid, contentPayload } = Astro.props as Props;
+const isSection = grid.nodeType === 'section';
+const isComponent = grid.nodeType === 'component';
+const styles = getSectionStyles(grid);
 ---
-<!--<h1>this is a grid!</h1>-->
+
 <div
   class:list={styles}
   class="relative w-full flex flex-col justify-start flex-nowrap vb:grid"
   data-epi-block-id={grid.key}
 >
-  {grid.rows?.map((row: any) =>
-    <Row contentPayload={contentPayload} row={row} />)}
+  {
+    isSection &&
+      grid.rows?.map((row: any) => (
+        <Row contentPayload={contentPayload} row={row} />
+      ))
+  }
+
+  {
+    isComponent && (
+      <div data-epi-block-id={grid.key}>
+        <Elements contentPayload={contentPayload} element={grid} />
+      </div>
+    )
+  }
 </div>
