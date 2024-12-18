@@ -3,12 +3,15 @@ import { print } from "graphql";
 
 import { getSdk as getSdkWithClient, Requester } from "./__generated/sdk";
 
+import {OPTIMIZELY_GRAPH_GATEWAY, OPTIMIZELY_GRAPH_APP_KEY, OPTIMIZELY_GRAPH_SINGLE_KEY} from 'astro:env/client'
+import {OPTIMIZELY_GRAPH_SECRET} from 'astro:env/server'
+
 const requesterDraft: Requester<any> = async (doc: any, vars: any) => {
   const token = btoa(
-    `${import.meta.env.OPTIMIZELY_GRAPH_APP_KEY}:${import.meta.env.OPTIMIZELY_GRAPH_APP_SECRET}`,
+    `${OPTIMIZELY_GRAPH_APP_KEY}:${OPTIMIZELY_GRAPH_SECRET}`,
   );
   const previewClient = new GraphQLClient(
-    `${import.meta.env.OPTIMIZELY_GRAPH_GATEWAY}/content/v2`,
+    `${OPTIMIZELY_GRAPH_GATEWAY}/content/v2`,
     {
       headers: {
         authorization: `Basic ${token}`,
@@ -40,7 +43,7 @@ const requesterDraft: Requester<any> = async (doc: any, vars: any) => {
 
 const requesterPublished: Requester<any> = async (doc: any, vars: any) => {
   const client = new GraphQLClient(
-    `${import.meta.env.OPTIMIZELY_GRAPH_GATEWAY}/content/v2?auth=${import.meta.env.OPTIMIZELY_GRAPH_SINGLE_KEY}`,
+    `${OPTIMIZELY_GRAPH_GATEWAY}/content/v2?auth=${OPTIMIZELY_GRAPH_SINGLE_KEY}`,
   );
 
   try {
