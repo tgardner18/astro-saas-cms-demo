@@ -2,16 +2,16 @@
 export default {
     plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
     overrides: [
-      {
-        files: '*.astro',
-        options: {
-          parser: 'astro',
+        {
+            files: '*.astro',
+            options: {
+                parser: 'astro',
+            },
         },
-      },
     ],
-    tailwindConfig: "./tailwind.config.js",
-    trailingComma: "es5",
+    tailwindConfig: './tailwind.config.mjs',
+    trailingComma: 'es5',
     tabWidth: 4,
-    semi: false,
+    semi: true,
     singleQuote: true,
-  };
+};
