@@ -6,52 +6,6 @@ directive @recursive(
   depth: Int = 1
 ) on FIELD | INLINE_FRAGMENT
 
-type AlertElement implements IData & _IComponent & _IContent {
-  Heading: String
-  Subheading: String
-  _children: QueryRef @deprecated(reason: "Use `_link` field instead")
-  _deleted: Bool
-  _fulltext(highlight: HighlightOptions): [String]
-  _id: String
-  _link(type: LinkTypes): QueryRef
-  _metadata: IContentMetadata
-  _modified: Date
-  _score: Float
-}
-
-type AlertElementAutocomplete {
-  _metadata: IContentMetadataAutocomplete
-}
-
-type AlertElementFacet {
-  _metadata: IContentMetadataFacet
-}
-
-input AlertElementOrderByInput {
-  _metadata: IContentMetadataOrderByInput
-  _minimumScore: Float
-  _modified: OrderBy
-  _ranking: Ranking
-  _semanticWeight: Float
-}
-
-type AlertElementOutput {
-  autocomplete: AlertElementAutocomplete
-  cursor: String
-  facets: AlertElementFacet
-  items: [AlertElement]
-  total(all: Boolean): Int
-}
-
-input AlertElementWhereInput {
-  _and: [AlertElementWhereInput]
-  _fulltext: SearchableStringFilterInput
-  _metadata: IContentMetadataWhereInput
-  _modified: DateFilterInput
-  _not: [AlertElementWhereInput]
-  _or: [AlertElementWhereInput]
-}
-
 type AnnouncementElement implements IData & _IComponent & _IContent {
   Announcement: String
   _children: QueryRef @deprecated(reason: "Use `_link` field instead")
@@ -2493,7 +2447,6 @@ input ParagraphElementWhereInput {
 }
 
 type Query {
-  AlertElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AlertElementOrderByInput, skip: Int! = 0, where: AlertElementWhereInput): AlertElementOutput
   AnnouncementElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AnnouncementElementOrderByInput, skip: Int! = 0, where: AnnouncementElementWhereInput): AnnouncementElementOutput
   ArticleListElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ArticleListElementOrderByInput, skip: Int! = 0, where: ArticleListElementWhereInput): ArticleListElementOutput
   BlankExperience(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: BlankExperienceOrderByInput, skip: Int! = 0, where: BlankExperienceWhereInput): BlankExperienceOutput
@@ -2552,7 +2505,6 @@ type Query {
 
 """"""
 type QueryRef {
-  AlertElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AlertElementOrderByInput, skip: Int! = 0, where: AlertElementWhereInput): AlertElementOutput
   AnnouncementElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: AnnouncementElementOrderByInput, skip: Int! = 0, where: AnnouncementElementWhereInput): AnnouncementElementOutput
   ArticleListElement(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: ArticleListElementOrderByInput, skip: Int! = 0, where: ArticleListElementWhereInput): ArticleListElementOutput
   BlankExperience(cursor: String, ids: [String], limit: Int! = 20, locale: [Locales], orderBy: BlankExperienceOrderByInput, skip: Int! = 0, where: BlankExperienceWhereInput): BlankExperienceOutput

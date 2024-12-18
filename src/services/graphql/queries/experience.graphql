@@ -25,6 +25,7 @@ query getExperience($key: String, $ver: String, $loc: [Locales]) {
             ...DisplaySettings
           }
           ... on CompositionStructureNode {
+            nodeType
             key
             rows: nodes {
               ... on CompositionStructureNode {
@@ -67,6 +68,29 @@ query getExperience($key: String, $ver: String, $loc: [Locales]) {
                   }
                 }
               }
+            }
+          }
+          ... on CompositionComponentNode {
+            nodeType
+            key
+            displayTemplateKey
+            displaySettings {
+              ...DisplaySettings
+            }
+            component {
+              _metadata {
+                types
+              }
+              ...HeadingElement
+              ...ImageElement
+              ...CTAElement
+              ...VideoElement
+              ...ParagraphElement
+              ...ContactElement
+              ...EventElement
+              ...CardElement
+              ...HeroElement
+              ...ArticleListElement
             }
           }
         }
