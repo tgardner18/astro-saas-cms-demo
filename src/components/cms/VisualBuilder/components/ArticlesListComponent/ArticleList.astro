@@ -9,14 +9,14 @@ import BlogListingItem from '../../../OnPageEditing/components/BlogListingBlock/
 import { getOptimizelySdk } from '../../../../../services/graphql/getSdk'
 interface Props {
   contentPayload: ContentPayload;
-  element: ArticleListElementFragment;
+  data: ArticleListElementFragment;
   displaySettings: DisplaySettingsFragment[];
 }
-const { contentPayload, element } = Astro.props
+const { contentPayload, data } = Astro.props
 
 const optiResponse = await getOptimizelySdk(contentPayload.ctx).getBlogPosts({
   loc: contentPayload.loc as Locales,
-  limit: element.articleListCount
+  limit: data.articleListCount
 })
 ---
 <div class="grid grid-cols-3 gap-20">

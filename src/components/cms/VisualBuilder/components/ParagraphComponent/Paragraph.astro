@@ -2,11 +2,11 @@
 import { DisplaySettingsFragment, ParagraphElementFragment } from '../../../../../services/graphql/__generated/sdk'
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
 export interface Props {
-  element: ParagraphElementFragment;
+  data: ParagraphElementFragment;
   displaySettings: DisplaySettingsFragment[];
   contentPayload: ContentPayload;
 }
-const { element } = Astro.props as Props
+const { data } = Astro.props as Props
 ---
 
-<div set:html={element.text.html} />
+<div set:html={data.text.html} />

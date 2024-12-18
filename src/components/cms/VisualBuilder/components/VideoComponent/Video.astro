@@ -3,11 +3,11 @@ import { DisplaySettingsFragment, VideoElementFragment } from '../../../../../se
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
 
 export interface Props {
-  element: VideoElementFragment;
+  data: VideoElementFragment;
   displaySettings: DisplaySettingsFragment[];
   contentPayload: ContentPayload;
 }
-const { element } = Astro.props as Props
+const { data } = Astro.props as Props
 ---
 
-<video src={element.video.url.default} autoplay muted />
+<video src={data.video.url.default} autoplay muted />

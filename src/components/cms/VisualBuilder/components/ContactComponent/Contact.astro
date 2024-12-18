@@ -6,14 +6,14 @@ import {
 import { getOptimizelySdk } from '../../../../../services/graphql/getSdk'
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
 export interface Props {
-  element: ContactElementFragment;
+  data: ContactElementFragment;
   displaySettings: DisplaySettingsFragment[];
   contentPayload: ContentPayload;
 }
-const { element, contentPayload } = Astro.props as Props
+const { data, contentPayload } = Astro.props as Props
 
 const optiResponse = await getOptimizelySdk(contentPayload.ctx).pageById({
-  key: element.Contact.key,
+  key: data.Contact.key,
   loc: Locales.En
 })
 const contactPage = optiResponse._Page.items[0] as ContactPage
