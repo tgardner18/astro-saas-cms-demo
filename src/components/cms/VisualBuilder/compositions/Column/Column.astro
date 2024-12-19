@@ -1,5 +1,5 @@
 ---
-import Elements from '../../elements/_Elements.astro'
+import Elements from '../../components/_Components.astro'
 import { CompositionStructureNode } from '../../../../../services/graphql/__generated/sdk'
 import { getColumnStyles } from './ColumnHelper'
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
@@ -16,11 +16,11 @@ const styles = getColumnStyles(column)
   class="flex-1 flex flex-col flex-nowrap vb:col"
   data-epi-block-id={column.key}
 >
-  {column.nodes?.map((element: any) => (
-    // <p>{element.displaySettings.map((ds: any) => (`${ds.key} : ${ds.value}`))}</p>
+  {column.nodes?.map((item: any) => (
+    // <p>{item.displaySettings.map((ds: any) => (`${ds.key} : ${ds.value}`))}</p>
 
-    <div data-epi-block-id={element?.key}>
-      <Elements contentPayload={contentPayload} element={element} />
+    <div data-epi-block-id={item?.key}>
+      <Elements contentPayload={contentPayload} data={item} />
     </div>
   ))}
 </div>

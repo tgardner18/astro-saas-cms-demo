@@ -6,13 +6,13 @@ import {
 } from '../../../../../services/graphql/__generated/sdk'
 import { ContentPayload } from '../../../../../services/shared/ContentPayload'
 export interface Props {
-  element: HeroElementFragment;
+  data: HeroElementFragment;
   displaySettings: DisplaySettingsFragment[];
   contentPayload: ContentPayload;
 }
-const { element } = Astro.props as Props
-const videoUrl = element.Video?.url.default || null
-const imageUrl = element.Image?.url.default || null
+const { data } = Astro.props as Props
+const videoUrl = data.Video?.url.default || null
+const imageUrl = data.Image?.url.default || null
 const hasVideo = videoUrl !== null
 ---
 <!--
@@ -41,16 +41,16 @@ const hasVideo = videoUrl !== null
 
   <!-- Content Overlay -->
   <div class="relative flex flex-col items-center justify-center text-center p-16 z-10">
-    {element.Heading && <h1 class="text-4xl md:text-6xl font-bold mb-4">{element.Heading}</h1>}
-    {element.SubHeading && <p class="text-lg md:text-xl max-w-2xl mb-8">
-      {element.SubHeading}
+    {data.Heading && <h1 class="text-4xl md:text-6xl font-bold mb-4">{data.Heading}</h1>}
+    {data.SubHeading && <p class="text-lg md:text-xl max-w-2xl mb-8">
+      {data.SubHeading}
     </p>}
-    {element.RichText &&
-      <div class="text-sm max-w-2xl mb-8" set:html={element.RichText.html} />}
-    {element.CallToAction.url &&
-      <a href={element.CallToAction.url.default}
+    {data.RichText &&
+      <div class="text-sm max-w-2xl mb-8" set:html={data.RichText.html} />}
+    {data.CallToAction.url &&
+      <a href={data.CallToAction.url.default}
          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition duration-300">
-        {element.CallToAction.text}
+        {data.CallToAction.text}
       </a>
     }
   </div>
