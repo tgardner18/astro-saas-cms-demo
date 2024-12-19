@@ -1,6 +1,6 @@
 // @ts-check
 import htmx from "astro-htmx";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import mkcert from "vite-plugin-mkcert";
 
 import node from "@astrojs/node";
@@ -36,4 +36,13 @@ export default defineConfig({
     plugins: [mkcert()],
   },
   integrations: [tailwind(), alpinejs(), htmx(), pageInsight()],
+  
+  env: {
+    schema: {
+      OPTIMIZELY_GRAPH_SECRET: envField.string({context: "server", access: "secret", optional: false}),
+      OPTIMIZELY_GRAPH_APP_KEY: envField.string({context: "client", access: "public", optional: false}),
+      OPTIMIZELY_GRAPH_SINGLE_KEY: envField.string({context: "client", access: "public", optional: false}),
+      OPTIMIZELY_GRAPH_GATEWAY: envField.string({context: "client", access: "public", optional: false}),
+    }
+  }
 });
