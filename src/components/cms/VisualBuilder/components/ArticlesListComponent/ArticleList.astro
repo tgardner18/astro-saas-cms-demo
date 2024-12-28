@@ -14,7 +14,7 @@ interface Props {
 }
 const { contentPayload, data } = Astro.props
 
-const optiResponse = await getOptimizelySdk(contentPayload.ctx).getBlogPosts({
+const optiResponse = await getOptimizelySdk(contentPayload).getBlogPosts({
   loc: contentPayload.loc as Locales,
   limit: data.articleListCount
 })

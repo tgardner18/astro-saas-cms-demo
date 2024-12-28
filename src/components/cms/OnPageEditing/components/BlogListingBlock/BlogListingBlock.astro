@@ -8,7 +8,7 @@ export interface Props {
   contentPayload: ContentPayload;
 }
 const { data, contentPayload } = Astro.props as Props
-const optiResponse = await getOptimizelySdk(contentPayload.ctx).getBlogPosts({
+const optiResponse = await getOptimizelySdk(contentPayload).getBlogPosts({
   loc: contentPayload.loc as Locales
 })
 ---

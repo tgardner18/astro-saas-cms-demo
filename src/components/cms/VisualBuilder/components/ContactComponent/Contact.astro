@@ -12,7 +12,7 @@ export interface Props {
 }
 const { data, contentPayload } = Astro.props as Props
 
-const optiResponse = await getOptimizelySdk(contentPayload.ctx).pageById({
+const optiResponse = await getOptimizelySdk(contentPayload).pageById({
   key: data.Contact.key,
   loc: Locales.En
 })

@@ -7,21 +7,31 @@ import { getOptimizelySdk } from "../services/graphql/getSdk";
 import { ContentPayload } from "../services/shared/ContentPayload";
 
 const ctx = "view";
+
+var contentPayload: ContentPayload = {
+  ctx: ctx,
+  key: null,
+  ver: null,
+  loc: null,
+  preview_token: "",
+  types: null,
+};
+
 const urlPath = `${Astro.url.pathname.replace(/\/$/, "")}/`;
-const contentByPathResponse = await getOptimizelySdk(ctx).contentByPath({
+const contentByPathResponse = await getOptimizelySdk(contentPayload).contentByPath({
   url: urlPath,
 });
 if (contentByPathResponse._Content.items.length === 0) {
   return Astro.redirect("/en");
 }
 const item = contentByPathResponse._Content.items[0];
-const contentByIdResponse = await getOptimizelySdk(ctx).contentById({
+const contentByIdResponse = await getOptimizelySdk(contentPayload).contentById({
   key: item._metadata.key,
   ver: item._metadata.version,
   loc: item._metadata.locale as Locales,
 });
 
-const contentPayload: ContentPayload = {
+contentPayload = {
   ctx: ctx,
   key: item._metadata.key,
   ver: item._metadata.version,
@@ -33,7 +43,6 @@ const isComponentType = contentPayload.types.includes("_Component");
 const isExperienceType = contentPayload.types.includes("_Experience");
 const isPageType =
   contentPayload.types.includes("_Page") && isExperienceType === false;
-//const {metaTitle, metaDescription} = await getSeoData(isExperienceType, isPageType, contentPayload)
 ---
 
 <>
