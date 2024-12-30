@@ -9,13 +9,12 @@ export interface Props {
 }
 const { contentPayload } = Astro.props as Props
 
-const optiResponse = await getOptimizelySdk(contentPayload.ctx).pageById({
+const optiResponse = await getOptimizelySdk(contentPayload).pageById({
   key: contentPayload.key,
   loc: contentPayload.loc as Locales,
   ver: contentPayload.ver
 })
 
-//console.log(optiResponse)
 const page = optiResponse._Page.items[0] as LandingPageFragment
 ---
 <Layout title="todo" , description="todo">

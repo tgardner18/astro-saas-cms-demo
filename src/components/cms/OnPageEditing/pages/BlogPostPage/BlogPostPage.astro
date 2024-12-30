@@ -8,12 +8,14 @@ export interface Props {
   contentPayload: ContentPayload;
 }
 const { contentPayload } = Astro.props as Props
-const optiResponse = await getOptimizelySdk(contentPayload.ctx).pageById({
+
+const optiResponse = await getOptimizelySdk(contentPayload).pageById({
   key: contentPayload.key,
   loc: contentPayload.loc as Locales,
   ver: contentPayload.ver
 })
-const post = optiResponse._Page.items[0] as BlogPostPageFragment
+const post = optiResponse._Page.items[0] as BlogPostPageFragment;
+
 ---
 <Layout title={post.SeoSettings?.MetaTitle} description={post.SeoSettings?.MetaDescription}>
   <div class="max-w-screen-6xl mx-auto">
