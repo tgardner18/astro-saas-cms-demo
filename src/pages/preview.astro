@@ -7,6 +7,12 @@ import { ContentPayload } from '../services/shared/ContentPayload'
 import { Locales } from '../services/graphql/__generated/sdk'
 import qs from 'query-string'
 
+import { OPTIMIZELY_CMS_URL } from 'astro:env/client'
+const cmsScript = 
+  (OPTIMIZELY_CMS_URL && OPTIMIZELY_CMS_URL.startsWith("https://") && OPTIMIZELY_CMS_URL.includes(".cms.optimizely.com")) ? 
+	`${OPTIMIZELY_CMS_URL.replace(/\/$/, "")}/util/javascript/communicationinjector.js` : 
+	`/communicationinjector.js`
+
 const previewPayload = qs.parse(Astro.url.search) as unknown as ContentPayload
 
 const optiResponse = await getOptimizelySdk(previewPayload.ctx).contentById({
@@ -33,7 +39,7 @@ const isPageType = types?.includes('_Page') && isExperienceType === false
   {isPageType &&
     <Pages data={previewPayload} />}
 </>
-<script src="/communicationinjector.js" is:inline></script>
+<script src=`${cmsScript}` is:inline></script>
 <script>
   function contentSaved(event: any) {
     window.location = event.detail.previewUrl

@@ -39,6 +39,7 @@ export default defineConfig({
   
   env: {
     schema: {
+      OPTIMIZELY_CMS_URL: envField.string({context: "client", access: "public", optional: true}),
       OPTIMIZELY_GRAPH_SECRET: envField.string({context: "server", access: "secret", optional: false}),
       OPTIMIZELY_GRAPH_APP_KEY: envField.string({context: "client", access: "public", optional: false}),
       OPTIMIZELY_GRAPH_SINGLE_KEY: envField.string({context: "client", access: "public", optional: false}),
