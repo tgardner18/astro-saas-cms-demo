@@ -15,7 +15,7 @@ export async function getSeoData(
 
   if (isExperienceType || isPageType) {
     const metaResponse = await getOptimizelySdk(
-      previewPayload.ctx,
+      previewPayload,
     ).getExperienceSeo({
       key: previewPayload.key,
       ver: previewPayload.ver,
