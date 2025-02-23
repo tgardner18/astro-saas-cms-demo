@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from 'astro:assets';
 import {
-  HeroElementFragment,
-  DisplaySettingsFragment
-} from '../../../../../services/graphql/__generated/sdk'
-import { ContentPayload } from '../../../../../services/shared/ContentPayload'
+DisplaySettingsFragment,
+HeroElementFragment
+} from '../../../../../services/graphql/__generated/sdk';
+import { ContentPayload } from '../../../../../services/shared/ContentPayload';
 export interface Props {
   data: HeroElementFragment;
   displaySettings: DisplaySettingsFragment[];
@@ -20,14 +20,19 @@ const hasVideo = videoUrl !== null
 
   This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
 -->
-<section class="relative h-[50vh] w-full overflow-hidden text-white">
+<section class="relative w-full overflow-hidden text-white">
+  <img
+      alt="Hero"
+      src={imageUrl}
+      class="absolute inset-0 w-full object-cover"
+      inferSize={true}
+    />}
   <!-- Video Background -->
   {hasVideo &&
     <video autoplay muted loop class="absolute inset-0 w-full object-cover">
       <source src={videoUrl} type="video/mp4">
       Your browser does not support the video tag.
     </video>}
-
   <!-- Image Background -->
   {imageUrl && !hasVideo &&
     <Image
@@ -37,7 +42,7 @@ const hasVideo = videoUrl !== null
       inferSize={true}
     />}
   <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="absolute inset-0 bg-black opacity-50"></div>
 
   <!-- Content Overlay -->
   <div class="relative flex flex-col items-center justify-center text-center p-16 z-10">
