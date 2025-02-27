@@ -79,6 +79,12 @@ export default defineConfig({
                 access: 'public',
                 optional: false,
             }),
+            PREVIEW_DELAY: envField.number({
+                context: 'client',
+                access: 'public',
+                optional: true,
+                default: 0,
+            }),
         },
     },
 });
