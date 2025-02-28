@@ -40,12 +40,16 @@ const isPageType = types?.includes('_Page') && isExperienceType === false
 </>
 <script src=`${cmsScript}` is:inline></script>
 <script>
+  import { PREVIEW_DELAY } from 'astro:env/client';
+  
   function contentSaved(event: any) {
     window.location = event.detail.previewUrl
     //window.location.reload();
   }
 
   window.addEventListener('optimizely:cms:contentSaved', (event) =>
-    contentSaved(event)
-  )
+      setTimeout(() => {
+          contentSaved(event);
+      }, PREVIEW_DELAY)
+  );
 </script>
