@@ -1,0 +1,12 @@
+fragment AllComponents on _IComponent {
+    ...Text
+    ...Image
+    ...CallToAction
+    ...Video
+    ...Paragraph
+    ...Card
+    ...Hero
+    ...Carousel
+    ...Collapse
+    ...ArticleList
+}
