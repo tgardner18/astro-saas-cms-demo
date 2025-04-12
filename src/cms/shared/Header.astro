@@ -2,6 +2,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { SiteSettingsByHostnameQuery } from '../../../__generated/sdk';
 import { getClassForLogo } from './siteSettingsHelper';
+import SearchPalette from './SearchPalette.astro';
 const lang = Astro.currentLocale || '';
 
 interface Props {
@@ -14,91 +15,281 @@ const logoCss = getClassForLogo(settings?.LogoResoultion);
 // const headerItems = getMenuItems(settings?.HeaderLinks);
 ---
 
-<header class="sticky top-0 z-50 bg-gray-50/70 backdrop-blur-sm">
-    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-24 items-center justify-between">
-            <div class="flex-1 md:flex md:items-center md:gap-12">
-                <a
-                    class="block text-teal-600"
-                    href={getRelativeLocaleUrl(lang, '/')}
-                >
-                    <span class="sr-only">Home</span>
-                    <img
-                        class={logoCss}
-                        src={settings?.Logo?.url?.default ??
-                            '/mosey-coffee.png'}
-                    />
-                </a>
-            </div>
+<>
+    <header class="list-none bg-white" x-data>
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex-1 md:flex md:items-center md:gap-12">
+                    <a class="block text-teal-600" href="#">
+                        <span class="sr-only">Home</span>
+                        <img
+                            src={settings?.Logo?.url?.default}
+                            alt="Logo"
+                            class={logoCss}
+                        />
+                    </a>
+                </div>
 
-            <div class="md:flex md:items-center md:gap-12">
-                <nav aria-label="Global" class="hidden md:block">
-                    <ul class="flex list-none items-center gap-10 text-lg">
-                        <li>
-                            <a
-                                class="text-gray-500 transition hover:text-gray-500/75"
-                                href={getRelativeLocaleUrl(lang, '#')}
-                            >
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                class="text-gray-500 transition hover:text-gray-500/75"
-                                href={getRelativeLocaleUrl(lang, '#')}
-                            >
-                                Careers
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                class="text-gray-500 transition hover:text-gray-500/75"
-                                href={getRelativeLocaleUrl(lang, '#')}
-                            >
-                                History
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                class="text-gray-500 transition hover:text-gray-500/75"
-                                href={getRelativeLocaleUrl(lang, '/blog')}
-                            >
-                                Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                class="text-gray-500 transition hover:text-gray-500/75"
-                                href={getRelativeLocaleUrl(lang, '/store')}
-                            >
-                                Store
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!--<label class="swap swap-rotate">-->
-                <!--    &lt;!&ndash; this hidden checkbox controls the state &ndash;&gt;-->
-                <!--    <input type="checkbox" class="theme-controller" value="dark"/>-->
+                <div class="md:flex md:items-center md:gap-12">
+                    <nav aria-label="Global" class="hidden md:block">
+                        <ul class="flex list-none items-center gap-6 text-sm">
+                            <li class="group relative">
+                                <a
+                                    class="flex items-center gap-1 text-gray-500 transition hover:text-gray-500/75"
+                                    href="#"
+                                >
+                                    About
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4 w-4"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </a>
+                                <div
+                                    class="ring-opacity-5 invisible absolute left-0 z-50 mt-2 w-full min-w-[250px] bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
+                                >
+                                    <div
+                                        class="py-4"
+                                        role="menu"
+                                        aria-orientation="horizontal"
+                                    >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Company Overview</a
+                                        >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Our Team</a
+                                        >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Mission & Vision</a
+                                        >
+                                    </div>
+                                </div>
+                            </li>
 
-                <!--    &lt;!&ndash; sun icon &ndash;&gt;-->
-                <!--    <svg-->
-                <!--            class="swap-off h-10 w-10 fill-current"-->
-                <!--            xmlns="http://www.w3.org/2000/svg"-->
-                <!--            viewBox="0 0 24 24">-->
-                <!--        <path-->
-                <!--                d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>-->
-                <!--    </svg>-->
+                            <li class="group relative">
+                                <a
+                                    class="flex items-center gap-1 text-gray-500 transition hover:text-gray-500/75"
+                                    href="#"
+                                >
+                                    Services
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4 w-4"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </a>
+                                <div
+                                    class="ring-opacity-5 invisible absolute left-0 z-50 mt-2 w-full min-w-[250px] bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
+                                >
+                                    <div
+                                        class="py-4"
+                                        role="menu"
+                                        aria-orientation="horizontal"
+                                    >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Consulting</a
+                                        >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Development</a
+                                        >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Support</a
+                                        >
+                                    </div>
+                                </div>
+                            </li>
 
-                <!--    &lt;!&ndash; moon icon &ndash;&gt;-->
-                <!--    <svg-->
-                <!--            class="swap-on h-10 w-10 fill-current"-->
-                <!--            xmlns="http://www.w3.org/2000/svg"-->
-                <!--            viewBox="0 0 24 24">-->
-                <!--        <path-->
-                <!--                d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>-->
-                <!--    </svg>-->
-                <!--</label>-->
+                            <li>
+                                <a
+                                    class="text-gray-500 transition hover:text-gray-500/75"
+                                    href="#"
+                                >
+                                    Careers
+                                </a>
+                            </li>
+
+                            <li class="group relative">
+                                <a
+                                    class="flex items-center gap-1 text-gray-500 transition hover:text-gray-500/75"
+                                    href="#"
+                                >
+                                    Projects
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4 w-4"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </a>
+                                <div
+                                    class="ring-opacity-5 invisible absolute left-0 z-50 mt-2 w-full min-w-[250px] bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
+                                >
+                                    <div
+                                        class="py-4"
+                                        role="menu"
+                                        aria-orientation="horizontal"
+                                    >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Case Studies</a
+                                        >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Portfolio</a
+                                        >
+                                        <a
+                                            href="#"
+                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem"
+                                            >Client Testimonials</a
+                                        >
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a
+                                    class="text-gray-500 transition hover:text-gray-500/75"
+                                    href="#"
+                                >
+                                    Blog
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="flex items-center gap-4">
+                        <div class="sm:flex sm:gap-4">
+                            <div class="relative">
+                                <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    class="w-full cursor-pointer rounded-md border border-gray-200 px-5 py-2.5 pe-10 shadow-sm sm:text-sm"
+                                    @click.prevent="$dispatch('open-command-palette')"
+                                    readonly
+                                />
+
+                                <button
+                                    type="button"
+                                    class="absolute inset-y-0 end-0 grid w-10 place-content-center text-gray-600 hover:text-gray-700"
+                                    @click.prevent="$dispatch('open-command-palette')"
+                                >
+                                    <span class="sr-only">Search</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="h-4 w-4"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="block md:hidden">
+                            <button
+                                class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="size-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+
+    <SearchPalette />
+</>
+
+<style>
+    /* Ensure dropdown menus appear above other content */
+    .group:hover .group-hover\:visible {
+        z-index: 50;
+    }
+
+    /* Make sure the menu widths are consistent */
+    .group {
+        position: static;
+    }
+
+    .group > div {
+        width: 100% !important;
+        left: 0;
+        right: 0;
+    }
+
+    /* Center the menu items */
+    .group > div > div {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .group > div > div a {
+        text-align: center;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
