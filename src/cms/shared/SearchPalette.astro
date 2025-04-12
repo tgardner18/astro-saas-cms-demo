@@ -34,7 +34,7 @@
 
     <!-- Dialog panel -->
     <div
-        class="ring-opacity-5 mx-auto max-w-2xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black transition-all"
+        class="ring-opacity-5 mx-auto max-w-2xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-indigo-200 transition-all"
         @click.away="isOpen = false"
     >
         <!-- Search input -->
@@ -53,7 +53,7 @@
                 type="text"
                 x-model="query"
                 @input.debounce.300ms="search()"
-                class="h-12 w-full border-0 bg-transparent pr-4 pl-11 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                class="h-12 w-full border-0 bg-transparent pr-4 pl-11 text-gray-900 shadow-none outline-none placeholder:text-gray-400 focus:ring-0 focus:outline-none sm:text-sm"
                 placeholder="Search..."
                 role="combobox"
             />
