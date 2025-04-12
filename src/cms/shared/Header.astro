@@ -54,26 +54,26 @@ const logoCss = getClassForLogo(settings?.LogoResoultion);
                                     </svg>
                                 </a>
                                 <div
-                                    class="ring-opacity-5 invisible absolute left-0 z-50 mt-2 w-full min-w-[250px] bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
+                                    class="ring-opacity-5 invisible absolute left-1/2 z-50 mt-2 min-w-[200px] -translate-x-1/2 transform rounded-md bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
                                 >
                                     <div
-                                        class="py-4"
+                                        class="flex flex-col py-2"
                                         role="menu"
                                         aria-orientation="horizontal"
                                     >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Company Overview</a
                                         >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Our Team</a
                                         >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Mission & Vision</a
                                         >
                                     </div>
@@ -101,26 +101,26 @@ const logoCss = getClassForLogo(settings?.LogoResoultion);
                                     </svg>
                                 </a>
                                 <div
-                                    class="ring-opacity-5 invisible absolute left-0 z-50 mt-2 w-full min-w-[250px] bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
+                                    class="ring-opacity-5 invisible absolute left-1/2 z-50 mt-2 min-w-[200px] -translate-x-1/2 transform rounded-md bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
                                 >
                                     <div
-                                        class="py-4"
+                                        class="flex flex-col py-2"
                                         role="menu"
                                         aria-orientation="horizontal"
                                     >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Consulting</a
                                         >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Development</a
                                         >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Support</a
                                         >
                                     </div>
@@ -157,26 +157,26 @@ const logoCss = getClassForLogo(settings?.LogoResoultion);
                                     </svg>
                                 </a>
                                 <div
-                                    class="ring-opacity-5 invisible absolute left-0 z-50 mt-2 w-full min-w-[250px] bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
+                                    class="ring-opacity-5 invisible absolute left-1/2 z-50 mt-2 min-w-[200px] -translate-x-1/2 transform rounded-md bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
                                 >
                                     <div
-                                        class="py-4"
+                                        class="flex flex-col py-2"
                                         role="menu"
                                         aria-orientation="horizontal"
                                     >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Case Studies</a
                                         >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Portfolio</a
                                         >
                                         <a
                                             href="#"
-                                            class="px-6 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem"
                                             >Client Testimonials</a
                                         >
@@ -259,36 +259,6 @@ const logoCss = getClassForLogo(settings?.LogoResoultion);
 </>
 
 <style>
-    /* Ensure dropdown menus appear above other content */
-    .group:hover .group-hover\:visible {
-        z-index: 50;
-    }
-
-    /* Make sure the menu widths are consistent */
-    .group {
-        position: static;
-    }
-
-    .group > div {
-        width: 100% !important;
-        left: 0;
-        right: 0;
-    }
-
-    /* Center the menu items */
-    .group > div > div {
-        max-width: 1280px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem;
-    }
-
-    .group > div > div a {
-        text-align: center;
-    }
-
     [x-cloak] {
         display: none !important;
     }
