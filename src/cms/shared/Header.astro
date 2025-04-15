@@ -1,8 +1,7 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { SiteSettingsByHostnameQuery } from '../../../__generated/sdk';
-import { getClassForLogo } from './siteSettingsHelper';
 import SearchPalette from './SearchPalette.astro';
+import { getClassForLogo } from './siteSettingsHelper';
 const lang = Astro.currentLocale || '';
 
 interface Props {
@@ -23,7 +22,8 @@ const logoCss = getClassForLogo(settings?.LogoResoultion);
                     <a class="block text-teal-600" href="#">
                         <span class="sr-only">Home</span>
                         <img
-                            src={settings?.Logo?.url?.default}
+                            src={settings?.Logo?.url?.default ??
+                                '/mosey-coffee.png'}
                             alt="Logo"
                             class={logoCss}
                         />
