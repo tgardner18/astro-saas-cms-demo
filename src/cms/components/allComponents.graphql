@@ -16,4 +16,5 @@ fragment AllComponentsExceptGrid on _IComponent {
     ...ArticleList
     ...Button
     ...Iframe
+    ...VideoExternal
 }
