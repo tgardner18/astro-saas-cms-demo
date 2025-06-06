@@ -161,14 +161,10 @@
                         <template x-for="result in results" :key="result.id">
                             <div
                                 class="group hover:bg-base-200 flex cursor-pointer items-center gap-3 rounded-xl p-3"
-                                :class="{ 'bg-base-200': selectedResult?.id === result.id }"
-                                @click="result.type === 'person' ? selectResult(result) : navigateToResult(result)"
+                                @click="navigateToResult(result)"
                             >
                                 <!-- Icon based on type -->
-                                <div
-                                    class="flex-none"
-                                    x-show="result.type !== 'person'"
-                                >
+                                <div class="flex-none">
                                     <span
                                         class="inline-flex h-10 w-10 items-center justify-center rounded-lg"
                                         :class="{
@@ -207,14 +203,6 @@
                                     </span>
                                 </div>
 
-                                <!-- Person image -->
-                                <img
-                                    x-show="result.type === 'person'"
-                                    :src="result.image"
-                                    :alt="result.title"
-                                    class="h-10 w-10 flex-none rounded-full"
-                                />
-
                                 <div class="min-w-0 flex-auto">
                                     <p
                                         class="text-base-content text-sm font-medium"
@@ -233,76 +221,6 @@
                     </div>
                 </div>
 
-                <!-- Selected result details -->
-                <div
-                    x-show="selectedResult && selectedResult.type === 'person'"
-                    class="divide-base-300 hidden w-1/2 flex-none flex-col divide-y sm:flex"
-                >
-                    <div class="flex-none p-6 text-center">
-                        <img
-                            :src="selectedResult?.image"
-                            :alt="selectedResult?.title"
-                            class="mx-auto h-16 w-16 rounded-full"
-                        />
-                        <h2
-                            class="text-base-content mt-3 font-semibold"
-                            x-text="selectedResult?.title"
-                        >
-                        </h2>
-                        <p
-                            class="text-base-content/70 text-sm leading-6"
-                            x-text="selectedResult?.subtitle"
-                        >
-                        </p>
-                    </div>
-
-                    <div class="flex flex-auto flex-col justify-between p-6">
-                        <dl
-                            class="grid grid-cols-1 gap-x-6 gap-y-3 text-sm"
-                            x-show="selectedResult?.metadata"
-                        >
-                            <template
-                                x-for="(value, key) in selectedResult?.metadata"
-                                :key="key"
-                            >
-                                <div class="grid grid-cols-1 gap-1">
-                                    <dt
-                                        class="text-base-content/70"
-                                        x-text="key"
-                                    >
-                                    </dt>
-                                    <dd class="text-base-content">
-                                        <template x-if="key === 'email'">
-                                            <a
-                                                :href="'mailto:' + value"
-                                                class="text-primary hover:text-primary-focus"
-                                                x-text="value"></a>
-                                        </template>
-                                        <template x-if="key === 'url'">
-                                            <a
-                                                :href="value"
-                                                class="text-primary hover:text-primary-focus"
-                                                x-text="value"></a>
-                                        </template>
-                                        <template
-                                            x-if="key !== 'email' && key !== 'url'"
-                                        >
-                                            <span x-text="value"></span>
-                                        </template>
-                                    </dd>
-                                </div>
-                            </template>
-                        </dl>
-                        <button
-                            x-show="selectedResult?.type === 'person'"
-                            type="button"
-                            class="btn btn-primary w-full"
-                            @click="sendMessage(selectedResult?.title)"
-                        >
-                            Send message
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -320,7 +238,6 @@
             isOpen: false,
             query: '',
             results: [],
-            selectedResult: null,
             loading: false,
             error: null,
 
@@ -331,7 +248,6 @@
             async search() {
                 if (!this.query) {
                     this.results = [];
-                    this.selectedResult = null;
                     return;
                 }
 
@@ -349,7 +265,6 @@
                     const data = await response.json();
                     // Force Alpine.js reactivity by creating a new array
                     this.results = [...(data.results || [])];
-                    this.selectedResult = null;
                 } catch (err) {
                     this.error = err.message;
                     console.error('Error performing search:', err);
@@ -358,19 +273,11 @@
                 }
             },
 
-            selectResult(result) {
-                this.selectedResult = result;
-            },
-
             navigateToResult(result) {
                 if (result.url && result.url !== '#') {
                     window.location.href = result.url;
                     this.isOpen = false;
                 }
-            },
-
-            sendMessage(name) {
-                alert(`Send message to ${name}`);
             },
         };
     }
