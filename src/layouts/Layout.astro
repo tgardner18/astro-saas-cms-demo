@@ -41,5 +41,15 @@ const canonicalUrl = Astro.url.origin + hierarchicalUrl;
         <Header siteSettings={siteSettings} />
         <slot />
         <Footer siteSettings={siteSettings} />
+        
+        <script>
+            import Alpine from 'alpinejs';
+            
+            // Make Alpine available globally
+            window.Alpine = Alpine;
+            
+            // Start Alpine
+            Alpine.start();
+        </script>
     </body>
 </html>

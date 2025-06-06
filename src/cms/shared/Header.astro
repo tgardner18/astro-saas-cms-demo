@@ -2,6 +2,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { SiteSettingsByHostnameQuery } from '../../../__generated/sdk';
 import { getClassForLogo } from './siteSettingsHelper';
+import SearchPalette from './SearchPalette.astro';
 // import { getMenuItems } from './siteSettingsHelper';
 const lang = Astro.currentLocale || '';
 
@@ -220,7 +221,29 @@ const themes = [
                 }
             </ul>
         </div>
-        <div class="navbar-end">
+        <div class="navbar-end" x-data>
+            <!-- Search button -->
+            <button
+                id="search-button"
+                @click="$dispatch('open-command-palette')"
+                class="btn btn-ghost btn-circle"
+                aria-label="Search"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-5 w-5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    ></path>
+                </svg>
+            </button>
             <!-- Theme switcher dropdown -->
             <div class="dropdown dropdown-end mr-2">
                 <div
@@ -299,4 +322,18 @@ const themes = [
             document.documentElement.setAttribute('data-theme', theme);
         }
     })();
+</script>
+
+<!-- Search Palette Component -->
+<SearchPalette />
+
+<!-- Keyboard shortcut for search -->
+<script is:inline>
+    document.addEventListener('keydown', function(e) {
+        // Cmd+K (Mac) or Ctrl+K (Windows/Linux)
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            window.dispatchEvent(new CustomEvent('open-command-palette'));
+        }
+    });
 </script>
