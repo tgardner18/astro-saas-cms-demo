@@ -50,9 +50,6 @@ export const GET: APIRoute = async ({ url, currentLocale, request }) => {
                 locale: [contentPayload.loc as Locales],
                 domain: host
             });
-            
-            // Debug: Log the raw response to see what we're getting
-            console.log('GraphQL search response:', JSON.stringify(searchResponse, null, 2));
 
             // Transform _Page results (includes experiences since they're also pages)
             if (searchResponse._Page?.items) {
@@ -60,34 +57,14 @@ export const GET: APIRoute = async ({ url, currentLocale, request }) => {
                     .filter(item => item?._metadata)
                     .map(item => {
                         const seoSettings = (item as any)?.SeoSettings;
-                        const experienceSeoSettings = (item as any)?.BlankExperienceSeoSettings;
-                        const promoImage = (item as any)?.PromoImage?.url?.default;
-                        const seoImage = seoSettings?.SharingImage?.url?.default;
-                        const finalImage = promoImage || seoImage;
-                        
-                        // Debug: Log what we're finding for images
-                        console.log(`Item "${item?._metadata?.displayName}":`, {
-                            hasPromoImage: !!(item as any)?.PromoImage,
-                            promoImageUrl: promoImage,
-                            hasSeoSettings: !!seoSettings,
-                            seoImageUrl: seoImage,
-                            finalImage: finalImage,
-                            itemKeys: Object.keys(item || {})
-                        });
-                        
                         const result = {
                             id: item?._metadata?.key || '',
                             type: 'page' as const,
                             title: item?._metadata?.displayName || (item as any).Heading || 'Untitled Page',
-                            subtitle: (item as any)?.SubHeading || seoSettings?.MetaDescription || experienceSeoSettings?.MetaDescription || item?._metadata?.types?.join(', ') || undefined,
+                            subtitle: (item as any)?.SubHeading || seoSettings?.MetaDescription || item?._metadata?.types?.join(', ') || undefined,
                             url: item?._metadata?.url?.default || item?._metadata?.url?.hierarchical || '#',
-                            image: finalImage || undefined
+                            image: (item as any)?.PromoImage?.url?.default || seoSettings?.SharingImage?.url?.default || undefined
                         };
-                        
-                        // Debug logging
-                        if (finalImage) {
-                            console.log(`Found image for "${result.title}": ${finalImage}`);
-                        }
                         // Remove only optional undefined fields, never remove required fields (id, type, title)
                         if (result.subtitle === undefined) delete result.subtitle;
                         if (result.image === undefined) delete result.image;
