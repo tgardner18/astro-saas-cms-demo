@@ -2,12 +2,12 @@ query siteSettingsByHostname($domain: String!, $locale: [Locales]!) {
     SiteSettings(
         locale: $locale
         where: { SiteDomain: { eq: $domain } }
-        orderBy: { _modified: DESC }
+        orderBy: { _metadata: { lastModified: DESC } }
         limit: 1
     ) {
         item {
             SiteDomain
-            LogoResoultion
+            LogoResolution
             Logo {
                 url {
                     default
@@ -33,7 +33,54 @@ query siteSettingsByHostname($domain: String!, $locale: [Locales]!) {
                         }
                     }
                 }
+                ... on _Experience {
+                    Link:_metadata {
+                        text:displayName
+                        url {
+                        default
+                        }
+                    }
+                }
+                ... on _Page {
+                    Link:_metadata {
+                        text:displayName
+                        url {
+                        default
+                        }
+                    }
+                }
             }
+            FooterLinks {
+                ... on MenuItem {
+                    Link {
+                        text
+                        url {
+                            default
+                        }
+                    }
+                }
+                ... on _Experience {
+                    Link:_metadata {
+                        text:displayName
+                        url {
+                        default
+                        }
+                    }
+                }
+                ... on _Page {
+                    Link:_metadata {
+                        text:displayName
+                        url {
+                        default
+                        }
+                    }
+                }
+            }
+            SocialFacebook
+            SocialInstagram
+            SocialTwitter
+            SocialTikTok
+            SocialGitHub
         }
     }
 }

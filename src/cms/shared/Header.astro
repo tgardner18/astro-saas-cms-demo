@@ -1,265 +1,302 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { SiteSettingsByHostnameQuery } from '../../../__generated/sdk';
-import SearchPalette from './SearchPalette.astro';
 import { getClassForLogo } from './siteSettingsHelper';
+// import { getMenuItems } from './siteSettingsHelper';
 const lang = Astro.currentLocale || '';
+
+// Define interfaces for the menu items to fix TypeScript errors
+interface LinkType {
+    text: string;
+    url: {
+        default: string;
+    };
+}
+
+interface MenuItemType {
+    Link: LinkType;
+    SubMenuItems?: MenuItemType[];
+}
 
 interface Props {
     siteSettings: SiteSettingsByHostnameQuery;
 }
 
 const { siteSettings } = Astro.props;
-const settings = siteSettings.SiteSettings?.item;
-const logoCss = getClassForLogo(settings?.LogoResoultion);
-// const headerItems = getMenuItems(settings?.HeaderLinks);
+const settings = siteSettings?.SiteSettings?.item;
+const logoCss = getClassForLogo(settings?.LogoResolution);
+
+const headerItems = settings?.HeaderLinks as MenuItemType[] | undefined;
+const headerItemCount = headerItems?.length || 0;
+
+// Available themes from daisyUI
+const themes = [
+    // Light themes
+    { name: 'Light(🔆)', value: 'light' },
+    { name: 'Acid(🔆)', value: 'acid' },
+    { name: 'Autumn(🔆)', value: 'autumn' },
+    { name: 'Bumblebee(🔆)', value: 'bumblebee' },
+    { name: 'Cmyk(🔆)', value: 'cmyk' },
+    { name: 'Corporate(🔆)', value: 'corporate' },
+    { name: 'Cupcake(🔆)', value: 'cupcake' },
+    { name: 'Cyberpunk(🔆)', value: 'cyberpunk' },
+    { name: 'Emerald(🔆)', value: 'emerald' },
+    { name: 'Fantasy(🔆)', value: 'fantasy' },
+    { name: 'Garden(🔆)', value: 'garden' },
+    { name: 'Lemonade(🔆)', value: 'lemonade' },
+    { name: 'Lofi(🔆)', value: 'lofi' },
+    { name: 'Nord(🔆)', value: 'nord' },
+    { name: 'Pastel(🔆)', value: 'pastel' },
+    { name: 'Retro(🔆)', value: 'retro' },
+    { name: 'Valentine(🔆)', value: 'valentine' },
+    { name: 'Winter(🔆)', value: 'winter' },
+    { name: 'Wireframe(🔆)', value: 'wireframe' },
+
+    // Dark themes
+    { name: 'Dark(🌑)', value: 'dark' },
+    { name: 'Aqua(🌑)', value: 'aqua' },
+    { name: 'Black(🌑)', value: 'black' },
+    { name: 'Business(🌑)', value: 'business' },
+    { name: 'Coffee(🌑)', value: 'coffee' },
+    { name: 'Dim(🌑)', value: 'dim' },
+    { name: 'Dracula(🌑)', value: 'dracula' },
+    { name: 'Forest(🌑)', value: 'forest' },
+    { name: 'Halloween(🌑)', value: 'halloween' },
+    { name: 'Luxury(🌑)', value: 'luxury' },
+    { name: 'Night(🌑)', value: 'night' },
+    { name: 'Sunset(🌑)', value: 'sunset' },
+    { name: 'Synthwave(🌑)', value: 'synthwave' },
+];
 ---
 
-<>
-    <header class="list-none bg-white" x-data>
-        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-                <div class="flex-1 md:flex md:items-center md:gap-12">
-                    <a class="block text-teal-600" href="#">
-                        <span class="sr-only">Home</span>
-                        <img
-                            src={settings?.Logo?.url?.default ??
-                                '/mosey-coffee.png'}
-                            alt="Logo"
-                            class={logoCss}
-                        />
-                    </a>
+<header class="sticky top-0 z-50 bg-gray-50/70 backdrop-blur-sm">
+    <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16"></path>
+                    </svg>
                 </div>
+                <ul
+                    tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 text-lg shadow"
+                >
+                    {
+                        headerItems &&
+                            headerItemCount &&
+                            headerItemCount > 0 &&
+                            headerItems.map((data) => (
+                                <li>
+                                    {(!data?.SubMenuItems ||
+                                        data?.SubMenuItems?.length == 0) && (
+                                        <a
+                                            class="text-lg text-gray-500 transition hover:text-gray-500/75"
+                                            href={
+                                                data?.Link?.url?.default || '#'
+                                            }
+                                        >
+                                            {data?.Link?.text || ''}
+                                        </a>
+                                    )}
 
-                <div class="md:flex md:items-center md:gap-12">
-                    <nav aria-label="Global" class="hidden md:block">
-                        <ul class="flex list-none items-center gap-6 text-sm">
-                            <li class="group relative">
-                                <a
-                                    class="flex items-center gap-1 text-gray-500 transition hover:text-gray-500/75"
-                                    href="#"
-                                >
-                                    About
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="h-4 w-4"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </a>
-                                <div
-                                    class="ring-opacity-5 invisible absolute left-1/2 z-50 mt-2 min-w-[200px] -translate-x-1/2 transform rounded-md bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
-                                >
-                                    <div
-                                        class="flex flex-col py-2"
-                                        role="menu"
-                                        aria-orientation="horizontal"
-                                    >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Company Overview</a
-                                        >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Our Team</a
-                                        >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Mission & Vision</a
-                                        >
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="group relative">
-                                <a
-                                    class="flex items-center gap-1 text-gray-500 transition hover:text-gray-500/75"
-                                    href="#"
-                                >
-                                    Services
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="h-4 w-4"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </a>
-                                <div
-                                    class="ring-opacity-5 invisible absolute left-1/2 z-50 mt-2 min-w-[200px] -translate-x-1/2 transform rounded-md bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
-                                >
-                                    <div
-                                        class="flex flex-col py-2"
-                                        role="menu"
-                                        aria-orientation="horizontal"
-                                    >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Consulting</a
-                                        >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Development</a
-                                        >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Support</a
-                                        >
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a
-                                    class="text-gray-500 transition hover:text-gray-500/75"
-                                    href="#"
-                                >
-                                    Careers
-                                </a>
-                            </li>
-
-                            <li class="group relative">
-                                <a
-                                    class="flex items-center gap-1 text-gray-500 transition hover:text-gray-500/75"
-                                    href="#"
-                                >
-                                    Projects
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="h-4 w-4"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </a>
-                                <div
-                                    class="ring-opacity-5 invisible absolute left-1/2 z-50 mt-2 min-w-[200px] -translate-x-1/2 transform rounded-md bg-white opacity-0 shadow-lg ring-1 ring-black transition-all duration-300 group-hover:visible group-hover:opacity-100"
-                                >
-                                    <div
-                                        class="flex flex-col py-2"
-                                        role="menu"
-                                        aria-orientation="horizontal"
-                                    >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Case Studies</a
-                                        >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem">Portfolio</a
-                                        >
-                                        <a
-                                            href="#"
-                                            class="block w-full px-6 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem"
-                                            >Client Testimonials</a
-                                        >
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a
-                                    class="text-gray-500 transition hover:text-gray-500/75"
-                                    href="#"
-                                >
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <div class="flex items-center gap-4">
-                        <div class="sm:flex sm:gap-4">
-                            <div class="relative">
-                                <input
-                                    type="text"
-                                    placeholder="Search..."
-                                    class="w-full cursor-pointer rounded-md border border-gray-200 px-5 py-2.5 pe-10 shadow-sm sm:text-sm"
-                                    @click.prevent="$dispatch('open-command-palette')"
-                                    readonly
-                                />
-
-                                <button
-                                    type="button"
-                                    class="absolute inset-y-0 end-0 grid w-10 place-content-center text-gray-600 hover:text-gray-700"
-                                    @click.prevent="$dispatch('open-command-palette')"
-                                >
-                                    <span class="sr-only">Search</span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        stroke="currentColor"
-                                        class="h-4 w-4"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                                        ></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="block md:hidden">
-                            <button
-                                class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="size-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M4 6h16M4 12h16M4 18h16"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                                    {data?.SubMenuItems &&
+                                        data?.SubMenuItems?.length > 0 && (
+                                            <details>
+                                                <summary class="text-lg text-gray-500 transition hover:text-gray-500/75">
+                                                    {data?.Link?.text || ''}
+                                                </summary>
+                                                <ul class="p-2">
+                                                    {data?.SubMenuItems
+                                                        ?.length > 0 &&
+                                                        data?.SubMenuItems.map(
+                                                            (subdata: any) => (
+                                                                <li class="text-lg text-gray-500 transition hover:text-gray-500/75">
+                                                                    <a
+                                                                        class="text-lg transition hover:text-gray-500/75"
+                                                                        href={
+                                                                            subdata
+                                                                                ?.Link
+                                                                                ?.url
+                                                                                ?.default ||
+                                                                            '#'
+                                                                        }
+                                                                    >
+                                                                        {subdata
+                                                                            ?.Link
+                                                                            ?.text ||
+                                                                            ''}
+                                                                    </a>
+                                                                </li>
+                                                            )
+                                                        )}
+                                                </ul>
+                                            </details>
+                                        )}
+                                </li>
+                            ))
+                    }
+                </ul>
             </div>
+            <a
+                class="block px-8 text-teal-600"
+                href={getRelativeLocaleUrl(lang, '/')}
+            >
+                <span class="sr-only">Home</span>
+                <img
+                    class={logoCss}
+                    src={settings?.Logo?.url?.default ?? '/optimizely-logo.svg'}
+                />
+            </a>
         </div>
-    </header>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 text-lg">
+                {
+                    headerItems &&
+                        headerItemCount > 0 &&
+                        headerItems.map((data) => (
+                            <li>
+                                {(!data?.SubMenuItems ||
+                                    data?.SubMenuItems?.length == 0) && (
+                                    <a
+                                        class="text-gray-500 transition hover:text-gray-500/75"
+                                        href={data?.Link?.url?.default || '#'}
+                                    >
+                                        {data?.Link?.text || ''}
+                                    </a>
+                                )}
 
-    <SearchPalette />
-</>
+                                {data?.SubMenuItems &&
+                                    data?.SubMenuItems?.length > 0 && (
+                                        <div class="dropdown dropdown-hover pb-2">
+                                            <div
+                                                tabindex="0"
+                                                role="button"
+                                                class="mb-2 text-gray-500 transition hover:text-gray-500/75"
+                                            >
+                                                {data?.Link?.text || ''}
+                                            </div>
+                                            <ul
+                                                tabindex="0"
+                                                class="dropdown-content menu bg-base-200 rounded-box z-1 w-52 text-lg shadow-sm"
+                                            >
+                                                {data?.SubMenuItems?.length >
+                                                    0 &&
+                                                    data?.SubMenuItems.map(
+                                                        (subdata: any) => (
+                                                            <li class="text-gray-500 transition hover:text-gray-500/75">
+                                                                <a
+                                                                    href={
+                                                                        subdata
+                                                                            ?.Link
+                                                                            ?.url
+                                                                            ?.default ||
+                                                                        '#'
+                                                                    }
+                                                                >
+                                                                    {subdata
+                                                                        ?.Link
+                                                                        ?.text ||
+                                                                        ''}
+                                                                </a>
+                                                            </li>
+                                                        )
+                                                    )}
+                                            </ul>
+                                        </div>
+                                    )}
+                            </li>
+                        ))
+                }
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <!-- Theme switcher dropdown -->
+            <div class="dropdown dropdown-end mr-2">
+                <div
+                    tabindex="0"
+                    role="button"
+                    class="btn btn-ghost btn-circle"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-5 w-5"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"
+                        ></path>
+                    </svg>
+                </div>
+                <ul
+                    tabindex="0"
+                    class="dropdown-content menu bg-base-100 rounded-box z-[1] h-[41rem] w-72 overflow-auto p-2 shadow"
+                >
+                    {
+                        themes.map((theme) => (
+                            <li>
+                                <button
+                                    data-set-theme={theme.value}
+                                    data-act-class="active"
+                                >
+                                    {theme.name}
+                                </button>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <a class="btn" href="https://home.optimizely.com/">Log In</a>
+        </div>
+    </div>
+</header>
 
-<style>
-    [x-cloak] {
-        display: none !important;
-    }
-</style>
+<script is:inline>
+    // Load the theme-change library directly using a CDN to avoid import issues
+    (function () {
+        const themeChange = window.themeChange || {};
+
+        // Set default theme if none is stored
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', 'light');
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+
+        // Add event listener to theme buttons after page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeButtons = document.querySelectorAll('[data-set-theme]');
+            themeButtons.forEach((button) => {
+                button.addEventListener('click', function () {
+                    const theme = this.getAttribute('data-set-theme');
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('theme', theme);
+                });
+            });
+        });
+    })();
+</script>
+
+<!-- Load theme from localStorage on page load -->
+<script is:inline>
+    (function () {
+        const theme = localStorage.getItem('theme');
+        if (theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+    })();
+</script>
