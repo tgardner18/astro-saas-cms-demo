@@ -7,8 +7,9 @@
     x-show="isOpen"
     x-cloak
     @keydown.escape.window="isOpen = false"
-    @open-command-palette.window="isOpen = true"
+    @open-command-palette.window="isOpen = true; $nextTick(() => $refs.searchInput.focus())"
     class="fixed inset-0 z-50"
+    style="display: none;"
 >
     <!-- Overlay -->
     <div
@@ -55,6 +56,7 @@
                     type="text"
                     x-model="query"
                     @input.debounce.300ms="search()"
+                    x-ref="searchInput"
                     class="text-base-content placeholder:text-base-content/50 h-14 w-full border-0 bg-transparent pr-4 pl-11 shadow-none outline-none focus:ring-0 focus:outline-none sm:text-base"
                     placeholder="Search..."
                     role="combobox"
@@ -243,6 +245,7 @@
 
             init() {
                 this.results = [];
+                this.isOpen = false;
             },
 
             async search() {
