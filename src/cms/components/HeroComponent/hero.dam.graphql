@@ -4,6 +4,7 @@ fragment Hero on Hero {
     }
     Image {
         ...ContentUrl
+        ...ContentReferenceItem
     }
     Heading
     SubHeading

@@ -4,6 +4,7 @@ fragment ArticlePageExcerpt on ArticlePage {
     }
     PromoImage {
         ...ContentUrl
+        ...ContentReferenceItem
     }
     Heading
     SubHeading
