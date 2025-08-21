@@ -52,14 +52,14 @@ const errorIds = [
 ].filter(Boolean).join(' ');
 ---
 
-<label class="text-lg font-semibold" for={inputId}>
+<label class="text-lg font-semibold mt-2" for={inputId}>
     {Label}
     {isRequiredErrorMsg && <span aria-label="required" class="text-red-500">*</span>}
 </label>
 <textarea
     id={inputId}
     name={inputId}
-    class="textarea validator h-24 w-full"
+    class="textarea validator h-24 w-full rounded-lg"
     placeholder={Placeholder}
     required={isRequiredErrorMsg ? true : false}
     aria-describedby={errorIds || undefined}
