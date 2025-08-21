@@ -38,7 +38,7 @@ const errorIds = [
 ].filter(Boolean).join(' ');
 ---
 
-<label class="text-lg font-semibold" for={inputId}>
+<label class="text-lg font-semibold mt-4" for={inputId}>
     {Label}
     {isRequiredErrorMsg && <span aria-label="required" class="text-red-500">*</span>}
 </label>
@@ -46,7 +46,7 @@ const errorIds = [
     id={inputId}
     name={inputId}
     type="number"
-    class="input validator w-full"
+    class="input validator w-full rounded-lg"
     required={isRequiredErrorMsg ? true : false}
     aria-describedby={errorIds || undefined}
     placeholder={Placeholder}

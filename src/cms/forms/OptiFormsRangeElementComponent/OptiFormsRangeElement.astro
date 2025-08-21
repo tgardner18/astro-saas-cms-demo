@@ -49,7 +49,7 @@ const inputId = Label?.replace(/\s+/g, '_') || `range-${Math.random().toString(3
 const rangeDescriptionId = `range-description-${inputId}`;
 ---
 
-<fieldset class="fieldset w-full">
+<fieldset class="fieldset w-full mt-4">
     <legend class="fieldset-legend text-lg font-semibold"
         >{Label}</legend
     >
@@ -58,7 +58,7 @@ const rangeDescriptionId = `range-description-${inputId}`;
             id={inputId}
             name={inputId}
             type="range"
-            class="range validator w-full"
+            class="range validator w-full rounded-lg"
             min={safeMin}
             max={safeMax}
             value={PredefinedValue}
