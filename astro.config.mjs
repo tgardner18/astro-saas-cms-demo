@@ -293,6 +293,7 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Oswald',
                 cssVariable: '--font-oswald',
+                weights: ['200', '300', '400', '500', '600', '700'],
             },
             {
                 provider: fontProviders.google(),
