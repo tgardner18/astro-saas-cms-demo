@@ -23,6 +23,15 @@ export function getClassForLogo(resolution: string | undefined | null): string {
         case '8':
             logoSizeCss = 'h-8';
             break;
+        case '6':
+            logoSizeCss = 'h-6';
+            break;
+        case '4':
+            logoSizeCss = 'h-4';
+            break;
+        case '2':
+            logoSizeCss = 'h-2';
+            break;          
         default:
             logoSizeCss = 'h-12';
             break;
