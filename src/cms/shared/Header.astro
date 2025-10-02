@@ -38,7 +38,7 @@ const headerItemCount = headerItems?.length || 0;
 ---
 
 <header class="sticky top-0 z-50 bg-gray-50/70 backdrop-blur-sm">
-    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar bg-primary shadow-sm">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -58,7 +58,7 @@ const headerItemCount = headerItems?.length || 0;
                 </div>
                 <ul
                     tabindex="0"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 text-lg shadow"
+                    class="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 text-lg shadow"
                 >
                     {
                         headerItems &&
@@ -69,7 +69,7 @@ const headerItemCount = headerItems?.length || 0;
                                     {(!data?.SubMenuItems ||
                                         data?.SubMenuItems?.length == 0) && (
                                         <a
-                                            class="text-lg text-gray-500 transition hover:text-gray-500/75"
+                                            class="text-lg text-white transition hover:text-yellow-50"
                                             href={
                                                 data?.Link?.url?.default || '#'
                                             }
@@ -81,7 +81,7 @@ const headerItemCount = headerItems?.length || 0;
                                     {data?.SubMenuItems &&
                                         data?.SubMenuItems?.length > 0 && (
                                             <details>
-                                                <summary class="text-lg text-gray-500 transition hover:text-gray-500/75">
+                                                <summary class="text-lg text-white transition hover:text-yellow-50">
                                                     {data?.LinkText || data?.Link?.text || ''}
                                                 </summary>
                                                 <ul class="p-2">
@@ -89,9 +89,9 @@ const headerItemCount = headerItems?.length || 0;
                                                         ?.length > 0 &&
                                                         data?.SubMenuItems.map(
                                                             (subdata: any) => (
-                                                                <li class="text-lg text-gray-500 transition hover:text-gray-500/75">
+                                                                <li class="text-lg text-white transition hover:text-yellow-50">
                                                                     <a
-                                                                        class="text-lg transition hover:text-gray-500/75"
+                                                                        class="text-lg transition hover:text-yellow-50"
                                                                         href={
                                                                             subdata
                                                                                 ?.Link
@@ -141,7 +141,7 @@ const headerItemCount = headerItems?.length || 0;
                                 {(!data?.SubMenuItems ||
                                     data?.SubMenuItems?.length == 0) && (
                                     <a
-                                        class="text-gray-500 transition hover:text-gray-500/75"
+                                        class="text-white transition hover:text-yellow-50"
                                         href={data?.Link?.url?.default || '#'}
                                     >
                                         {data?.LinkText || data?.Link?.text || ''}
