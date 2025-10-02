@@ -399,6 +399,10 @@ export default defineConfig({
                 name: 'Work Sans',
                 cssVariable: '--font-work-sans',
             },
+            { provider: fontProviders.google(),
+                name: 'Jost',
+                cssVariable: '--font-jost',
+            },
         ],
     },
 });

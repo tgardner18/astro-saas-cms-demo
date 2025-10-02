@@ -122,4 +122,5 @@ export type FontVariable =
     | "--font-spectral"
     | "--font-syne"
     | "--font-urbanist"
-    | "--font-work-sans";
+    | "--font-work-sans"
+    | "--font-jost";
