@@ -269,6 +269,7 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Open Sans',
                 cssVariable: '--font-open-sans',
+                weights: ['200','300', '400', '600', '700', '800', '900'],
             },
             {
                 provider: fontProviders.google(),
