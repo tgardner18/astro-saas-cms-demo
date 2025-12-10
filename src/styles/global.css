@@ -58,19 +58,19 @@
         @apply mb-4;
     }
     h1 {
-        @apply text-3xl;
+        @apply text-3xl font-black;
     }
     h2 {
-        @apply text-2xl;
+        @apply text-2xl font-extrabold;
     }
     h3 {
-        @apply text-xl;
+        @apply text-xl font-extralight;
     }
     h4 {
-        @apply text-lg;
+        @apply text-lg font-extralight;
     }
     h5 {
-        @apply text-base;
+        @apply text-base font-light;
     }
     h6 {
         @apply text-sm;

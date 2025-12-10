@@ -88,7 +88,7 @@ export default defineConfig({
                 context: 'server',
                 access: 'secret',
                 optional: true,
-                default: "https://api.zaius.com"
+                default: 'https://api.zaius.com',
             }),
             OPTIMIZELY_DATA_PLATFORM_PRIVATE_KEY: envField.string({
                 context: 'server',
@@ -169,6 +169,7 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'DM Sans',
                 cssVariable: '--font-dm-sans',
+                weights: ['100','200','300','400','500','700','800','900'],
             },
             {
                 provider: fontProviders.google(),
