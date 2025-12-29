@@ -127,16 +127,16 @@ const contentClasses = isFullSplit
             {/* Always visible heading */}
             {data.Heading && (
                 <div class={headingClasses}>
-                    <h2 class={`text-4xl font-bold ${cardHeaderStyles}`}>
+                    <h1 class={`${cardHeaderStyles}`}>
                         {data.Heading}
-                    </h2>
+                    </h1>
                 </div>
             )}
             
             {/* Hover overlay with remaining content */}
             <div class={overlayContentClasses}>
                 {data.SubHeading && (
-                    <p class="text-sm font-semibold opacity-80 mb-4">
+                    <p class="font-semiboldopacity-80 mb-4">
                         {data.SubHeading}
                     </p>
                 )}
@@ -165,12 +165,12 @@ const contentClasses = isFullSplit
         <!-- Normal Mode: All content together -->
         <>
             {data.Heading && (
-                <h2 class={`text-4xl font-bold ${cardHeaderStyles}`} class:list={cssClassesForText}>
+                <h1 class={`${cardHeaderStyles}`} class:list={cssClassesForText}>
                     {data.Heading}
-                </h2>
+                </h1>
             )}
             {data.SubHeading && (
-                <p class="text-sm font-semibold opacity-80" class:list={cssClassesForText}>
+                <p class="font-semibold opacity-80" class:list={cssClassesForText}>
                     {data.SubHeading}
                 </p>
             )}

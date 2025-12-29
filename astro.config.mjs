@@ -344,6 +344,7 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Source Sans 3',
                 cssVariable: '--font-source-sans-3',
+                weights: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
             },
             {
                 provider: fontProviders.google(),
