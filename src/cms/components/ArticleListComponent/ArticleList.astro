@@ -143,7 +143,9 @@ const componentClass = 'component-articlelist';
             {
                 //@ts-ignore
                 items?.map((item: ArticlePageExcerptFragment, i) => {
+                    const articleReadTime = item?.ReadTime && item?.ReadTime > 0 ? item.ReadTime : null;
                     return (
+                        
                         <div class="card bg-base-100 shadow-sm flex" class:list={[cardDynamicClasses]}>
                             <figure class:list={[figureClasses]}>
                                 <AstroImage
@@ -155,6 +157,15 @@ const componentClass = 'component-articlelist';
                                 />
                             </figure>
                             <div class="card-body">
+                                <span class={`text-xs font-semibold flex items-center text-base-content/60`}>
+                                    <span>Article</span>
+                                    {articleReadTime && articleReadTime > 0 && (
+                                    <>
+                                        <span class="px-2">|</span>
+                                        <span data-epi-edit={isCmsEdit ? "ReadTime" : undefined}>{item.ReadTime} min read</span>
+                                    </>
+                                )}
+                                </span>
                                 <h2 class="card-title">{item.Heading}</h2>
                                 { item.Body?.html &&
                                     <div set:html={item.Body.html.replace(/<[^>]*>/g, '').split(' ').slice(0, 30).join(' ') + "..."} />
