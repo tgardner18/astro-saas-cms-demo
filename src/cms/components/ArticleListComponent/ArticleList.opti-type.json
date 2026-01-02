@@ -84,6 +84,22 @@
 							"value": "Auto-Insure & Protect Your Car"
 						},
 						{
+							"displayName": "Home-Financing a Home",
+							"value": "Home-Financing a Home"
+						},
+						{
+							"displayName": "Home-Finding Your Home",
+							"value": "Home-Finding Your Home"
+						},
+						{
+							"displayName": "Home-Protecting Your Home",
+							"value": "Home-Protecting Your Home"
+						},
+						{
+							"displayName": "Home-Using Your Home's Equity",
+							"value": "Home-Using Your Home's Equity"
+						},
+						{
 							"displayName": "PersonalFinances-Budgeting & Saving",
 							"value": "PersonalFinances-Budgeting & Saving"
 						},
@@ -102,6 +118,18 @@
 						{
 							"displayName": "PersonalFinances-Managing Credit & Debt",
 							"value": "PersonalFinances-Managing Credit & Debt"
+						},
+						{
+							"displayName": "Retirement-Building Toward Retirement",
+							"value": "Retirement-Building Toward Retirement"
+						},
+						{
+							"displayName": "Retirement-Establishing a Plan",
+							"value": "Retirement-Establishing a Plan"
+						},
+						{
+							"displayName": "Retirement-Staying on Track in Retirement",
+							"value": "Retirement-Staying on Track in Retirement"
 						}
 					]
 				}
