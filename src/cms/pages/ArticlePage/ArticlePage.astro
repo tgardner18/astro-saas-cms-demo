@@ -41,6 +41,8 @@ const hierarchicalUrl = post?._metadata?.url?.type === "SIMPLE" ? post?._metadat
 const extPreviewEnabled = post?.PageAdminSettings?.EnableExternalPreview ?? false;
 
 const pageClass = 'page-article';
+
+const articleReadTime = post?.ReadTime && post?.ReadTime > 0 ? post.ReadTime : null;
 ---
 
 <Layout
@@ -93,10 +95,18 @@ const pageClass = 'page-article';
                             >
                                 {post?.Author}
                             </p>
-                            <p class={`text-xs font-semibold ${articleHeaderDateColor}`}
-                                data-epi-edit={isCmsEdit ? "publishedDate" : undefined}
+                            <p class={`text-xs font-semibold ${articleHeaderDateColor} flex items-center`}
+
                             >
-                                {publishedDate}
+                                <span>Article</span>
+                                <span class="px-2">|</span>
+                                {articleReadTime && articleReadTime > 0 && (
+                                    <>
+                                        <span data-epi-edit={isCmsEdit ? "ReadTime" : undefined}>{articleReadTime} min read</span>
+                                        <span class="px-2">|</span>
+                                    </>
+                                )}
+                                <span data-epi-edit={isCmsEdit ? "publishedDate" : undefined}>Published {publishedDate}</span>
                             </p>
                         </div>
                     </div>
