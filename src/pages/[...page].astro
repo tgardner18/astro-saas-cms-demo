@@ -116,9 +116,22 @@ const isExperienceType = contentPayload.types.includes('_Experience');
 const isPageType =
     contentPayload.types.includes('_Page') && isExperienceType === false;
 
+const redirectValue = await getOptimizelySdk(
+    contentPayload
+).redirectById({
+    key: contentPayload.key || '',
+    ver: contentPayload.ver || '',
+    loc: contentPayload.loc as Locales,
+});
+const redirectUrl = redirectValue?._Page?.item?.PageAdminSettings?.RedirectUrl?.url?.default || '';
+if (redirectUrl) {
+    return Astro.redirect(redirectUrl, 301);
+}
+
 if (isPageType && contentPayload.types.includes('FolderPage')) {
     return Astro.rewrite(getRelativeLocaleUrl(lang, '/404'));
 }
+
 ---
 
 <>
