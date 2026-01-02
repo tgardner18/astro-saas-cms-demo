@@ -14,7 +14,7 @@
 			"type": "contentReference",
 			"displayName": "Promo Image",
 			"description": "",
-			"localized": true,
+			"localized": false,
 			"required": false,
 			"group": "Information",
 			"sortOrder": -100,
@@ -102,6 +102,57 @@
 			"sortOrder": 200,
 			"indexingType": "searchable",
 			"editorSettings": {}
+		},
+		"Categories": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "Categories",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 300,
+			"indexingType": "searchable",
+			"editorSettings": {},
+			"items": {
+				"type": "string",
+				"enum": {
+					"values": [
+						{
+							"displayName": "Auto-Buying or Selling a Car",
+							"value": "Auto-Buying or Selling a Car"
+						},
+						{
+							"displayName": "Auto-Finding the Right Car",
+							"value": "Auto-Finding the Right Car"
+						},
+						{
+							"displayName": "Auto-Insure & Protect Your Car",
+							"value": "Auto-Insure & Protect Your Car"
+						},
+						{
+							"displayName": "PersonalFinances-Budgeting & Saving",
+							"value": "PersonalFinances-Budgeting & Saving"
+						},
+						{
+							"displayName": "PersonalFinances-Creating a Financial Plan",
+							"value": "PersonalFinances-Creating a Financial Plan"
+						},
+						{
+							"displayName": "PersonalFinances-Insuring People & Property",
+							"value": "PersonalFinances-Insuring People & Property"
+						},
+						{
+							"displayName": "PersonalFinances-Investments & Taxes",
+							"value": "PersonalFinances-Investments & Taxes"
+						},
+						{
+							"displayName": "PersonalFinances-Managing Credit & Debt",
+							"value": "PersonalFinances-Managing Credit & Debt"
+						}
+					]
+				}
+			}
 		}
 	}
 }

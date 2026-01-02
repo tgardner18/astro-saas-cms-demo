@@ -22,12 +22,15 @@ export interface Props {
 }
 const { key, data, displaySettings, contentPayload } = Astro.props as Props;
 const currentSite = data.IncludeAllSites ? null : Astro.url.origin;
+const categoryFilterList = data.CategoryFilter || [];
+
 const articlesList = await getOptimizelySdk(contentPayload).getArticles({
     //@ts-ignore
     loc: contentPayload.loc,
     site: currentSite,
     limit: data.NumberOfArticles || 1,
     rootUrl: data.ArticleRoot?.url?.default || '/',
+    categories: categoryFilterList.length > 0 ? categoryFilterList : undefined,
 });
 const glideId = randomBytes(5).toString('hex');
 const items = articlesList.ArticlePage?.items || null;
