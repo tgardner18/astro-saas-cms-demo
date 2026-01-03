@@ -4,6 +4,7 @@ fragment ArticlePage on ArticlePage {
         published
         displayName
     }
+    InsightType
     PromoImage {
         ...ContentUrl
     }
@@ -14,6 +15,9 @@ fragment ArticlePage on ArticlePage {
         html
     }
     ReadTime
+    InfographicImage {
+        ...ContentUrl
+    }
     ArticleTaxonomy {
         ArticleTopic
         SubtopicAuto

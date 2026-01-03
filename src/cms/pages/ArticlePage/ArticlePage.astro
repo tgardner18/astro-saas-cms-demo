@@ -26,6 +26,8 @@ const publishedDate = format(
     new Date(post?._metadata?.published ?? Date.now()),
     'dd MMM yyyy'
 );
+const insightType = post?.InsightType || 'Article';
+const insightTypeIcon = `/icons/icon-${insightType.toLowerCase()}.svg`;
 
 const articleHeaderFontColor = ((post.PromoImage as any)?.item?.Url || post.PromoImage?.url?.default)
     ? "text-neutral-content" : "text-base-content";
@@ -98,8 +100,6 @@ const articleReadTime = post?.ReadTime && post?.ReadTime > 0 ? post.ReadTime : n
                             <p class={`text-xs font-semibold ${articleHeaderDateColor} flex items-center`}
 
                             >
-                                <span>Article</span>
-                                <span class="px-2">|</span>
                                 {articleReadTime && articleReadTime > 0 && (
                                     <>
                                         <span data-epi-edit={isCmsEdit ? "ReadTime" : undefined}>{articleReadTime} min read</span>
@@ -112,11 +112,26 @@ const articleReadTime = post?.ReadTime && post?.ReadTime > 0 ? post.ReadTime : n
                     </div>
                 </div>
             </div>
+            <div class="mx-auto max-w-screen-xl px-4 2xl:px-0 mt-3">
+                <div class="flex items-center gap-2 py-2">
+                    <img src={insightTypeIcon} alt={`${insightType} icon`} class="w-4 h-4" />
+                    <span>{insightType}</span>
+                </div>
+            </div>
             <article
                 class="prose dark:prose-invert md:prose-lg lg:prose-xl mx-auto mt-12 mb-12 max-w-screen-xl px-4 2xl:px-0 prose-img:rounded-[2rem] prose-img:p-4 "
                 data-epi-edit={isCmsEdit ? "BlogPostBody" : undefined}
                 set:html={post.Body?.html}
             />
+            { (post.InsightType === "Infographic" && ((post.InfographicImage as any)?.item?.Url || post.InfographicImage?.url?.default)) &&
+                <AstroImage
+                    src={(post.InfographicImage as any)?.item?.Url || post.InfographicImage?.url?.default}
+                    class="w-auto max-w-full mx-auto block max-w-screen-xl"
+                    alt={(post.InfographicImage as any)?.item?.AltText || (post.InfographicImage as any)?.item?._metadata?.displayName || post.Heading || 'Article promo image'}
+                    inferSize={true}
+                    data-epi-edit={isCmsEdit ? "InfographicImage" : undefined}
+                />
+            }
         </main>
     </div>
 </Layout>

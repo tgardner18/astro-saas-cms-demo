@@ -10,6 +10,33 @@
 	"mediaFileExtensions": [],
 	"compositionBehaviors": [],
 	"properties": {
+		"InsightType": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Insight Type",
+			"description": "Insight content type",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": -150,
+			"editorSettings": {},
+			"enum": {
+				"values": [
+					{
+						"displayName": "Article",
+						"value": "Article"
+					},
+					{
+						"displayName": "Checklist",
+						"value": "Checklist"
+					},
+					{
+						"displayName": "Infographic",
+						"value": "Infographic"
+					}
+				]
+			}
+		},
 		"PromoImage": {
 			"type": "contentReference",
 			"displayName": "Promo Image",
@@ -123,6 +150,20 @@
 			"group": "Information",
 			"sortOrder": 250,
 			"editorSettings": {}
+		},
+		"InfographicImage": {
+			"type": "contentReference",
+			"displayName": "Infographic",
+			"description": "Infographic only displayed if Insight Type is set to \"Infographic\"",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 300,
+			"editorSettings": {},
+			"allowedTypes": [
+				"Image"
+			],
+			"restrictedTypes": []
 		}
 	}
 }

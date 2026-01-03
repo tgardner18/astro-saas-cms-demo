@@ -1,7 +1,7 @@
 {
 	"key": "ArticleCategorySettings",
-	"displayName": "Article Topic and Subtopic Settings",
-	"description": "Article Topic and Subtopic Settings",
+	"displayName": "Insight Topic and Subtopic Settings",
+	"description": "Insight Topic and Subtopic Settings",
 	"baseType": "component",
 	"sortOrder": 0,
 	"mayContainTypes": [],
@@ -11,8 +11,8 @@
 		"ArticleTopic": {
 			"type": "string",
 			"format": "selectOne",
-			"displayName": "Article Topic",
-			"description": "Article Topic",
+			"displayName": "Insight Topic",
+			"description": "Insight Topic",
 			"localized": false,
 			"required": false,
 			"group": "Taxonomy",

@@ -160,6 +160,8 @@ const componentClass = 'component-articlelist';
                 //@ts-ignore
                 items?.map((item: ArticlePageExcerptFragment, i) => {
                     const articleReadTime = item?.ReadTime && item?.ReadTime > 0 ? item.ReadTime : null;
+                    const insightType = item?.InsightType || 'Article';
+                    const insightTypeIcon = `/icons/icon-${insightType.toLowerCase()}.svg`;
                     return (
                         
                         <div class="card bg-base-100 shadow-sm flex" class:list={[cardDynamicClasses]}>
@@ -174,13 +176,17 @@ const componentClass = 'component-articlelist';
                             </figure>
                             <div class="card-body">
                                 <span class={`text-xs font-semibold flex items-center text-base-content/60`}>
-                                    <span>Article</span>
-                                    {articleReadTime && articleReadTime > 0 && (
-                                    <>
-                                        <span class="px-2">|</span>
-                                        <span data-epi-edit={isCmsEdit ? "ReadTime" : undefined}>{item.ReadTime} min read</span>
-                                    </>
-                                )}
+                                    <div class="flex items-center gap-2 pb-2">
+                                        <img src={insightTypeIcon} alt={`${insightType} icon`} class="w-4 h-4" />
+                                        <span>{insightType}</span>
+                                        {articleReadTime && articleReadTime > 0 && (
+                                            <>
+                                                <span>|</span>
+                                                <span data-epi-edit={isCmsEdit ? "ReadTime" : undefined}>{item.ReadTime} min read</span>
+                                            </>
+                                        )}
+                                    </div>
+
                                 </span>
                                 <h2 class="card-title">{item.Heading}</h2>
                                 { item.Body?.html &&

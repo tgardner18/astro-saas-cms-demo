@@ -21,15 +21,29 @@
     let selectedContentType = $state<string>('All');
     let currentPage = $state(1);
 
-    // Extract unique topics from articles
+    // Extract unique topics from articles (case-insensitive)
     let allTopics = $derived.by(() => {
-        const topics = new Set<string>();
+        const topicsMap = new Map<string, string>(); // lowercase -> original case
+
+        // Add "All" as the first option
+        topicsMap.set('all', 'All');
+
         articles.forEach((article) => {
             if (article.ArticleTaxonomy?.ArticleTopic) {
-                topics.add(article.ArticleTaxonomy.ArticleTopic);
+                const topic = article.ArticleTaxonomy.ArticleTopic;
+                const lowerTopic = topic.toLowerCase();
+                // Keep the first occurrence (maintains consistent casing)
+                // Skip if it's "all" since we already added "All"
+                if (!topicsMap.has(lowerTopic)) {
+                    topicsMap.set(lowerTopic, topic);
+                }
             }
         });
-        return ['All', ...Array.from(topics).sort()];
+
+        // Remove "All" temporarily, sort the rest, then add "All" back at the beginning
+        topicsMap.delete('all');
+        const sortedTopics = Array.from(topicsMap.values()).sort();
+        return ['All', ...sortedTopics];
     });
 
     // Get subtopics based on selected topic
@@ -40,21 +54,24 @@
 
         const subtopics = new Set<string>();
 
-        // Map topic names to their corresponding subtopic field names
+        // Map topic names to their corresponding subtopic field names (case-insensitive)
         const topicToSubtopicField: Record<string, string> = {
-            Auto: 'SubtopicAuto',
-            'Financial Hardship': 'SubtopicFinancialHardship',
-            Home: 'SubtopicHome',
-            'Life Stages': 'SubtopicLifeStages',
-            'Personal Finances': 'SubtopicPersonalFinances',
-            Retirement: 'SubtopicRetirement',
+            auto: 'SubtopicAuto',
+            'financial hardship': 'SubtopicFinancialHardship',
+            home: 'SubtopicHome',
+            'life stages': 'SubtopicLifeStages',
+            'personal finances': 'SubtopicPersonalFinances',
+            retirement: 'SubtopicRetirement',
         };
 
-        const subtopicField = topicToSubtopicField[selectedTopic];
+        const subtopicField = topicToSubtopicField[selectedTopic.toLowerCase()];
 
         if (subtopicField) {
             articles.forEach((article) => {
-                if (article.ArticleTaxonomy?.ArticleTopic === selectedTopic) {
+                if (
+                    article.ArticleTaxonomy?.ArticleTopic?.toLowerCase() ===
+                    selectedTopic.toLowerCase()
+                ) {
                     const subtopicArray =
                         article.ArticleTaxonomy[
                             subtopicField as keyof typeof article.ArticleTaxonomy
@@ -81,26 +98,28 @@
     let filteredArticles = $derived.by(() => {
         let filtered = articles;
 
-        // Filter by topic
+        // Filter by topic (case-insensitive)
         if (selectedTopic !== 'All') {
             filtered = filtered.filter(
                 (article) =>
-                    article.ArticleTaxonomy?.ArticleTopic === selectedTopic
+                    article.ArticleTaxonomy?.ArticleTopic?.toLowerCase() ===
+                    selectedTopic.toLowerCase()
             );
         }
 
         // Filter by subtopic
         if (selectedSubtopic !== 'All' && selectedTopic !== 'All') {
             const topicToSubtopicField: Record<string, string> = {
-                Auto: 'SubtopicAuto',
-                'Financial Hardship': 'SubtopicFinancialHardship',
-                Home: 'SubtopicHome',
-                'Life Stages': 'SubtopicLifeStages',
-                'Personal Finances': 'SubtopicPersonalFinances',
-                Retirement: 'SubtopicRetirement',
+                auto: 'SubtopicAuto',
+                'financial hardship': 'SubtopicFinancialHardship',
+                home: 'SubtopicHome',
+                'life stages': 'SubtopicLifeStages',
+                'personal finances': 'SubtopicPersonalFinances',
+                retirement: 'SubtopicRetirement',
             };
 
-            const subtopicField = topicToSubtopicField[selectedTopic];
+            const subtopicField =
+                topicToSubtopicField[selectedTopic.toLowerCase()];
 
             if (subtopicField) {
                 filtered = filtered.filter((article) => {
@@ -116,10 +135,12 @@
             }
         }
 
-        // Filter by content type (for now, all items are Article type)
-        // This is a placeholder for future expansion
+        // Filter by InsightType (content type)
         if (selectedContentType !== 'All') {
-            // Content type filtering logic would go here
+            filtered = filtered.filter(
+                (article) =>
+                    (article.InsightType || 'Article') === selectedContentType
+            );
         }
 
         return filtered;
@@ -242,6 +263,8 @@
                 >
                     <option value="All">All</option>
                     <option value="Article">Article</option>
+                    <option value="Checklist">Checklist</option>
+                    <option value="Infographic">Infographic</option>
                 </select>
             </div>
         </div>
@@ -280,6 +303,8 @@
     <!-- Results Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {#each paginatedArticles as article}
+            {@const insightType = article?.InsightType || 'Article'}
+            {@const insightTypeIcon = `/icons/icon-${insightType.toLowerCase()}.svg`}
             <div
                 class="card bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
@@ -298,7 +323,12 @@
                     <div
                         class="flex items-center gap-2 text-xs text-base-content/60 mb-2"
                     >
-                        <span>Article</span>
+                        <img
+                            src={insightTypeIcon}
+                            alt={`${insightType} icon`}
+                            class="w-4 h-4"
+                        />
+                        <span>{insightType}</span>
                         {#if article.ReadTime && article.ReadTime > 0}
                             <span>|</span>
                             <span>{article.ReadTime} min read</span>
