@@ -1,0 +1,50 @@
+{
+	"key": "RegionsInsights",
+	"displayName": "Regions Insights",
+	"description": "Filtered view of Article Pages with Topic, Subtopic, and Content Type filters",
+	"baseType": "component",
+	"sortOrder": 0,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [
+		"sectionEnabled",
+		"elementEnabled"
+	],
+	"properties": {
+		"Title": {
+			"type": "string",
+			"displayName": "Title",
+			"description": "Heading text displayed above the filter interface",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 0,
+			"indexingType": "searchable",
+			"editorSettings": {}
+		},
+		"IntroText": {
+			"type": "string",
+			"format": "html",
+			"displayName": "Introduction Text",
+			"description": "Optional introduction text displayed below the title",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "searchable",
+			"editorSettings": {}
+		},
+		"ItemsPerPage": {
+			"type": "integer",
+			"displayName": "Items Per Page",
+			"description": "Number of results to display per page",
+			"localized": false,
+			"required": false,
+			"group": "Configuration",
+			"sortOrder": 100,
+			"editorSettings": {},
+			"minimum": 1,
+			"maximum": 100
+		}
+	}
+}

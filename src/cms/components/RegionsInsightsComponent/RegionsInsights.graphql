@@ -1,0 +1,7 @@
+fragment RegionsInsights on RegionsInsights {
+    Title
+    IntroText {
+        html
+    }
+    ItemsPerPage
+}

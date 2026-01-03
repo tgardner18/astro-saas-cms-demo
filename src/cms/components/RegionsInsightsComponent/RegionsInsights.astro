@@ -1,0 +1,116 @@
+---
+import type {
+	RegionsInsights,
+	DisplaySettingsFragment,
+} from '../../../../__generated/sdk';
+import { getOptimizelySdk } from '../../../graphql/getSdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import { getDictionaryFromDisplaySettings } from '../../../graphql/shared/displaySettingsHelpers';
+import { isEditContext } from '../../shared/utils.ts';
+import RegionsInsightsClient from './RegionsInsights.svelte';
+
+const isCmsEdit = isEditContext(Astro.url);
+
+export interface Props {
+	key: string;
+	data: RegionsInsights;
+	displaySettings: DisplaySettingsFragment[];
+	contentPayload: ContentPayload;
+}
+
+const { key, data, displaySettings, contentPayload } = Astro.props as Props;
+
+// Get style settings from display settings
+const styleDictionary = getDictionaryFromDisplaySettings(displaySettings);
+
+// Container settings
+const maxWidth = styleDictionary['maxWidth'] || 'tw_7xl';
+const contentAlignment = styleDictionary['contentAlignment'] || 'center';
+
+// Container wrapper classes
+const containerWrapperClasses = {
+	'max-w-xs': maxWidth === 'xs',
+	'max-w-sm': maxWidth === 'sm',
+	'max-w-md': maxWidth === 'md',
+	'max-w-lg': maxWidth === 'lg',
+	'max-w-xl': maxWidth === 'xl',
+	'max-w-2xl': maxWidth === 'tw_2xl',
+	'max-w-3xl': maxWidth === 'tw_3xl',
+	'max-w-4xl': maxWidth === 'tw_4xl',
+	'max-w-5xl': maxWidth === 'tw_5xl',
+	'max-w-6xl': maxWidth === 'tw_6xl',
+	'max-w-7xl': maxWidth === 'tw_7xl',
+	'mx-auto': contentAlignment === 'center',
+	'ml-auto': contentAlignment === 'right',
+};
+
+// Configuration
+const config = {
+	itemsPerPage: data.ItemsPerPage || 20,
+	locale: contentPayload.loc || 'en',
+	domain: Astro.url.origin,
+};
+
+// Fetch all articles with taxonomy data for filtering
+const articlesData = await getOptimizelySdk(contentPayload).getAllArticles({
+	//@ts-ignore
+	loc: contentPayload.loc,
+	site: Astro.url.origin,
+	limit: 100, // Fetch a large number to get all articles for filtering
+});
+
+const items = articlesData?.ArticlePage?.items || [];
+
+const componentClass = 'component-regionsinsights';
+---
+
+<div data-epi-block-id={isCmsEdit && key || undefined} class:list={[componentClass, 'w-full']}>
+	<div class="w-full" class:list={[containerWrapperClasses]}>
+		{data.Title && (
+			<div class="mb-6 text-center">
+				<h2 class="text-5xl">{data.Title}</h2>
+				{data.IntroText?.html && (
+					<div class="mt-5 prose prose-xl mx-auto" set:html={data.IntroText.html} />
+				)}
+			</div>
+		)}
+
+		{
+			isCmsEdit && (
+				<div class="alert alert-info mb-4">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						class="stroke-current shrink-0 w-6 h-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+						/>
+					</svg>
+					<span>
+						Regions Insights component with {items.length} articles. Interactive features are
+						disabled in edit mode.
+					</span>
+				</div>
+			)
+		}
+
+		<RegionsInsightsClient
+			client:load
+			articles={items}
+			config={config}
+			isEditMode={isCmsEdit}
+		/>
+	</div>
+</div>
+
+<style>
+	.component-regionsinsights {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+</style>
