@@ -1,62 +1,13 @@
 {
-	"key": "ArticleList",
-	"displayName": "Article List",
-	"description": "Reusable component to display article lists with customizable title and number of articles.",
+	"key": "ArticleCategorySettings",
+	"displayName": "Article Topic and Subtopic Settings",
+	"description": "Article Topic and Subtopic Settings",
 	"baseType": "component",
 	"sortOrder": 0,
 	"mayContainTypes": [],
 	"mediaFileExtensions": [],
-	"compositionBehaviors": [
-		"sectionEnabled",
-		"elementEnabled"
-	],
+	"compositionBehaviors": [],
 	"properties": {
-		"Title": {
-			"type": "string",
-			"displayName": "Title",
-			"description": "",
-			"localized": true,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 0,
-			"indexingType": "searchable",
-			"editorSettings": {}
-		},
-		"NumberOfArticles": {
-			"type": "integer",
-			"displayName": "Number of Articles to Show",
-			"description": "",
-			"localized": true,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 100,
-			"editorSettings": {},
-			"minimum": 1
-		},
-		"ArticleRoot": {
-			"type": "contentReference",
-			"displayName": "Article Root",
-			"description": "Section of the site to pull listed articles from",
-			"localized": false,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 200,
-			"editorSettings": {},
-			"allowedTypes": [
-				"Page"
-			],
-			"restrictedTypes": []
-		},
-		"IncludeAllSites": {
-			"type": "boolean",
-			"displayName": "Include Articles from all sites",
-			"description": "Include Articles from all sites",
-			"localized": false,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 400,
-			"editorSettings": {}
-		},
 		"ArticleTopic": {
 			"type": "string",
 			"format": "selectOne",
@@ -66,11 +17,12 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 10,
+			"indexingType": "searchable",
 			"editorSettings": {},
 			"enum": {
 				"values": [
 					{
-						"displayName": "All",
+						"displayName": "-",
 						"value": "all"
 					},
 					{
@@ -109,6 +61,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 100,
+			"indexingType": "searchable",
 			"editorSettings": {},
 			"items": {
 				"type": "string",
@@ -139,6 +92,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 100,
+			"indexingType": "searchable",
 			"editorSettings": {},
 			"items": {
 				"type": "string",
@@ -177,6 +131,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 100,
+			"indexingType": "searchable",
 			"editorSettings": {},
 			"items": {
 				"type": "string",
@@ -211,6 +166,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 100,
+			"indexingType": "searchable",
 			"editorSettings": {},
 			"items": {
 				"type": "string",
@@ -249,6 +205,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 100,
+			"indexingType": "searchable",
 			"editorSettings": {},
 			"items": {
 				"type": "string",
@@ -287,6 +244,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 100,
+			"indexingType": "searchable",
 			"editorSettings": {},
 			"items": {
 				"type": "string",

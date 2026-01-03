@@ -4,7 +4,13 @@ query getArticles(
     $site: String
     $status: String! = "Published"
     $rootUrl: String
-    $categories: [String]
+    $articleTopic: String
+    $subtopicAuto: [String]
+    $subtopicFinancialHardship: [String]
+    $subtopicHome: [String]
+    $subtopicLifeStages: [String]
+    $subtopicPersonalFinances: [String]
+    $subtopicRetirement: [String]
 ) {
     ArticlePage(
         locale: $loc
@@ -15,7 +21,15 @@ query getArticles(
                 status: { eq: $status }
                 url: { base: { eq: $site }, default: { startsWith: $rootUrl } }
             }
-            Categories: { in: $categories }
+            ArticleTaxonomy: {
+                ArticleTopic: { eq: $articleTopic }
+                SubtopicAuto: { in: $subtopicAuto }
+                SubtopicFinancialHardship: { in: $subtopicFinancialHardship }
+                SubtopicHome: { in: $subtopicHome }
+                SubtopicLifeStages: { in: $subtopicLifeStages }
+                SubtopicPersonalFinances: { in: $subtopicPersonalFinances }
+                SubtopicRetirement: { in: $subtopicRetirement }
+            }
         }
     ) {
         items {

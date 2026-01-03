@@ -14,7 +14,15 @@ fragment ArticlePage on ArticlePage {
         html
     }
     ReadTime
-    Categories
+    ArticleTaxonomy {
+        ArticleTopic
+        SubtopicAuto
+        SubtopicFinancialHardship
+        SubtopicHome
+        SubtopicLifeStages
+        SubtopicPersonalFinances
+        SubtopicRetirement
+    }
     SeoSettings {
         ...PageSeoSettingsProperty
     }

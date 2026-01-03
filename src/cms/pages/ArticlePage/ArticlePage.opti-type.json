@@ -68,6 +68,17 @@
 			"sortOrder": 10,
 			"editorSettings": {}
 		},
+		"ArticleTaxonomy": {
+			"type": "component",
+			"contentType": "ArticleCategorySettings",
+			"displayName": "Article Topic and Subtopics",
+			"description": "Article Topic and Subtopics",
+			"localized": false,
+			"required": false,
+			"group": "Taxonomy",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
 		"Author": {
 			"type": "string",
 			"format": "shortString",
@@ -103,84 +114,15 @@
 			"indexingType": "searchable",
 			"editorSettings": {}
 		},
-		"Categories": {
-			"type": "array",
-			"format": "selectMany",
-			"displayName": "Categories",
-			"description": "",
+		"ReadTime": {
+			"type": "integer",
+			"displayName": "Article Read Time (Minutes)",
+			"description": "Article read time in minutes",
 			"localized": false,
 			"required": false,
 			"group": "Information",
-			"sortOrder": 300,
-			"indexingType": "searchable",
-			"editorSettings": {},
-			"items": {
-				"type": "string",
-				"enum": {
-					"values": [
-						{
-							"displayName": "Auto-Buying or Selling a Car",
-							"value": "Auto-Buying or Selling a Car"
-						},
-						{
-							"displayName": "Auto-Finding the Right Car",
-							"value": "Auto-Finding the Right Car"
-						},
-						{
-							"displayName": "Auto-Insure & Protect Your Car",
-							"value": "Auto-Insure & Protect Your Car"
-						},
-						{
-							"displayName": "Home-Financing a Home",
-							"value": "Home-Financing a Home"
-						},
-						{
-							"displayName": "Home-Finding Your Home",
-							"value": "Home-Finding Your Home"
-						},
-						{
-							"displayName": "Home-Protecting Your Home",
-							"value": "Home-Protecting Your Home"
-						},
-						{
-							"displayName": "Home-Using Your Home's Equity",
-							"value": "Home-Using Your Home's Equity"
-						},
-						{
-							"displayName": "PersonalFinances-Budgeting & Saving",
-							"value": "PersonalFinances-Budgeting & Saving"
-						},
-						{
-							"displayName": "PersonalFinances-Creating a Financial Plan",
-							"value": "PersonalFinances-Creating a Financial Plan"
-						},
-						{
-							"displayName": "PersonalFinances-Insuring People & Property",
-							"value": "PersonalFinances-Insuring People & Property"
-						},
-						{
-							"displayName": "PersonalFinances-Investments & Taxes",
-							"value": "PersonalFinances-Investments & Taxes"
-						},
-						{
-							"displayName": "PersonalFinances-Managing Credit & Debt",
-							"value": "PersonalFinances-Managing Credit & Debt"
-						},
-						{
-							"displayName": "Retirement-Building Toward Retirement",
-							"value": "Retirement-Building Toward Retirement"
-						},
-						{
-							"displayName": "Retirement-Establishing a Plan",
-							"value": "Retirement-Establishing a Plan"
-						},
-						{
-							"displayName": "Retirement-Staying on Track in Retirement",
-							"value": "Retirement-Staying on Track in Retirement"
-						}
-					]
-				}
-			}
+			"sortOrder": 250,
+			"editorSettings": {}
 		}
 	}
 }

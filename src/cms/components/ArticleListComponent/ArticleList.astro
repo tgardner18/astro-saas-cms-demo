@@ -22,7 +22,19 @@ export interface Props {
 }
 const { key, data, displaySettings, contentPayload } = Astro.props as Props;
 const currentSite = data.IncludeAllSites ? null : Astro.url.origin;
-const categoryFilterList = data.CategoryFilter || [];
+
+// If topic is null or "all", don't apply any taxonomy filtering (show all articles)
+const hasTopicFilter = data.ArticleTopic && data.ArticleTopic !== 'all';
+
+// Build subtopic filters object - only include arrays that have values
+const subtopicFilters = hasTopicFilter ? {
+    ...(data.SubtopicAuto?.length ? { subtopicAuto: data.SubtopicAuto } : {}),
+    ...(data.SubtopicFinancialHardship?.length ? { subtopicFinancialHardship: data.SubtopicFinancialHardship } : {}),
+    ...(data.SubtopicHome?.length ? { subtopicHome: data.SubtopicHome } : {}),
+    ...(data.SubtopicLifeStages?.length ? { subtopicLifeStages: data.SubtopicLifeStages } : {}),
+    ...(data.SubtopicPersonalFinances?.length ? { subtopicPersonalFinances: data.SubtopicPersonalFinances } : {}),
+    ...(data.SubtopicRetirement?.length ? { subtopicRetirement: data.SubtopicRetirement } : {}),
+} : {};
 
 const articlesList = await getOptimizelySdk(contentPayload).getArticles({
     //@ts-ignore
@@ -30,7 +42,11 @@ const articlesList = await getOptimizelySdk(contentPayload).getArticles({
     site: currentSite,
     limit: data.NumberOfArticles || 1,
     rootUrl: data.ArticleRoot?.url?.default || '/',
-    categories: categoryFilterList.length > 0 ? categoryFilterList : undefined,
+    // Only pass taxonomy filters if a specific topic is selected
+    ...(hasTopicFilter && {
+        articleTopic: data.ArticleTopic,
+        ...subtopicFilters,
+    }),
 });
 const glideId = randomBytes(5).toString('hex');
 const items = articlesList.ArticlePage?.items || null;

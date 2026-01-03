@@ -12,5 +12,13 @@ fragment ArticlePageExcerpt on ArticlePage {
         html
     }
     ReadTime
-    Categories
+    ArticleTaxonomy {
+        ArticleTopic
+        SubtopicAuto
+        SubtopicFinancialHardship
+        SubtopicHome
+        SubtopicLifeStages
+        SubtopicPersonalFinances
+        SubtopicRetirement
+    }
 }
