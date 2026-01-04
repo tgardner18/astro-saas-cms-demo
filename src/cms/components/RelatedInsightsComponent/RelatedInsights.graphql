@@ -1,0 +1,6 @@
+fragment RelatedInsights on RelatedInsights {
+    HideRelated
+    CuratedInsights {
+        ...ContentArea
+    }
+}

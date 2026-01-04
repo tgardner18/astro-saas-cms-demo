@@ -8,6 +8,7 @@ import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
 import Layout from '../../../layouts/Layout.astro';
 import { YouTube } from 'astro-embed';
 import { isEditContext } from '../../shared/utils.ts';
+import RelatedInsights from '../../components/RelatedInsightsComponent/RelatedInsights.astro';
 
 const isCmsEdit = isEditContext(Astro.url);
 
@@ -178,5 +179,13 @@ const calculatorUsageText = post?.CalculatorUsage?.html || 'Change the numbers i
                 />
             }
         </main>
+        {post?.Related?.HideRelated !== true && (
+            <RelatedInsights
+                contentPayload={contentPayload}
+                currentArticleKey={post._metadata?.key || ''}
+                currentArticleTopic={post.ArticleTaxonomy?.ArticleTopic}
+                curatedArticles={post.Related?.CuratedInsights}
+            />
+        )}
     </div>
 </Layout>

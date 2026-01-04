@@ -1,0 +1,40 @@
+{
+	"key": "RelatedInsights",
+	"displayName": "Related Insights",
+	"description": "",
+	"baseType": "component",
+	"sortOrder": 0,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [],
+	"properties": {
+		"HideRelated": {
+			"type": "boolean",
+			"displayName": "Hide Related Insights Section",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
+		"CuratedInsights": {
+			"type": "array",
+			"displayName": "Related Insights (Manual)",
+			"description": "Manually curated related insights",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 100,
+			"editorSettings": {},
+			"maxItems": 4,
+			"items": {
+				"type": "content",
+				"allowedTypes": [
+					"ArticlePage"
+				],
+				"restrictedTypes": []
+			}
+		}
+	}
+}

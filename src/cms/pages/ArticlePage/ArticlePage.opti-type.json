@@ -136,6 +136,17 @@
 			"sortOrder": 10,
 			"editorSettings": {}
 		},
+		"Related": {
+			"type": "component",
+			"contentType": "RelatedInsights",
+			"displayName": "Related Insights",
+			"description": "Displays up to 4 manually curated Insights, then falls back to Insights in the same Topic",
+			"localized": false,
+			"required": false,
+			"group": "RelatedInsights",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
 		"VideoTranscriptLink": {
 			"type": "url",
 			"format": "DocumentUrl",

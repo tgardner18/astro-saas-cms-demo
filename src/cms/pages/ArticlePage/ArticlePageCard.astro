@@ -21,19 +21,40 @@ const publishedDate = format(
 );
 
 const articlePromoImage = (data.PromoImage as any)?.item?.Url || data.PromoImage?.url?.default;
+
+const articleReadTime = data?.ReadTime && data?.ReadTime > 0 ? data.ReadTime : null;
+const insightType = data?.InsightType || 'Article';
+const insightTypeIcon = `/icons/icon-${insightType.toLowerCase()}.svg`;
+const placeholderImage =
+    insightType === 'Calculator'
+        ? '/thumbnails/Calculator-Insight-Thumbnail.jpg'
+        : '/placeholder.png'
 ---
 
-<div class="card bg-base-100 w-96 flex-shrink-0 shadow-sm flex flex-col" data-epi-block-id={isCmsEdit && key || undefined}>
+<div class="card bg-base-100 w-full flex-shrink-0 shadow-sm flex flex-col" data-epi-block-id={isCmsEdit && key || undefined}>
     <figure>
         <AstroImage
             class="aspect-3/2 object-cover"
-            src={articlePromoImage ?? '/placeholder.png'}
+            src={articlePromoImage ?? placeholderImage}
             alt={`Promo image for ${data.Heading}` || 'Article promo image'}
             width={600}
             height={400}
         />
     </figure>
     <div class="card-body">
+        <span class={`text-xs font-semibold flex items-center text-base-content/60`}>
+            <div class="flex items-center gap-2 pb-2">
+                <img src={insightTypeIcon} alt={`${insightType} icon`} class="w-4 h-4" />
+                <span>{insightType}</span>
+                {articleReadTime && articleReadTime > 0 && (
+                    <>
+                        <span>|</span>
+                        <span data-epi-edit={isCmsEdit ? "ReadTime" : undefined}>{articleReadTime} min read</span>
+                    </>
+                )}
+            </div>
+
+        </span>
         <h2 class="card-title">{data.Heading}</h2>
         { data.Body?.html && 
             <div set:html={data.Body.html.replace(/<[^>]*>/g, '').split(' ').slice(0, 30).join(' ') + "..."} />

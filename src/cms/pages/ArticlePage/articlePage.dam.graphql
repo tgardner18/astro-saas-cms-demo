@@ -3,6 +3,7 @@ fragment ArticlePage on ArticlePage {
         ...PageUrl
         published
         displayName
+        key
     }
     InsightType
     PromoImage {
@@ -36,6 +37,12 @@ fragment ArticlePage on ArticlePage {
         SubtopicLifeStages
         SubtopicPersonalFinances
         SubtopicRetirement
+    }
+    Related {
+        HideRelated
+        CuratedInsights {
+            ...ContentArea
+        }
     }
     SeoSettings {
         ...PageSeoSettingsProperty

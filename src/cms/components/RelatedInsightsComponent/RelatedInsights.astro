@@ -1,0 +1,102 @@
+---
+import type { Locales } from 'astro';
+import type { ArticlePageFragment } from '../../../../__generated/sdk';
+import { getOptimizelySdk } from '../../../graphql/getSdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import ArticlePageCard from '../../pages/ArticlePage/ArticlePageCard.astro';
+
+export interface Props {
+    contentPayload: ContentPayload;
+    currentArticleKey: string;
+    currentArticleTopic?: string | null;
+    curatedArticles?: any[];
+}
+
+const { contentPayload, currentArticleKey, currentArticleTopic, curatedArticles } = Astro.props as Props;
+
+const TARGET_ARTICLE_COUNT = 4;
+const relatedArticles: ArticlePageFragment[] = [];
+const usedKeys = new Set<string>();
+const currentSite = Astro.url.origin;
+
+// Add current article key to avoid showing it
+usedKeys.add(currentArticleKey);
+
+// Step 1: Add manually curated articles
+if (curatedArticles && curatedArticles.length > 0) {
+    for (const curatedItem of curatedArticles) {
+        if (relatedArticles.length >= TARGET_ARTICLE_COUNT) break;
+
+        // Handle both direct article references and ContentArea items
+        const article = curatedItem;
+        console.log('article:', article);
+        if (article && article._metadata?.key && !usedKeys.has(article._metadata.key)) {
+            relatedArticles.push(article as ArticlePageFragment);
+            usedKeys.add(article._metadata.key);
+        }
+    }
+}
+
+console.log('relatedArticles:', relatedArticles);
+
+// Step 2: If we need more articles, query by same topic
+if (relatedArticles.length < TARGET_ARTICLE_COUNT && currentArticleTopic) {
+    const remaining = TARGET_ARTICLE_COUNT - relatedArticles.length;
+
+    const topicArticlesResponse = await getOptimizelySdk(contentPayload).getArticles({
+        loc: contentPayload.loc as Locales,
+        site: currentSite,
+        limit: remaining + 10, // Get extra in case some are duplicates
+        articleTopic: currentArticleTopic,
+    });
+
+    const topicArticles = topicArticlesResponse?.ArticlePage?.items || [];
+
+    for (const article of topicArticles) {
+        if (relatedArticles.length >= TARGET_ARTICLE_COUNT) break;
+
+        if (article && article._metadata?.key && !usedKeys.has(article._metadata.key)) {
+            relatedArticles.push(article as ArticlePageFragment);
+            usedKeys.add(article._metadata.key);
+        }
+    }
+}
+
+// Step 3: If we still need more articles, query most recent from any topic
+if (relatedArticles.length < TARGET_ARTICLE_COUNT) {
+    const remaining = TARGET_ARTICLE_COUNT - relatedArticles.length;
+
+    const recentArticlesResponse = await getOptimizelySdk(contentPayload).getArticles({
+        loc: contentPayload.loc as Locales,
+        site: currentSite,
+        limit: remaining + 10, // Get extra in case some are duplicates
+    });
+
+    const recentArticles = recentArticlesResponse?.ArticlePage?.items || [];
+
+    for (const article of recentArticles) {
+        if (relatedArticles.length >= TARGET_ARTICLE_COUNT) break;
+
+        if (article && article._metadata?.key && !usedKeys.has(article._metadata.key)) {
+            relatedArticles.push(article as ArticlePageFragment);
+            usedKeys.add(article._metadata.key);
+        }
+    }
+}
+
+---
+
+{relatedArticles.length > 0 && (
+    <section class="mx-auto max-w-screen-xl px-4 2xl:px-0 mt-16 mb-12">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Related Insights</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {relatedArticles.map((article) => (
+                <ArticlePageCard
+                    key={article._metadata?.key || ''}
+                    data={article}
+                    contentPayload={contentPayload}
+                />
+            ))}
+        </div>
+    </section>
+)}
