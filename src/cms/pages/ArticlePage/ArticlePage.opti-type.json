@@ -33,6 +33,10 @@
 					{
 						"displayName": "Infographic",
 						"value": "Infographic"
+					},
+					{
+						"displayName": "Video",
+						"value": "Video"
 					}
 				]
 			}
@@ -106,6 +110,28 @@
 			"sortOrder": 10,
 			"editorSettings": {}
 		},
+		"VideoYoutube": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "YouTube Video URL or ID",
+			"description": "YouTube Video URL or ID",
+			"localized": false,
+			"required": false,
+			"group": "InsightsVideoProperties",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
+		"VideoTranscriptLink": {
+			"type": "url",
+			"format": "DocumentUrl",
+			"displayName": "Video Transcript",
+			"description": "Video Transcript File",
+			"localized": false,
+			"required": false,
+			"group": "InsightsVideoProperties",
+			"sortOrder": 19,
+			"editorSettings": {}
+		},
 		"Author": {
 			"type": "string",
 			"format": "shortString",
@@ -157,7 +183,7 @@
 			"description": "Infographic only displayed if Insight Type is set to \"Infographic\"",
 			"localized": false,
 			"required": false,
-			"group": "Information",
+			"group": "InsightsInfographicProperties",
 			"sortOrder": 300,
 			"editorSettings": {},
 			"allowedTypes": [

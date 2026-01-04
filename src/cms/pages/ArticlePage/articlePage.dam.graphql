@@ -20,6 +20,10 @@ fragment ArticlePage on ArticlePage {
         ...ContentUrl
         ...ContentReferenceItem
     }
+    VideoYoutube
+    VideoTranscriptLink {
+        default
+    }
     ArticleTaxonomy {
         ArticleTopic
         SubtopicAuto

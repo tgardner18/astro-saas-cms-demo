@@ -18,6 +18,10 @@ fragment ArticlePage on ArticlePage {
     InfographicImage {
         ...ContentUrl
     }
+    VideoYoutube
+    VideoTranscriptLink {
+        default
+    }
     ArticleTaxonomy {
         ArticleTopic
         SubtopicAuto

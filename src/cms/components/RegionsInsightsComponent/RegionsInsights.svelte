@@ -265,6 +265,7 @@
                     <option value="Article">Article</option>
                     <option value="Checklist">Checklist</option>
                     <option value="Infographic">Infographic</option>
+                    <option value="Video">Video</option>
                 </select>
             </div>
         </div>

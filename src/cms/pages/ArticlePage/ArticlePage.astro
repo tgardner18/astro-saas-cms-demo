@@ -6,6 +6,7 @@ import type { ArticlePageFragment } from '../../../../__generated/sdk';
 import { getOptimizelySdk } from '../../../graphql/getSdk';
 import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
 import Layout from '../../../layouts/Layout.astro';
+import { YouTube } from 'astro-embed';
 import { isEditContext } from '../../shared/utils.ts';
 
 const isCmsEdit = isEditContext(Astro.url);
@@ -118,6 +119,28 @@ const articleReadTime = post?.ReadTime && post?.ReadTime > 0 ? post.ReadTime : n
                     <span>{insightType}</span>
                 </div>
             </div>
+            
+            { (post.InsightType === "Video" && post.VideoYoutube) &&
+                <div class="w-auto mx-auto block max-w-screen-xl mt-6">
+                    <YouTube
+                        id={post.VideoYoutube}
+                    />
+                    <style is:inline>
+                        lite-youtube {
+                            max-width: 80%;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                    </style>
+                    { post.VideoTranscriptLink?.default &&
+                        <p class="text-center italic text-lg mt-2">
+                            <a href={post.VideoTranscriptLink.default} target="_blank" rel="noopener noreferrer" class="underline">
+                                View transcript
+                            </a>
+                        </p>
+                    }
+                </div>
+            }
             <article
                 class="prose dark:prose-invert md:prose-lg lg:prose-xl mx-auto mt-12 mb-12 max-w-screen-xl px-4 2xl:px-0 prose-img:rounded-[2rem] prose-img:p-4 "
                 data-epi-edit={isCmsEdit ? "BlogPostBody" : undefined}
