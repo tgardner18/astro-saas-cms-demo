@@ -46,6 +46,8 @@ const extPreviewEnabled = post?.PageAdminSettings?.EnableExternalPreview ?? fals
 const pageClass = 'page-article';
 
 const articleReadTime = post?.ReadTime && post?.ReadTime > 0 ? post.ReadTime : null;
+
+const calculatorUsageText = post?.CalculatorUsage?.html || 'Change the numbers in each input field by entering a new number or adjusting the sliders. After entering your data into each input field, the calculator results will automatically update the summary statement and chart.';
 ---
 
 <Layout
@@ -146,6 +148,26 @@ const articleReadTime = post?.ReadTime && post?.ReadTime > 0 ? post.ReadTime : n
                 data-epi-edit={isCmsEdit ? "BlogPostBody" : undefined}
                 set:html={post.Body?.html}
             />
+            { (post.InsightType === "Calculator" && post.CalculatorUrl) &&
+                <div class="w-auto mx-auto block max-w-screen-xl overflow-x-hidden">
+                    <details open class="pb-8">
+                        <summary role="button" class="pb-6">
+                            <span class="text-lg font-semibold" style="color: #333;">How to use this calculator</span>
+                        </summary>
+                        <div class="ml-8 pl-4 pt-0" style="border-left: 2px solid #ccc;">
+                            <span class="pl-4 text-lg block -mt-2" set:html={calculatorUsageText}></span>
+                        </div>
+                    </details>
+                    <iframe
+                        id="calculator-iframe"
+                        src={post.CalculatorUrl}
+                        class="w-full"
+                        style="height: 110vh; min-height: 800px; border: none; overflow-x: hidden;"
+                        data-epi-edit={isCmsEdit ? "CalculatorUrl" : undefined}
+                        scrolling="no"
+                    ></iframe>
+                </div>
+            }
             { (post.InsightType === "Infographic" && ((post.InfographicImage as any)?.item?.Url || post.InfographicImage?.url?.default)) &&
                 <AstroImage
                     src={(post.InfographicImage as any)?.item?.Url || post.InfographicImage?.url?.default}

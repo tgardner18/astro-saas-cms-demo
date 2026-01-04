@@ -263,6 +263,7 @@
                 >
                     <option value="All">All</option>
                     <option value="Article">Article</option>
+                    <option value="Calculator">Calculator</option>
                     <option value="Checklist">Checklist</option>
                     <option value="Infographic">Infographic</option>
                     <option value="Video">Video</option>
@@ -306,6 +307,10 @@
         {#each paginatedArticles as article}
             {@const insightType = article?.InsightType || 'Article'}
             {@const insightTypeIcon = `/icons/icon-${insightType.toLowerCase()}.svg`}
+            {@const placeholderImage =
+                insightType === 'Calculator'
+                    ? '/thumbnails/Calculator-Insight-Thumbnail.jpg'
+                    : '/placeholder.png'}
             <div
                 class="card bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
@@ -314,7 +319,7 @@
                         class="aspect-3/2 object-cover w-full"
                         src={((article.PromoImage as any)?.item?.Url ||
                             article.PromoImage?.url?.default) ??
-                            '/placeholder.png'}
+                            placeholderImage}
                         alt={article.PromoImage?.item?.AltText ||
                             `Promo image for ${article.Heading}` ||
                             'Article promo image'}

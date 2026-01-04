@@ -27,6 +27,10 @@
 						"value": "Article"
 					},
 					{
+						"displayName": "Calculator",
+						"value": "Calculator"
+					},
+					{
 						"displayName": "Checklist",
 						"value": "Checklist"
 					},
@@ -121,6 +125,17 @@
 			"sortOrder": 10,
 			"editorSettings": {}
 		},
+		"CalculatorUrl": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Calculator URL",
+			"description": "URL for Calculator iframe",
+			"localized": false,
+			"required": false,
+			"group": "InsightsCalculatorProperties",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
 		"VideoTranscriptLink": {
 			"type": "url",
 			"format": "DocumentUrl",
@@ -130,6 +145,17 @@
 			"required": false,
 			"group": "InsightsVideoProperties",
 			"sortOrder": 19,
+			"editorSettings": {}
+		},
+		"CalculatorUsage": {
+			"type": "string",
+			"format": "html",
+			"displayName": "How to Use Calculator",
+			"description": "Description of how to use this Calculator",
+			"localized": false,
+			"required": false,
+			"group": "InsightsCalculatorProperties",
+			"sortOrder": 20,
 			"editorSettings": {}
 		},
 		"Author": {

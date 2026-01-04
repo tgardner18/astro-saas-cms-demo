@@ -15,6 +15,10 @@ fragment ArticlePage on ArticlePage {
         html
     }
     ReadTime
+    CalculatorUrl
+    CalculatorUsage {
+        html
+    }
     InfographicImage {
         ...ContentUrl
     }
