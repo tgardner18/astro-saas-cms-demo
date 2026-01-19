@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizely - Use Case Feedback Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0037ff;
+            --secondary-color: #000000;
+            --background: #ffffff;
+            --card-background: #f5f5f7;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --border-color: #d2d2d7;
+            --code-background: #f0f0f5;
+            --success: #34c759;
+            --warning: #ff9500;
+            --accent: #0037ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0029b8 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .header-content {
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-top: 12px;
+            font-weight: 400;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-label {
+            opacity: 0.7;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .toc {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+
+        .toc h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+        }
+
+        .toc-list li a {
+            display: block;
+            padding: 14px 18px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .toc-list li a:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateX(4px);
+        }
+
+        .toc-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: var(--card-background);
+            border-radius: 6px;
+            text-align: center;
+            line-height: 28px;
+            margin-right: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .toc-list li a:hover .toc-number {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* Use Case Sections */
+        .use-case {
+            margin-bottom: 80px;
+            scroll-margin-top: 20px;
+        }
+
+        .use-case-header {
+            margin-bottom: 32px;
+        }
+
+        .use-case-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .use-case h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .use-case-description {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 900px;
+        }
+
+        /* Content Cards */
+        .card {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .card p {
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .card ul, .card ol {
+            margin-left: 24px;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #1e1e1e;
+            border: none;
+            border-radius: 12px;
+            padding: 0;
+            margin: 32px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: #2d2d30;
+            border-bottom: 1px solid #3e3e42;
+        }
+
+        .code-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 400;
+            color: #858585;
+        }
+
+        .code-lang {
+            font-size: 11px;
+            background: rgba(0, 55, 255, 0.15);
+            color: #569cd6;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(86, 156, 214, 0.3);
+        }
+
+        pre {
+            margin: 0;
+            padding: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            overflow-x: auto;
+            color: #d4d4d4;
+            background: #1e1e1e;
+            white-space: pre;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        @media (max-width: 768px) {
+            pre {
+                white-space: pre-wrap;
+                word-break: break-word;
+            }
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #d4d4d4;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-background);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        /* VS Code Dark Theme Syntax Highlighting */
+        .code-block .keyword { color: #569cd6; font-weight: 400; }
+        .code-block .string { color: #ce9178; }
+        .code-block .number { color: #b5cea8; }
+        .code-block .comment { color: #6a9955; font-style: italic; }
+        .code-block .function { color: #dcdcaa; font-weight: 400; }
+        .code-block .variable { color: #9cdcfe; }
+        .code-block .property { color: #9cdcfe; }
+        .code-block .operator { color: #d4d4d4; }
+        .code-block .type { color: #4ec9b0; }
+        .code-block .punctuation { color: #d4d4d4; }
+        .code-block .class-name { color: #4ec9b0; }
+        .code-block .tag { color: #569cd6; }
+        .code-block .attr-name { color: #9cdcfe; }
+        .code-block .attr-value { color: #ce9178; }
+        .code-block .constant { color: #4fc1ff; }
+        .code-block .builtin { color: #4ec9b0; }
+
+        /* Alerts & Callouts */
+        .alert {
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            border-left: 4px solid;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .alert-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .alert-text {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            color: #0d47a1;
+        }
+
+        .alert-warning {
+            background: #fff3e0;
+            border-color: #ff9800;
+            color: #e65100;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            color: #1b5e20;
+        }
+
+        .alert-error {
+            background: #ffebee;
+            border-color: #f44336;
+            color: #b71c1c;
+        }
+
+        /* Implementation Steps */
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 28px;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Sample Approach Section */
+        .sample-approach {
+            margin-bottom: 40px;
+            background: white;
+        }
+
+        .sample-approach h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .sample-approach > p {
+            margin-bottom: 32px;
+        }
+
+        .approach-section {
+            margin-bottom: 28px;
+            background: var(--card-background);
+            padding: 20px 24px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .approach-section h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .approach-section p {
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .approach-section ul {
+            margin-left: 24px;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .approach-section li {
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--card-background);
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-background);
+            padding: 48px 0;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-content p {
+            margin-bottom: 8px;
+        }
+
+        .disclaimer {
+            background: #fffbf0;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #7f6003;
+        }
+
+        .disclaimer strong {
+            color: #5d4500;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-solution {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .badge-limitation {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .badge-workaround {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .use-case h2 {
+                font-size: 26px;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .step-list li {
+                padding-left: 50px;
+            }
+
+            .step-list li::before {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            header {
+                background: var(--primary-color);
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .use-case {
+                page-break-inside: avoid;
+            }
+
+            .card {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Optimizely - Use Case Feedback Report</h1>
+                    <p class="subtitle">Technical Approach for Regions Bank Requirements</p>
+                </div>
+            </div>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <span class="meta-label">Platform</span>
+                    <span class="meta-value">Optimizely SaaS CMS with GraphQL</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Frontend Framework</span>
+                    <span class="meta-value">Next.js</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="toc">
+            <h2>Implementation Use Cases</h2>
+            <ul class="toc-list">
+                <li><a href="#use-case-1"><span class="toc-number">01</span>Global Settings Management</a></li>
+                <li><a href="#use-case-2"><span class="toc-number">02</span>Content Item References</a></li>
+                <li><a href="#use-case-3"><span class="toc-number">03</span>Content Authorable Redirects</a></li>
+                <li><a href="#use-case-4"><span class="toc-number">04</span>Geography & Location Search</a></li>
+                <li><a href="#use-case-5"><span class="toc-number">05</span>Footnote Management</a></li>
+                <li><a href="#use-case-6"><span class="toc-number">06</span>Rate Display System</a></li>
+                <li><a href="#use-case-7"><span class="toc-number">07</span>Custom CMS Commands</a></li>
+            </ul>
+        </section>
+
+        <!-- Use Case 1: Global Settings -->
+        <section id="use-case-1" class="use-case">
+            <div class="use-case-header">
+                <span class="use-case-number">Use Case 01</span>
+                <h2>Global Settings Management</h2>
+                <p class="use-case-description">
+                    Apply global values that can be overridden at the instance level as required. This implementation uses a Global Settings content type to manage pre-determined filters for Category, Topic, and Subtopic parameters across the site, with the ability to override at the page level.
+                </p>
+            </div>
+
+            <div class="sample-approach">
+                <h3>Sample Approach</h3>
+                <span class="badge badge-solution">SOLUTION DETAILS</span>
+                <p>Create a dedicated Global Settings content type with structured fields to store default filter parameters and configuration values. This approach treats the CMS as a structured source of truth consumed by the frontend via GraphQL.</p>
+                
+                <div class="approach-section">
+                    <h4>Define Global Settings Content Type</h4>
+                    <p>Create a Block content type named "GlobalSettings" with structured fields for BankingCategoryParam, TopicParam, SubtopicParam, and any other global configuration values.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Create Shared Block Instance</h4>
+                    <p>Instantiate a single shared block at the application level in your content tree, accessible to all pages.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Add Page-Level Override Capability</h4>
+                    <p>Include optional properties on individual page types to allow authors to override specific global settings when needed.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Implement Frontend Resolution</h4>
+                    <p>On the Next.js frontend, fetch both global settings and page-specific overrides. Apply page-level values when present, falling back to global defaults.</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Global Settings GraphQL Query</span>
+                        <span class="code-lang">GraphQL</span>
+                    </div>
+                    <pre><code><span class="keyword">query</span> <span class="function">GetGlobalSettings</span> {
+  <span class="property">GlobalSettings</span> {
+    <span class="property">items</span> {
+      <span class="property">BankingCategoryParam</span>
+      <span class="property">TopicParam</span>
+      <span class="property">SubtopicParam</span>
+      <span class="comment"># Additional global configuration fields</span>
+    }
+  }
+}
+
+<span class="keyword">query</span> <span class="function">GetPageWithSettings</span>(<span class="variable">$path</span>: <span class="type">String!</span>) {
+  <span class="property">Content</span>(
+    <span class="property">where</span>: {
+      <span class="property">RelativePath</span>: { <span class="property">eq</span>: <span class="variable">$path</span> }
+    }
+  ) {
+    <span class="property">items</span> {
+      <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">InsightsPage</span> {
+        <span class="comment"># Page-specific overrides</span>
+        <span class="property">CategoryOverride</span>
+        <span class="property">TopicOverride</span>
+        <span class="property">SubtopicOverride</span>
+        
+        <span class="comment"># Other page content</span>
+        <span class="property">Heading</span>
+        <span class="property">Body</span>
+      }
+    }
+  }
+}</code></pre>
+                </div>
+
+                <p><strong>Next.js Implementation:</strong> In your Next.js application, create a settings resolution utility that fetches global settings at build time or on request. For each page render, check if page-specific overrides exist; if not, use the global defaults. This can be implemented as a custom hook or utility function that merges global and page-level settings.</p>
+
+                <div class="disclaimer">
+                    <strong>⚠️ AI-Generated Code Disclaimer:</strong> The code samples provided in this document are AI-generated examples for illustrative purposes. Actual implementation code should be reviewed, tested, and adapted to your specific requirements and coding standards before deployment.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">💡</span>Additional Considerations</h3>
+                <ul>
+                    <li><strong>Environment-Specific Settings:</strong> Consider supporting environment-specific overrides (sandbox vs. production) by using a site key or URL field in the Global Settings content type.</li>
+                    <li><strong>Caching Strategy:</strong> Global settings should be cached at the edge or in your Next.js build process since they rarely change. Implement cache invalidation when settings are updated in the CMS.</li>
+                    <li><strong>Validation:</strong> Implement validation to ensure that page-level overrides maintain data integrity and don't conflict with global configurations.</li>
+                    <li><strong>Multisite Support:</strong> If implementing a multisite architecture, include a site identifier field to support different global settings per site.</li>
+                    <li><strong>Query String vs. Content:</strong> Evaluate whether these filter parameters need to be content-authorable or if they can be hardcoded. If they're static values used primarily for URL construction, consider making them part of the codebase rather than CMS content.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 2: Content References -->
+        <section id="use-case-2" class="use-case">
+            <div class="use-case-header">
+                <span class="use-case-number">Use Case 02</span>
+                <h2>Content Item References</h2>
+                <p class="use-case-description">
+                    Enable authors to create controls (dropdowns, multi-select) that reference content items within the CMS for tagging, categorization, and component relationships.
+                </p>
+            </div>
+
+            <div class="sample-approach">
+                <h3>Sample Approach</h3>
+                <span class="badge badge-solution">SOLUTION DETAILS</span>
+                <p>Use a hybrid approach leveraging both Choice fields and Content Reference fields depending on the use case:</p>
+
+                <div class="approach-section">
+                    <h4>For Simple Tagging and Categorization</h4>
+                    <p>Use Optimizely's Choice field type for flat taxonomy like categories, topics, and tags. Choice fields provide key/value pairs that can be rendered as dropdowns or multi-select controls in the authoring UI.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>For Component Relationships</h4>
+                    <p>Use Content Reference fields (single or multiple) to reference other content items when building visual components (e.g., Carousel component referencing CarouselSlide items, or a Featured Articles component referencing Article pages).</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Configure Search Facets</h4>
+                    <p>When using Choice fields for tagging, ensure these fields are indexed in Optimizely Graph to support faceted search and filtering on the frontend.</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Choice Field Definition and GraphQL Query</span>
+                        <span class="code-lang">TypeScript</span>
+                    </div>
+                    <pre><code><span class="comment">// Content Type Definition (Choice Field)</span>
+{
+  <span class="property">"name"</span>: <span class="string">"ArticlePage"</span>,
+  <span class="property">"properties"</span>: {
+    <span class="property">"categories"</span>: {
+      <span class="property">"type"</span>: <span class="string">"Choice"</span>,
+      <span class="property">"displayName"</span>: <span class="string">"Categories"</span>,
+      <span class="property">"multiSelect"</span>: <span class="constant">true</span>,
+      <span class="property">"options"</span>: [
+        { <span class="property">"key"</span>: <span class="string">"personal"</span>, <span class="property">"value"</span>: <span class="string">"Personal Banking"</span> },
+        { <span class="property">"key"</span>: <span class="string">"business"</span>, <span class="property">"value"</span>: <span class="string">"Business Banking"</span> }
+      ]
+    }
+  }
+}
+
+<span class="comment">// GraphQL Query</span>
+<span class="keyword">const</span> <span class="constant">ARTICLE_QUERY</span> = <span class="string">`
+  query GetArticle($id: String!) {
+    ArticlePage(where: { _metadata: { key: { eq: $id } } }) {
+      items {
+        title
+        categories
+      }
+    }
+  }
+`</span>;</code></pre>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>⚠️ AI-Generated Code Disclaimer:</strong> The code samples provided in this document are AI-generated examples for illustrative purposes. Actual implementation code should be reviewed, tested, and adapted to your specific requirements and coding standards before deployment.
+                </div>
+
+                <p><strong>Next.js Implementation:</strong> For Choice fields, the values are returned as arrays or strings in GraphQL responses and can be directly used for filtering, display, or search faceting. The example above shows a multi-select Choice field where categories are stored as key/value pairs in the CMS and returned as an array of keys in the GraphQL response. For Content Reference fields, GraphQL will resolve the full content items, allowing you to render nested components with complete data. Implement fragment patterns to reuse content item queries across different components.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">💡</span>Additional Considerations</h3>
+                <ul>
+                    <li><strong>Hierarchical Taxonomies:</strong> Choice fields are flat key/value pairs and don't support Topic/Subtopic hierarchies. If you need hierarchical relationships, consider modeling Topics and Subtopics as separate content types with parent-child relationships.</li>
+                    <li><strong>Dynamic Filtering:</strong> Current Optimizely SaaS CMS limitations prevent creating truly dynamic "cascading" dropdowns in the authoring UI (e.g., selecting a Topic automatically filters available Subtopics). This would require custom authoring UI extensions, which are not currently supported.</li>
+                    <li><strong>Content vs. Configuration:</strong> Evaluate whether referenced items are true content that changes frequently or configuration data. For configuration-like references, Choice fields may be more appropriate than full content references.</li>
+                    <li><strong>Performance:</strong> When using Content Reference fields with many references, consider the GraphQL query depth and implement pagination or limiting to avoid performance issues.</li>
+                    <li><strong>Search Integration:</strong> Ensure Choice field values are properly indexed in Optimizely Graph to enable filtering and faceted search on the frontend.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 3: Redirects -->
+        <section id="use-case-3" class="use-case">
+            <div class="use-case-header">
+                <span class="use-case-number">Use Case 03</span>
+                <h2>Content Authorable Redirects</h2>
+                <p class="use-case-description">
+                    Provide the ability for content authors to fully manage collections of redirects within the CMS, including source URLs, destination URLs, and redirect types (301, 302).
+                </p>
+            </div>
+
+            <div class="sample-approach">
+                <h3>Sample Approach</h3>
+                <span class="badge badge-solution">SOLUTION DETAILS</span>
+                <p>Create a structured Redirect content type in the CMS and implement redirect handling at the frontend/edge layer for optimal performance.</p>
+
+                <div class="approach-section">
+                    <h4>Define Redirect Content Type</h4>
+                    <p>Create a Block content type named "Redirect" with fields for SourceURL (text), DestinationURL (link or text), RedirectType (choice: 301/302), Status (choice: active/inactive), and optional Environment (choice: sandbox/production).</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Organize Redirects in Content Tree</h4>
+                    <p>Create a dedicated folder in the content tree (e.g., /Settings/Redirects/) to store all redirect entries for easy management and bulk operations.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Implement Frontend Redirect Logic</h4>
+                    <p>Fetch all active redirects via GraphQL and implement matching logic in your Next.js middleware or edge functions. For Vercel deployments, leverage Vercel's native redirect configuration.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Build Management Dashboard (Optional)</h4>
+                    <p>Create a custom frontend dashboard for bulk redirect management, CSV imports, and redirect testing. This can be a separate Next.js page with REST API integration.</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Redirects GraphQL Query</span>
+                        <span class="code-lang">GraphQL</span>
+                    </div>
+                    <pre><code><span class="keyword">query</span> <span class="function">GetAllRedirects</span> {
+  <span class="property">RedirectBlock</span>(
+    <span class="property">where</span>: {
+      <span class="property">Status</span>: { <span class="property">eq</span>: <span class="string">"Active"</span> }
+    }
+  ) {
+    <span class="property">items</span> {
+      <span class="property">SourceURL</span>
+      <span class="property">DestinationURL</span>
+      <span class="property">RedirectType</span>  <span class="comment"># "301" or "302"</span>
+      <span class="property">Environment</span>   <span class="comment"># Optional: "Production", "Sandbox", "All"</span>
+      <span class="property">CreatedDate</span>
+      <span class="property">ModifiedDate</span>
+    }
+  }
+}
+
+<span class="comment"># For bulk operations via REST API</span>
+<span class="comment"># POST /api/episerver/v3.0/content</span>
+<span class="comment"># { 
+#   "contentType": "RedirectBlock",
+#   "name": "Old Page Redirect",
+#   "SourceURL": "/old-page",
+#   "DestinationURL": "/new-page",
+#   "RedirectType": "301",
+#   "Status": "Active"
+# }</span></code></pre>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>⚠️ AI-Generated Code Disclaimer:</strong> The code samples provided in this document are AI-generated examples for illustrative purposes. Actual implementation code should be reviewed, tested, and adapted to your specific requirements and coding standards before deployment.
+                </div>
+
+                <p><strong>Next.js Implementation:</strong> Fetch all redirects at build time and store them in a Map or similar data structure for efficient lookup. In your Next.js middleware (middleware.ts), check incoming requests against the redirect map and return appropriate redirect responses. For Vercel deployments, you can also generate a vercel.json configuration file with redirect rules during the build process. Consider implementing a revalidation strategy to refresh redirects without full rebuilds. Redirect rules should be cached at the edge or periodically refreshed rather than fetched on every request.</p>
+
+                <div class="alert alert-info">
+                    <span class="alert-icon">ℹ️</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Vercel Native Integration</div>
+                        <div class="alert-text">Vercel provides built-in redirect management through its dashboard and vercel.json configuration. You can leverage this by automatically syncing CMS redirects to Vercel's configuration or handling redirects entirely through Vercel's UI for simpler deployments.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">💡</span>Additional Considerations</h3>
+                <ul>
+                    <li><strong>Bulk Import:</strong> Implement a CSV import feature for migrating large numbers of redirects. This can be built as a separate admin tool using the Optimizely REST API to create redirect content items programmatically.</li>
+                    <li><strong>Redirect Chaining:</strong> Implement validation to prevent redirect chains (A→B→C) which negatively impact SEO and performance. Check that destination URLs don't themselves have redirects.</li>
+                    <li><strong>Wildcard Redirects:</strong> Consider supporting pattern-based redirects for common scenarios (e.g., /blog/* → /insights/*). This would require custom matching logic in your middleware.</li>
+                    <li><strong>Testing & Validation:</strong> Build a redirect testing tool that allows authors to verify redirects work as expected before publishing. Include validation for circular redirects and broken destination URLs.</li>
+                    <li><strong>Analytics Integration:</strong> Track redirect usage to identify which redirects are frequently accessed and which may be outdated. This can inform redirect retirement strategies.</li>
+                    <li><strong>Performance:</strong> With large redirect tables (1000+ entries), consider implementing a caching strategy or using a CDN edge function for redirect lookup to avoid bottlenecks.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 4: Geo Search -->
+        <section id="use-case-4" class="use-case">
+            <div class="use-case-header">
+                <span class="use-case-number">Use Case 04</span>
+                <h2>Geography & Location Search</h2>
+                <p class="use-case-description">
+                    Enable users to find their nearest mortgage lending officer (MLO) based on zip code. Each MLO record includes latitude/longitude coordinates, and the system uses Google Maps API to convert zip codes to geo coordinates for proximity calculation.
+                </p>
+            </div>
+
+            <div class="sample-approach">
+                <h3>Sample Approach</h3>
+                <span class="badge badge-limitation">KNOWN LIMITATION</span>
+                <span class="badge badge-workaround">WORKAROUND AVAILABLE</span>
+                
+                <div class="alert alert-warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Optimizely SaaS CMS Limitation</div>
+                        <div class="alert-text">There is currently no native geo-search capability in Optimizely Graph. Any future support would be subject to Optimizely's product roadmap and should not be assumed for solution planning.</div>
+                    </div>
+                </div>
+
+                <p>The implementation approach for location-based search depends on your specific architecture and requirements. Two common patterns include:</p>
+
+                <div class="approach-section">
+                    <h4>Option 1: CMS-Driven with Client-Side Search</h4>
+                    <p>Store MLO location data in Optimizely CMS with fields for Name, Title, Contact Information, Address, City, State, Zip, Latitude, and Longitude. Retrieve all locations via GraphQL and perform proximity calculations client-side using libraries like <a href="https://www.npmjs.com/package/geolib" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">geolib</a>. This approach works well for datasets of approximately 400 locations.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Option 2: Third-Party Integration</h4>
+                    <p>Integrate directly with a third-party application or service that houses MLO data. The frontend application calls the third-party API to retrieve location data and perform geo-search operations. This approach may be preferred if MLO data is already managed in an external system or requires real-time updates from non-CMS sources.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Implementation Considerations</h4>
+                    <p>Regardless of approach, implement zip code geocoding via Google Maps Geocoding API or similar service to convert user input to coordinates. Use established NPM packages like geolib for distance calculations rather than implementing custom formulas. Consider caching geocoded zip codes to minimize API costs and improve performance.</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Sample GraphQL Query (Option 1: CMS-Driven)</span>
+                        <span class="code-lang">GraphQL</span>
+                    </div>
+                    <pre><code><span class="keyword">query</span> <span class="function">GetAllMLOLocations</span> {
+  <span class="property">MLOLocation</span> {
+    <span class="property">items</span> {
+      <span class="property">Name</span>
+      <span class="property">Title</span>
+      <span class="property">Phone</span>
+      <span class="property">Email</span>
+      <span class="property">Address</span>
+      <span class="property">City</span>
+      <span class="property">State</span>
+      <span class="property">Zip</span>
+      <span class="property">Latitude</span>
+      <span class="property">Longitude</span>
+      <span class="comment"># Additional fields</span>
+      <span class="property">PhotoUrl</span>
+      <span class="property">Bio</span>
+      <span class="property">Languages</span>
+      <span class="property">Specialties</span>
+    }
+  }
+}
+
+<span class="comment"># If you have more than 1000 locations, use pagination:</span>
+<span class="keyword">query</span> <span class="function">GetMLOLocationsPaginated</span>(<span class="variable">$skip</span>: <span class="type">Int!</span>, <span class="variable">$limit</span>: <span class="type">Int!</span>) {
+  <span class="property">MLOLocation</span>(
+    <span class="property">skip</span>: <span class="variable">$skip</span>
+    <span class="property">limit</span>: <span class="variable">$limit</span>
+  ) {
+    <span class="property">total</span>
+    <span class="property">items</span> {
+      <span class="property">Name</span>
+      <span class="property">Latitude</span>
+      <span class="property">Longitude</span>
+      <span class="comment"># ... other fields</span>
+    }
+  }
+}</code></pre>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>⚠️ AI-Generated Code Disclaimer:</strong> The code samples provided in this document are AI-generated examples for illustrative purposes. Actual implementation code should be reviewed, tested, and adapted to your specific requirements and coding standards before deployment.
+                </div>
+
+                <p><strong>Next.js Implementation:</strong> The implementation varies based on your chosen approach. For Option 1 (CMS-driven), create a location search component that fetches MLO data and uses the geolib NPM package for distance calculations. For Option 2 (third-party integration), implement API calls to the external service with appropriate error handling and data transformation. Both approaches should include zip code geocoding, loading states, error handling for invalid inputs, and result caching for optimal performance. The choice between approaches should be based on where MLO data is authoritatively managed and updated.</p>
+
+                <div class="alert alert-info">
+                    <span class="alert-icon">💡</span>
+                    <div class="alert-content">
+                        <div class="alert-title">External Search Platform Option</div>
+                        <div class="alert-text">For larger datasets (1000+ locations), complex geo-search requirements, or when real-time search performance is critical, consider using a dedicated search platform like Algolia, Elasticsearch, or Azure Search that provides native geo-search capabilities with built-in distance filtering, radius search, and geo-bounding box queries.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">💡</span>Additional Considerations</h3>
+                <ul>
+                    <li><strong>Data Authority:</strong> Determine where MLO data is authoritatively managed and updated. If data lives in an external system, direct integration may be simpler than syncing to the CMS.</li>
+                    <li><strong>Update Frequency:</strong> Consider how often MLO data changes. Real-time data requirements favor third-party integration, while relatively static data may be suitable for CMS storage.</li>
+                    <li><strong>Data Volume:</strong> Client-side approaches work well for datasets up to ~500-1000 locations. Larger datasets should use server-side or external search platforms with native geo-search capabilities (Algolia, Elasticsearch, Azure Search).</li>
+                    <li><strong>Geocoding Costs:</strong> Google Maps Geocoding API has usage limits and costs. Implement caching of geocoded zip codes to minimize API calls.</li>
+                    <li><strong>Search Radius:</strong> Allow users to specify search radius (e.g., within 10, 25, 50 miles) to refine results and improve user experience.</li>
+                    <li><strong>Additional Discovery:</strong> Further requirements gathering should clarify data source, update patterns, expected search volume, and any additional filtering requirements (languages, specialties, availability).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 5: Footnotes -->
+        <section id="use-case-5" class="use-case">
+            <div class="use-case-header">
+                <span class="use-case-number">Use Case 05</span>
+                <h2>Footnote Management & Presentation</h2>
+                <p class="use-case-description">
+                    Implement a system for managing legal disclosures and footnotes across page components. Footnotes can originate from multiple CMS locations, need to be automatically numbered in the order they appear, and aggregated at the page level for display.
+                </p>
+            </div>
+
+            <div class="sample-approach">
+                <h3>Sample Approach</h3>
+                <span class="badge badge-solution">SOLUTION DETAILS</span>
+                <p>Implement a page-level aggregation system where individual components emit footnote references during rendering, and the page collects, deduplicates, and numbers them before final output. Footnote references may originate from multiple component types or rich text fields and should be normalised during rendering.</p>
+
+                <div class="approach-section">
+                    <h4>Create Footnote Content Type</h4>
+                    <p>Define a Footnote block content type with fields for FootnoteID (text), FootnoteText (rich text), and Category (choice field for organization). Store footnotes in a shared location in the content tree or at the page level.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Add Footnote References to Components</h4>
+                    <p>In components that require disclosures (Hero, Cards, Product Info blocks), add a ContentArea field for Footnote references. Authors can add one or more footnote blocks to each component.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Implement Page-Level Collection</h4>
+                    <p>On the frontend, when rendering a page, collect all footnote references from all components. Deduplicate by FootnoteID to avoid repeating the same disclosure multiple times.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Generate Numbered Footnotes</h4>
+                    <p>Assign sequential numbers based on the order footnotes appear on the page. Each component displays superscript numbers (e.g., ¹, ²) that link to the corresponding footnote at the bottom of the page using anchor tags (#footnote-1, #footnote-2).</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Render Footnotes Section</h4>
+                    <p>At the bottom of the page, render all collected footnotes in numbered order with the full disclosure text.</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Page with Footnotes GraphQL Query</span>
+                        <span class="code-lang">GraphQL</span>
+                    </div>
+                    <pre><code><span class="keyword">query</span> <span class="function">GetPageWithFootnotes</span>(<span class="variable">$path</span>: <span class="type">String!</span>) {
+  <span class="property">Content</span>(
+    <span class="property">where</span>: {
+      <span class="property">RelativePath</span>: { <span class="property">eq</span>: <span class="variable">$path</span> }
+    }
+  ) {
+    <span class="property">items</span> {
+      <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">ProductPage</span> {
+        <span class="property">Name</span>
+        <span class="property">Heading</span>
+        
+        <span class="comment"># Main content area with components</span>
+        <span class="property">ContentArea</span> {
+          <span class="property">items</span> {
+            <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">HeroBlock</span> {
+              <span class="property">Heading</span>
+              <span class="property">Body</span>
+              <span class="comment"># Footnotes for this component</span>
+              <span class="property">Footnotes</span> {
+                <span class="property">items</span> {
+                  <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">FootnoteBlock</span> {
+                    <span class="property">FootnoteID</span>
+                    <span class="property">FootnoteText</span>
+                    <span class="property">Category</span>
+                  }
+                }
+              }
+            }
+            
+            <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">ProductCardBlock</span> {
+              <span class="property">Title</span>
+              <span class="property">Description</span>
+              <span class="comment"># Each component can have its own footnotes</span>
+              <span class="property">Footnotes</span> {
+                <span class="property">items</span> {
+                  <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">FootnoteBlock</span> {
+                    <span class="property">FootnoteID</span>
+                    <span class="property">FootnoteText</span>
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>⚠️ AI-Generated Code Disclaimer:</strong> The code samples provided in this document are AI-generated examples for illustrative purposes. Actual implementation code should be reviewed, tested, and adapted to your specific requirements and coding standards before deployment.
+                </div>
+
+                <p><strong>Next.js Implementation:</strong> Create a FootnoteManager utility class that collects footnotes as components render. Each component adds its footnotes to the manager with their position in the page. The manager deduplicates by FootnoteID and assigns sequential numbers. Components render superscript links like <code>&lt;sup&gt;&lt;a href="#footnote-1"&gt;1&lt;/a&gt;&lt;/sup&gt;</code>. At the page level, render a Footnotes section with <code>&lt;div id="footnote-1"&gt;&lt;sup&gt;1&lt;/sup&gt; Footnote text here...&lt;/div&gt;</code> for each footnote. This enables users to click footnote numbers to jump to the disclosure and back.</p>
+
+                <div class="alert alert-success">
+                    <span class="alert-icon">✓</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Best Practice: Shared Footnotes</div>
+                        <div class="alert-text">Store commonly used footnotes in a shared content tree location (e.g., /Global/Disclosures/) so they can be reused across multiple pages and components. This ensures consistency and makes updating legal language easier.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">💡</span>Additional Considerations</h3>
+                <ul>
+                    <li><strong>Automatic vs. Manual Numbering:</strong> The recommended approach uses automatic numbering based on appearance order. However, if authors prefer manual control, you could add a DisplayOrder or Number field to the Footnote content type.</li>
+                    <li><strong>Deduplication Logic:</strong> When the same footnote appears in multiple components on a page, ensure the numbering reflects the first occurrence and subsequent occurrences reference the same number.</li>
+                    <li><strong>Print Optimization:</strong> Ensure footnotes render properly in print views. Consider adding CSS to keep footnotes with their referenced content when pages break.</li>
+                    <li><strong>Accessibility:</strong> Implement proper ARIA labels and semantic HTML for footnote links to ensure screen reader compatibility. Use <code>&lt;sup&gt;</code> for superscripts and proper <code>role</code> attributes.</li>
+                    <li><strong>Mobile Experience:</strong> On mobile devices, consider using tooltips or modals instead of anchor links to avoid excessive scrolling to footnotes and back.</li>
+                    <li><strong>Version Control:</strong> When footnote content changes, ensure that pages referencing the old version maintain historical accuracy. Consider implementing versioning or archiving for compliance purposes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 6: Rates -->
+        <section id="use-case-6" class="use-case">
+            <div class="use-case-header">
+                <span class="use-case-number">Use Case 06</span>
+                <h2>Rate Display System</h2>
+                <p class="use-case-description">
+                    Enable authors to display product rate information throughout the site using structured content relationships. Authors select products via content reference fields, and the frontend dynamically renders current rates with appropriate formatting, links, and disclaimers based on product metadata.
+                </p>
+            </div>
+
+            <div class="sample-approach">
+                <h3>Sample Approach</h3>
+                <span class="badge badge-solution">SOLUTION DETAILS</span>
+                <p>Implement rate display using structured content relationships where authors select products/rates via content reference fields. The CMS stores product metadata and rate information as structured content types. All rate formatting, link generation, and display logic occurs in the frontend rendering layer, keeping authoring workflows clean and maintainable.</p>
+
+                <div class="approach-section">
+                    <h4>Define Product and Rate Content Types</h4>
+                    <p>Create structured content types for Products with fields for ProductID, ProductName, ProductType, and current rate information (RateValue, RateType, EffectiveDate). Products can be managed centrally and referenced throughout the site.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Enable Product References in Content</h4>
+                    <p>Add Content Reference fields to page types and components where rate information should be displayed. Authors select products from a picker interface rather than typing codes or shortcuts.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Query Relationships via GraphQL</h4>
+                    <p>Fetch page content along with all referenced product data through GraphQL queries. The product relationships are resolved automatically, providing complete rate information to the frontend.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Render Rates on Frontend</h4>
+                    <p>The Next.js application processes product data and generates appropriate displays (formatted rates, links, disclaimers) based on product metadata. Any special formatting, APR/APY labeling, or link construction happens entirely in the rendering layer.</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Product Content Type and GraphQL Query</span>
+                        <span class="code-lang">GraphQL</span>
+                    </div>
+                    <pre><code><span class="comment"># Product Content Type stores rate information</span>
+<span class="keyword">type</span> <span class="type">ProductPage</span> {
+  <span class="property">ProductID</span>: <span class="type">String</span>
+  <span class="property">ProductName</span>: <span class="type">String</span>
+  <span class="property">ProductType</span>: <span class="type">String</span>  <span class="comment"># e.g., "Savings", "Credit Card", "Mortgage"</span>
+  <span class="property">CurrentRate</span>: <span class="type">String</span>
+  <span class="property">RateType</span>: <span class="type">String</span>     <span class="comment"># e.g., "APY", "APR"</span>
+  <span class="property">EffectiveDate</span>: <span class="type">DateTime</span>
+  <span class="property">ProductURL</span>: <span class="type">String</span>
+}
+
+<span class="comment"># Query page content with product references</span>
+<span class="keyword">query</span> <span class="function">GetPageWithProducts</span>(<span class="variable">$path</span>: <span class="type">String!</span>) {
+  <span class="property">Content</span>(
+    <span class="property">where</span>: {
+      <span class="property">RelativePath</span>: { <span class="property">eq</span>: <span class="variable">$path</span> }
+    }
+  ) {
+    <span class="property">items</span> {
+      <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">LandingPage</span> {
+        <span class="property">Heading</span>
+        <span class="property">Body</span>
+        
+        <span class="comment"># Featured products referenced by authors</span>
+        <span class="property">FeaturedProducts</span> {
+          <span class="property">items</span> {
+            <span class="keyword">...</span> <span class="keyword">on</span> <span class="type">ProductPage</span> {
+              <span class="property">ProductID</span>
+              <span class="property">ProductName</span>
+              <span class="property">CurrentRate</span>
+              <span class="property">RateType</span>
+              <span class="property">ProductURL</span>
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>⚠️ AI-Generated Code Disclaimer:</strong> The code samples provided in this document are AI-generated examples for illustrative purposes. Actual implementation code should be reviewed, tested, and adapted to your specific requirements and coding standards before deployment.
+                </div>
+
+                <p><strong>Next.js Implementation:</strong> When rendering the page, the Next.js application receives complete product data through GraphQL. Components can then format and display rates according to business rules (e.g., "3.50% APY" with appropriate styling, disclaimers, and links to product detail pages). Any dynamic formatting—such as adding percentage symbols, date-based rate displays, or conditional messaging—occurs in React components. This approach keeps authoring workflows simple while maintaining full control over presentation logic in code.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">💡</span>Additional Considerations</h3>
+                <ul>
+                    <li><strong>Rate Freshness:</strong> Financial rates often change daily or weekly. Determine whether rates should be updated in the CMS or pulled from an external rate service at runtime. For CMS-managed rates, implement appropriate caching strategies and consider using incremental static regeneration (ISR) in Next.js.</li>
+                    <li><strong>External Rate Sources:</strong> If rates are sourced from an external system or API, consider whether the CMS should store static snapshots of rates or if the frontend should fetch current rates at render time from the authoritative source.</li>
+                    <li><strong>Product Catalog Management:</strong> Establish clear ownership of product data. Products referenced across multiple pages should be managed centrally to ensure consistency when rates or product details change.</li>
+                    <li><strong>Display Consistency:</strong> Implement reusable React components for rate display to ensure consistent formatting, styling, and disclaimer inclusion across all product references.</li>
+                    <li><strong>Analytics:</strong> Add data attributes to product displays for analytics tracking. This enables measurement of which products generate the most interest and conversions.</li>
+                    <li><strong>Compliance:</strong> Financial rate displays often have regulatory requirements. Ensure your rendering logic includes all required disclosures, effective dates, and follows legal guidelines for APR/APY display.</li>
+                    <li><strong>Authoring Experience:</strong> The content picker interface should allow authors to search and filter products by type, status, or other attributes to simplify product selection in content.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Use Case 7: Custom Commands -->
+        <section id="use-case-7" class="use-case">
+            <div class="use-case-header">
+                <span class="use-case-number">Use Case 07</span>
+                <h2>Custom CMS Commands</h2>
+                <p class="use-case-description">
+                    Enable custom functionality within the CMS, such as a button to "push this page content to a Regions API" for integration with external systems.
+                </p>
+            </div>
+
+            <div class="sample-approach">
+                <h3>Current Limitation & Workaround</h3>
+                <span class="badge badge-limitation">NOT CURRENTLY SUPPORTED</span>
+                <span class="badge badge-workaround">WORKAROUND AVAILABLE</span>
+                
+                <div class="alert alert-error">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Optimizely SaaS CMS Limitation</div>
+                        <div class="alert-text">Custom CMS UI extensions are not currently supported. Alternative approaches include external dashboards, API-driven workflows, and webhook-based integrations.</div>
+                    </div>
+                </div>
+
+                <p>While native CMS UI customization is not available, there are several workaround approaches that can achieve similar functionality:</p>
+
+                <div class="approach-section">
+                    <h4>External Admin Dashboard</h4>
+                    <p>Build a custom Next.js admin dashboard outside the CMS that allows authorized users to select content and trigger actions (e.g., push to external API, generate reports, sync data). This dashboard can use Optimizely's REST API and GraphQL to read and update content.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Webhook-Based Automation</h4>
+                    <p>Configure Optimizely webhooks to trigger external actions when content is published, updated, or reaches a specific workflow state. This enables event-driven integrations without custom UI.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Scheduled Jobs via API</h4>
+                    <p>Implement scheduled jobs (using Optimizely's scheduled jobs feature or external cron jobs) that periodically check for content that needs to be synced to external systems based on flags or metadata.</p>
+                </div>
+
+                <div class="approach-section">
+                    <h4>Workflow-Based Triggers</h4>
+                    <p>Use Optimizely's approval sequences and workflow capabilities to trigger external actions when content reaches specific approval stages. Combine with webhooks for automation.</p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Example Webhook Configuration & REST API Integration</span>
+                        <span class="code-lang">TypeScript</span>
+                    </div>
+                    <pre><code><span class="comment">// Example external dashboard endpoint (Next.js API route)</span>
+<span class="comment">// POST /api/admin/push-to-regions</span>
+<span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="function">POST</span>(<span class="variable">request</span>: <span class="type">Request</span>) {
+  <span class="keyword">const</span> { <span class="variable">contentId</span> } = <span class="keyword">await</span> <span class="variable">request</span>.<span class="function">json</span>();
+  
+  <span class="comment">// 1. Fetch content from Optimizely via REST API</span>
+  <span class="keyword">const</span> <span class="variable">optiContent</span> = <span class="keyword">await</span> <span class="function">fetch</span>(
+    <span class="string">`https://cg.optimizely.com/api/episerver/v3.0/content/${<span class="variable">contentId</span>}`</span>,
+    {
+      <span class="property">headers</span>: {
+        <span class="string">'Authorization'</span>: <span class="string">`Bearer ${<span class="variable">process</span>.<span class="property">env</span>.<span class="property">OPTI_API_TOKEN</span>}`</span>,
+        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>
+      }
+    }
+  );
+  
+  <span class="keyword">const</span> <span class="variable">content</span> = <span class="keyword">await</span> <span class="variable">optiContent</span>.<span class="function">json</span>();
+  
+  <span class="comment">// 2. Transform and push to Regions API</span>
+  <span class="keyword">const</span> <span class="variable">regionsData</span> = <span class="function">transformForRegionsAPI</span>(<span class="variable">content</span>);
+  <span class="keyword">const</span> <span class="variable">response</span> = <span class="keyword">await</span> <span class="function">fetch</span>(
+    <span class="variable">process</span>.<span class="property">env</span>.<span class="property">REGIONS_API_ENDPOINT</span>,
+    {
+      <span class="property">method</span>: <span class="string">'POST'</span>,
+      <span class="property">headers</span>: { <span class="string">'Authorization'</span>: <span class="string">`Bearer ${<span class="variable">process</span>.<span class="property">env</span>.<span class="property">REGIONS_API_TOKEN</span>}`</span> },
+      <span class="property">body</span>: <span class="builtin">JSON</span>.<span class="function">stringify</span>(<span class="variable">regionsData</span>)
+    }
+  );
+  
+  <span class="comment">// 3. Update content with sync status</span>
+  <span class="keyword">await</span> <span class="function">fetch</span>(
+    <span class="string">`https://cg.optimizely.com/api/episerver/v3.0/content/${<span class="variable">contentId</span>}`</span>,
+    {
+      <span class="property">method</span>: <span class="string">'PATCH'</span>,
+      <span class="property">headers</span>: {
+        <span class="string">'Authorization'</span>: <span class="string">`Bearer ${<span class="variable">process</span>.<span class="property">env</span>.<span class="property">OPTI_API_TOKEN</span>}`</span>,
+        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>
+      },
+      <span class="property">body</span>: <span class="builtin">JSON</span>.<span class="function">stringify</span>({
+        <span class="property">LastSyncedToRegions</span>: <span class="keyword">new</span> <span class="builtin">Date</span>().<span class="function">toISOString</span>(),
+        <span class="property">SyncStatus</span>: <span class="variable">response</span>.<span class="property">ok</span> ? <span class="string">'Success'</span> : <span class="string">'Failed'</span>
+      })
+    }
+  );
+  
+  <span class="keyword">return</span> <span class="builtin">Response</span>.<span class="function">json</span>({ <span class="property">success</span>: <span class="variable">response</span>.<span class="property">ok</span> });
+}</code></pre>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>⚠️ AI-Generated Code Disclaimer:</strong> The code samples provided in this document are AI-generated examples for illustrative purposes. Actual implementation code should be reviewed, tested, and adapted to your specific requirements and coding standards before deployment.
+                </div>
+
+                <p><strong>Implementation Approach:</strong> Build a custom admin interface as a Next.js application with authentication. Create a content browser that lists pages/blocks and provides action buttons. When a user clicks "Push to Regions API," the frontend calls your API route, which fetches content from Optimizely, transforms it, and sends it to the Regions API. Update the content item with sync status and timestamp. This approach provides flexibility and can include features like batch operations, sync history, and retry logic.</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="card-icon">💡</span>Additional Considerations</h3>
+                <ul>
+                    <li><strong>Roadmap Monitoring:</strong> CMS Extensions are on Optimizely's roadmap. Monitor release notes for updates on when native UI customization becomes available. Once released, you could migrate from the external dashboard to native extensions.</li>
+                    <li><strong>Security:</strong> When building external admin tools, implement proper authentication and authorization. Ensure only authorized users can trigger sensitive actions like API pushes.</li>
+                    <li><strong>Audit Logging:</strong> Implement comprehensive logging for all custom actions. Track who performed the action, when, and the result. This is critical for compliance and troubleshooting.</li>
+                    <li><strong>Error Handling:</strong> Build robust error handling and retry logic for external API integrations. Failed syncs should be logged and potentially queued for retry.</li>
+                    <li><strong>User Training:</strong> Since the custom functionality lives outside the CMS UI, ensure content authors are trained on where to find and how to use the external tools.</li>
+                    <li><strong>Further Discovery:</strong> A detailed requirements session can help identify the specific actions needed, frequency of use, and user roles. This information will inform whether to build a full admin dashboard or use simpler webhook-based automation.</li>
+                </ul>
+
+                <div class="alert alert-info">
+                    <span class="alert-icon">💡</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Alternative: Content Flags</div>
+                        <div class="alert-text">Add boolean fields to content types (e.g., "ReadyForSync", "PushToRegions") that authors can toggle. External jobs can query for content with these flags enabled and process accordingly. This provides a low-tech solution that works within current CMS capabilities.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>Optimizely - Use Case Feedback Report</strong></p>
+                <p>This document provides recommended technical approaches for implementing common CMS use cases using Optimizely SaaS CMS with GraphQL and Next.js.</p>
+                <p style="margin-top: 24px; font-size: 13px; opacity: 0.8;">
+                    For questions or additional requirements discovery, please contact your Optimizely Solutions Architect or Implementation Partner.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
