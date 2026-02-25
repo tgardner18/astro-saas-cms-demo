@@ -58,21 +58,21 @@
         @apply mb-4 font-normal;
     }
     h1 {
-        @apply font-light mb-2;
+        @apply text-5xl font-normal;
     }
     h2 {
-        @apply font-light mb-2;
+        @apply text-4xl font-light;
     }
     h3 {
-        @apply font-light mb-2;
+        @apply text-3xl font-light;
     }
     h4 {
-        @apply font-light mb-2;
+        @apply text-2xl font-light;
     }
     h5 {
-        @apply font-light mb-2;
+        @apply text-xl font-semibold;
     }
     h6 {
-        @apply font-light mb-2;
+        @apply text-base font-bold;
     }
 }
