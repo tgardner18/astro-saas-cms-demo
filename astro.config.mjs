@@ -329,6 +329,7 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Roboto',
                 cssVariable: '--font-roboto',
+                weights: [200, 300, 400, 500, 700],
             },
             {
                 provider: fontProviders.google(),

@@ -6,22 +6,22 @@ export default {
         function ({ addBase }) {
             addBase({
                 h1: {
-                    fontSize: '2.25rem', // text-3xl
+                    fontSize: '34px', // text-3xl
                 },
                 h2: {
-                    fontSize: '1.875rem', // text-2xl
+                    fontSize: '29px', // text-2xl
                 },
                 h3: {
-                    fontSize: '1.5rem', // text-xl
+                    fontSize: '24px', // text-xl
                 },
                 h4: {
-                    fontSize: '1.25rem', // text-lg
+                    fontSize: '19px', // text-lg
                 },
                 h5: {
-                    fontSize: '1.125rem', // text-base
+                    fontSize: '18px', // text-base
                 },
                 h6: {
-                    fontSize: '1rem', // text-sm
+                    fontSize: '16px', // text-sm
                 },
             });
         },

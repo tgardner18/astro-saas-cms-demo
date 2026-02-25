@@ -55,24 +55,24 @@
         @apply list-inside list-decimal;
     }
     p {
-        @apply mb-4;
+        @apply mb-4 font-normal;
     }
     h1 {
-        @apply text-3xl;
+        @apply font-light mb-2;
     }
     h2 {
-        @apply text-2xl;
+        @apply font-light mb-2;
     }
     h3 {
-        @apply text-xl;
+        @apply font-light mb-2;
     }
     h4 {
-        @apply text-lg;
+        @apply font-light mb-2;
     }
     h5 {
-        @apply text-base;
+        @apply font-light mb-2;
     }
     h6 {
-        @apply text-sm;
+        @apply font-light mb-2;
     }
 }
