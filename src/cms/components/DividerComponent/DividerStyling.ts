@@ -170,7 +170,7 @@ export function getDividerElementStyles(
     }
     if(settings['dividerLineLength'] && settings['dividerLineLength'] !== 'default' && settings['dividerLineLength'] !== '') {
         const dividerLineLengthClass = direction === 'horizontal' ? 
-            `mx-auto ${allLengthsHorizontal[settings['dividerLineLength']]}` :
+            `${allLengthsHorizontal[settings['dividerLineLength']]}` :
             `my-auto ${allLengthsVertical[settings['dividerLineLength']]}`;
         cssClasses.push(`${dividerLineLengthClass}`);
     }
