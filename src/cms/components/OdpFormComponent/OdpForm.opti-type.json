@@ -18,7 +18,7 @@
 			"description": "Choose whether to target by ID or CSS class",
 			"localized": false,
 			"required": true,
-			"group": "Content",
+			"group": "Information",
 			"sortOrder": 10,
 			"editorSettings": {},
 			"enum": {
