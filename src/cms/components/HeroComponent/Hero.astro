@@ -31,7 +31,7 @@ const imageAltText = (data.Image as any)?.item?.AltText || (data.Image as any)?.
 const videoUrl = (data?.Video as any)?.item?.Url || data?.Video?.url?.default || null;
 const hasVideo = videoUrl !== null;
 
-const { justifyClass, backgroundOpacityClass, textClasses, heightClass, imageFitClass } =
+const { justifyClass, gradientClass, textBlockWidthClass, textClasses, heightClass, imageFitClass } =
     getHeroStyles(displaySettings);
 const globalStyles = getGlobalStyles(displaySettings);
 
@@ -81,12 +81,12 @@ const componentClass = 'component-hero';
         )
     }
 
-    <!-- Dark Overlay for Better Readability -->
-    <div class="absolute inset-0" class:list={backgroundOpacityClass}></div>
+    <!-- Directional Gradient Overlay -->
+    <div class="absolute inset-0" class:list={gradientClass}></div>
 
     <!-- Content -->
-    <div class="relative z-10 px-6" class:list={textClasses}>
-        <h1 class="text-5xl font-bold md:text-6xl" class:list={textClasses}>{data?.Heading}</h1>
+    <div class="relative z-10 px-6" class:list={[textClasses, textBlockWidthClass]}>
+        <h1 class="text-3xl font-light md:text-4xl" class:list={textClasses}>{data?.Heading}</h1>
         <p class="mx-auto mt-4 text-xl" class:list={textClasses}>
             {data?.SubHeading}
         </p>

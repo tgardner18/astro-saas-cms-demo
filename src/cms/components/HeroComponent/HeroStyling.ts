@@ -2,7 +2,8 @@ import type { DisplaySettingsFragment } from '../../../../__generated/sdk.ts';
 import { getDictionaryFromDisplaySettings } from '../../../graphql/shared/displaySettingsHelpers.ts';
 
 export function getHeroStyles(displaySettings: DisplaySettingsFragment[]): {
-    backgroundOpacityClass: string;
+    gradientClass: string;
+    textBlockWidthClass: string;
     textClasses: string[];
     justifyClass: string;
     heightClass: string;
@@ -10,62 +11,30 @@ export function getHeroStyles(displaySettings: DisplaySettingsFragment[]): {
 } {
     const settings: Record<string, string> =
         getDictionaryFromDisplaySettings(displaySettings);
-    const backgroundTintLevel = settings['background_tint_level'] ?? '60';
-    let backgroundOpacityClass = '';
-    switch (backgroundTintLevel) {
-        case 'o_0':
-            backgroundOpacityClass = 'bg-neutral/0';
-            break;
-        case 'o_10':
-            backgroundOpacityClass = 'bg-neutral/10';
-            break;
-        case 'o_20':
-            backgroundOpacityClass = 'bg-neutral/20';
-            break;
-        case 'o_30':
-            backgroundOpacityClass = 'bg-neutral/30';
-            break;
-        case 'o_40':
-            backgroundOpacityClass = 'bg-neutral/40';
-            break;
-        case 'o_50':
-            backgroundOpacityClass = 'bg-neutral/50';
-            break;
-        case 'o_60':
-            backgroundOpacityClass = 'bg-neutral/60';
-            break;
-        case 'o_70':
-            backgroundOpacityClass = 'bg-neutral/70';
-            break;
-        case 'o_80':
-            backgroundOpacityClass = 'bg-neutral/80';
-            break;
-        case 'o_90':
-            backgroundOpacityClass = 'bg-neutral/90';
-            break;
-        case 'o_100':
-            backgroundOpacityClass = 'bg-neutral/100';
-            break;
-        default:
-            backgroundOpacityClass = 'bg-neutral/60';
-            break;
-    }
 
     const textPlacemenTintLevel = settings['text_placement'] ?? 'center';
     let justifyClass = '';
     let textClasses = [];
+    let gradientClass = '';
+    let textBlockWidthClass = '';
     switch (textPlacemenTintLevel) {
         case 'left':
             textClasses.push('text-left');
             justifyClass = 'justify-start';
+            gradientClass = 'bg-gradient-to-r from-black/80 via-black/50 to-transparent';
+            textBlockWidthClass = 'w-full md:w-1/2';
             break;
         case 'right':
             textClasses.push('text-right');
             justifyClass = 'justify-end';
+            gradientClass = 'bg-gradient-to-l from-black/80 via-black/50 to-transparent';
+            textBlockWidthClass = 'w-full md:w-1/2';
             break;
         default:
             textClasses.push('text-center');
             justifyClass = 'justify-center';
+            gradientClass = 'bg-black/30';
+            textBlockWidthClass = '';
             break;
     }
 
@@ -144,5 +113,5 @@ export function getHeroStyles(displaySettings: DisplaySettingsFragment[]): {
             break;
     }
     
-    return { backgroundOpacityClass, textClasses, justifyClass, heightClass, imageFitClass };
+    return { gradientClass, textBlockWidthClass, textClasses, justifyClass, heightClass, imageFitClass };
 }
