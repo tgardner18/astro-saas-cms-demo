@@ -51,12 +51,12 @@ const pageClass = 'page-article';
         <main class="mt-10">
             <!-- Heading block -->
             <div class="mx-auto mb-6 max-w-screen-xl px-4 2xl:px-0">
-                <h1
-                    class="text-4xl lg:text-5xl leading-tight font-semibold pb-4 text-base-content"
+                <h2
+                    class="text-4xl lg:text-2xl leading-tight font-semibold pb-4 text-base-content"
                     data-epi-edit={isCmsEdit ? "Heading" : undefined}
                 >
                     {post?.Heading}
-                </h1>
+                </h2>
                 <div class="mb-4 flex gap-3 text-sm text-base-content/60">
                     {post?.Author && (
                         <p class="font-semibold" data-epi-edit={isCmsEdit ? "Author" : undefined}>
@@ -68,7 +68,7 @@ const pageClass = 'page-article';
                 </div>
                 {post?.SubHeading && (
                     <p
-                        class="text-base lg:text-lg leading-relaxed text-base-content/75"
+                        class="text-xl leading-relaxed text-base-content/75"
                         data-epi-edit={isCmsEdit ? "SubHeading" : undefined}
                     >
                         {post.SubHeading}
