@@ -336,7 +336,8 @@
 				offset: offset.toString(),
 				sort: sortOrder,
 				useSemanticSearch: config.useSemanticSearch.toString(),
-				semanticWeight: config.semanticWeight.toString()
+				semanticWeight: config.semanticWeight.toString(),
+				onlyShowArticles: config.onlyShowArticles.toString()
 			});
 
 			if (searchTerm) params.append('q', searchTerm);

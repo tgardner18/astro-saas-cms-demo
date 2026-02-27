@@ -145,6 +145,16 @@
 			"sortOrder": 210,
 			"editorSettings": {}
 		},
+		"OnlyShowArticles": {
+			"type": "boolean",
+			"displayName": "Only Show Articles in Results",
+			"description": "When enabled, only Article Pages are included in search results (Experiences are excluded). Default: false.",
+			"localized": false,
+			"required": false,
+			"group": "Configuration",
+			"sortOrder": 220,
+			"editorSettings": {}
+		},
 		"DefaultFiltersState": {
 			"type": "string",
 			"format": "selectOne",
