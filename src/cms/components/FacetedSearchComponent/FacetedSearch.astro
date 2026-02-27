@@ -62,6 +62,7 @@ const config = {
 	domain: Astro.url.origin,
 	useSemanticSearch: data.UseSemanticSearch || false,
 	semanticWeight: data.SemanticWeight ? parseFloat(data.SemanticWeight) : 0.3,
+	onlyShowArticles: data.OnlyShowArticles === true,
 };
 
 // Get initial filters from URL
@@ -103,8 +104,8 @@ const articleItems = searchResults.ArticlePage?.items || [];
 const articleTotal = searchResults.ArticlePage?.total || 0;
 const articleFacets = searchResults.ArticlePage?.facets;
 
-// If author or topic filters are applied, skip Experience results (no authors/topics on Experiences)
-const skipExperiences = initialAuthors.length > 0 || initialTopics.length > 0;
+// Skip Experience results when: author/topic filters applied, or component configured to only show articles
+const skipExperiences = config.onlyShowArticles || initialAuthors.length > 0 || initialTopics.length > 0;
 const experienceItems = skipExperiences ? [] : searchResults._Experience?.items || [];
 const experienceTotal = skipExperiences ? 0 : searchResults._Experience?.total || 0;
 const experienceFacets = skipExperiences ? undefined : searchResults._Experience?.facets;

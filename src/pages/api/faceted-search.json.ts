@@ -17,6 +17,7 @@ export const GET: APIRoute = async ({ url }) => {
 		const useSemanticSearch = url.searchParams.get('useSemanticSearch') === 'true';
 		// SemanticWeight is already converted to decimal (0.0-1.0) from percentage by client
 		const semanticWeight = parseFloat(url.searchParams.get('semanticWeight') || '0.3');
+		const onlyShowArticles = url.searchParams.get('onlyShowArticles') === 'true';
 
 		// Parse array parameters
 		const authorFilters = url.searchParams.getAll('authors[]');
@@ -63,8 +64,8 @@ export const GET: APIRoute = async ({ url }) => {
 		const articleTotal = searchResults.ArticlePage?.total || 0;
 		const articleFacets = searchResults.ArticlePage?.facets;
 
-		// If author or topic filters are applied, skip Experience results (no authors/topics on Experiences)
-		const skipExperiences = authorFilters.length > 0 || topicFilters.length > 0;
+		// Skip Experience results when: author/topic filters applied, or component configured to only show articles
+		const skipExperiences = onlyShowArticles || authorFilters.length > 0 || topicFilters.length > 0;
 		const experienceItems = skipExperiences ? [] : searchResults._Experience?.items || [];
 		const experienceTotal = skipExperiences ? 0 : searchResults._Experience?.total || 0;
 		const experienceFacets = searchResults._Experience?.facets;
