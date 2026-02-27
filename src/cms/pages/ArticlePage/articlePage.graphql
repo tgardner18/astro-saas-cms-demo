@@ -13,6 +13,7 @@ fragment ArticlePage on ArticlePage {
     Body {
         html
     }
+    ArticleTopic
     SeoSettings {
         ...PageSeoSettingsProperty
     }

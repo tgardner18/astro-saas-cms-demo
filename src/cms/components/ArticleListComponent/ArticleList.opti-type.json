@@ -18,7 +18,7 @@
 			"localized": true,
 			"required": false,
 			"group": "Information",
-			"sortOrder": 0,
+			"sortOrder": 10,
 			"indexingType": "searchable",
 			"editorSettings": {}
 		},
@@ -29,9 +29,51 @@
 			"localized": true,
 			"required": false,
 			"group": "Information",
-			"sortOrder": 100,
+			"sortOrder": 20,
 			"editorSettings": {},
 			"minimum": 1
+		},
+		"ArticleTopic": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "Article Topic Filter",
+			"description": "Article Topic Filter",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 30,
+			"editorSettings": {},
+			"items": {
+				"type": "string",
+				"enum": {
+					"values": [
+						{
+							"displayName": "Auto",
+							"value": "Auto"
+						},
+						{
+							"displayName": "Financial Hardship",
+							"value": "Financial Hardship"
+						},
+						{
+							"displayName": "Home",
+							"value": "Home"
+						},
+						{
+							"displayName": "Life Stages",
+							"value": "Life Stages"
+						},
+						{
+							"displayName": "Personal Finances",
+							"value": "Personal Finances"
+						},
+						{
+							"displayName": "Retirement",
+							"value": "Retirement"
+						}
+					]
+				}
+			}
 		},
 		"ArticleRoot": {
 			"type": "contentReference",
@@ -40,7 +82,7 @@
 			"localized": false,
 			"required": false,
 			"group": "Information",
-			"sortOrder": 200,
+			"sortOrder": 40,
 			"editorSettings": {},
 			"allowedTypes": [
 				"Page",
@@ -55,7 +97,7 @@
 			"localized": false,
 			"required": false,
 			"group": "Information",
-			"sortOrder": 400,
+			"sortOrder": 50,
 			"editorSettings": {}
 		}
 	}
