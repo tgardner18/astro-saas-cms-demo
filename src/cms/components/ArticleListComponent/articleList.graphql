@@ -1,6 +1,7 @@
 fragment ArticleList on ArticleList {
     Title
     NumberOfArticles
+    ArticleTopic
     ArticleRoot {
         url {
             default

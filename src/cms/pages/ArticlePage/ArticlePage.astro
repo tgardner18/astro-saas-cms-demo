@@ -66,6 +66,11 @@ const pageClass = 'page-article';
                     {post?.Author && <span>·</span>}
                     <p data-epi-edit={isCmsEdit ? "publishedDate" : undefined}>{publishedDate}</p>
                 </div>
+                {post?.ArticleTopic && (post.ArticleTopic as string[]).length > 0 && (
+                    <p class="mb-4 text-sm text-base-content/60" data-epi-edit={isCmsEdit ? "ArticleTopic" : undefined}>
+                        Topic: {(post.ArticleTopic as string[]).join(', ')}
+                    </p>
+                )}
                 {post?.SubHeading && (
                     <p
                         class="text-xl leading-relaxed text-base-content/75"
