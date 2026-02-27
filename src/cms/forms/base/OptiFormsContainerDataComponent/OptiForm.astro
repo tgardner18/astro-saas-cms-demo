@@ -86,9 +86,9 @@ const componentClass = 'component-form';
                     )}
                     <input type="hidden" name="formTitle" value={formTitle} />
                     {formTitle && (
-                        <h2 class="mb-2 text-2xl font-bold text-base-content">{formTitle}</h2>
+                        <h2 class="mb-2 text-3xl font-thin text-base-content text-center">{formTitle}</h2>
                     )}
-                    {formDescription && <p class="mb-6 text-base-content/70">{formDescription}</p>}
+                    {formDescription && <p class="mb-6 text-base-content/70 text-center">{formDescription}</p>}
                     {formNodes?.map((step: any) => (
                         <Astro.self contentPayload={contentPayload} grid={step} />
                     ))}
