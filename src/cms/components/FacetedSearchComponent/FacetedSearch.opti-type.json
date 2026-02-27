@@ -171,7 +171,7 @@
 		"ShowAuthorFacet": {
 			"type": "boolean",
 			"displayName": "Show Author Filter",
-			"description": "Display author facet filter (default: true)",
+			"description": "Display the author facet filter in the sidebar (default: true)",
 			"localized": false,
 			"required": false,
 			"group": "Filters",
@@ -181,11 +181,21 @@
 		"ShowTypeFacet": {
 			"type": "boolean",
 			"displayName": "Show Content Type Filter",
-			"description": "Display content type facet filter (default: true)",
+			"description": "Display the content type facet filter in the sidebar (default: true)",
 			"localized": false,
 			"required": false,
 			"group": "Filters",
 			"sortOrder": 310,
+			"editorSettings": {}
+		},
+		"ShowTopicFacet": {
+			"type": "boolean",
+			"displayName": "Show Topic Filter",
+			"description": "Display the article topic facet filter in the sidebar (default: true)",
+			"localized": false,
+			"required": false,
+			"group": "Filters",
+			"sortOrder": 320,
 			"editorSettings": {}
 		},
 		"UseSemanticSearch": {

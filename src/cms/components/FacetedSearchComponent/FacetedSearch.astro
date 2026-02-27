@@ -55,6 +55,7 @@ const config = {
 	showSearchInput: data.ShowSearchInput !== false,
 	showAuthorFacet: data.ShowAuthorFacet !== false,
 	showTypeFacet: data.ShowTypeFacet !== false,
+	showTopicFacet: data.ShowTopicFacet !== false,
 	searchPlaceholder: data.SearchPlaceholder || 'Search...',
 	noResultsMessage: data.NoResultsMessage || 'No results found. Try adjusting your filters.',
 	locale: contentPayload.loc || 'en',
@@ -68,6 +69,7 @@ const searchParams = Astro.url.searchParams;
 const initialSearchTerm = searchParams.get('q') || null;
 const initialAuthors = searchParams.getAll('authors[]');
 const initialTypes = searchParams.getAll('types[]');
+const initialTopics = searchParams.getAll('topics[]');
 const initialSort = searchParams.get('sort') || config.defaultSortOrder;
 const initialPage = parseInt(searchParams.get('page') || '1');
 const initialOffset = (initialPage - 1) * config.resultsPerPage;
@@ -93,6 +95,7 @@ const searchResults = await getOptimizelySdk(contentPayload).facetedSearch({
 	orderByExperience: orderByExperience,
 	authorFilters: initialAuthors.length > 0 ? initialAuthors : null,
 	typeFilters: initialTypes.length > 0 ? initialTypes : null,
+	topicFilters: initialTopics.length > 0 ? initialTopics : null,
 });
 
 // Extract data
@@ -100,9 +103,11 @@ const articleItems = searchResults.ArticlePage?.items || [];
 const articleTotal = searchResults.ArticlePage?.total || 0;
 const articleFacets = searchResults.ArticlePage?.facets;
 
-const experienceItems = searchResults._Experience?.items || [];
-const experienceTotal = searchResults._Experience?.total || 0;
-const experienceFacets = searchResults._Experience?.facets;
+// If author or topic filters are applied, skip Experience results (no authors/topics on Experiences)
+const skipExperiences = initialAuthors.length > 0 || initialTopics.length > 0;
+const experienceItems = skipExperiences ? [] : searchResults._Experience?.items || [];
+const experienceTotal = skipExperiences ? 0 : searchResults._Experience?.total || 0;
+const experienceFacets = skipExperiences ? undefined : searchResults._Experience?.facets;
 
 // Merge and sort ALL results using shared helper
 const allMergedItems = mergeAndSortResults(articleItems, experienceItems, initialSort, Astro.url.origin);
