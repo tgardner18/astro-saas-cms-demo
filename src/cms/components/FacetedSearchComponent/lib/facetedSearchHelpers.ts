@@ -126,6 +126,7 @@ export function mergeFacets(
 ): {
 	authors: Array<{ name: string; count: number }>;
 	types: Array<{ name: string; count: number }>;
+	topics: Array<{ name: string; count: number }>;
 } {
 	// Process author facets (only from ArticlePage)
 	const authorFacets = articleFacets?.Author?.filter((f: any) => f?.name) || [];
@@ -144,8 +145,12 @@ export function mergeFacets(
 
 	const typeFacets = Array.from(typeFacetsMap.entries()).map(([name, count]) => ({ name, count }));
 
+	// Process topic facets (only from ArticlePage)
+	const topicFacets = articleFacets?.ArticleTopic?.filter((f: any) => f?.name) || [];
+
 	return {
 		authors: authorFacets.map((f: any) => ({ name: f.name, count: f.count })),
 		types: typeFacets,
+		topics: topicFacets.map((f: any) => ({ name: f.name, count: f.count })),
 	};
 }
