@@ -77,7 +77,7 @@ const headerItems = settings?.HeaderLinks as MenuItemType[] | undefined;
 
         <!-- Right Side Actions -->
         <div class="navbar-end" x-data>
-            <!-- Search input -->
+            {/* Search input - hidden
             <div class="relative hidden lg:block">
                 <input
                     id="search-input"
@@ -102,7 +102,7 @@ const headerItems = settings?.HeaderLinks as MenuItemType[] | undefined;
                     ></path>
                 </svg>
             </div>
-            <!-- Search button -->
+            Search button - hidden
             <button
                 id="search-button"
                 @click="$dispatch('open-command-palette')"
@@ -124,6 +124,7 @@ const headerItems = settings?.HeaderLinks as MenuItemType[] | undefined;
                     ></path>
                 </svg>
             </button>
+            */}
             <!-- Locale selector -->
             <LocaleSelector contentPayload={contentPayload} />
             <!-- Theme switcher dropdown -->
