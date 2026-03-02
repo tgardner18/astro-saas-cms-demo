@@ -8,6 +8,7 @@ import Card from './CardComponent/Card.astro';
 import Carousel from './CarouselComponent/Carousel.astro';
 import Collapse from './CollapseComponent/Collapse.astro';
 import Divider from './DividerComponent/Divider.astro';
+import Chart from './ChartComponent/Chart.astro';
 import FacetedSearch from './FacetedSearchComponent/FacetedSearch.astro';
 import Grid from './GridComponent/Grid.astro';
 import Hero from './HeroComponent/Hero.astro';
@@ -202,6 +203,17 @@ const componentType = component._metadata.types[0];
 {
     componentType === 'OdpForm' && (
         <OdpForm
+            key={data?.key}
+            contentPayload={contentPayload}
+            data={component}
+            displaySettings={displaySettings}
+        />
+    )
+}
+
+{
+    componentType === 'Chart' && (
+        <Chart
             key={data?.key}
             contentPayload={contentPayload}
             data={component}

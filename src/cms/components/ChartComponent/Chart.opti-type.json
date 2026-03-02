@@ -1,0 +1,115 @@
+{
+	"key": "Chart",
+	"displayName": "Chart",
+	"description": "Renders an interactive chart using AG Charts. Paste CSV data directly from Excel or Google Sheets.",
+	"baseType": "component",
+	"sortOrder": 0,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [
+		"sectionEnabled",
+		"elementEnabled"
+	],
+	"properties": {
+		"Title": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Title",
+			"description": "Chart heading displayed above the chart.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
+		"Subtitle": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Subtitle",
+			"description": "Optional subheading displayed below the title.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 20,
+			"editorSettings": {}
+		},
+		"CsvData": {
+			"type": "string",
+			"displayName": "CSV Data",
+			"description": "Paste CSV data here. First row must be headers. For Bar/Line/Area: first column = X-axis categories, remaining columns = series. For Pie/Donut: first column = label, second column = value. Example: Month,Revenue,Expenses\\nJanuary,45000,32000",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 30,
+			"editorSettings": {}
+		},
+		"ChartType": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Chart Type",
+			"description": "The type of chart to render.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 40,
+			"editorSettings": {},
+			"enum": {
+				"values": [
+					{
+						"displayName": "Bar",
+						"value": "bar"
+					},
+					{
+						"displayName": "Line",
+						"value": "line"
+					},
+					{
+						"displayName": "Area",
+						"value": "area"
+					},
+					{
+						"displayName": "Pie",
+						"value": "pie"
+					},
+					{
+						"displayName": "Donut",
+						"value": "donut"
+					}
+				]
+			}
+		},
+		"ChartHeight": {
+			"type": "integer",
+			"displayName": "Height (px)",
+			"description": "Chart height in pixels. Default is 400.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 50,
+			"editorSettings": {},
+			"minimum": 100
+		},
+		"XAxisLabel": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "X-Axis Label",
+			"description": "Optional label for the X axis. Applies to Bar, Line, and Area charts only.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 60,
+			"editorSettings": {}
+		},
+		"YAxisLabel": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Y-Axis Label",
+			"description": "Optional label for the Y axis. Applies to Bar, Line, and Area charts only.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 70,
+			"editorSettings": {}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+fragment Chart on Chart {
+    Title
+    Subtitle
+    ChartType
+    CsvData
+    XAxisLabel
+    YAxisLabel
+    ChartHeight
+}
