@@ -1,0 +1,54 @@
+---
+import type { ChartFragment, DisplaySettingsFragment } from '../../../../__generated/sdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import { isEditContext } from '../../shared/utils';
+import ChartClient from './Chart.svelte';
+
+const isCmsEdit = isEditContext(Astro.url);
+
+export interface Props {
+    key: string;
+    data: ChartFragment;
+    displaySettings: DisplaySettingsFragment[];
+    contentPayload: ContentPayload;
+}
+
+const { key, data, displaySettings } = Astro.props as Props;
+
+const height = data?.ChartHeight || 400;
+const componentClass = 'component-chart';
+---
+
+<div
+    data-epi-block-id={isCmsEdit && key || undefined}
+    class:list={[componentClass, 'w-full']}
+>
+    {!data?.CsvData && isCmsEdit && (
+        <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Chart component — paste CSV data in the properties panel to render a chart.</span>
+        </div>
+    )}
+
+    {data?.CsvData && (
+        <ChartClient
+            client:load
+            title={data?.Title ?? ''}
+            subtitle={data?.Subtitle ?? ''}
+            chartType={data?.ChartType ?? 'bar'}
+            csvData={data?.CsvData ?? ''}
+            xAxisLabel={data?.XAxisLabel ?? ''}
+            yAxisLabel={data?.YAxisLabel ?? ''}
+            height={height}
+        />
+    )}
+</div>
+
+<style>
+    .component-chart {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+</style>
