@@ -44,6 +44,6 @@ const wrapperClasses = isFullSplit
     : [cssClass, "opacity-100", ...(GlobalStyles ?? [])];
 ---
 
-<div class:list={wrapperClasses}>
+<div class:list={[...wrapperClasses, 'h-full']}>
     <slot />
 </div>
