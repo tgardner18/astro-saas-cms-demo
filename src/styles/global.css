@@ -54,10 +54,16 @@
     ol:not([role="menu"]) {
         @apply list-outside list-decimal pl-5 mb-4;
     }
-    li {
+    ul:not(.menu):not(.dropdown-content):not([role="menu"]) > li {
         @apply leading-relaxed;
     }
-    li + li {
+    ul:not(.menu):not(.dropdown-content):not([role="menu"]) > li + li {
+        @apply mt-1;
+    }
+    ol:not([role="menu"]) > li {
+        @apply leading-relaxed;
+    }
+    ol:not([role="menu"]) > li + li {
         @apply mt-1;
     }
     p {

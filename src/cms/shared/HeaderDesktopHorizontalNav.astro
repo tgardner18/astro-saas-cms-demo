@@ -18,7 +18,7 @@ const headerItemCount = headerItems?.length || 0;
                     <li>
                         {(!data?.SubMenuItems || data?.SubMenuItems?.length == 0) && (
                             <a
-                                class="px-3 py-2 text-sm font-medium text-base-content/60 hover:text-base-content rounded-md transition-colors duration-150"
+                                class="px-3 py-2 text-base font-medium text-base-content/60 hover:text-base-content rounded-md transition-colors duration-150"
                                 href={data?.Link?.url?.default || '#'}
                             >
                                 {data?.LinkText || data?.Link?.text || ''}
@@ -33,7 +33,7 @@ const headerItemCount = headerItems?.length || 0;
                                 @mouseleave="open = false"
                             >
                                 <button
-                                    class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-base-content/60 hover:text-base-content rounded-md transition-colors duration-150"
+                                    class="flex items-center gap-1 px-3 py-2 text-base font-medium text-base-content/60 hover:text-base-content rounded-md transition-colors duration-150"
                                     @click="open = !open"
                                     aria-expanded="false"
                                     :aria-expanded="open"
@@ -57,7 +57,7 @@ const headerItemCount = headerItems?.length || 0;
                                     {data?.SubMenuItems?.map((subdata: any) => (
                                         <li role="none">
                                             <a
-                                                class="block px-4 py-2 text-sm font-medium text-base-content/60 hover:text-base-content hover:bg-base-200/60 transition-colors duration-150"
+                                                class="block px-4 py-2 text-base font-medium text-base-content/60 hover:text-base-content hover:bg-base-200/60 transition-colors duration-150"
                                                 href={subdata?.Link?.url?.default || '#'}
                                                 role="menuitem"
                                             >
