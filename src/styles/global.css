@@ -58,21 +58,21 @@
         @apply mb-4;
     }
     h1 {
-        @apply text-3xl;
+        @apply text-3xl font-bold;
     }
     h2 {
-        @apply text-2xl;
+        @apply text-2xl font-bold;
     }
     h3 {
-        @apply text-xl;
+        @apply text-xl font-extralight;
     }
     h4 {
-        @apply text-lg;
+        @apply text-lg font-bold;
     }
     h5 {
-        @apply text-base;
+        @apply text-base font-bold;
     }
     h6 {
-        @apply text-sm;
+        @apply text-sm font-bold;
     }
 }
