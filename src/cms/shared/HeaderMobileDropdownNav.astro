@@ -10,7 +10,7 @@ const headerItemCount = headerItems?.length || 0;
 ---
 
 <div class="dropdown lg:hidden">
-    <div tabindex="0" role="button" class="btn btn-ghost">
+    <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -27,60 +27,41 @@ const headerItemCount = headerItems?.length || 0;
     </div>
     <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 text-lg shadow"
+        class="menu dropdown-content bg-base-100 rounded-xl z-50 mt-2 w-72 p-2 shadow-lg border border-base-200"
     >
         {
             headerItems &&
-                headerItemCount &&
                 headerItemCount > 0 &&
                 headerItems.map((data) => (
-                    <li>
-                        {(!data?.SubMenuItems ||
-                            data?.SubMenuItems?.length == 0) && (
+                    <li class="m-0">
+                        {(!data?.SubMenuItems || data?.SubMenuItems?.length == 0) && (
                             <a
-                                class="text-lg text-gray-500 transition hover:text-gray-500/75"
-                                href={
-                                    data?.Link?.url?.default || '#'
-                                }
+                                class="text-base font-medium text-base-content/70 hover:text-base-content hover:bg-base-200/60 rounded-lg py-2.5 transition-colors duration-150"
+                                href={data?.Link?.url?.default || '#'}
                             >
                                 {data?.LinkText || data?.Link?.text || ''}
                             </a>
                         )}
 
-                        {data?.SubMenuItems &&
-                            data?.SubMenuItems?.length > 0 && (
-                                <details>
-                                    <summary class="text-lg text-gray-500 transition hover:text-gray-500/75">
-                                        {data?.LinkText || data?.Link?.text || ''}
-                                    </summary>
-                                    <ul class="p-2">
-                                        {data?.SubMenuItems
-                                            ?.length > 0 &&
-                                            data?.SubMenuItems.map(
-                                                (subdata: any) => (
-                                                    <li class="text-lg text-gray-500 transition hover:text-gray-500/75">
-                                                        <a
-                                                            class="text-lg transition hover:text-gray-500/75"
-                                                            href={
-                                                                subdata
-                                                                    ?.Link
-                                                                    ?.url
-                                                                    ?.default ||
-                                                                '#'
-                                                            }
-                                                        >
-                                                            {subdata?.LinkText ||
-                                                             subdata
-                                                                ?.Link
-                                                                ?.text ||
-                                                                ''}
-                                                        </a>
-                                                    </li>
-                                                )
-                                            )}
-                                    </ul>
-                                </details>
-                            )}
+                        {data?.SubMenuItems && data?.SubMenuItems?.length > 0 && (
+                            <details>
+                                <summary class="text-base font-medium text-base-content/70 hover:text-base-content hover:bg-base-200/60 rounded-lg py-2.5 transition-colors duration-150">
+                                    {data?.LinkText || data?.Link?.text || ''}
+                                </summary>
+                                <ul class="mt-1 ml-2 border-l-2 border-base-200 pl-3 space-y-0.5 list-none mb-0">
+                                    {data?.SubMenuItems?.map((subdata: any) => (
+                                        <li class="m-0">
+                                            <a
+                                                class="block text-sm font-medium text-base-content/60 hover:text-base-content hover:bg-base-200/60 rounded-lg px-3 py-2 transition-colors duration-150"
+                                                href={subdata?.Link?.url?.default || '#'}
+                                            >
+                                                {subdata?.LinkText || subdata?.Link?.text || ''}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </details>
+                        )}
                     </li>
                 ))
         }
