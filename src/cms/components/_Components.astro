@@ -9,6 +9,7 @@ import Carousel from './CarouselComponent/Carousel.astro';
 import Collapse from './CollapseComponent/Collapse.astro';
 import Divider from './DividerComponent/Divider.astro';
 import Chart from './ChartComponent/Chart.astro';
+import DevCustomHtml from './DevCustomHtmlComponent/DevCustomHtml.astro';
 import FacetedSearch from './FacetedSearchComponent/FacetedSearch.astro';
 import Grid from './GridComponent/Grid.astro';
 import Hero from './HeroComponent/Hero.astro';
@@ -229,6 +230,18 @@ const componentType = component._metadata.types[0];
             contentPayload={contentPayload}
             data={component}
             displaySettings={displaySettings}
+        />
+    )
+}
+
+{
+    componentType === 'DevCustomHtml' && (
+        <DevCustomHtml
+            key={data?.key}
+            contentPayload={contentPayload}
+            data={component}
+            displaySettings={displaySettings}
+            displayTemplateKey={displayTemplateKey}
         />
     )
 }

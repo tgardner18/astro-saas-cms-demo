@@ -1,0 +1,35 @@
+{
+	"key": "DevCustomHtml",
+	"displayName": "Dev - Custom HTML Component",
+	"description": "[Developer POC site only] Custom component that supports custom HTML and CSS fields, and renders them as-is on the site.",
+	"baseType": "component",
+	"sortOrder": 500,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [
+		"sectionEnabled",
+		"elementEnabled"
+	],
+	"properties": {
+		"HtmlContent": {
+			"type": "string",
+			"displayName": "HTML Content",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
+		"CssContent": {
+			"type": "string",
+			"displayName": "CSS Content",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 20,
+			"editorSettings": {}
+		}
+	}
+}

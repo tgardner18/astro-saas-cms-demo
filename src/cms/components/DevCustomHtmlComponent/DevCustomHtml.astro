@@ -1,0 +1,27 @@
+---
+import type {
+    DevCustomHtmlFragment,
+    DisplaySettingsFragment,
+} from '../../../../__generated/sdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import { isEditContext } from '../../shared/utils.ts';
+
+const isCmsEdit = isEditContext(Astro.url);
+
+export interface Props {
+    key: string;
+    data: DevCustomHtmlFragment;
+    contentPayload: ContentPayload;
+    displayTemplateKey: string;
+    displaySettings: DisplaySettingsFragment[];
+}
+
+const { key, data } = Astro.props as Props;
+
+const componentClass = 'component-dev-custom-html';
+---
+
+<div class={componentClass} data-epi-block-id={isCmsEdit && key || undefined}>
+    {data.CssContent && <style is:global set:html={data.CssContent}></style>}
+    {data.HtmlContent && <Fragment set:html={data.HtmlContent} />}
+</div>

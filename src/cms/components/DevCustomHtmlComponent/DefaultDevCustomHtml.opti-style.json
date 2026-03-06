@@ -1,0 +1,7 @@
+{
+	"key": "DefaultDevCustomHtml",
+	"displayName": "Dev Custom HTML Default",
+	"contentType": "DevCustomHtml",
+	"isDefault": true,
+	"settings": {}
+}

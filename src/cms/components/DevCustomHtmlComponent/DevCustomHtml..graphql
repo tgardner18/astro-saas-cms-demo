@@ -1,0 +1,4 @@
+fragment DevCustomHtml on DevCustomHtml {
+    HtmlContent
+    CssContent
+}
