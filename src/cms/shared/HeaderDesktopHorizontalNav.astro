@@ -9,65 +9,67 @@ const { headerItems } = Astro.props;
 const headerItemCount = headerItems?.length || 0;
 ---
 
-<div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1 text-lg">
+<nav class="navbar-center hidden lg:flex" aria-label="Main navigation">
+    <ul class="flex items-center gap-1 list-none pl-0 mb-0">
         {
             headerItems &&
                 headerItemCount > 0 &&
                 headerItems.map((data) => (
                     <li>
-                        {(!data?.SubMenuItems ||
-                            data?.SubMenuItems?.length == 0) && (
+                        {(!data?.SubMenuItems || data?.SubMenuItems?.length == 0) && (
                             <a
-                                class="text-gray-500 transition hover:text-gray-500/75"
+                                class="px-3 py-2 text-sm font-medium text-base-content/60 hover:text-base-content rounded-md transition-colors duration-150"
                                 href={data?.Link?.url?.default || '#'}
                             >
                                 {data?.LinkText || data?.Link?.text || ''}
                             </a>
                         )}
 
-                        {data?.SubMenuItems &&
-                            data?.SubMenuItems?.length > 0 && (
-                                <div class="dropdown dropdown-hover pb-2">
-                                    <div
-                                        tabindex="0"
-                                        role="button"
-                                        class="mb-2 text-gray-500 transition hover:text-gray-500/75"
-                                    >
-                                        {data?.LinkText || data?.Link?.text || ''}
-                                    </div>
-                                    <ul
-                                        tabindex="0"
-                                        class="dropdown-content menu bg-base-200 rounded-box z-1 w-52 text-lg shadow-sm"
-                                    >
-                                        {data?.SubMenuItems?.length >
-                                            0 &&
-                                            data?.SubMenuItems.map(
-                                                (subdata: any) => (
-                                                    <li class="text-gray-500 transition hover:text-gray-500/75">
-                                                        <a
-                                                            href={
-                                                                subdata
-                                                                    ?.Link
-                                                                    ?.url
-                                                                    ?.default ||
-                                                                '#'
-                                                            }
-                                                        >
-                                                            {subdata?.LinkText ||
-                                                                subdata
-                                                                ?.Link
-                                                                ?.text ||
-                                                                ''}
-                                                        </a>
-                                                    </li>
-                                                )
-                                            )}
-                                    </ul>
-                                </div>
-                            )}
+                        {data?.SubMenuItems && data?.SubMenuItems?.length > 0 && (
+                            <div
+                                class="relative"
+                                x-data="{ open: false }"
+                                @mouseenter="open = true"
+                                @mouseleave="open = false"
+                            >
+                                <button
+                                    class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-base-content/60 hover:text-base-content rounded-md transition-colors duration-150"
+                                    @click="open = !open"
+                                    aria-expanded="false"
+                                    :aria-expanded="open"
+                                >
+                                    {data?.LinkText || data?.Link?.text || ''}
+                                    <svg class="h-3.5 w-3.5 transition-transform duration-150" :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <ul
+                                    x-show="open"
+                                    x-transition:enter="transition ease-out duration-100"
+                                    x-transition:enter-start="opacity-0 -translate-y-1"
+                                    x-transition:enter-end="opacity-100 translate-y-0"
+                                    x-transition:leave="transition ease-in duration-75"
+                                    x-transition:leave-start="opacity-100 translate-y-0"
+                                    x-transition:leave-end="opacity-0 -translate-y-1"
+                                    class="absolute left-0 top-full z-50 mt-1 min-w-48 rounded-xl border border-base-200 bg-base-100 py-1 shadow-lg list-none pl-0 mb-0"
+                                    role="menu"
+                                >
+                                    {data?.SubMenuItems?.map((subdata: any) => (
+                                        <li role="none">
+                                            <a
+                                                class="block px-4 py-2 text-sm font-medium text-base-content/60 hover:text-base-content hover:bg-base-200/60 transition-colors duration-150"
+                                                href={subdata?.Link?.url?.default || '#'}
+                                                role="menuitem"
+                                            >
+                                                {subdata?.LinkText || subdata?.Link?.text || ''}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </li>
                 ))
         }
     </ul>
-</div>
+</nav>

@@ -48,10 +48,10 @@
 }
 
 @layer base {
-    ul {
+    ul:not(.menu):not(.dropdown-content):not([role="menu"]) {
         @apply list-outside list-disc pl-5 mb-4;
     }
-    ol {
+    ol:not([role="menu"]) {
         @apply list-outside list-decimal pl-5 mb-4;
     }
     li {
