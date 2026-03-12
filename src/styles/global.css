@@ -67,24 +67,24 @@
         @apply mt-1;
     }
     p {
-        @apply mb-4;
+        @apply text-lg mb-4;
     }
     h1 {
-        @apply font-bold mb-2;
+        @apply text-4xl font-bold mb-2;
     }
     h2 {
-        @apply font-bold mb-2;
+        @apply text-3xl font-bold mb-2;
     }
     h3 {
-        @apply font-light mb-2;
+        @apply text-2xl font-light mb-2;
     }
     h4 {
         @apply font-bold mb-2;
     }
     h5 {
-        @apply font-bold mb-2;
+        @apply text-lg font-bold mb-2;
     }
     h6 {
-        @apply font-bold;
+        @apply text-base font-bold;
     }
 }
