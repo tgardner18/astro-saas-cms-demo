@@ -49,21 +49,22 @@
 }
 
 @theme {
-    /* NOTE: currently uses Tailwind default font sizes as an example,
-       but can be customized as needed */
-    --font-size-xs: 0.75rem;    /* 12px */
-    --font-size-sm: 0.875rem;   /* 14px - h6 */
-    --font-size-base: 1rem;     /* 16px - h5 */
-    --font-size-lg: 1.125rem;   /* 18px - h4 */
-    --font-size-xl: 1.25rem;    /* 20px - h3 */
-    --font-size-2xl: 1.5rem;    /* 24px - h2 */
-    --font-size-3xl: 1.875rem;  /* 30px - h1 */
-    --font-size-4xl: 2.25rem;   /* 36px */
-    --font-size-5xl: 3rem;      /* 48px */
-    --font-size-6xl: 3.75rem;   /* 60px */
-    --font-size-7xl: 4.5rem;    /* 72px */
-    --font-size-8xl: 6rem;      /* 96px */
-    --font-size-9xl: 8rem;      /* 128px */
+    /* NOTE: Apple-inspired typography scale — generous body text (18px base),
+       steeper header scale for clear hierarchy. Original Tailwind defaults:
+       xs:12px sm:14px base:16px lg:18px xl:20px 2xl:24px 3xl:30px 4xl:36px 5xl:48px */
+    --font-size-xs: 0.8125rem;  /* 13px - fine print */
+    --font-size-sm: 0.9375rem;  /* 15px - captions, labels */
+    --font-size-base: 1.125rem; /* 18px - body text (h5) */
+    --font-size-lg: 1.25rem;    /* 20px - lead text (h4) */
+    --font-size-xl: 1.5rem;     /* 24px - h3 */
+    --font-size-2xl: 1.875rem;  /* 30px - h2 subheading */
+    --font-size-3xl: 2.25rem;   /* 36px - h2 section heading */
+    --font-size-4xl: 3rem;      /* 48px - h1 page heading */
+    --font-size-5xl: 3.75rem;   /* 60px - hero headings */
+    --font-size-6xl: 4.5rem;    /* 72px - large display */
+    --font-size-7xl: 5.25rem;   /* 84px */
+    --font-size-8xl: 6.5rem;    /* 104px */
+    --font-size-9xl: 8.5rem;    /* 136px */
 }
 
 @layer base {
@@ -89,21 +90,21 @@
         @apply mb-4;
     }
     h1 {
-        @apply text-3xl mb-4;
+        @apply text-4xl mb-4;  /* 48px */
     }
     h2 {
-        @apply text-2xl mb-4;
+        @apply text-3xl mb-4;  /* 36px */
     }
     h3 {
-        @apply text-xl mb-4;
+        @apply text-2xl mb-4;  /* 30px */
     }
     h4 {
-        @apply text-lg mb-4;
+        @apply text-xl mb-4;   /* 24px */
     }
     h5 {
-        @apply text-base mb-4;
+        @apply text-lg mb-4;   /* 20px */
     }
     h6 {
-        @apply text-sm mb-4;
+        @apply text-base mb-4; /* 18px */
     }
 }
