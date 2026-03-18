@@ -25,20 +25,16 @@
 						"value": "default"
 					},
 					{
-						"displayName": "Inter",
-						"value": "--font-inter"
-					},
-					{
-						"displayName": "Poppins",
-						"value": "--font-poppins"
+						"displayName": "Barlow",
+						"value": "--font-barlow"
 					},
 					{
 						"displayName": "DM Sans",
 						"value": "--font-dm-sans"
 					},
 					{
-						"displayName": "Noto Sans",
-						"value": "--font-noto-sans"
+						"displayName": "Inter",
+						"value": "--font-inter"
 					},
 					{
 						"displayName": "Lexend",
@@ -49,24 +45,28 @@
 						"value": "--font-montserrat"
 					},
 					{
-						"displayName": "Raleway",
-						"value": "--font-raleway"
+						"displayName": "Noto Sans",
+						"value": "--font-noto-sans"
 					},
 					{
 						"displayName": "Outfit",
 						"value": "--font-outfit"
 					},
 					{
-						"displayName": "Work Sans",
-						"value": "--font-work-sans"
+						"displayName": "Poppins",
+						"value": "--font-poppins"
+					},
+					{
+						"displayName": "Raleway",
+						"value": "--font-raleway"
 					},
 					{
 						"displayName": "Urbanist",
 						"value": "--font-urbanist"
 					},
 					{
-						"displayName": "Barlow",
-						"value": "--font-barlow"
+						"displayName": "Work Sans",
+						"value": "--font-work-sans"
 					}
 				]
 			}
