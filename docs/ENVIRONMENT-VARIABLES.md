@@ -41,9 +41,14 @@ OPTIMIZELY_DEV_MODE=false
 # Default: 0
 PREVIEW_DELAY=1000
 
-# Enable/disable Optimizely Forms functionality
-# Default: false
-OPTIMIZELY_FORMS_ENABLED=false
+```
+
+### Sitemap Configuration
+
+```bash
+# Base URL for absolute URLs in sitemap.xml
+# Default: Uses request origin
+SITEMAP_BASE_URL=https://example.com
 ```
 
 ### Preview & External Access
@@ -59,6 +64,21 @@ EXTERNAL_PREVIEW_TOKEN=your_preview_token_here
 
 # CMS URL for client-side operations (optional)
 OPTIMIZELY_CMS_URL=https://cms.optimizely.com
+```
+
+### Admin Dashboard Authentication
+
+```bash
+## HTTP Basic Authentication credentials for /admin route
+## If not configured, the admin dashboard will return 404
+
+# Admin username for HTTP Basic Authentication (default: admin)
+# Only required if using admin dashboard
+ADMIN_DASHBOARD_USERNAME=your-admin-username-here
+
+# Admin password for HTTP Basic Authentication (keep secure!)
+# Only required if using admin dashboard
+ADMIN_DASHBOARD_PASSWORD=your-secure-password-here
 ```
 
 ## 🏗️ Environment Setup
@@ -122,16 +142,6 @@ If you need external preview functionality:
   - Disable for performance on low-end devices
   - Disable for sites where transitions interfere with custom animations
 
-### OPTIMIZELY_FORMS_ENABLED
-- **Type**: Boolean
-- **Access**: Public (client-side)
-- **Default**: `false`
-- **Purpose**: Enable/disable Optimizely Forms functionality in the application
-- **Use Cases**:
-  - Enable to render and process Optimizely Forms components
-  - Disable to hide form functionality when not needed
-  - Control form feature availability per environment
-
 ### EXTERNAL_PREVIEW_ENABLED
 - **Type**: Boolean
 - **Access**: Public (server-side)
@@ -184,6 +194,18 @@ If you need external preview functionality:
 - **Usage**: Enables Basic Auth protection for /admin route and all admin APIs
 - **Note**: If not configured, admin dashboard returns 404 to hide its existence
 
+### SITEMAP_BASE_URL
+- **Type**: String (URL)
+- **Access**: Server-side only
+- **Default**: Uses request origin
+- **Purpose**: Base URL for generating absolute URLs in sitemap.xml
+- **Example**: `https://example.com`
+- **Use Cases**:
+  - Ensure consistent URLs in sitemap across different environments
+  - Required for correct sitemap generation in serverless environments
+  - Override when deployed behind proxies or CDNs
+- **Note**: Sitemap caching is handled by CDN/browser via `Cache-Control` headers (1 hour default)
+
 
 ## 🚀 Development vs Production
 
@@ -193,7 +215,6 @@ OPTIMIZELY_DEV_MODE=true
 ASTRO_TRANSITIONS_ENABLED=true
 EXTERNAL_PREVIEW_ENABLED=true
 PREVIEW_DELAY=500
-OPTIMIZELY_FORMS_ENABLED=true
 ```
 
 ### Production
@@ -202,7 +223,6 @@ OPTIMIZELY_DEV_MODE=false
 ASTRO_TRANSITIONS_ENABLED=true
 EXTERNAL_PREVIEW_ENABLED=false
 PREVIEW_DELAY=0
-OPTIMIZELY_FORMS_ENABLED=false
 ```
 
 ## 🔍 Testing Configuration
