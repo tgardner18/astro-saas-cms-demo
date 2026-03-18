@@ -49,6 +49,15 @@
 }
 
 @theme {
+    /* Font weights for headings and body text — adjust these to change defaults site-wide */
+    --font-weight-h1: 800;
+    --font-weight-h2: 600;
+    --font-weight-h3: 600;
+    --font-weight-h4: 600;
+    --font-weight-h5: 500;
+    --font-weight-h6: 500;
+    --font-weight-p: 400;
+
     /* NOTE: Apple-inspired typography scale — generous body text (18px base),
        steeper header scale for clear hierarchy. Original Tailwind defaults:
        xs:12px sm:14px base:16px lg:18px xl:20px 2xl:24px 3xl:30px 4xl:36px 5xl:48px */
@@ -88,23 +97,30 @@
     }
     p {
         @apply mb-4;
+        font-weight: var(--font-weight-p);
     }
     h1 {
         @apply text-4xl mb-4;  /* 48px */
+        font-weight: var(--font-weight-h1);
     }
     h2 {
         @apply text-3xl mb-4;  /* 36px */
+        font-weight: var(--font-weight-h2);
     }
     h3 {
         @apply text-2xl mb-4;  /* 30px */
+        font-weight: var(--font-weight-h3);
     }
     h4 {
         @apply text-xl mb-4;   /* 24px */
+        font-weight: var(--font-weight-h4);
     }
     h5 {
         @apply text-lg mb-4;   /* 20px */
+        font-weight: var(--font-weight-h5);
     }
     h6 {
         @apply text-base mb-4; /* 18px */
+        font-weight: var(--font-weight-h6);
     }
 }
