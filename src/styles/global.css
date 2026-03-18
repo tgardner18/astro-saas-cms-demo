@@ -96,7 +96,7 @@
         @apply mt-1;
     }
     p {
-        @apply mb-4;
+        @apply text-base mb-4;
         font-weight: var(--font-weight-p);
     }
     h1 {
