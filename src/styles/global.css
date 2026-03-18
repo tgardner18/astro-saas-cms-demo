@@ -51,12 +51,12 @@
 @theme {
     /* Font weights for headings and body text — adjust these to change defaults site-wide */
     --font-weight-h1: 800;
-    --font-weight-h2: 600;
-    --font-weight-h3: 600;
+    --font-weight-h2: 700;
+    --font-weight-h3: 700;
     --font-weight-h4: 600;
     --font-weight-h5: 500;
     --font-weight-h6: 500;
-    --font-weight-p: 400;
+    --font-weight-p: 300;
 
     /* NOTE: Apple-inspired typography scale — generous body text (20px base),
        steeper header scale for clear hierarchy. Original Tailwind defaults:
