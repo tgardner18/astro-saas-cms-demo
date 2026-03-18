@@ -51,6 +51,22 @@
 					{
 						"displayName": "Raleway",
 						"value": "--font-raleway"
+					},
+					{
+						"displayName": "Outfit",
+						"value": "--font-outfit"
+					},
+					{
+						"displayName": "Work Sans",
+						"value": "--font-work-sans"
+					},
+					{
+						"displayName": "Urbanist",
+						"value": "--font-urbanist"
+					},
+					{
+						"displayName": "Barlow",
+						"value": "--font-barlow"
 					}
 				]
 			}

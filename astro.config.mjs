@@ -167,6 +167,30 @@ export default defineConfig({
                 cssVariable: '--font-raleway',
                 weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
             },
+            {
+                provider: fontProviders.google(),
+                name: 'Outfit',
+                cssVariable: '--font-outfit',
+                weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+            },
+            {
+                provider: fontProviders.google(),
+                name: 'Work Sans',
+                cssVariable: '--font-work-sans',
+                weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+            },
+            {
+                provider: fontProviders.google(),
+                name: 'Urbanist',
+                cssVariable: '--font-urbanist',
+                weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+            },
+            {
+                provider: fontProviders.google(),
+                name: 'Barlow',
+                cssVariable: '--font-barlow',
+                weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+            },
         ],
     },
 });
