@@ -58,22 +58,22 @@
     --font-weight-h6: 500;
     --font-weight-p: 400;
 
-    /* NOTE: Apple-inspired typography scale — generous body text (18px base),
+    /* NOTE: Apple-inspired typography scale — generous body text (20px base),
        steeper header scale for clear hierarchy. Original Tailwind defaults:
        xs:12px sm:14px base:16px lg:18px xl:20px 2xl:24px 3xl:30px 4xl:36px 5xl:48px */
-    --font-size-xs: 0.8125rem;  /* 13px - fine print */
-    --font-size-sm: 0.9375rem;  /* 15px - captions, labels */
-    --font-size-base: 1.125rem; /* 18px - body text (h5) */
-    --font-size-lg: 1.25rem;    /* 20px - lead text (h4) */
-    --font-size-xl: 1.5rem;     /* 24px - h3 */
-    --font-size-2xl: 1.875rem;  /* 30px - h2 subheading */
-    --font-size-3xl: 2.25rem;   /* 36px - h2 section heading */
-    --font-size-4xl: 3rem;      /* 48px - h1 page heading */
-    --font-size-5xl: 3.75rem;   /* 60px - hero headings */
-    --font-size-6xl: 4.5rem;    /* 72px - large display */
-    --font-size-7xl: 5.25rem;   /* 84px */
-    --font-size-8xl: 6.5rem;    /* 104px */
-    --font-size-9xl: 8.5rem;    /* 136px */
+    --font-size-xs: 0.875rem;   /* 14px - fine print */
+    --font-size-sm: 1rem;       /* 16px - captions, labels */
+    --font-size-base: 1.25rem;  /* 20px - body text (h5) */
+    --font-size-lg: 1.375rem;   /* 22px - lead text (h4) */
+    --font-size-xl: 1.625rem;   /* 26px - h3 */
+    --font-size-2xl: 2rem;      /* 32px - h2 subheading */
+    --font-size-3xl: 2.5rem;    /* 40px - h2 section heading */
+    --font-size-4xl: 3.25rem;   /* 52px - h1 page heading */
+    --font-size-5xl: 4.125rem;  /* 66px - hero headings */
+    --font-size-6xl: 5rem;      /* 80px - large display */
+    --font-size-7xl: 5.75rem;   /* 92px */
+    --font-size-8xl: 7.125rem;  /* 114px */
+    --font-size-9xl: 9.375rem;  /* 150px */
 }
 
 @layer base {
