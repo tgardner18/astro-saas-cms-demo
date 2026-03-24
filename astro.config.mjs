@@ -169,7 +169,7 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'DM Sans',
                 cssVariable: '--font-dm-sans',
-                weights: [300, 400, 500, 600, 700],
+                weights: [300, 400, 500, 600, 700, 900],
                 styles: ['normal', 'italic'],
             },
             {
