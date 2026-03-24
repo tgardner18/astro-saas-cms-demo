@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @source "../../src/**/*.opti-style.json";
-/* @import './inter.css'; */
-/* @theme {--font-sans: InterVariable, sans-serif;} */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
 
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
@@ -49,24 +48,28 @@
 }
 
 @theme {
-    /* NOTE: currently uses Tailwind default font sizes as an example,
-       but can be customized as needed */
-    --font-size-xs: 0.75rem;    /* 12px */
-    --font-size-sm: 0.875rem;   /* 14px - h6 */
-    --font-size-base: 1rem;     /* 16px - h5 */
-    --font-size-lg: 1.125rem;   /* 18px - h4 */
-    --font-size-xl: 1.25rem;    /* 20px - h3 */
-    --font-size-2xl: 1.5rem;    /* 24px - h2 */
-    --font-size-3xl: 1.875rem;  /* 30px - h1 */
-    --font-size-4xl: 2.25rem;   /* 36px */
-    --font-size-5xl: 3rem;      /* 48px */
-    --font-size-6xl: 3.75rem;   /* 60px */
-    --font-size-7xl: 4.5rem;    /* 72px */
-    --font-size-8xl: 6rem;      /* 96px */
-    --font-size-9xl: 8rem;      /* 128px */
+    /* Paylocity-inspired typography scale — DM Sans */
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'DM Mono', monospace;
+
+    --font-size-xs: 0.6875rem;  /* 11px - overline label */
+    --font-size-sm: 0.8125rem;  /* 13px - caption / metadata */
+    --font-size-base: 0.9375rem; /* 15px - body copy */
+    --font-size-lg: 1.125rem;   /* 18px - section heading */
+    --font-size-xl: 1.5rem;     /* 24px - h2 */
+    --font-size-2xl: 2rem;      /* 32px - h1 */
+    --font-size-3xl: 2.5rem;    /* 40px */
+    --font-size-4xl: 3rem;      /* 48px */
+    --font-size-5xl: 3.75rem;   /* 60px */
+    --font-size-6xl: 4.5rem;    /* 72px */
+    --font-size-7xl: 6rem;      /* 96px */
+    --font-size-8xl: 8rem;      /* 128px */
 }
 
 @layer base {
+    body {
+        @apply font-sans text-base font-normal;
+    }
     ul {
         @apply list-inside list-disc;
     }
@@ -77,21 +80,24 @@
         @apply mb-4;
     }
     h1 {
-        @apply text-3xl;
+        @apply text-2xl font-bold;    /* 32px / 700 */
     }
     h2 {
-        @apply text-2xl;
+        @apply text-xl font-bold;     /* 24px / 700 */
     }
     h3 {
-        @apply text-xl;
+        @apply text-lg font-semibold; /* 18px / 600 */
     }
     h4 {
-        @apply text-lg;
+        @apply text-base font-medium; /* 15px / 500 */
     }
     h5 {
-        @apply text-base;
+        @apply text-sm font-normal;   /* 13px / 400 */
     }
     h6 {
-        @apply text-sm;
+        @apply text-xs font-medium uppercase tracking-wider; /* 11px / 500 - overline */
+    }
+    code, pre, kbd, samp {
+        @apply font-mono;
     }
 }
