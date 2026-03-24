@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @source "../../src/**/*.opti-style.json";
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
 
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
@@ -49,8 +48,8 @@
 
 @theme {
     /* Paylocity-inspired typography scale — DM Sans */
-    --font-sans: 'DM Sans', system-ui, sans-serif;
-    --font-mono: 'DM Mono', monospace;
+    --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+    --font-mono: var(--font-dm-mono), monospace;
 
     --font-size-xs: 0.6875rem;  /* 11px - overline label */
     --font-size-sm: 0.8125rem;  /* 13px - caption / metadata */

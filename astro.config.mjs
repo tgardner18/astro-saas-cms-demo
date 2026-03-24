@@ -169,6 +169,15 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'DM Sans',
                 cssVariable: '--font-dm-sans',
+                weights: [300, 400, 500, 600, 700],
+                styles: ['normal', 'italic'],
+            },
+            {
+                provider: fontProviders.google(),
+                name: 'DM Mono',
+                cssVariable: '--font-dm-mono',
+                weights: [400, 500],
+                styles: ['normal'],
             },
             {
                 provider: fontProviders.google(),
