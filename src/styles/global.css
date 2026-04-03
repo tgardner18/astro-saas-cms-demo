@@ -56,9 +56,9 @@
     --font-size-base: 1rem;     /* 16px - h5 */
     --font-size-lg: 1.125rem;   /* 18px - h4 */
     --font-size-xl: 1.25rem;    /* 20px - h3 */
-    --font-size-2xl: 1.5rem;    /* 24px - h2 */
-    --font-size-3xl: 1.875rem;  /* 30px - h1 */
-    --font-size-4xl: 2.25rem;   /* 36px */
+    --font-size-2xl: 1.7rem;    /* 24px - h2 */
+    --font-size-3xl: 2rem;  /* 30px - h1 */
+    --font-size-4xl: 2.55rem;   /* 36px */
     --font-size-5xl: 3rem;      /* 48px */
     --font-size-6xl: 3.75rem;   /* 60px */
     --font-size-7xl: 4.5rem;    /* 72px */
@@ -200,16 +200,16 @@
         @apply mb-4;
     }
     h1 {
-        @apply text-3xl;
+        @apply text-3xl font-extrabold;
     }
     h2 {
-        @apply text-2xl;
+        @apply text-2xl font-bold;
     }
     h3 {
-        @apply text-xl;
+        @apply text-xl font-bold;
     }
     h4 {
-        @apply text-lg;
+        @apply text-lg font-bold;
     }
     h5 {
         @apply text-base;
