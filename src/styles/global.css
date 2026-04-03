@@ -66,6 +66,129 @@
     --font-size-9xl: 8rem;      /* 128px */
 }
 
+/* Tracker component styles */
+.tracker-wrap {
+  width: 100%;
+  max-width: 520px;
+}
+
+.tracker-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.tracker-body {
+  padding: 2rem 1.75rem 1.75rem;
+}
+
+.tracker-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+
+.tracker-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.825rem;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.tracking-input {
+  flex: 1;
+  min-width: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: #111827;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.72rem 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.tracking-input::placeholder {
+  color: #9ca3af;
+  letter-spacing: 0.04em;
+}
+
+.tracking-input:focus {
+  outline: none;
+  border-color: #463366;
+  box-shadow: 0 0 0 3px rgba(70, 51, 102, 0.1);
+  background: #fff;
+}
+
+.track-btn {
+  flex-shrink: 0;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #463366;
+  border: none;
+  border-radius: 10px;
+  padding: 0.72rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.track-btn:hover {
+  background: #372855;
+}
+
+.track-btn:active {
+  transform: scale(0.98);
+}
+
+.btn-arrow {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.15s;
+}
+
+.track-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.tracker-footer {
+  border-top: 1px solid #f3f4f6;
+  padding: 0.9rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-icon {
+  flex-shrink: 0;
+  color: #d1d5db;
+}
+
+.footer-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
 @layer base {
     ul {
         @apply list-inside list-disc;
