@@ -96,6 +96,8 @@ const isRtl = rtlLangs.includes(currentLang.split('-')[0]);
             <DataPlatform odpPublicKey={odpPublicKey} />
         )}
         {siteStyles && <SiteStyles siteStyles={siteStyles} />}
+        <Font cssVariable="--font-montserrat" preload />
+        <Font cssVariable="--font-open-sans" preload />
         {siteFont && <Font cssVariable={siteFont} preload />}
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />

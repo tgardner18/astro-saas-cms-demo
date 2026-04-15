@@ -49,6 +49,9 @@
 }
 
 @theme {
+    --font-heading: var(--font-montserrat);
+    --font-body: var(--font-open-sans);
+
     /* NOTE: currently uses Tailwind default font sizes as an example,
        but can be customized as needed */
     --font-size-xs: 0.75rem;    /* 12px */
@@ -75,21 +78,48 @@
     }
     p {
         @apply mb-4;
+        font-family: var(--font-body);
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+        letter-spacing: 0;
     }
     h1 {
-        @apply text-3xl;
+        font-family: var(--font-heading);
+        font-size: 56px;
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
     }
     h2 {
-        @apply text-2xl;
+        font-family: var(--font-heading);
+        font-size: 40px;
+        line-height: 1.1;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
     }
     h3 {
-        @apply text-xl;
+        font-family: var(--font-heading);
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 700;
+        letter-spacing: 0;
     }
     h4 {
-        @apply text-lg;
+        font-family: var(--font-heading);
+        font-size: 22px;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: 0;
     }
     h5 {
-        @apply text-base;
+        font-family: var(--font-heading);
+        font-size: 18px;
+        line-height: 1.25;
+        font-weight: 700;
+        letter-spacing: 0.01em;
     }
     h6 {
         @apply text-sm;
