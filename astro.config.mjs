@@ -254,6 +254,8 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Montserrat',
                 cssVariable: '--font-montserrat',
+                weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+                styles: ['normal', 'italic'],
             },
             {
                 provider: fontProviders.google(),
@@ -269,6 +271,8 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Open Sans',
                 cssVariable: '--font-open-sans',
+                weights: [300, 400, 500, 600, 700, 800],
+                styles: ['normal', 'italic'],
             },
             {
                 provider: fontProviders.google(),
