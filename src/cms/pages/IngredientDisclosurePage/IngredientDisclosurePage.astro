@@ -161,16 +161,16 @@ const pageClass = 'page-ingredient-disclosure';
                         </div>
 
                         {/* Table header */}
-                        <div class="grid grid-cols-[2fr_1.2fr_1.2fr_1.4fr] gap-x-4 px-5 py-2 border-b border-base-200 bg-base-50">
-                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Ingredient</span>
-                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">CAS #</span>
-                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Function</span>
-                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Designated List</span>
+                        <div class="grid grid-cols-[2fr_1.2fr_1.2fr_1.4fr] gap-x-4 px-5 py-2 border-b-2 border-base-300 bg-base-100">
+                            <span class="text-xs font-semibold tracking-wider text-base-content/50 uppercase">Ingredient</span>
+                            <span class="text-xs font-semibold tracking-wider text-base-content/50 uppercase">CAS #</span>
+                            <span class="text-xs font-semibold tracking-wider text-base-content/50 uppercase">Function</span>
+                            <span class="text-xs font-semibold tracking-wider text-base-content/50 uppercase">Designated List</span>
                         </div>
 
                         {/* Table rows */}
                         <div
-                            class="divide-y divide-base-200"
+                            class="divide-y divide-base-300"
                             data-epi-edit={isCmsEdit ? 'IntentionallyAddedIngredients' : undefined}
                         >
                             {ingredients.map((ing) => (
@@ -178,16 +178,19 @@ const pageClass = 'page-ingredient-disclosure';
                                     class="grid grid-cols-[2fr_1.2fr_1.2fr_1.4fr] gap-x-4 px-5 py-3 items-start"
                                     data-epi-block-id={isCmsEdit && ing._metadata?.key || undefined}
                                 >
-                                    <span class="text-sm text-base-content font-medium">
+                                    <span class="text-sm text-primary font-medium">
                                         {ing.IngredientName}
                                     </span>
-                                    <span class="text-sm text-base-content/60 font-mono">
-                                        {ing.CasNumber}
+                                    <span class="text-sm font-mono">
+                                        {ing.CasNumber
+                                            ? <span class="text-base-content/70">{ing.CasNumber}</span>
+                                            : <span class="text-base-content/30 italic">N/A</span>
+                                        }
                                     </span>
                                     <span class="text-sm text-base-content/70">
                                         {ing.Function}
                                     </span>
-                                    <div class="text-sm" set:html={ing.OnDesignatedList?.html} />
+                                    <div class="designated-list-cell text-sm" set:html={ing.OnDesignatedList?.html} />
                                 </div>
                             ))}
                         </div>
@@ -207,15 +210,15 @@ const pageClass = 'page-ingredient-disclosure';
                         </div>
 
                         {/* Table header */}
-                        <div class="grid grid-cols-[2fr_1.2fr_1.4fr] gap-x-4 px-5 py-2 border-b border-base-200 bg-base-50">
-                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Component</span>
-                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">CAS #</span>
-                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Designated List</span>
+                        <div class="grid grid-cols-[2fr_1.2fr_1.4fr] gap-x-4 px-5 py-2 border-b-2 border-base-300 bg-base-100">
+                            <span class="text-xs font-semibold tracking-wider text-base-content/50 uppercase">Component</span>
+                            <span class="text-xs font-semibold tracking-wider text-base-content/50 uppercase">CAS #</span>
+                            <span class="text-xs font-semibold tracking-wider text-base-content/50 uppercase">Designated List</span>
                         </div>
 
                         {/* Table rows */}
                         <div
-                            class="divide-y divide-base-200"
+                            class="divide-y divide-base-300"
                             data-epi-edit={isCmsEdit ? 'FragranceComponents' : undefined}
                         >
                             {fragranceComponents.map((frag) => (
@@ -223,13 +226,16 @@ const pageClass = 'page-ingredient-disclosure';
                                     class="grid grid-cols-[2fr_1.2fr_1.4fr] gap-x-4 px-5 py-3 items-start"
                                     data-epi-block-id={isCmsEdit && frag._metadata?.key || undefined}
                                 >
-                                    <span class="text-sm text-base-content font-medium">
+                                    <span class="text-sm text-primary font-medium">
                                         {frag.IngredientName}
                                     </span>
-                                    <span class="text-sm text-base-content/60 font-mono">
-                                        {frag.CasNumber}
+                                    <span class="text-sm font-mono">
+                                        {frag.CasNumber
+                                            ? <span class="text-base-content/70">{frag.CasNumber}</span>
+                                            : <span class="text-base-content/30 italic">N/A</span>
+                                        }
                                     </span>
-                                    <div class="text-sm" set:html={frag.OnDesignatedList?.html} />
+                                    <div class="designated-list-cell text-sm" set:html={frag.OnDesignatedList?.html} />
                                 </div>
                             ))}
                         </div>
@@ -278,3 +284,64 @@ const pageClass = 'page-ingredient-disclosure';
         </main>
     </div>
 </Layout>
+
+<style is:global>
+  /* Designated list pills — scoped to this page via parent class */
+  .page-ingredient-disclosure .designated-list-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: flex-start;
+  }
+  .page-ingredient-disclosure .designated-list-cell p {
+    margin: 0;
+  }
+  /* "No" / plain-text pill — neutral gray */
+  .page-ingredient-disclosure .designated-list-cell p:not(:has(a)) {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 9999px;
+    padding: 2px 10px 2px 8px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background-color: color-mix(in oklch, currentColor 8%, transparent);
+    border: 1px solid color-mix(in oklch, currentColor 15%, transparent);
+    color: oklch(var(--bc) / 0.5);
+  }
+  .page-ingredient-disclosure .designated-list-cell p:not(:has(a))::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: oklch(var(--bc) / 0.3);
+    flex-shrink: 0;
+  }
+  /* Linked items — amber/warning pill with ↗ */
+  .page-ingredient-disclosure .designated-list-cell a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 9999px;
+    padding: 2px 8px 2px 8px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: oklch(var(--wa) / 0.12);
+    color: oklch(var(--wa));
+    border: 1px solid oklch(var(--wa) / 0.3);
+  }
+  .page-ingredient-disclosure .designated-list-cell a::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: oklch(var(--wa));
+    flex-shrink: 0;
+  }
+  .page-ingredient-disclosure .designated-list-cell a::after {
+    content: '↗';
+    font-size: 0.6rem;
+    line-height: 1;
+  }
+</style>
