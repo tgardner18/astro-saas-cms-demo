@@ -22,6 +22,28 @@ const optiResponse = await getOptimizelySdk(contentPayload).ingredientDisclosure
 });
 const post = optiResponse?.IngredientDisclosurePage?.item as IngredientDisclosurePageFragment;
 
+// Collect all ingredient keys from the broken ContentReference.item link index
+// and fetch them directly by key instead, bypassing the stale link resolution
+const ingredientKeys = (post?.IntentionallyAddedIngredients ?? [])
+    .map((ref: any) => ref?.key).filter(Boolean);
+const fragranceKeys = (post?.FragranceComponents ?? [])
+    .map((ref: any) => ref?.key).filter(Boolean);
+const allKeys = [...new Set([...ingredientKeys, ...fragranceKeys])];
+
+const entriesResponse = allKeys.length > 0
+    ? await getOptimizelySdk(contentPayload).getIngredientEntriesByKeys({
+        keys: allKeys,
+        //@ts-ignore
+        loc: contentPayload.loc as Locales,
+    })
+    : null;
+
+const entryMap = new Map(
+    (entriesResponse?.IngredientEntry?.items ?? [])
+        .filter(Boolean)
+        .map((entry: any) => [entry._metadata?.key, entry])
+);
+
 const disclosureDate = post?.DisclosureDate
     ? format(new Date(post.DisclosureDate), 'yyyy-MM-dd')
     : null;
@@ -44,22 +66,12 @@ type IngredientRow = {
     OnDesignatedList?: { html?: string | null } | null;
 };
 
-// DEBUG - remove after troubleshooting
-console.log('[IngredientDisclosurePage] raw IntentionallyAddedIngredients:',
-    JSON.stringify(post?.IntentionallyAddedIngredients, null, 2));
-console.log('[IngredientDisclosurePage] raw FragranceComponents:',
-    JSON.stringify(post?.FragranceComponents, null, 2));
-
-const ingredients = ((post?.IntentionallyAddedIngredients ?? [])
-    .map((ref: any) => ref?.item)
-    .filter(Boolean) as IngredientRow[]);
-const fragranceComponents = ((post?.FragranceComponents ?? [])
-    .map((ref: any) => ref?.item)
-    .filter(Boolean) as IngredientRow[]);
-
-// DEBUG - remove after troubleshooting
-console.log('[IngredientDisclosurePage] ingredients after map+filter:', ingredients.length, JSON.stringify(ingredients, null, 2));
-console.log('[IngredientDisclosurePage] fragranceComponents after map+filter:', fragranceComponents.length, JSON.stringify(fragranceComponents, null, 2));
+const ingredients = ingredientKeys
+    .map((key: string) => entryMap.get(key))
+    .filter(Boolean) as IngredientRow[];
+const fragranceComponents = fragranceKeys
+    .map((key: string) => entryMap.get(key))
+    .filter(Boolean) as IngredientRow[];
 
 const materialNumbers = ((post?.MaterialNumbers ?? []).filter(Boolean) as string[]);
 

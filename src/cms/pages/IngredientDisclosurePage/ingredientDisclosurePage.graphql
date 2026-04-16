@@ -9,29 +9,9 @@ fragment IngredientDisclosurePage on IngredientDisclosurePage {
     MaterialNumbers
     IntentionallyAddedIngredients {
         key
-        item {
-            __typename
-            _metadata { key displayName types }
-            ... on IngredientEntry {
-                IngredientName
-                CasNumber
-                Function
-                OnDesignatedList { html }
-            }
-        }
     }
     FragranceComponents {
         key
-        item {
-            __typename
-            _metadata { key displayName types }
-            ... on IngredientEntry {
-                IngredientName
-                CasNumber
-                Function
-                OnDesignatedList { html }
-            }
-        }
     }
     SdsLink {
         ...LinkUrl

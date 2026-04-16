@@ -6,3 +6,16 @@ fragment IngredientEntry on IngredientEntry {
         html
     }
 }
+
+query getIngredientEntriesByKeys($keys: [String], $loc: [Locales]) {
+    IngredientEntry(
+        ids: $keys
+        locale: $loc
+        limit: 100
+    ) {
+        items {
+            _metadata { key }
+            ...IngredientEntry
+        }
+    }
+}
