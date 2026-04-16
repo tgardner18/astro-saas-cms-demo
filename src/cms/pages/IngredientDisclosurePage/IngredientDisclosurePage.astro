@@ -1,0 +1,253 @@
+---
+import type { Locales } from 'astro';
+import { format } from 'date-fns';
+import type { IngredientDisclosurePageFragment } from '../../../../__generated/sdk';
+import { getOptimizelySdk } from '../../../graphql/getSdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import Layout from '../../../layouts/Layout.astro';
+import { isEditContext } from '../../shared/utils.ts';
+
+const isCmsEdit = isEditContext(Astro.url);
+
+export interface Props {
+    contentPayload: ContentPayload;
+}
+const { contentPayload } = Astro.props as Props;
+
+const optiResponse = await getOptimizelySdk(contentPayload).pageById({
+    key: contentPayload.key,
+    //@ts-ignore
+    loc: contentPayload.loc as Locales,
+    ver: contentPayload.ver,
+});
+const post = optiResponse?._Page?.item as IngredientDisclosurePageFragment;
+
+const disclosureDate = post?.DisclosureDate
+    ? format(new Date(post.DisclosureDate), 'yyyy-MM-dd')
+    : null;
+
+const graphType = post?.SeoSettings?.GraphType && post?.SeoSettings?.GraphType !== '-'
+    ? post?.SeoSettings?.GraphType : 'website';
+const defaultUrl = post?._metadata?.url?.default || '';
+const hierarchicalUrl = post?._metadata?.url?.type === 'SIMPLE' ? post?._metadata?.url?.hierarchical : '';
+
+const pageTitle = post?.ProductName || post?._metadata?.displayName || 'Ingredient Disclosure';
+const subVariant = post?._metadata?.displayName && post?._metadata?.displayName !== post?.ProductName
+    ? post?._metadata?.displayName
+    : null;
+
+type IngredientRow = {
+    _metadata?: { key?: string | null } | null;
+    IngredientName?: string | null;
+    CasNumber?: string | null;
+    Function?: string | null;
+    OnDesignatedList?: { html?: string | null } | null;
+};
+
+const ingredients = ((post?.IntentionallyAddedIngredients ?? []).filter(Boolean) as IngredientRow[]);
+const fragranceComponents = ((post?.FragranceComponents ?? []).filter(Boolean) as IngredientRow[]);
+const materialNumbers = ((post?.MaterialNumbers ?? []).filter(Boolean) as string[]);
+
+const pageClass = 'page-ingredient-disclosure';
+---
+
+<Layout
+    title={post?.SeoSettings?.MetaTitle ?? pageTitle}
+    description={post?.SeoSettings?.MetaDescription ?? pageTitle}
+    graphtype={graphType}
+    indexing={post?.SeoSettings?.Indexing ?? false}
+    contentPayload={contentPayload}
+    defaultUrl={defaultUrl}
+    hierarchicalUrl={hierarchicalUrl ?? ''}
+    extPreviewEnabled={false}
+>
+    <div class={`max-w-screen-6xl mx-auto ${pageClass}`}>
+        <main class="mt-10 mb-16">
+            <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+
+                {/* Page label */}
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="border-l-4 border-primary pl-3 text-xs font-semibold tracking-widest text-base-content/50 uppercase">
+                        Product Ingredient Disclosure
+                    </span>
+                </div>
+
+                {/* Product name */}
+                <h1
+                    class="text-3xl lg:text-4xl font-bold text-primary leading-tight mb-1"
+                    data-epi-edit={isCmsEdit ? 'ProductName' : undefined}
+                >
+                    {pageTitle}
+                </h1>
+
+                {/* Sub-variant / display name */}
+                {subVariant && (
+                    <p class="text-base text-base-content/60 mb-8">{subVariant}</p>
+                )}
+
+                {/* Product Details card */}
+                <div class="card border border-base-200 shadow-sm mb-8 overflow-hidden">
+                    <div class="bg-primary px-5 py-3">
+                        <span class="text-xs font-semibold tracking-widest text-primary-content/80 uppercase">
+                            Product Details
+                        </span>
+                    </div>
+                    <div class="divide-y divide-base-200">
+                        <div class="flex items-start gap-6 px-5 py-4">
+                            <span class="text-xs font-semibold tracking-widest text-base-content/50 uppercase w-32 pt-0.5">
+                                Category
+                            </span>
+                            <span
+                                class="text-sm text-base-content"
+                                data-epi-edit={isCmsEdit ? 'ProductCategory' : undefined}
+                            >
+                                {post?.ProductCategory}
+                            </span>
+                        </div>
+                        {materialNumbers.length > 0 && (
+                            <div class="flex items-start gap-6 px-5 py-4">
+                                <span class="text-xs font-semibold tracking-widest text-base-content/50 uppercase w-32 pt-0.5">
+                                    Material No.
+                                </span>
+                                <div
+                                    class="flex flex-wrap gap-2"
+                                    data-epi-edit={isCmsEdit ? 'MaterialNumbers' : undefined}
+                                >
+                                    {materialNumbers.map((num) => (
+                                        <span class="badge badge-outline badge-sm font-mono text-xs">
+                                            {num}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                {/* Intentionally Added Ingredients table */}
+                {ingredients.length > 0 && (
+                    <div class="card border border-base-200 shadow-sm mb-8 overflow-hidden">
+                        <div class="bg-primary px-5 py-3">
+                            <span class="text-xs font-semibold tracking-widest text-primary-content/80 uppercase">
+                                Intentionally Added Ingredients
+                            </span>
+                        </div>
+
+                        {/* Table header */}
+                        <div class="grid grid-cols-[2fr_1.2fr_1.2fr_1.4fr] gap-x-4 px-5 py-2 border-b border-base-200 bg-base-50">
+                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Ingredient</span>
+                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">CAS #</span>
+                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Function</span>
+                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Designated List</span>
+                        </div>
+
+                        {/* Table rows */}
+                        <div
+                            class="divide-y divide-base-200"
+                            data-epi-edit={isCmsEdit ? 'IntentionallyAddedIngredients' : undefined}
+                        >
+                            {ingredients.map((ing) => (
+                                <div
+                                    class="grid grid-cols-[2fr_1.2fr_1.2fr_1.4fr] gap-x-4 px-5 py-3 items-start"
+                                    data-epi-block-id={isCmsEdit && ing._metadata?.key || undefined}
+                                >
+                                    <span class="text-sm text-base-content font-medium">
+                                        {ing.IngredientName}
+                                    </span>
+                                    <span class="text-sm text-base-content/60 font-mono">
+                                        {ing.CasNumber}
+                                    </span>
+                                    <span class="text-sm text-base-content/70">
+                                        {ing.Function}
+                                    </span>
+                                    <div class="text-sm" set:html={ing.OnDesignatedList?.html} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Fragrance Components table */}
+                {fragranceComponents.length > 0 && (
+                    <div class="card border border-base-200 shadow-sm mb-8 overflow-hidden">
+                        <div class="bg-primary px-5 py-3 flex items-center justify-between">
+                            <span class="text-xs font-semibold tracking-widest text-primary-content/80 uppercase">
+                                Fragrance Components
+                            </span>
+                            <span class="text-xs text-primary-content/60 italic">
+                                At or above 100 ppm, or on a designated list
+                            </span>
+                        </div>
+
+                        {/* Table header */}
+                        <div class="grid grid-cols-[2fr_1.2fr_1.4fr] gap-x-4 px-5 py-2 border-b border-base-200 bg-base-50">
+                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Component</span>
+                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">CAS #</span>
+                            <span class="text-xs font-semibold tracking-wider text-primary uppercase">Designated List</span>
+                        </div>
+
+                        {/* Table rows */}
+                        <div
+                            class="divide-y divide-base-200"
+                            data-epi-edit={isCmsEdit ? 'FragranceComponents' : undefined}
+                        >
+                            {fragranceComponents.map((frag) => (
+                                <div
+                                    class="grid grid-cols-[2fr_1.2fr_1.4fr] gap-x-4 px-5 py-3 items-start"
+                                    data-epi-block-id={isCmsEdit && frag._metadata?.key || undefined}
+                                >
+                                    <span class="text-sm text-base-content font-medium">
+                                        {frag.IngredientName}
+                                    </span>
+                                    <span class="text-sm text-base-content/60 font-mono">
+                                        {frag.CasNumber}
+                                    </span>
+                                    <div class="text-sm" set:html={frag.OnDesignatedList?.html} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Footer: SDS link + Disclosure date */}
+                <div class="flex items-end justify-between border-t border-base-200 pt-6 mt-2">
+                    {post?.SdsLink?.url?.default ? (
+                        <div>
+                            <p class="text-xs font-semibold tracking-widest text-base-content/50 uppercase mb-1">
+                                Safety Data Sheet
+                            </p>
+                            <a
+                                href={post.SdsLink.url.default}
+                                target={post.SdsLink.target ?? '_blank'}
+                                rel="noopener noreferrer"
+                                class="link link-primary text-sm font-medium inline-flex items-center gap-1"
+                                data-epi-edit={isCmsEdit ? 'SdsLink' : undefined}
+                            >
+                                {post.SdsLink.text ?? 'View SDS Document'}
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                            </a>
+                        </div>
+                    ) : <div />}
+
+                    {disclosureDate && (
+                        <div class="text-right">
+                            <p class="text-xs font-semibold tracking-widest text-base-content/50 uppercase mb-1">
+                                Date of Disclosure
+                            </p>
+                            <p
+                                class="text-sm text-base-content"
+                                data-epi-edit={isCmsEdit ? 'DisclosureDate' : undefined}
+                            >
+                                {disclosureDate}
+                            </p>
+                        </div>
+                    )}
+                </div>
+
+            </div>
+        </main>
+    </div>
+</Layout>

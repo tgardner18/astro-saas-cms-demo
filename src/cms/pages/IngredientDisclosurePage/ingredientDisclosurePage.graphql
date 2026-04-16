@@ -1,0 +1,35 @@
+fragment IngredientDisclosurePage on IngredientDisclosurePage {
+    _metadata {
+        ...PageUrl
+        published
+        displayName
+    }
+    ProductName
+    ProductCategory
+    MaterialNumbers
+    IntentionallyAddedIngredients {
+        ... on IngredientEntry {
+            _metadata { key }
+            IngredientName
+            CasNumber
+            Function
+            OnDesignatedList { html }
+        }
+    }
+    FragranceComponents {
+        ... on IngredientEntry {
+            _metadata { key }
+            IngredientName
+            CasNumber
+            Function
+            OnDesignatedList { html }
+        }
+    }
+    SdsLink {
+        ...LinkUrl
+    }
+    DisclosureDate
+    SeoSettings {
+        ...PageSeoSettingsProperty
+    }
+}
