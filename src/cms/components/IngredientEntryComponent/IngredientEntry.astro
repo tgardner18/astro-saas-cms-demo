@@ -30,6 +30,7 @@ const componentClass = 'component-ingredient-entry';
     data-epi-block-id={isCmsEdit && key || undefined}
     class:list={[
         componentClass,
+        isCmsEdit && 'mx-12',
         isCard
             ? 'card bg-base-100 shadow-sm border border-base-200 p-4'
             : ['flex flex-wrap items-center gap-x-6 gap-y-2 py-3 px-1', showBorder && 'border-t border-base-200']
