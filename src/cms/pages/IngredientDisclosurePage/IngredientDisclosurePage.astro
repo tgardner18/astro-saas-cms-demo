@@ -44,12 +44,23 @@ type IngredientRow = {
     OnDesignatedList?: { html?: string | null } | null;
 };
 
+// DEBUG - remove after troubleshooting
+console.log('[IngredientDisclosurePage] raw IntentionallyAddedIngredients:',
+    JSON.stringify(post?.IntentionallyAddedIngredients, null, 2));
+console.log('[IngredientDisclosurePage] raw FragranceComponents:',
+    JSON.stringify(post?.FragranceComponents, null, 2));
+
 const ingredients = ((post?.IntentionallyAddedIngredients ?? [])
     .map((ref: any) => ref?.item)
     .filter(Boolean) as IngredientRow[]);
 const fragranceComponents = ((post?.FragranceComponents ?? [])
     .map((ref: any) => ref?.item)
     .filter(Boolean) as IngredientRow[]);
+
+// DEBUG - remove after troubleshooting
+console.log('[IngredientDisclosurePage] ingredients after map+filter:', ingredients.length, JSON.stringify(ingredients, null, 2));
+console.log('[IngredientDisclosurePage] fragranceComponents after map+filter:', fragranceComponents.length, JSON.stringify(fragranceComponents, null, 2));
+
 const materialNumbers = ((post?.MaterialNumbers ?? []).filter(Boolean) as string[]);
 
 const pageClass = 'page-ingredient-disclosure';
