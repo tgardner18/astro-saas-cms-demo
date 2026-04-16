@@ -10,8 +10,9 @@ fragment IngredientDisclosurePage on IngredientDisclosurePage {
     IntentionallyAddedIngredients {
         key
         item {
+            __typename
+            _metadata { key displayName types }
             ... on IngredientEntry {
-                _metadata { key }
                 IngredientName
                 CasNumber
                 Function
@@ -22,8 +23,9 @@ fragment IngredientDisclosurePage on IngredientDisclosurePage {
     FragranceComponents {
         key
         item {
+            __typename
+            _metadata { key displayName types }
             ... on IngredientEntry {
-                _metadata { key }
                 IngredientName
                 CasNumber
                 Function

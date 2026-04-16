@@ -45,7 +45,6 @@ const componentClass = 'component-ingredient-entry';
             {data.Function && (
                 <p class="text-sm text-base-content/70">{data.Function}</p>
             )} 
-            console.log('RAW REFS:', JSON.stringify(post?.IntentionallyAddedIngredients, null, 2));
 
             {data.OnDesignatedList?.html && (
                 <div class="text-sm text-base-content/80 mt-1" set:html={data.OnDesignatedList.html} />
