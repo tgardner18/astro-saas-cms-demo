@@ -45,8 +45,10 @@ type IngredientRow = {
 };
 
 const ingredients = ((post?.IntentionallyAddedIngredients ?? [])
+    .map((ref: any) => ref?.item)
     .filter(Boolean) as IngredientRow[]);
 const fragranceComponents = ((post?.FragranceComponents ?? [])
+    .map((ref: any) => ref?.item)
     .filter(Boolean) as IngredientRow[]);
 const materialNumbers = ((post?.MaterialNumbers ?? []).filter(Boolean) as string[]);
 
