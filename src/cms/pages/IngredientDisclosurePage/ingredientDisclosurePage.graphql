@@ -8,25 +8,21 @@ fragment IngredientDisclosurePage on IngredientDisclosurePage {
     ProductCategory
     MaterialNumbers
     IntentionallyAddedIngredients {
-        item {
-            ... on IngredientEntry {
-                _metadata { key }
-                IngredientName
-                CasNumber
-                Function
-                OnDesignatedList { html }
-            }
+        ... on IngredientEntry {
+            _metadata { key }
+            IngredientName
+            CasNumber
+            Function
+            OnDesignatedList { html }
         }
     }
     FragranceComponents {
-        item {
-            ... on IngredientEntry {
-                _metadata { key }
-                IngredientName
-                CasNumber
-                Function
-                OnDesignatedList { html }
-            }
+        ... on IngredientEntry {
+            _metadata { key }
+            IngredientName
+            CasNumber
+            Function
+            OnDesignatedList { html }
         }
     }
     SdsLink {
