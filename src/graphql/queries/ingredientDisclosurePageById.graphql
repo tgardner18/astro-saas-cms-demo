@@ -1,0 +1,12 @@
+query ingredientDisclosurePageById($key: [String], $loc: [Locales], $ver: String) {
+    IngredientDisclosurePage(
+        ids: $key
+        locale: $loc
+        where: { _metadata: { version: { eq: $ver } } }
+        variation: { include: ALL }
+    ) {
+        item {
+            ...IngredientDisclosurePage
+        }
+    }
+}

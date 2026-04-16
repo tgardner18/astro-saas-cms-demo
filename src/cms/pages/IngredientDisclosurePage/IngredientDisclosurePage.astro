@@ -14,13 +14,13 @@ export interface Props {
 }
 const { contentPayload } = Astro.props as Props;
 
-const optiResponse = await getOptimizelySdk(contentPayload).pageById({
+const optiResponse = await getOptimizelySdk(contentPayload).ingredientDisclosurePageById({
     key: contentPayload.key,
     //@ts-ignore
     loc: contentPayload.loc as Locales,
     ver: contentPayload.ver,
 });
-const post = optiResponse?._Page?.item as IngredientDisclosurePageFragment;
+const post = optiResponse?.IngredientDisclosurePage?.item as IngredientDisclosurePageFragment;
 
 const disclosureDate = post?.DisclosureDate
     ? format(new Date(post.DisclosureDate), 'yyyy-MM-dd')
