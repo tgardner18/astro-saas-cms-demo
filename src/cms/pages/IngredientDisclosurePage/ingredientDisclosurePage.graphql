@@ -8,6 +8,7 @@ fragment IngredientDisclosurePage on IngredientDisclosurePage {
     ProductCategory
     MaterialNumbers
     IntentionallyAddedIngredients {
+        key
         item {
             ... on IngredientEntry {
                 _metadata { key }
@@ -19,6 +20,7 @@ fragment IngredientDisclosurePage on IngredientDisclosurePage {
         }
     }
     FragranceComponents {
+        key
         item {
             ... on IngredientEntry {
                 _metadata { key }
