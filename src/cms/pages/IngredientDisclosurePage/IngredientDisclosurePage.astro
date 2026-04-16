@@ -44,8 +44,12 @@ type IngredientRow = {
     OnDesignatedList?: { html?: string | null } | null;
 };
 
-const ingredients = ((post?.IntentionallyAddedIngredients ?? []).filter(Boolean) as IngredientRow[]);
-const fragranceComponents = ((post?.FragranceComponents ?? []).filter(Boolean) as IngredientRow[]);
+const ingredients = ((post?.IntentionallyAddedIngredients ?? [])
+    .map((ref: any) => ref?.item)
+    .filter(Boolean) as IngredientRow[]);
+const fragranceComponents = ((post?.FragranceComponents ?? [])
+    .map((ref: any) => ref?.item)
+    .filter(Boolean) as IngredientRow[]);
 const materialNumbers = ((post?.MaterialNumbers ?? []).filter(Boolean) as string[]);
 
 const pageClass = 'page-ingredient-disclosure';
