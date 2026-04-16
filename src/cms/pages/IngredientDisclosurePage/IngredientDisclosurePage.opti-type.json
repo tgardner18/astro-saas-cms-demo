@@ -1,0 +1,143 @@
+{
+	"key": "IngredientDisclosurePage",
+	"displayName": "Ingredient Disclosure Page",
+	"description": "Page for disclosing product ingredients and fragrance components. Supports multiple ingredient selections via shared blocks.",
+	"baseType": "_page",
+	"isContract": false,
+	"sortOrder": 0,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [],
+	"contracts": [],
+	"properties": {
+		"ProductName": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Product Name",
+			"description": "Enter the product name",
+			"localized": false,
+			"required": true,
+			"group": "Information",
+			"sortOrder": 0,
+			"indexingType": "searchable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"ProductCategory": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Product Category",
+			"description": "Enter product category",
+			"localized": false,
+			"required": true,
+			"group": "Information",
+			"sortOrder": 10,
+			"enum": [
+				{
+					"value": "Laundry/fabric care",
+					"displayName": "Laundry/fabric care"
+				},
+				{
+					"value": "Oral care",
+					"displayName": "Oral care"
+				},
+				{
+					"value": "Dental care",
+					"displayName": "Dental care"
+				},
+				{
+					"value": "Cleaner",
+					"displayName": "Cleaner"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"MaterialNumbers": {
+			"type": "array",
+			"displayName": "Material Numbers",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 20,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "string",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"IntentionallyAddedIngredients": {
+			"type": "array",
+			"displayName": "Intentionally Added Ingredients",
+			"description": "Select multiple shared Ingredient Entry blocks for the disclosure table.",
+			"localized": false,
+			"required": false,
+			"group": "Ingredients",
+			"sortOrder": 30,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "contentReference",
+				"allowedTypes": [
+					"IngredientEntry"
+				],
+				"restrictedTypes": []
+			}
+		},
+		"FragranceComponents": {
+			"type": "array",
+			"displayName": "Fragrance Components",
+			"description": "Select multiple shared Ingredient Entry blocks for fragrance components.",
+			"localized": false,
+			"required": false,
+			"group": "Ingredients",
+			"sortOrder": 40,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "contentReference",
+				"allowedTypes": [
+					"IngredientEntry"
+				],
+				"restrictedTypes": []
+			}
+		},
+		"SdsLink": {
+			"type": "link",
+			"displayName": "SDS Link",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Ingredients",
+			"sortOrder": 50,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"DisclosureDate": {
+			"type": "dateTime",
+			"displayName": "Date of Disclosure",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 60,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"SeoSettings": {
+			"type": "component",
+			"contentType": "PageSeoSettings",
+			"displayName": "SEO Settings",
+			"description": "Provides meta titles, descriptions, and social sharing options.",
+			"localized": false,
+			"required": false,
+			"group": "SEO",
+			"sortOrder": 70,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		}
+	}
+}

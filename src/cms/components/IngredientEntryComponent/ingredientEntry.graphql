@@ -1,0 +1,8 @@
+fragment IngredientEntry on IngredientEntry {
+    IngredientName
+    CasNumber
+    Function
+    OnDesignatedList {
+        html
+    }
+}

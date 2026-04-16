@@ -1,0 +1,60 @@
+{
+	"key": "IngredientEntry",
+	"displayName": "Ingredient Entry",
+	"description": "A shared block representing a single ingredient entry with CAS number and function.",
+	"baseType": "_component",
+	"isContract": false,
+	"sortOrder": 0,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [
+		"elementEnabled"
+	],
+	"contracts": [],
+	"properties": {
+		"IngredientName": {
+			"type": "string",
+			"displayName": "Ingredient Name",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"CasNumber": {
+			"type": "string",
+			"displayName": "CAS #",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 20,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Function": {
+			"type": "string",
+			"displayName": "Function",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 30,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"OnDesignatedList": {
+			"type": "richText",
+			"displayName": "On a Designated List?",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 40,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		}
+	}
+}

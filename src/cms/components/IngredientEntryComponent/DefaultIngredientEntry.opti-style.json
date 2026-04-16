@@ -1,0 +1,38 @@
+{
+	"key": "DefaultIngredientEntry",
+	"displayName": "Ingredient Entry - Default",
+	"contentType": "IngredientEntry",
+	"isDefault": true,
+	"settings": {
+		"layout": {
+			"displayName": "Layout",
+			"editor": "select",
+			"sortOrder": 10,
+			"choices": {
+				"row": {
+					"displayName": "Row (Default)",
+					"sortOrder": 10
+				},
+				"card": {
+					"displayName": "Card",
+					"sortOrder": 20
+				}
+			}
+		},
+		"showBorder": {
+			"displayName": "Show Border",
+			"editor": "checkbox",
+			"sortOrder": 20,
+			"choices": {
+				"true": {
+					"displayName": "Show",
+					"sortOrder": 10
+				},
+				"false": {
+					"displayName": "Hide",
+					"sortOrder": 20
+				}
+			}
+		}
+	}
+}
