@@ -136,8 +136,8 @@ const componentClass = 'component-articlelist';
 ---
 
 <div data-epi-block-id={isCmsEdit && key || undefined} class={componentClass}>
-    <div class="w-full" class:list={[containerWrapperClasses]}>
-        <h1 class="w-full basis-full" class:list={[titleClasses]}>{data?.Title}</h1>
+    <div class="w-full mt-5" class:list={[containerWrapperClasses]}>
+        <h2 class="w-full basis-full mb-2" class:list={[titleClasses]}>{data?.Title}</h2>
         <div class="mt-4 mb-4" class:list={[gridContainerClasses]}>
             {
                 //@ts-ignore
