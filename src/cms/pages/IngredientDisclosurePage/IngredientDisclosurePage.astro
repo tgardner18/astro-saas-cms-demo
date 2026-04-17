@@ -93,7 +93,7 @@ const pageClass = 'page-ingredient-disclosure';
             <div class="mx-auto max-w-screen-xl px-8 2xl:px-0">
 
                 {/* Document header */}
-                <header class="mb-9">
+                <header class="mb-9 id-reveal">
                     <span class="id-eyebrow">Church &amp; Dwight · Product Ingredient Disclosure</span>
                     <h1
                         class="text-[30px] font-extrabold text-primary leading-tight"
@@ -107,13 +107,13 @@ const pageClass = 'page-ingredient-disclosure';
                 </header>
 
                 {/* Product Details card */}
-                <div class="card border border-base-200 shadow-sm mb-8 overflow-hidden">
+                <div class="id-card id-reveal mb-8">
                     <div class="bg-primary px-[22px] py-[13px]">
                         <span class="text-[11px] font-bold tracking-[.12em] text-primary-content/85 uppercase">
                             Product Details
                         </span>
                     </div>
-                    <dl class="divide-y divide-base-200">
+                    <dl class="divide-y divide-[#dde1e9]">
                         <div class="flex items-baseline gap-4 px-[22px] py-[15px]">
                             <dt class="id-meta-label">Category</dt>
                             <dd
@@ -141,7 +141,7 @@ const pageClass = 'page-ingredient-disclosure';
 
                 {/* Intentionally Added Ingredients table */}
                 {ingredients.length > 0 && (
-                    <div class="card border border-base-200 shadow-sm mb-8 overflow-hidden">
+                    <div class="id-card id-reveal mb-8">
                         <div class="bg-primary px-[22px] py-[13px]">
                             <span class="text-[11px] font-bold tracking-[.12em] text-primary-content/85 uppercase">
                                 Intentionally Added Ingredients
@@ -150,7 +150,7 @@ const pageClass = 'page-ingredient-disclosure';
                         <div class="overflow-x-auto">
                             <table class="w-full border-collapse">
                                 <thead>
-                                    <tr class="bg-base-200/60 border-b-2 border-primary">
+                                    <tr class="id-thead-row">
                                         <th class="id-th" style="width:34%">Ingredient</th>
                                         <th class="id-th" style="width:17%">CAS #</th>
                                         <th class="id-th" style="width:20%">Function</th>
@@ -185,7 +185,7 @@ const pageClass = 'page-ingredient-disclosure';
 
                 {/* Fragrance Components table */}
                 {fragranceComponents.length > 0 && (
-                    <div class="card border border-base-200 shadow-sm mb-8 overflow-hidden">
+                    <div class="id-card id-reveal mb-8">
                         <div class="bg-primary px-[22px] py-[13px] flex items-center justify-between">
                             <span class="text-[11px] font-bold tracking-[.12em] text-primary-content/85 uppercase">
                                 Fragrance Components
@@ -197,7 +197,7 @@ const pageClass = 'page-ingredient-disclosure';
                         <div class="overflow-x-auto">
                             <table class="w-full border-collapse">
                                 <thead>
-                                    <tr class="bg-base-200/60 border-b-2 border-primary">
+                                    <tr class="id-thead-row">
                                         <th class="id-th" style="width:44%">Component</th>
                                         <th class="id-th" style="width:18%">CAS #</th>
                                         <th class="id-th" style="width:38%">Designated List</th>
@@ -229,7 +229,7 @@ const pageClass = 'page-ingredient-disclosure';
                 )}
 
                 {/* Footer: SDS link + Disclosure date */}
-                <div class="flex items-end justify-between border-t-2 border-base-200 pt-8 flex-wrap gap-5">
+                <div class="flex items-end justify-between border-t-2 border-base-200 pt-8 flex-wrap gap-5 id-reveal">
                     {post?.SdsLink?.url?.default ? (
                         <div>
                             <p class="id-footer-label">Safety Data Sheet</p>
@@ -264,6 +264,29 @@ const pageClass = 'page-ingredient-disclosure';
 </Layout>
 
 <style is:global>
+  /* ── Stagger fade-in ── */
+  @keyframes id-fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .page-ingredient-disclosure .id-reveal {
+    animation: id-fadeUp .4s ease both;
+  }
+  .page-ingredient-disclosure .id-reveal:nth-child(1) { animation-delay: .05s; }
+  .page-ingredient-disclosure .id-reveal:nth-child(2) { animation-delay: .12s; }
+  .page-ingredient-disclosure .id-reveal:nth-child(3) { animation-delay: .19s; }
+  .page-ingredient-disclosure .id-reveal:nth-child(4) { animation-delay: .26s; }
+  .page-ingredient-disclosure .id-reveal:nth-child(5) { animation-delay: .33s; }
+
+  /* ── Card shell ── */
+  .page-ingredient-disclosure .id-card {
+    background: #ffffff;
+    border: 1px solid #dde1e9;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.07), 0 2px 12px rgba(0,0,0,.05);
+    overflow: hidden;
+  }
+
   /* ── Shared primitives ── */
   .page-ingredient-disclosure .id-eyebrow {
     display: inline-block;
@@ -300,6 +323,12 @@ const pageClass = 'page-ingredient-disclosure';
     padding: 5px 12px;
   }
 
+  /* Table header row */
+  .page-ingredient-disclosure .id-thead-row {
+    background: #f0f2f7;
+    border-bottom: 2px solid oklch(var(--p));
+  }
+
   /* Table headers */
   .page-ingredient-disclosure .id-th {
     padding: 12px 18px;
@@ -310,6 +339,18 @@ const pageClass = 'page-ingredient-disclosure';
     color: oklch(var(--p));
     text-align: left;
     white-space: nowrap;
+  }
+
+  /* Table body rows */
+  .page-ingredient-disclosure tbody tr {
+    border-bottom: 1px solid #dde1e9;
+    transition: background .12s;
+  }
+  .page-ingredient-disclosure tbody tr:last-child {
+    border-bottom: none;
+  }
+  .page-ingredient-disclosure tbody tr:hover {
+    background: #f5f7fc;
   }
 
   /* Table cells */
@@ -324,13 +365,14 @@ const pageClass = 'page-ingredient-disclosure';
     font-family: 'Courier New', monospace;
     font-size: 15px;
     font-weight: 700;
-    color: oklch(var(--bc));
+    color: #000000;
     white-space: nowrap;
   }
 
   /* Function cell */
   .page-ingredient-disclosure .id-fn {
     color: oklch(var(--bc) / 0.6);
+    font-size: 15px;
   }
 
   /* Ingredient / component name */
@@ -360,6 +402,7 @@ const pageClass = 'page-ingredient-disclosure';
   }
   .page-ingredient-disclosure .id-footer-link:hover {
     color: oklch(var(--er));
+    opacity: 1;
   }
 
   /* ── Designated list badges ── */
@@ -369,14 +412,40 @@ const pageClass = 'page-ingredient-disclosure';
     gap: 5px;
     align-items: flex-start;
   }
-  .page-ingredient-disclosure .designated-list-cell p {
+
+  /* Paragraphs wrapping links become transparent flex pass-throughs */
+  .page-ingredient-disclosure .designated-list-cell p:has(a) {
     margin: 0;
     display: contents;
   }
 
-  /* Base badge shape */
-  .page-ingredient-disclosure .designated-list-cell a,
-  .page-ingredient-disclosure .designated-list-cell span.badge-none {
+  /* Paragraphs with plain text ("No") styled as the neutral badge */
+  .page-ingredient-disclosure .designated-list-cell p:not(:has(a)) {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11.5px;
+    font-weight: 600;
+    border-radius: 99px;
+    padding: 5px 12px 5px 8px;
+    background: #f2f3f5;
+    color: #888888;
+    border: 1px solid #dde1e9;
+    cursor: default;
+  }
+  .page-ingredient-disclosure .designated-list-cell p:not(:has(a))::before {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #bbbbbb;
+    flex-shrink: 0;
+  }
+
+  /* Base badge shape for all linked badges */
+  .page-ingredient-disclosure .designated-list-cell a {
     display: inline-flex;
     align-items: center;
     gap: 7px;
@@ -386,11 +455,9 @@ const pageClass = 'page-ingredient-disclosure';
     padding: 5px 12px 5px 8px;
     white-space: nowrap;
     text-decoration: none;
-    transition: filter .15s;
-    position: relative;
+    transition: filter .15s, box-shadow .15s;
   }
-  .page-ingredient-disclosure .designated-list-cell a::before,
-  .page-ingredient-disclosure .designated-list-cell span.badge-none::before {
+  .page-ingredient-disclosure .designated-list-cell a::before {
     content: '';
     display: block;
     width: 7px;
@@ -400,40 +467,8 @@ const pageClass = 'page-ingredient-disclosure';
   }
   .page-ingredient-disclosure .designated-list-cell a:hover {
     filter: brightness(.94);
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
     opacity: 1;
-  }
-
-  /* "No" — neutral gray */
-  .page-ingredient-disclosure .designated-list-cell span.badge-none {
-    background: #f2f3f5;
-    color: #888;
-    border: 1px solid #dde1e9;
-    font-weight: 600;
-    cursor: default;
-  }
-  .page-ingredient-disclosure .designated-list-cell span.badge-none::before { background: #bbb; }
-
-  /* Fallback for plain-text paragraphs that just say "No" */
-  .page-ingredient-disclosure .designated-list-cell p:not(:has(a)):not(:empty) {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 11.5px;
-    font-weight: 600;
-    border-radius: 99px;
-    padding: 5px 12px 5px 8px;
-    background: #f2f3f5;
-    color: #888;
-    border: 1px solid #dde1e9;
-  }
-  .page-ingredient-disclosure .designated-list-cell p:not(:has(a)):not(:empty)::before {
-    content: '';
-    display: block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #bbb;
-    flex-shrink: 0;
   }
 
   /* California (oehha.ca.gov, arb.ca.gov) — amber */
@@ -442,6 +477,7 @@ const pageClass = 'page-ingredient-disclosure';
     background: linear-gradient(135deg, #fff8ec 0%, #fef0d0 100%);
     color: #6b3d00;
     border: 1px solid #f5d48a;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
   }
   .page-ingredient-disclosure .designated-list-cell a[href*="oehha.ca.gov"]::before,
   .page-ingredient-disclosure .designated-list-cell a[href*="arb.ca.gov"]::before { background: #F0A321; }
@@ -451,6 +487,7 @@ const pageClass = 'page-ingredient-disclosure';
     background: linear-gradient(135deg, #fff4f5 0%, #fde8eb 100%);
     color: #8a0820;
     border: 1px solid #f0bdc6;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
   }
   .page-ingredient-disclosure .designated-list-cell a[href*="32008R1272"]::before { background: #BA0C2F; }
 
@@ -459,6 +496,7 @@ const pageClass = 'page-ingredient-disclosure';
     background: linear-gradient(135deg, #f8f2fd 0%, #ede0f8 100%);
     color: #4a1980;
     border: 1px solid #c9aeea;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
   }
   .page-ingredient-disclosure .designated-list-cell a[href*="32009R1223"]::before { background: #61279E; }
 
@@ -467,10 +505,11 @@ const pageClass = 'page-ingredient-disclosure';
     background: linear-gradient(135deg, #fef2fb 0%, #f8ddf4 100%);
     color: #870069;
     border: 1px solid #e8a8d8;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
   }
   .page-ingredient-disclosure .designated-list-cell a[href*="epa.gov"]::before { background: #B4008E; }
 
-  /* Generic fallback for other linked badges — blue */
+  /* Generic fallback for other linked badges — primary blue */
   .page-ingredient-disclosure .designated-list-cell a:not([href*="oehha.ca.gov"]):not([href*="arb.ca.gov"]):not([href*="32008R1272"]):not([href*="32009R1223"]):not([href*="epa.gov"]) {
     background: oklch(var(--p) / 0.08);
     color: oklch(var(--p));
