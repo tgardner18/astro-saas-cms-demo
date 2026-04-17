@@ -131,7 +131,7 @@ const pageClass = 'page-ingredient-disclosure';
                                     data-epi-edit={isCmsEdit ? 'MaterialNumbers' : undefined}
                                 >
                                     {materialNumbers.map((num) => (
-                                        <span class="id-chip border border-[#dde1e9] bg-[#f2f3f5] text-base-content/70 rounded-full font-mono text-[13px] px-3 py-1">{num}</span>
+                                        <span class="id-chip border border-[#dde1e9] bg-[#f2f3f5] text-primary font-bold rounded-full font-mono text-[13px] px-3 py-1">{num}</span>
                                     ))}
                                 </dd>
                             </div>
@@ -173,7 +173,7 @@ const pageClass = 'page-ingredient-disclosure';
                                             </td>
                                             <td class="id-td id-fn">{ing.Function}</td>
                                             <td class="id-td">
-                                                <div class="designated-list-cell" set:html={ing.OnDesignatedList?.html} />
+                                                <div class="designated-list-cell text-primary" set:html={ing.OnDesignatedList?.html} />
                                             </td>
                                         </tr>
                                     ))}
@@ -290,7 +290,7 @@ const pageClass = 'page-ingredient-disclosure';
   /* ── Shared primitives ── */
   .page-ingredient-disclosure .id-eyebrow {
     display: inline-block;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -413,12 +413,11 @@ const pageClass = 'page-ingredient-disclosure';
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    font-size: 11.5px;
+    font-size: 13.5px;
     font-weight: 600;
     border-radius: 99px;
     padding: 5px 12px 5px 8px;
     background: #f2f3f5;
-    color: #888888;
     border: 1px solid #dde1e9;
     cursor: default;
   }
@@ -437,7 +436,7 @@ const pageClass = 'page-ingredient-disclosure';
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    font-size: 11.5px;
+    font-size: 13.5px;
     font-weight: 700;
     border-radius: 99px;
     padding: 5px 12px 5px 8px;
