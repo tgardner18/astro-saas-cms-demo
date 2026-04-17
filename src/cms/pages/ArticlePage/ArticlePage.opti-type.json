@@ -2,14 +2,105 @@
 	"key": "ArticlePage",
 	"displayName": "Article",
 	"description": "Page for detailed articles with author, content, images, and SEO/admin settings.",
-	"baseType": "page",
+	"baseType": "_page",
+	"isContract": false,
 	"sortOrder": 0,
 	"mayContainTypes": [
 		"*"
 	],
 	"mediaFileExtensions": [],
 	"compositionBehaviors": [],
+	"contracts": [],
 	"properties": {
+		"PrimaryTopic": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Topic",
+			"description": "Select one primary topic",
+			"localized": false,
+			"required": false,
+			"group": "Taxonomy",
+			"sortOrder": 0,
+			"enum": [
+				{
+					"value": "Baking Soda",
+					"displayName": "Baking Soda"
+				},
+				{
+					"value": "Cat Litter",
+					"displayName": "Cat Litter"
+				},
+				{
+					"value": "Oral Care",
+					"displayName": "Oral Care"
+				},
+				{
+					"value": "Laundry",
+					"displayName": "Laundry"
+				},
+				{
+					"value": "Personal Care",
+					"displayName": "Personal Care"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Task": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "Task",
+			"description": "Select the tasks that this article relates to",
+			"localized": false,
+			"required": false,
+			"group": "Taxonomy",
+			"sortOrder": 0,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "string",
+				"enum": [
+					{
+						"value": "Cat Litter",
+						"displayName": "Cat Litter"
+					},
+					{
+						"value": "Cleaning",
+						"displayName": "Cleaning"
+					},
+					{
+						"value": "Deodorizing",
+						"displayName": "Deodorizing"
+					},
+					{
+						"value": "Health & Beauty",
+						"displayName": "Health & Beauty"
+					},
+					{
+						"value": "Kids’ Activities",
+						"displayName": "Kids’ Activities"
+					},
+					{
+						"value": "Pet Care",
+						"displayName": "Pet Care"
+					},
+					{
+						"value": "Seasonal",
+						"displayName": "Seasonal"
+					},
+					{
+						"value": "Allergy & Sensitivity",
+						"displayName": "Allergy & Sensitivity"
+					},
+					{
+						"value": "Whitening",
+						"displayName": "Whitening"
+					}
+				],
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
 		"PromoImage": {
 			"type": "contentReference",
 			"displayName": "Promo Image",
@@ -18,10 +109,21 @@
 			"required": false,
 			"group": "Information",
 			"sortOrder": 10,
-			"editorSettings": {},
 			"allowedTypes": [
-				"Image"
+				"_image"
 			],
+			"restrictedTypes": []
+		},
+		"PageAdminSettings": {
+			"type": "component",
+			"contentType": "PageAdminSettings",
+			"displayName": "Page Admin Settings",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "AdminSettings",
+			"sortOrder": 10,
+			"allowedTypes": [],
 			"restrictedTypes": []
 		},
 		"Heading": {
@@ -33,7 +135,8 @@
 			"group": "Information",
 			"sortOrder": 20,
 			"indexingType": "searchable",
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"SubHeading": {
 			"type": "string",
@@ -44,7 +147,8 @@
 			"group": "Information",
 			"sortOrder": 30,
 			"indexingType": "searchable",
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"SeoSettings": {
 			"type": "component",
@@ -55,18 +159,8 @@
 			"required": false,
 			"group": "SeoSettings",
 			"sortOrder": 40,
-			"editorSettings": {}
-		},
-		"PageAdminSettings": {
-			"type": "component",
-			"contentType": "PageAdminSettings",
-			"displayName": "Page Admin Settings",
-			"description": "",
-			"localized": false,
-			"required": false,
-			"group": "AdminSettings",
-			"sortOrder": 10,
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"Author": {
 			"type": "string",
@@ -78,7 +172,8 @@
 			"group": "Information",
 			"sortOrder": 40,
 			"indexingType": "searchable",
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"AuthorEmail": {
 			"type": "string",
@@ -89,11 +184,11 @@
 			"group": "Information",
 			"sortOrder": 50,
 			"indexingType": "searchable",
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"Body": {
-			"type": "string",
-			"format": "html",
+			"type": "richText",
 			"displayName": "Body",
 			"description": "",
 			"localized": true,
@@ -101,7 +196,8 @@
 			"group": "Information",
 			"sortOrder": 60,
 			"indexingType": "searchable",
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		}
 	}
 }

@@ -4,6 +4,8 @@ query getArticles(
     $site: String
     $status: String! = "Published"
     $rootUrl: String
+    $topic: String
+    $tasks: [String!]
 ) {
     ArticlePage(
         locale: $loc
@@ -14,6 +16,8 @@ query getArticles(
                 status: { eq: $status }
                 url: { base: { eq: $site }, default: { startsWith: $rootUrl } }
             }
+            PrimaryTopic: { eq: $topic }
+            Task: { in: $tasks }
         }
     ) {
         items {
