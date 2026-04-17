@@ -148,8 +148,7 @@
 	<!-- Topic Dropdown -->
 	<div class="relative z-20">
 		<button
-			class="btn btn-outline gap-2"
-			class:btn-primary={selectedTopic !== null}
+			class="btn bg-secondary text-white font-bold gap-2 min-w-40"
 			onclick={() => {
 				topicOpen = !topicOpen;
 				taskOpen = false;
@@ -212,8 +211,7 @@
 	<!-- Task Dropdown -->
 	<div class="relative z-20">
 		<button
-			class="btn btn-outline gap-2"
-			class:btn-primary={selectedTasks.length > 0}
+			class="btn bg-secondary text-white font-bold gap-2 min-w-40"
 			onclick={() => {
 				taskOpen = !taskOpen;
 				topicOpen = false;
