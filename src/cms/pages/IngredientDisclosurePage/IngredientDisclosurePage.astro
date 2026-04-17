@@ -94,7 +94,7 @@ const pageClass = 'page-ingredient-disclosure';
 
                 {/* Document header */}
                 <header class="mb-9 id-reveal">
-                    <span class="id-eyebrow">Church &amp; Dwight · Product Ingredient Disclosure</span>
+                    <span class="id-eyebrow border-l-[3px] border-accent pl-3">Church &amp; Dwight · Product Ingredient Disclosure</span>
                     <h1
                         class="text-[30px] font-extrabold text-primary leading-tight"
                         data-epi-edit={isCmsEdit ? 'ProductName' : undefined}
@@ -131,7 +131,7 @@ const pageClass = 'page-ingredient-disclosure';
                                     data-epi-edit={isCmsEdit ? 'MaterialNumbers' : undefined}
                                 >
                                     {materialNumbers.map((num) => (
-                                        <span class="id-chip">{num}</span>
+                                        <span class="id-chip border border-[#dde1e9] bg-[#f2f3f5] text-base-content/70 rounded-full font-mono text-[13px] px-3 py-1">{num}</span>
                                     ))}
                                 </dd>
                             </div>
@@ -237,7 +237,7 @@ const pageClass = 'page-ingredient-disclosure';
                                 href={post.SdsLink.url.default}
                                 target={post.SdsLink.target ?? '_blank'}
                                 rel="noopener noreferrer"
-                                class="id-footer-link"
+                                class="id-footer-link border-b-2 border-accent pb-px"
                                 data-epi-edit={isCmsEdit ? 'SdsLink' : undefined}
                             >
                                 {post.SdsLink.text ?? 'View SDS Document'} ↗
@@ -295,8 +295,6 @@ const pageClass = 'page-ingredient-disclosure';
     letter-spacing: .12em;
     text-transform: uppercase;
     color: oklch(var(--p));
-    border-left: 3px solid oklch(var(--a));
-    padding-left: 12px;
     margin-bottom: 14px;
   }
 
@@ -310,17 +308,9 @@ const pageClass = 'page-ingredient-disclosure';
     color: oklch(var(--bc) / 0.5);
   }
 
-  /* Material number chips */
+  /* Material number chips — Tailwind classes handle color/border/shape */
   .page-ingredient-disclosure .id-chip {
     display: inline-block;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: 'Courier New', monospace;
-    color: oklch(var(--p));
-    background: oklch(var(--p) / 0.08);
-    border: 1px solid oklch(var(--p) / 0.25);
-    border-radius: 5px;
-    padding: 5px 12px;
   }
 
   /* Table header row */
@@ -395,8 +385,6 @@ const pageClass = 'page-ingredient-disclosure';
     font-size: 15px;
     font-weight: 700;
     color: oklch(var(--p));
-    border-bottom: 2px solid oklch(var(--a));
-    padding-bottom: 1px;
     text-decoration: none;
     transition: color .15s;
   }
@@ -463,6 +451,13 @@ const pageClass = 'page-ingredient-disclosure';
     width: 7px;
     height: 7px;
     border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .page-ingredient-disclosure .designated-list-cell a::after {
+    content: '↗';
+    font-size: 0.65em;
+    line-height: 1;
+    opacity: .7;
     flex-shrink: 0;
   }
   .page-ingredient-disclosure .designated-list-cell a:hover {
