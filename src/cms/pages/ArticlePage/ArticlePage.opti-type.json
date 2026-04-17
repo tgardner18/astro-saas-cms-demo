@@ -21,6 +21,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 0,
+			"indexingType": "searchable",
 			"enum": [
 				{
 					"value": "Baking Soda",
@@ -55,6 +56,7 @@
 			"required": false,
 			"group": "Taxonomy",
 			"sortOrder": 0,
+			"indexingType": "searchable",
 			"allowedTypes": [],
 			"restrictedTypes": [],
 			"items": {
