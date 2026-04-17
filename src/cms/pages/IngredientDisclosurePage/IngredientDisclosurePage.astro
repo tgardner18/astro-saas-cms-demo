@@ -148,7 +148,7 @@ const pageClass = 'page-ingredient-disclosure';
                             </span>
                         </div>
                         <div class="overflow-x-auto">
-                            <table class="w-full border-collapse">
+                            <table class="id-table w-full border-collapse">
                                 <thead>
                                     <tr class="id-thead-row">
                                         <th class="id-th" style="width:34%">Ingredient</th>
@@ -165,14 +165,14 @@ const pageClass = 'page-ingredient-disclosure';
                                             class="border-b border-base-200 hover:bg-base-100 transition-colors"
                                             data-epi-block-id={isCmsEdit && ing._metadata?.key || undefined}
                                         >
-                                            <td class="id-td">
+                                            <td class="id-td" data-label="Ingredient">
                                                 <span class="id-ingredient-name">{ing.IngredientName}</span>
                                             </td>
-                                            <td class="id-td id-cas">
+                                            <td class="id-td id-cas" data-label="CAS #">
                                                 {ing.CasNumber ?? <span class="italic text-base-content/40">N/A</span>}
                                             </td>
-                                            <td class="id-td id-fn">{ing.Function}</td>
-                                            <td class="id-td">
+                                            <td class="id-td id-fn" data-label="Function">{ing.Function}</td>
+                                            <td class="id-td" data-label="Designated List">
                                                 <div class="designated-list-cell text-primary" set:html={ing.OnDesignatedList?.html} />
                                             </td>
                                         </tr>
@@ -195,7 +195,7 @@ const pageClass = 'page-ingredient-disclosure';
                             </span>
                         </div>
                         <div class="overflow-x-auto">
-                            <table class="w-full border-collapse">
+                            <table class="id-table w-full border-collapse">
                                 <thead>
                                     <tr class="id-thead-row">
                                         <th class="id-th" style="width:44%">Component</th>
@@ -211,13 +211,13 @@ const pageClass = 'page-ingredient-disclosure';
                                             class="border-b border-base-200 hover:bg-base-100 transition-colors"
                                             data-epi-block-id={isCmsEdit && frag._metadata?.key || undefined}
                                         >
-                                            <td class="id-td">
+                                            <td class="id-td" data-label="Component">
                                                 <span class="id-ingredient-name">{frag.IngredientName}</span>
                                             </td>
-                                            <td class="id-td id-cas">
+                                            <td class="id-td id-cas" data-label="CAS #">
                                                 {frag.CasNumber ?? <span class="italic text-base-content/40">N/A</span>}
                                             </td>
-                                            <td class="id-td">
+                                            <td class="id-td" data-label="Designated List">
                                                 <div class="designated-list-cell" set:html={frag.OnDesignatedList?.html} />
                                             </td>
                                         </tr>
@@ -511,5 +511,36 @@ const pageClass = 'page-ingredient-disclosure';
   }
   .page-ingredient-disclosure .designated-list-cell a:not([href*="oehha.ca.gov"]):not([href*="arb.ca.gov"]):not([href*="32008R1272"]):not([href*="32009R1223"]):not([href*="epa.gov"])::before {
     background: oklch(var(--p));
+  }
+
+  /* ── Mobile stacked table layout ── */
+  @media (max-width: 639px) {
+    .page-ingredient-disclosure .id-table thead {
+      display: none;
+    }
+    .page-ingredient-disclosure .id-table tbody tr {
+      display: block;
+      padding: 12px 18px;
+    }
+    .page-ingredient-disclosure .id-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .page-ingredient-disclosure .id-table .id-td {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 14px;
+    }
+    .page-ingredient-disclosure .id-table .id-td::before {
+      content: attr(data-label);
+      flex-shrink: 0;
+      width: 110px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: oklch(var(--bc) / 0.45);
+    }
   }
 </style>
