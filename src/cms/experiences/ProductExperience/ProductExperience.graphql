@@ -1,0 +1,7 @@
+fragment ProductExperienceData on ProductExperience {
+    Product {
+        item {
+            ...ProductCD
+        }
+    }
+}

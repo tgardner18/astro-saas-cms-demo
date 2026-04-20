@@ -1,0 +1,85 @@
+---
+import type { ProductExperience } from '../../../../__generated/sdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import Layout from '../../../layouts/Layout.astro';
+import Section from '../../compositions/Section/Section.astro';
+
+export interface Props {
+    experience: ProductExperience;
+    contentPayload: ContentPayload;
+}
+
+const { experience, contentPayload } = Astro.props;
+const product = experience.Product?.item;
+
+const metaTitle =
+    product?.product_name ||
+    experience._metadata?.displayName ||
+    '';
+
+const defaultUrl = experience._metadata?.url?.default || '';
+const hierarchicalUrl =
+    experience._metadata?.url?.type === 'SIMPLE'
+        ? experience._metadata?.url?.hierarchical
+        : '';
+---
+
+<Layout
+    title={metaTitle}
+    description=""
+    indexing={false}
+    graphtype="website"
+    contentPayload={contentPayload}
+    defaultUrl={defaultUrl}
+    hierarchicalUrl={hierarchicalUrl ?? ''}
+    extPreviewEnabled={false}
+>
+    {product && (
+        <div class="container mx-auto px-4 py-8">
+            {(product.category || product.subcategory) && (
+                <nav class="text-sm mb-6 flex items-center gap-2">
+                    {product.category && <span>{product.category}</span>}
+                    {product.category && product.subcategory && <span>&gt;</span>}
+                    {product.subcategory && <span>{product.subcategory}</span>}
+                </nav>
+            )}
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    {product.product_image_url && (
+                        <img
+                            src={product.product_image_url}
+                            alt={product.product_name || ''}
+                            class="w-full object-contain"
+                        />
+                    )}
+                </div>
+
+                <div>
+                    {product.brand && (
+                        <p class="text-orange-500 font-semibold text-lg mb-2">{product.brand}</p>
+                    )}
+                    {product.product_name && (
+                        <h1 class="text-4xl font-bold uppercase mb-4">{product.product_name}</h1>
+                    )}
+                    {product.description && (
+                        <div class="mb-6" set:html={product.description} />
+                    )}
+                    <div class="m-4 flex gap-4 flex-wrap component-cta">
+                        <a class="btn my-1 btn-primary btn-standard w-[12rem] btn-lg" href="https://www.optimizely.com/" target="_blank" rel="noopener noreferrer">
+                            Where to Buy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )}
+
+    <div class="vb:outline relative w-full flex-1 page-experience">
+        {
+            experience?.composition?.grids?.map((grid: any) => (
+                <Section contentPayload={contentPayload} grid={grid} />
+            ))
+        }
+    </div>
+</Layout>

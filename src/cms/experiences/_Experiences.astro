@@ -1,9 +1,10 @@
 ---
-import type { BlankExperience, Locales } from '../../../__generated/sdk';
+import type { BlankExperience, Locales, ProductExperience } from '../../../__generated/sdk';
 import { getOptimizelySdk } from '../../graphql/getSdk';
 import type { ContentPayload } from '../../graphql/shared/ContentPayload';
 import Layout from '../../layouts/Layout.astro';
 import Section from '../compositions/Section/Section.astro';
+import ProductExperiencePage from './ProductExperience/ProductExperience.astro';
 const previewPayload = Astro.props.data as ContentPayload;
 
 const optiResponse = await getOptimizelySdk(previewPayload).getExperience({
@@ -44,23 +45,31 @@ const hierarchicalUrl =
         : '';
         
 const pageClass = 'page-experience';
+const isProductExperience = experience?._metadata?.types?.includes('ProductExperience');
 ---
 
-<Layout
-    title={metaTitle}
-    description={metaDescription}
-    indexing={metaIndexing}
-    graphtype={metaGraphType}
-    contentPayload={previewPayload}
-    defaultUrl={defaultUrl}
-    hierarchicalUrl={hierarchicalUrl ?? ''}
-    extPreviewEnabled={extPreviewEnabled}
->
-    <div class={`vb:outline relative w-full flex-1 ${pageClass}`}>
-        {
-            experience?.composition?.grids?.map((grid: any) => (
-                <Section contentPayload={previewPayload} grid={grid} />
-            ))
-        }
-    </div>
-</Layout>
+{isProductExperience ? (
+    <ProductExperiencePage
+        experience={experience as ProductExperience}
+        contentPayload={previewPayload}
+    />
+) : (
+    <Layout
+        title={metaTitle}
+        description={metaDescription}
+        indexing={metaIndexing}
+        graphtype={metaGraphType}
+        contentPayload={previewPayload}
+        defaultUrl={defaultUrl}
+        hierarchicalUrl={hierarchicalUrl ?? ''}
+        extPreviewEnabled={extPreviewEnabled}
+    >
+        <div class={`vb:outline relative w-full flex-1 ${pageClass}`}>
+            {
+                experience?.composition?.grids?.map((grid: any) => (
+                    <Section contentPayload={previewPayload} grid={grid} />
+                ))
+            }
+        </div>
+    </Layout>
+)}
