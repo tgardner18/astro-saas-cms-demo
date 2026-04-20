@@ -11,11 +11,17 @@ export interface Props {
 
 const { experience, contentPayload } = Astro.props;
 const product = experience.Product?.item;
+const seoSettings = (experience as any).ProductExperienceSeoSettings;
 
 const metaTitle =
+    seoSettings?.MetaTitle ||
     product?.product_name ||
     experience._metadata?.displayName ||
     '';
+const metaDescription = seoSettings?.MetaDescription || '';
+const metaIndexing = seoSettings?.Indexing || false;
+const metaGraphType = seoSettings?.GraphType || 'website';
+const extPreviewEnabled = (experience as any).PageAdminSettings?.EnableExternalPreview ?? false;
 
 const defaultUrl = experience._metadata?.url?.default || '';
 const hierarchicalUrl =
@@ -26,13 +32,13 @@ const hierarchicalUrl =
 
 <Layout
     title={metaTitle}
-    description=""
-    indexing={false}
-    graphtype="website"
+    description={metaDescription}
+    indexing={metaIndexing}
+    graphtype={metaGraphType}
     contentPayload={contentPayload}
     defaultUrl={defaultUrl}
     hierarchicalUrl={hierarchicalUrl ?? ''}
-    extPreviewEnabled={false}
+    extPreviewEnabled={extPreviewEnabled}
 >
     {product && (
         <div class="container mx-auto px-4 py-8">

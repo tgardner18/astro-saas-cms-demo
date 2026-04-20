@@ -23,6 +23,28 @@
 			"sortOrder": 10,
 			"allowedTypes": [],
 			"restrictedTypes": []
+		},
+		"ProductExperienceSeoSettings": {
+			"type": "component",
+			"contentType": "PageSeoSettings",
+			"displayName": "SEO Settings",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "SeoSettings",
+			"sortOrder": 20,
+			"editorSettings": {}
+		},
+		"PageAdminSettings": {
+			"type": "component",
+			"contentType": "PageAdminSettings",
+			"displayName": "Page Admin Settings",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "AdminSettings",
+			"sortOrder": 30,
+			"editorSettings": {}
 		}
 	}
 }
