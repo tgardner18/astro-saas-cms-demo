@@ -1,13 +1,4 @@
 fragment ProductExperienceData on ProductExperience {
-    ProductExperienceSeoSettings {
-        MetaTitle
-        MetaDescription
-        GraphType
-        Indexing
-    }
-    PageAdminSettings {
-        ...PageAdminSettingsProperty
-    }
     Product {
         item {
             ...ProductCD

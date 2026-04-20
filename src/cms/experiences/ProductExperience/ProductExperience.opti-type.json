@@ -24,7 +24,7 @@
 			"allowedTypes": [],
 			"restrictedTypes": []
 		},
-		"ProductExperienceSeoSettings": {
+		"SeoSettings": {
 			"type": "component",
 			"contentType": "PageSeoSettings",
 			"displayName": "SEO Settings",
@@ -32,19 +32,25 @@
 			"localized": false,
 			"required": false,
 			"group": "SeoSettings",
-			"sortOrder": 20,
-			"editorSettings": {}
+			"sortOrder": 100,
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
-		"PageAdminSettings": {
-			"type": "component",
-			"contentType": "PageAdminSettings",
-			"displayName": "Page Admin Settings",
+		"Schema": {
+			"type": "array",
+			"displayName": "Schema Markup",
 			"description": "",
 			"localized": false,
 			"required": false,
-			"group": "AdminSettings",
-			"sortOrder": 30,
-			"editorSettings": {}
+			"group": "SeoSettings",
+			"sortOrder": 110,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "richText",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
 		}
 	}
 }
