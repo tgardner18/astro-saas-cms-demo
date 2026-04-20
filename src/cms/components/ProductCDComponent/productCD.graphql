@@ -1,0 +1,14 @@
+fragment ProductCD on ProductCD {
+    product_id
+    product_name
+    brand
+    sku
+    category
+    subcategory
+    slug
+    description
+    created_at
+    last_updated
+    is_active
+    product_image_url
+}
