@@ -1,0 +1,308 @@
+{
+	"key": "Embed",
+	"displayName": "Embed / Iframe Component",
+	"description": "A comprehensive embed component that handles iframes, script snippets, and OEmbed with privacy consent support.",
+	"baseType": "_component",
+	"isContract": false,
+	"sortOrder": 0,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [
+		"elementEnabled",
+		"sectionEnabled"
+	],
+	"contracts": [],
+	"properties": {
+		"AllowAttributes": {
+			"type": "string",
+			"displayName": "Allow Attributes",
+			"description": "Values for the iframe 'allow' attribute (e.g., autoplay; fullscreen).",
+			"localized": false,
+			"required": false,
+			"group": "Advanced",
+			"sortOrder": 10,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"RequiresConsent": {
+			"type": "boolean",
+			"displayName": "Requires Consent?",
+			"description": "If true, the embed will be blocked until the visitor grants cookie consent.",
+			"localized": false,
+			"required": false,
+			"group": "Configuration",
+			"sortOrder": 10,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"AspectRatio": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Aspect Ratio",
+			"description": "Choose a standard aspect ratio to ensure consistent display.",
+			"localized": false,
+			"required": false,
+			"group": "Layout",
+			"sortOrder": 10,
+			"enum": [
+				{
+					"value": "16/9",
+					"displayName": "16/9"
+				},
+				{
+					"value": "4/3",
+					"displayName": "4/3"
+				},
+				{
+					"value": "1/1",
+					"displayName": "1/1"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"DisplayName": {
+			"type": "string",
+			"displayName": "Title / Display Name",
+			"description": "Internal name for the component. Also used as the accessible title.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"EmbedMode": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Embed Mode",
+			"description": "Choose between source URL or a manual HTML snippet.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 20,
+			"enum": [
+				{
+					"value": "source_url",
+					"displayName": "Source URL (Standard IFrame)"
+				},
+				{
+					"value": "html_snippet",
+					"displayName": "Manual HTML Snippet (Complex Embeds)"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"SandboxAttributes": {
+			"type": "string",
+			"displayName": "Sandbox Attributes",
+			"description": "Security restrictions for the iframe (e.g., allow-scripts allow-forms).",
+			"localized": false,
+			"required": false,
+			"group": "Advanced",
+			"sortOrder": 20,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"ConsentCategory": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Consent Category",
+			"description": "The privacy category for this embed.",
+			"localized": false,
+			"required": false,
+			"group": "Configuration",
+			"sortOrder": 20,
+			"enum": [
+				{
+					"value": "marketing",
+					"displayName": "Marketing (e.g. YouTube)"
+				},
+				{
+					"value": "analytics",
+					"displayName": "Analytics (e.g. Hotjar)"
+				},
+				{
+					"value": "functional",
+					"displayName": "Functional (e.g. HubSpot)"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Width": {
+			"type": "string",
+			"displayName": "Width",
+			"description": "CSS width (e.g. 100%, 800px).",
+			"localized": false,
+			"required": false,
+			"group": "Layout",
+			"sortOrder": 20,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Placeholder": {
+			"type": "contentReference",
+			"displayName": "Placeholder Image Burn-in",
+			"description": "Image to show while the embed is loading or blocked by privacy settings.",
+			"localized": false,
+			"required": false,
+			"group": "Configuration",
+			"sortOrder": 30,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"SourceUrl": {
+			"type": "url",
+			"displayName": "Source URL (IFrame)",
+			"description": "The direct URL for the iframe source. Used when Mode is 'Source URL'.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 30,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Loading": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Loading Strategy",
+			"description": "Choose when the iframe should start loading relative to the page scroll.",
+			"localized": false,
+			"required": false,
+			"group": "Advanced",
+			"sortOrder": 30,
+			"enum": [
+				{
+					"value": "eager",
+					"displayName": "Eager"
+				},
+				{
+					"value": "lazy",
+					"displayName": "Lazy"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"MaxWidth": {
+			"type": "string",
+			"displayName": "Max Width",
+			"description": "Upper limit for the container width (e.g. 1200px).",
+			"localized": false,
+			"required": false,
+			"group": "Layout",
+			"sortOrder": 30,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Alignment": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Alignment",
+			"description": "Choose the horizontal alignment of the embed.",
+			"localized": false,
+			"required": false,
+			"group": "Layout",
+			"sortOrder": 40,
+			"enum": [
+				{
+					"value": "left",
+					"displayName": "Left"
+				},
+				{
+					"value": "center",
+					"displayName": "Center"
+				},
+				{
+					"value": "right",
+					"displayName": "Right"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Scrolling": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Scrolling",
+			"description": "Control whether the iframe should have internal scrollbars.",
+			"localized": false,
+			"required": false,
+			"group": "Advanced",
+			"sortOrder": 40,
+			"enum": [
+				{
+					"value": "yes",
+					"displayName": "Yes"
+				},
+				{
+					"value": "no",
+					"displayName": "No"
+				},
+				{
+					"value": "auto",
+					"displayName": "Auto"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"HtmlSnippet": {
+			"type": "string",
+			"displayName": "Manual HTML Snippet",
+			"description": "Paste <script> or complex HTML snippets here. Used when Mode is 'Manual HTML'.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 40,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"CustomCssClass": {
+			"type": "string",
+			"displayName": "Custom CSS Class",
+			"description": "Optional custom CSS class for styling hooks.",
+			"localized": false,
+			"required": false,
+			"group": "Layout",
+			"sortOrder": 50,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Caption": {
+			"type": "string",
+			"displayName": "Caption",
+			"description": "Optional visible caption below the embed.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 50,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"AllowFullscreen": {
+			"type": "boolean",
+			"displayName": "Allow Fullscreen",
+			"description": "Whether to allow the iframe to go into fullscreen mode.",
+			"localized": false,
+			"required": false,
+			"group": "Advanced",
+			"sortOrder": 50,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"FallbackMessage": {
+			"type": "string",
+			"displayName": "Fallback Message",
+			"description": "Text shown if the embed is blocked or fails to load.",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 60,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		}
+	}
+}

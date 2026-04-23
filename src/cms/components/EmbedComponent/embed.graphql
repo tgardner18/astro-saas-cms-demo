@@ -1,0 +1,23 @@
+fragment Embed on Embed {
+    DisplayName
+    EmbedMode
+    SourceUrl
+    HtmlSnippet
+    AspectRatio
+    Width
+    MaxWidth
+    Alignment
+    Loading
+    Scrolling
+    AllowAttributes
+    SandboxAttributes
+    AllowFullscreen
+    RequiresConsent
+    ConsentCategory
+    Caption
+    FallbackMessage
+    CustomCssClass
+    Placeholder {
+        ...ContentUrl
+    }
+}

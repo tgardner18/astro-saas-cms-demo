@@ -1,0 +1,211 @@
+---
+import type { DisplaySettingsFragment, EmbedFragment } from '../../../../__generated/sdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import { isEditContext } from '../../shared/utils.ts';
+
+const isCmsEdit = isEditContext(Astro.url);
+
+export interface Props {
+    key: string;
+    data: EmbedFragment;
+    displaySettings: DisplaySettingsFragment[];
+    displayTemplateKey: string;
+    contentPayload: ContentPayload;
+}
+
+const { key, data } = Astro.props as Props;
+
+const embedMode        = data?.EmbedMode ?? 'source_url';
+const requiresConsent  = data?.RequiresConsent ?? false;
+const consentCategory  = data?.ConsentCategory ?? 'functional';
+const displayName      = data?.DisplayName ?? 'Embedded content';
+const sourceUrl        = data?.SourceUrl ?? '';
+const htmlSnippet      = data?.HtmlSnippet ?? '';
+const aspectRatio      = data?.AspectRatio;
+const width            = data?.Width;
+const maxWidth         = data?.MaxWidth;
+const alignment        = data?.Alignment ?? 'left';
+const loading          = (data?.Loading as 'eager' | 'lazy') ?? 'lazy';
+const scrolling        = data?.Scrolling;
+const allowAttributes  = data?.AllowAttributes ?? '';
+const sandboxAttributes = data?.SandboxAttributes;
+const allowFullscreen  = data?.AllowFullscreen !== false;
+const caption          = data?.Caption;
+const fallbackMessage  = data?.FallbackMessage;
+const customCssClass   = data?.CustomCssClass ?? '';
+const placeholderUrl   = (data?.Placeholder as any)?.item?.Url ?? data?.Placeholder?.url?.default ?? null;
+
+const alignMap: Record<string, string> = {
+    left:   'mr-auto',
+    center: 'mx-auto',
+    right:  'ml-auto',
+};
+const containerAlign = alignMap[alignment] ?? 'mr-auto';
+
+const containerStyle = [
+    `width: ${width ?? '100%'}`,
+    maxWidth ? `max-width: ${maxWidth}` : null,
+].filter(Boolean).join('; ');
+
+// aspect-ratio CSS value maps directly from the enum (e.g. "16/9" → "aspect-ratio: 16/9")
+const aspectStyle      = aspectRatio ? `aspect-ratio: ${aspectRatio};` : '';
+// When aspect-ratio is set the iframe fills the container; otherwise use a sensible floor
+const iframeHeightStyle = aspectRatio ? 'height: 100%;' : 'min-height: 300px;';
+
+const componentClass = 'component-embed';
+---
+
+<figure
+    class:list={['w-full', componentClass, customCssClass || '']}
+    data-epi-block-id={isCmsEdit ? key : undefined}
+>
+    <div class={containerAlign} style={containerStyle}>
+
+        {requiresConsent ? (
+            <div
+                x-data="embedConsent"
+                x-init="init()"
+                class="relative"
+                data-category={consentCategory}
+                data-mode={embedMode}
+                data-src={sourceUrl}
+                data-snippet={htmlSnippet}
+            >
+                {/* ── Consent overlay (visible until accepted) ── */}
+                <div x-show="!accepted" class="relative overflow-hidden rounded-lg">
+                    {placeholderUrl ? (
+                        <img
+                            src={placeholderUrl}
+                            alt={displayName}
+                            class="w-full object-cover"
+                            style={aspectStyle || 'min-height: 220px;'}
+                        />
+                    ) : (
+                        <div
+                            class="w-full bg-base-200"
+                            style={aspectStyle || 'min-height: 220px;'}
+                        />
+                    )}
+                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/55 p-6 text-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        <p class="max-w-xs text-sm font-medium">
+                            This {consentCategory} embed is blocked until you accept {consentCategory} cookies.
+                        </p>
+                        <button type="button" @click="accept()" class="btn btn-primary btn-sm">
+                            Accept &amp; Load
+                        </button>
+                        {fallbackMessage && (
+                            <p class="mt-1 text-xs opacity-70">{fallbackMessage}</p>
+                        )}
+                    </div>
+                </div>
+
+                {/* ── Source URL iframe — src bound to empty string until accepted ── */}
+                {embedMode === 'source_url' && (
+                    <div x-show="accepted" x-cloak style={`${aspectStyle} width: 100%;`}>
+                        <iframe
+                            x-bind:src="accepted ? embedSrc : ''"
+                            class="w-full border-0"
+                            style={iframeHeightStyle}
+                            title={displayName}
+                            loading={loading}
+                            allow={allowAttributes || undefined}
+                            sandbox={sandboxAttributes || undefined}
+                            allowfullscreen={allowFullscreen}
+                            scrolling={scrolling || undefined}
+                        />
+                    </div>
+                )}
+
+                {/* ── HTML snippet container — innerHTML injected by Alpine after accept ── */}
+                {embedMode === 'html_snippet' && (
+                    <div x-show="accepted" x-cloak x-ref="snippetContainer" />
+                )}
+            </div>
+
+        ) : embedMode === 'source_url' ? (
+
+            <div style={`${aspectStyle} width: 100%;`}>
+                <iframe
+                    src={sourceUrl}
+                    class="w-full border-0"
+                    style={iframeHeightStyle}
+                    title={displayName}
+                    loading={loading}
+                    allow={allowAttributes || undefined}
+                    sandbox={sandboxAttributes || undefined}
+                    allowfullscreen={allowFullscreen}
+                    scrolling={scrolling || undefined}
+                />
+            </div>
+
+        ) : (
+
+            {/* html_snippet without consent — set:html renders scripts into the SSR output
+                so they execute on page load the same as any inline script. */}
+            <div set:html={htmlSnippet} />
+
+        )}
+
+    </div>
+
+    {caption && (
+        <figcaption class="mt-2 text-center text-sm text-base-content/60">{caption}</figcaption>
+    )}
+</figure>
+
+{/* x-cloak hides Alpine-managed elements before Alpine initialises to prevent FOUC */}
+<style is:global>
+    [x-cloak] { display: none !important; }
+</style>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        (window as any).Alpine.data('embedConsent', () => ({
+            accepted: false,
+            embedSrc: '' as string,
+
+            init() {
+                const el = this.$el as HTMLElement;
+                const category = el.dataset.category ?? 'functional';
+                this.embedSrc = el.dataset.src ?? '';
+                this.accepted = localStorage.getItem(`embed_consent_${category}`) === 'true';
+                // If already consented and this is a snippet embed, inject immediately
+                if (this.accepted && el.dataset.mode === 'html_snippet') {
+                    this.$nextTick(() => (this as any)._inject());
+                }
+            },
+
+            accept() {
+                const el = this.$el as HTMLElement;
+                const category = el.dataset.category ?? 'functional';
+                localStorage.setItem(`embed_consent_${category}`, 'true');
+                this.accepted = true;
+                if (el.dataset.mode === 'html_snippet') {
+                    this.$nextTick(() => (this as any)._inject());
+                }
+            },
+
+            // Inject stored HTML snippet and re-execute any <script> tags so
+            // third-party embeds (Twitter, Spotify, Typeform, etc.) initialise correctly.
+            // Setting innerHTML alone does not execute scripts — we must recreate them.
+            _inject() {
+                const container = (this as any).$refs.snippetContainer as HTMLElement | undefined;
+                if (!container || container.dataset.injected) return;
+                const html = ((this as any).$el as HTMLElement).dataset.snippet ?? '';
+                container.innerHTML = html;
+                container.querySelectorAll('script').forEach((oldScript) => {
+                    const newScript = document.createElement('script');
+                    [...oldScript.attributes].forEach((attr) =>
+                        newScript.setAttribute(attr.name, attr.value)
+                    );
+                    newScript.textContent = oldScript.textContent;
+                    oldScript.replaceWith(newScript);
+                });
+                container.dataset.injected = 'true';
+            },
+        }));
+    });
+</script>
