@@ -19,7 +19,7 @@ const embedMode        = data?.EmbedMode ?? 'source_url';
 const requiresConsent  = data?.RequiresConsent ?? false;
 const consentCategory  = data?.ConsentCategory ?? 'functional';
 const displayName      = data?.DisplayName ?? 'Embedded content';
-const sourceUrl        = data?.SourceUrl ?? '';
+const sourceUrl        = data?.SourceUrl?.default ?? '';
 const htmlSnippet      = data?.HtmlSnippet ?? '';
 const aspectRatio      = data?.AspectRatio;
 const width            = data?.Width;
@@ -33,7 +33,7 @@ const allowFullscreen  = data?.AllowFullscreen !== false;
 const caption          = data?.Caption;
 const fallbackMessage  = data?.FallbackMessage;
 const customCssClass   = data?.CustomCssClass ?? '';
-const placeholderUrl   = (data?.Placeholder as any)?.item?.Url ?? data?.Placeholder?.url?.default ?? null;
+const placeholderUrl   = (data?.Placeholder as string | null) ?? null;
 
 const alignMap: Record<string, string> = {
     left:   'mr-auto',

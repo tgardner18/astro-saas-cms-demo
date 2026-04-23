@@ -1,7 +1,10 @@
 fragment Embed on Embed {
     DisplayName
     EmbedMode
-    SourceUrl
+    SourceUrl {
+        default
+        hierarchical
+    }
     HtmlSnippet
     AspectRatio
     Width
@@ -17,7 +20,5 @@ fragment Embed on Embed {
     Caption
     FallbackMessage
     CustomCssClass
-    Placeholder {
-        ...ContentUrl
-    }
+    Placeholder
 }
