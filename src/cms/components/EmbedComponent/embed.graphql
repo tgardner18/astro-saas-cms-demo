@@ -20,5 +20,7 @@ fragment Embed on Embed {
     Caption
     FallbackMessage
     CustomCssClass
-    Placeholder
+    embedPlaceholder: Placeholder {
+        ...ContentUrl
+    }
 }

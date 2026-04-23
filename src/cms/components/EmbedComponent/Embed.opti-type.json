@@ -144,6 +144,7 @@
 		},
 		"Placeholder": {
 			"type": "contentReference",
+			"contentType": "Image",
 			"displayName": "Placeholder Image Burn-in",
 			"description": "Image to show while the embed is loading or blocked by privacy settings.",
 			"localized": false,

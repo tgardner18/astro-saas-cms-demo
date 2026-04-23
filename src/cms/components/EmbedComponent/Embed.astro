@@ -33,7 +33,7 @@ const allowFullscreen  = data?.AllowFullscreen !== false;
 const caption          = data?.Caption;
 const fallbackMessage  = data?.FallbackMessage;
 const customCssClass   = data?.CustomCssClass ?? '';
-const placeholderUrl   = (data?.Placeholder as string | null) ?? null;
+const placeholderUrl   = data?.embedPlaceholder?.url?.default ?? null;
 
 const alignMap: Record<string, string> = {
     left:   'mr-auto',
@@ -142,11 +142,7 @@ const componentClass = 'component-embed';
             </div>
 
         ) : (
-
-            {/* html_snippet without consent — set:html renders scripts into the SSR output
-                so they execute on page load the same as any inline script. */}
             <div set:html={htmlSnippet} />
-
         )}
 
     </div>
@@ -168,23 +164,22 @@ const componentClass = 'component-embed';
             embedSrc: '' as string,
 
             init() {
-                const el = this.$el as HTMLElement;
+                const el = (this as any).$el as HTMLElement;
                 const category = el.dataset.category ?? 'functional';
                 this.embedSrc = el.dataset.src ?? '';
                 this.accepted = localStorage.getItem(`embed_consent_${category}`) === 'true';
-                // If already consented and this is a snippet embed, inject immediately
                 if (this.accepted && el.dataset.mode === 'html_snippet') {
-                    this.$nextTick(() => (this as any)._inject());
+                    (this as any).$nextTick(() => (this as any)._inject());
                 }
             },
 
             accept() {
-                const el = this.$el as HTMLElement;
+                const el = (this as any).$el as HTMLElement;
                 const category = el.dataset.category ?? 'functional';
                 localStorage.setItem(`embed_consent_${category}`, 'true');
                 this.accepted = true;
                 if (el.dataset.mode === 'html_snippet') {
-                    this.$nextTick(() => (this as any)._inject());
+                    (this as any).$nextTick(() => (this as any)._inject());
                 }
             },
 
