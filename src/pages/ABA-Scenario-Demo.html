@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizely Demo Flow: ABA Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #001f3f 0%, #0074d9 100%);
+        }
+
+        .step-card {
+            border-left: 4px solid #0074d9;
+        }
+
+        .tip-badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .reuse-tag {
+            background-color: #f0fdf4;
+            color: #166534;
+            font-size: 0.65rem;
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid #bbf7d0;
+        }
+
+        .create-tag {
+            background-color: #fff7ed;
+            color: #9a3412;
+            font-size: 0.65rem;
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid #fed7aa;
+        }
+    </style>
+</head>
+
+<body class="p-8">
+    <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden mb-12">
+        <!-- Header -->
+        <div class="hero p-10 text-white text-center">
+            <h1 class="text-4xl font-extrabold mb-2">ABA Demonstration Strategy</h1>
+            <p class="text-blue-100 italic text-lg tracking-wide uppercase font-light">The AI-Powered Content Lifecycle
+            </p>
+        </div>
+
+        <div class="p-8">
+            <!-- Executive Summary -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Demo Objective</h2>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    Demonstrate how ABA can consolidate planning, creation, and optimization into a single
+                    <strong>AI-driven ecosystem</strong>. We move from "Static Pages" to "Dynamic Experiences" using
+                    SaaS CMS, Web Experimentation, and the central intelligence of Opal.
+                </p>
+            </section>
+
+            <!-- CMS CONTENT ARCHITECTURE -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="mr-3"><i class="fa-solid fa-sitemap"></i></span> Content Type Architecture
+                </h2>
+                <p class="text-sm text-gray-500 mb-6">Strategic re-use of your current CMS library to minimize custom
+                    build-out while maximizing impact.</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <!-- RE-USE -->
+                    <div class="p-4 border rounded-lg bg-white">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-blue-900">Campaign Landing Page</h4>
+                            <span class="reuse-tag">RE-USE: LandingPage</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-3 italic">For Scenario 2 (Member Month)</p>
+                        <ul class="text-xs text-gray-600 space-y-2 font-medium">
+                            <li><i class="fa-solid fa-check text-green-600 mr-2"></i><strong>Hero:</strong> Strategic
+                                use for campaign imagery.</li>
+                            <li><i class="fa-solid fa-check text-green-600 mr-2"></i><strong>Section Grid:</strong> To
+                                layout "Member Only" benefit cards.</li>
+                            <li><i class="fa-solid fa-check text-green-600 mr-2"></i><strong>Project Linking:</strong>
+                                Tie to "April launch" orchestration.</li>
+                        </ul>
+                    </div>
+
+                    <!-- CREATE NEW -->
+                    <div class="p-4 border border-orange-200 rounded-lg bg-orange-50/20">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-orange-900">Webinar Detail Entity</h4>
+                            <span class="create-tag">NEW FOR DEMO</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-3 italic">For Scenario 1 (Webinars)</p>
+                        <p class="text-xs text-gray-600 mb-2 font-medium">A dedicated entity to hold the "AI in 2025"
+                            metadata identified in our PDFs:</p>
+                        <ul class="text-xs text-gray-600 space-y-1 ml-4 list-disc">
+                            <li>Nimble Product ID field (string)</li>
+                            <li>CE Credits Available (boolean/number)</li>
+                            <li>Webinar Speakers (embedded IngredientEntry-style list)</li>
+                        </ul>
+                    </div>
+
+                    <!-- RE-USE -->
+                    <div class="p-4 border rounded-lg bg-white">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-blue-900">Home Experience</h4>
+                            <span class="reuse-tag">RE-USE: BlankExperience</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-3 italic">For Scenario 3 (Home Page Planning)</p>
+                        <ul class="text-xs text-gray-600 space-y-2 font-medium">
+                            <li><i class="fa-solid fa-check text-green-600 mr-2"></i><strong>ArticleList:</strong>
+                                Dynamic rollup of "Latest Issues."</li>
+                            <li><i class="fa-solid fa-check text-green-600 mr-2"></i><strong>Experience
+                                    Variations:</strong> For A/B testing personas.</li>
+                            <li><i class="fa-solid fa-check text-green-600 mr-2"></i><strong>FacetedSearch:</strong> For
+                                secondary "Topics Browse" area.</li>
+                        </ul>
+                    </div>
+
+                    <!-- CREATE NEW COMPONENT -->
+                    <div class="p-4 border border-orange-200 rounded-lg bg-orange-50/20">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-orange-900">Registration Component</h4>
+                            <span class="create-tag">NEW FOR DEMO</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-3 italic">For the "Pre-to-Post" Transition</p>
+                        <p class="text-xs text-gray-600 font-medium">A section-enabled component with a toggle switch to
+                            show "Register Now" vs "Download Assets" after the event live date.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OPAL AGENTS SECTION -->
+            <section class="mb-12 bg-slate-50 p-6 rounded-xl border border-blue-100">
+                <h2 class="text-2xl font-bold text-blue-900 mb-6 flex items-center">
+                    <span class="mr-3"><i class="fa-solid fa-robot"></i></span> Custom Opal Agents for ABA
+                </h2>
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-blue-600 text-white px-3 py-1 rounded font-bold">01</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">ABA Strategy and Brand Auditor</h4>
+                            <p class="text-sm text-gray-600"><strong>Role:</strong> Ensures compliance.
+                                <br><strong>Instructions:</strong> "Audit content against the ABA Style Guide and APA
+                                standards. Provide re-writes that improve clarity for banking professionals."</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-blue-600 text-white px-3 py-1 rounded font-bold">02</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">SEO and AEO Architect</h4>
+                            <p class="text-sm text-gray-600"><strong>Role:</strong> Growth and Reach.
+                                <br><strong>Instructions:</strong> "Generate Schema.org scripts. Specifically focus on
+                                'Answer Engine Optimization' for voice and AI-led search indexing."</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="bg-blue-600 text-white px-3 py-1 rounded font-bold">03</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Bulk Attribute Processor</h4>
+                            <p class="text-sm text-gray-600"><strong>Role:</strong> Efficiency.
+                                <br><strong>Instructions:</strong> "Distinguish between webinars with/without CE
+                                credits. Analyze PDF descriptions and output fields updates for the new credit tracking
+                                fields."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SCENARIO DETAILS -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-800 mb-8 border-b pb-2">The Extended Flow</h2>
+
+                <!-- Scenario 1 -->
+                <div class="mb-10 group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="tip-badge">AI CREATE</span>
+                        <h3 class="text-xl font-bold text-blue-800">1: The Webinar Lifecycle</h3>
+                    </div>
+                    <div class="bg-white border rounded-lg p-6 group-hover:border-blue-300 transition-colors">
+                        <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed">
+                            <div class="space-y-3">
+                                <p><i class="fa-solid fa-file-pdf text-red-600 mr-2"></i><strong>Step 1:</strong> Drag
+                                    the "ABA Content" PDF into Opal. Ask: "Generate a new Webinar detail entry based on
+                                    this."</p>
+                                <p><i class="fa-solid fa-code text-blue-600 mr-2"></i><strong>Step 2:</strong> Use the
+                                    <em>Architect Agent</em> to produce the Schema JSON for the webinars metadata slots.
+                                </p>
+                            </div>
+                            <div class="bg-blue-50 p-4 border rounded">
+                                <p class="font-bold text-blue-900 border-b mb-1 uppercase text-xs tracking-tighter">Demo
+                                    Tip: Visual Switching</p>
+                                <p class="text-xs italic text-gray-600 mb-2">"Use the Page Admin settings to switch the
+                                    page to 'Member Only' visibility, showing how the Webinar price dynamically drops
+                                    for authenticating users."</p>
+                                <i class="fa-solid fa-lightbulb text-yellow-500 float-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2 -->
+                <div class="mb-10 group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="tip-badge">ORCHESTRATE</span>
+                        <h3 class="text-xl font-bold text-blue-800">2: Member Appreciation Campaign</h3>
+                    </div>
+                    <div class="bg-white border rounded-lg p-6 group-hover:border-blue-300 transition-colors">
+                        <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed">
+                            <div class="space-y-3">
+                                <p><i class="fa-solid fa-calendar-days text-blue-600 mr-2"></i><strong>Step 1:</strong>
+                                    Show the <em>Campaign Calendar</em> view across April. Highlight that the design
+                                    changes (CSSMedia assets) and page launch are grouped.</p>
+                                <p><i class="fa-solid fa-route text-green-600 mr-2"></i><strong>Step 2:</strong> Mention
+                                    how the CMS nudes visitors from the Appreciation page to a "Free Trust Webinar"
+                                    based on 1:1 behavioral segmenting.</p>
+                            </div>
+                            <div class="bg-blue-50 p-4 border rounded">
+                                <p class="font-bold text-blue-900 border-b mb-1 uppercase text-xs tracking-tighter">Demo
+                                    Tip: Orchestrated De-activation</p>
+                                <p class="text-xs italic text-gray-600 mb-2">"Show the 'Schedule Unpublish' date of
+                                    midnight on 4/30. Prove to ABA that they don't need a midnight launch—the system
+                                    handles the coordinated de-activation."</p>
+                                <i class="fa-solid fa-clock text-blue-500 float-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3 -->
+                <div class="group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="tip-badge">DATA-DRIVEN</span>
+                        <h3 class="text-xl font-bold text-blue-800">3: Strategic Home Page Planning</h3>
+                    </div>
+                    <div class="bg-white border rounded-lg p-6 group-hover:border-blue-300 transition-colors">
+                        <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed">
+                            <div class="space-y-3">
+                                <p><i class="fa-solid fa-comments text-purple-600 mr-2"></i><strong>Step 1:</strong>
+                                    Demonstrate <em>In-Context Review</em>. Stakeholders leave comments on the Hero
+                                    banner drafting versions.</p>
+                                <p><i class="fa-solid fa-flask text-emerald-600 mr-2"></i><strong>Step 2:</strong> Setup
+                                    the A/B test. Explain "Winner Promotion" and how the confidence threshold reduces
+                                    manual weekly reporting overhead.</p>
+                            </div>
+                            <div class="bg-blue-50 p-4 border rounded">
+                                <p class="font-bold text-blue-900 border-b mb-1 uppercase text-xs tracking-tighter">Demo
+                                    Tip: Sentiment over Stats</p>
+                                <p class="text-xs italic text-gray-600 mb-2">"Use Opal to summarize performance
+                                    recommendations like: 'Wealth Managers are engaging 2.5x more with video content in
+                                    the sidebar—swap current static tile to Video component'."</p>
+                                <i class="fa-solid fa-brain text-purple-500 float-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CALL TO ACTION / SUMMARY -->
+            <div class="bg-blue-900 p-10 rounded-xl text-white text-center shadow-2xl">
+                <h4 class="text-2xl font-bold mb-4">Final Takeaway</h4>
+                <p class="text-blue-100 text-sm max-w-2xl mx-auto italic mb-6">
+                    "Optimizely transforms ABA from a content-delivery association into an experience-engine. By
+                    automating compliance with Opal and results with Web Experimentation, your team stays efficient and
+                    outcome-focused."
+                </p>
+                <div class="flex justify-center gap-8 opacity-50 text-3xl">
+                    <i class="fa-solid fa-atom"></i>
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
