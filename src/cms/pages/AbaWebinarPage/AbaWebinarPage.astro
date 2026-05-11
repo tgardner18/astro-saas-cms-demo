@@ -72,6 +72,18 @@ const hasSchema = (page?.Schema?.length ?? 0) > 0;
 
 const isPastWebinar = startDate ? startDate < new Date() : false;
 
+const parsePriceNum = (price: string | null | undefined): number | null => {
+    if (!price) return null;
+    const n = parseFloat(price.replace(/[^0-9.]/g, ''));
+    return isNaN(n) ? null : n;
+};
+const memberPriceNum = parsePriceNum(page?.MemberPrice);
+const nonMemberPriceNum = parsePriceNum(page?.NonMemberPrice);
+const savingsPct =
+    memberPriceNum !== null && nonMemberPriceNum !== null && nonMemberPriceNum > memberPriceNum
+        ? Math.round(((nonMemberPriceNum - memberPriceNum) / nonMemberPriceNum) * 100)
+        : null;
+
 const pageClass = 'page-aba-webinar';
 ---
 
@@ -275,29 +287,75 @@ const pageClass = 'page-aba-webinar';
                             )}
 
                             {hasPricing && (
-                                <div class="border-t border-base-300 pt-4 space-y-3">
-                                    {page?.MemberPrice && (
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-md text-base-content/70">Member Price</span>
-                                            <span
-                                                class="text-base font-bold text-base-content"
-                                                data-epi-edit={isCmsEdit ? 'MemberPrice' : undefined}
-                                            >
-                                                {page.MemberPrice}
-                                            </span>
+                                <div class="border-t border-base-300 pt-4" x-data>
+
+                                    {/* Logged in: highlight member price as "Your Price" with savings callout */}
+                                    <template x-if="$store.auth?.isLoggedIn">
+                                        <div class="space-y-2">
+                                            {page?.MemberPrice && (
+                                                <div class="rounded-xl bg-success/10 border border-success/40 p-4">
+                                                    <p class="text-xs font-bold uppercase tracking-widest text-success mb-2">Your Price</p>
+                                                    <div class="flex items-center justify-between gap-3">
+                                                        <span
+                                                            class="text-3xl font-extrabold text-success"
+                                                            data-epi-edit={isCmsEdit ? 'MemberPrice' : undefined}
+                                                        >
+                                                            {page.MemberPrice}
+                                                        </span>
+                                                        {savingsPct !== null && (
+                                                            <span class="badge badge-success badge-lg font-bold text-sm px-3 whitespace-nowrap">
+                                                                Save {savingsPct}%
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    {savingsPct !== null && page?.NonMemberPrice && (
+                                                        <p class="text-xs text-success/70 mt-1.5 font-medium">
+                                                            {savingsPct}% off the {page.NonMemberPrice} regular price
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            )}
+                                            {page?.NonMemberPrice && (
+                                                <div class="flex justify-between items-center px-1 pt-1">
+                                                    <span class="text-sm text-base-content/40">Regular Price</span>
+                                                    <span
+                                                        class="text-sm text-base-content/40 line-through"
+                                                        data-epi-edit={isCmsEdit ? 'NonMemberPrice' : undefined}
+                                                    >
+                                                        {page.NonMemberPrice}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
-                                    )}
-                                    {page?.NonMemberPrice && (
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-md text-base-content/70">Non-Member Price</span>
-                                            <span
-                                                class="text-base font-bold text-base-content"
-                                                data-epi-edit={isCmsEdit ? 'NonMemberPrice' : undefined}
-                                            >
-                                                {page.NonMemberPrice}
-                                            </span>
+                                    </template>
+
+                                    {/* Not logged in: standard member / non-member price rows */}
+                                    <template x-if="!$store.auth?.isLoggedIn">
+                                        <div class="space-y-3">
+                                            {page?.MemberPrice && (
+                                                <div class="flex justify-between items-center">
+                                                    <span class="text-md text-base-content/70">Member Price</span>
+                                                    <span
+                                                        class="text-base font-bold text-base-content"
+                                                        data-epi-edit={isCmsEdit ? 'MemberPrice' : undefined}
+                                                    >
+                                                        {page.MemberPrice}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {page?.NonMemberPrice && (
+                                                <div class="flex justify-between items-center">
+                                                    <span class="text-md text-base-content/70">Non-Member Price</span>
+                                                    <span
+                                                        class="text-base font-bold text-base-content"
+                                                        data-epi-edit={isCmsEdit ? 'NonMemberPrice' : undefined}
+                                                    >
+                                                        {page.NonMemberPrice}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
-                                    )}
+                                    </template>
                                 </div>
                             )}
 
