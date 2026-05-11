@@ -97,6 +97,7 @@ const isRtl = rtlLangs.includes(currentLang.split('-')[0]);
         )}
         {siteStyles && <SiteStyles siteStyles={siteStyles} />}
         {siteFont && <Font cssVariable={siteFont} preload />}
+        <Font cssVariable="--font-playfair-display" preload />
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
