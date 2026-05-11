@@ -170,11 +170,11 @@ const typeNameArg = process.argv[2];
         if (cleanContentType.created) delete cleanContentType.created;
 
         try {
-            await client.contentTypes.contentTypesPut(
-                contentTypeKey,
-                cleanContentType,
-                true // Force update
-            );
+            try {
+                await client.contentTypes.contentTypesCreate(cleanContentType);
+            } catch {
+                await client.contentTypes.contentTypesPatch(contentTypeKey, cleanContentType, true);
+            }
             console.log(
                 `✅ Content type "${displayName}" (${contentTypeKey}) of baseType ${baseType} has been updated`
             );
@@ -229,12 +229,11 @@ const typeNameArg = process.argv[2];
             if (cleanContentType.created) delete cleanContentType.created;
 
             try {
-                // Push the content type to Optimizely CMS
-                await client.contentTypes.contentTypesPut(
-                    contentTypeKey,
-                    cleanContentType,
-                    true // Force update
-                );
+                try {
+                    await client.contentTypes.contentTypesCreate(cleanContentType);
+                } catch {
+                    await client.contentTypes.contentTypesPatch(contentTypeKey, cleanContentType, true);
+                }
                 console.log(
                     `✅ Content type "${displayName}" (${contentTypeKey}) of baseType ${baseType} has been updated`
                 );

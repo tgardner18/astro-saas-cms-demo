@@ -71,10 +71,11 @@ const styleNameArg = process.argv[2];
         const nodeType = styleDefinition.nodeType;
 
         try {
-            await client.displayTemplates.displayTemplatesPut(
-                styleKey,
-                styleDefinition
-            );
+            try {
+                await client.displayTemplates.displayTemplatesCreate(styleDefinition);
+            } catch {
+                await client.displayTemplates.displayTemplatesPatch(styleKey, styleDefinition, true);
+            }
             console.log(
                 `✅ Template with styleKey: ${styleKey}, contentType: ${contentType}, nodeType: ${nodeType} has been updated`
             );
@@ -111,10 +112,11 @@ const styleNameArg = process.argv[2];
             const nodeType = styleDefinition.nodeType;
             
             try {
-                await client.displayTemplates.displayTemplatesPut(
-                    styleKey,
-                    styleDefinition
-                );
+                try {
+                    await client.displayTemplates.displayTemplatesCreate(styleDefinition);
+                } catch {
+                    await client.displayTemplates.displayTemplatesPatch(styleKey, styleDefinition, true);
+                }
                 console.log(
                     `✅ Template with styleKey: ${styleKey}, contentType: ${contentType}, nodeType: ${nodeType} has been updated`
                 );

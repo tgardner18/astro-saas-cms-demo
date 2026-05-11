@@ -1,0 +1,38 @@
+{
+	"key": "DefaultAbaWebinarPage",
+	"displayName": "ABA Webinar - Default",
+	"contentType": "AbaWebinarPage",
+	"isDefault": true,
+	"settings": {
+		"layout": {
+			"displayName": "Page Layout",
+			"editor": "select",
+			"sortOrder": 10,
+			"choices": {
+				"sideBySide": {
+					"displayName": "Content + Sidebar",
+					"sortOrder": 10
+				},
+				"fullWidth": {
+					"displayName": "Full Width",
+					"sortOrder": 20
+				}
+			}
+		},
+		"colorScheme": {
+			"displayName": "Color Scheme",
+			"editor": "select",
+			"sortOrder": 20,
+			"choices": {
+				"light": {
+					"displayName": "Light",
+					"sortOrder": 10
+				},
+				"dark": {
+					"displayName": "Dark",
+					"sortOrder": 20
+				}
+			}
+		}
+	}
+}

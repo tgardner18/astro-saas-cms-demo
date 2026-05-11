@@ -1,0 +1,318 @@
+---
+import type { Locales } from 'astro';
+import { format } from 'date-fns';
+import type { AbaWebinarPageFragment } from '../../../../__generated/sdk';
+import { getOptimizelySdk } from '../../../graphql/getSdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import Layout from '../../../layouts/Layout.astro';
+import { isEditContext } from '../../shared/utils.ts';
+
+const isCmsEdit = isEditContext(Astro.url);
+
+export interface Props {
+    contentPayload: ContentPayload;
+}
+
+const { contentPayload } = Astro.props as Props;
+
+const optiResponse = await getOptimizelySdk(contentPayload).pageById({
+    key: contentPayload.key,
+    //@ts-ignore
+    loc: contentPayload.loc as Locales,
+    ver: contentPayload.ver,
+});
+
+const page = optiResponse?._Page?.item as AbaWebinarPageFragment;
+
+const startDate = page?.StartDateTime ? new Date(page.StartDateTime as string) : null;
+const endDate = page?.EndDateTime ? new Date(page.EndDateTime as string) : null;
+const formattedDate = startDate ? format(startDate, 'MMMM d, yyyy') : '';
+const formattedStartTime = startDate ? format(startDate, 'h:mm a') : '';
+const formattedEndTime = endDate ? format(endDate, 'h:mm a') : '';
+const dateTimeDisplay = formattedDate
+    ? `${formattedDate} ${formattedStartTime}${formattedEndTime ? `–${formattedEndTime}` : ''} EST`
+    : '';
+
+const ceCreditsLabels: Record<string, string> = {
+    CPE: 'CPE',
+    CTFA: 'CTFA',
+    notApplicable: 'Not Applicable',
+};
+
+const bankingTopicLabels: Record<string, string> = {
+    advocacy: 'Advocacy',
+    healthSavingsAccounts: 'Health Savings Accounts',
+    leadership: 'Leadership',
+    securities: 'Securities',
+    trustInvestments: 'Trust Investments',
+    wealthManagement: 'Wealth Management',
+};
+
+const graphType =
+    page?.SeoSettings?.GraphType && page?.SeoSettings?.GraphType !== '-'
+        ? page.SeoSettings.GraphType
+        : 'website';
+const defaultUrl = page?._metadata?.url?.default || '';
+const hierarchicalUrl =
+    page?._metadata?.url?.type === 'SIMPLE' ? page?._metadata?.url?.hierarchical : '';
+const extPreviewEnabled = page?.PageAdminSettings?.EnableExternalPreview ?? false;
+
+const hasPricing = !!(page?.MemberPrice || page?.NonMemberPrice);
+const hasCredits = (page?.CeCreditsAvailable?.length ?? 0) > 0;
+const hasTopics = (page?.BankingTopic?.length ?? 0) > 0;
+const hasSpeakers = (page?.Speakers?.length ?? 0) > 0;
+const hasAssets = (page?.SupportingAssets?.length ?? 0) > 0;
+const hasSchema = (page?.Schema?.length ?? 0) > 0;
+
+const pageClass = 'page-aba-webinar';
+---
+
+<Layout
+    title={page?.SeoSettings?.MetaTitle ?? page?.WebinarTitle ?? page?._metadata?.displayName ?? 'ABA Webinar'}
+    description={page?.SeoSettings?.MetaDescription ?? page?.WebinarTitle ?? ''}
+    graphtype={graphType}
+    indexing={page?.SeoSettings?.Indexing ?? false}
+    contentPayload={contentPayload}
+    defaultUrl={defaultUrl}
+    hierarchicalUrl={hierarchicalUrl ?? ''}
+    extPreviewEnabled={extPreviewEnabled}
+>
+    <div class={pageClass}>
+
+        <!-- Page header band -->
+        <div class="bg-base-200 border-b border-base-300">
+            <div class="mx-auto max-w-screen-xl px-4 2xl:px-0 py-10 lg:py-14">
+
+                <div class="flex flex-wrap items-center gap-2 mb-5">
+                    {page?.Restrictions === 'bankMember' && (
+                        <span class="badge badge-warning badge-lg font-semibold">
+                            ABA Bank Members Only
+                        </span>
+                    )}
+                    {dateTimeDisplay && (
+                        <span class="badge badge-ghost badge-lg"
+                            data-epi-edit={isCmsEdit ? 'StartDateTime' : undefined}>
+                            {dateTimeDisplay}
+                        </span>
+                    )}
+                </div>
+
+                <h1
+                    class="text-3xl md:text-4xl lg:text-5xl font-bold text-base-content leading-tight max-w-4xl"
+                    data-epi-edit={isCmsEdit ? 'WebinarTitle' : undefined}
+                >
+                    {page?.WebinarTitle || page?._metadata?.displayName}
+                </h1>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <main class="mx-auto max-w-screen-xl px-4 2xl:px-0 py-10 lg:py-14">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+                <!-- Primary content (2/3) -->
+                <div class="lg:col-span-2 space-y-10">
+
+                    <!-- Description -->
+                    {page?.Description?.html && (
+                        <section>
+                            <article
+                                class="prose dark:prose-invert md:prose-lg lg:prose-xl max-w-none prose-img:rounded-2xl"
+                                data-epi-edit={isCmsEdit ? 'Description' : undefined}
+                                set:html={page.Description.html}
+                            />
+                        </section>
+                    )}
+
+                    <!-- Speakers -->
+                    {hasSpeakers && (
+                        <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-xl font-bold mb-2">Speakers</h2>
+                                <ul
+                                    class="space-y-3"
+                                    data-epi-edit={isCmsEdit ? 'Speakers' : undefined}
+                                >
+                                    {page.Speakers?.map((speaker) => (
+                                        <li class="flex items-start gap-3">
+                                            <span class="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+                                            <span class="text-base-content">{speaker}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </section>
+                    )}
+
+                    <!-- CE Credits -->
+                    {(hasCredits || page?.CreditsDescription?.html) && (
+                        <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-xl font-bold mb-2">CE Credits</h2>
+                                {hasCredits && (
+                                    <div
+                                        class="flex flex-wrap gap-2 mb-4"
+                                        data-epi-edit={isCmsEdit ? 'CeCreditsAvailable' : undefined}
+                                    >
+                                        {page.CeCreditsAvailable?.map((credit) => (
+                                            <span class="badge badge-outline badge-lg font-medium">
+                                                {ceCreditsLabels[credit ?? ''] ?? credit}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                                {page?.CreditsDescription?.html && (
+                                    <div
+                                        class="prose dark:prose-invert max-w-none text-sm"
+                                        data-epi-edit={isCmsEdit ? 'CreditsDescription' : undefined}
+                                        set:html={page.CreditsDescription.html}
+                                    />
+                                )}
+                            </div>
+                        </section>
+                    )}
+
+                    <!-- Banking Topics -->
+                    {hasTopics && (
+                        <section>
+                            <h2 class="text-lg font-semibold text-base-content mb-3">Banking Topics</h2>
+                            <div
+                                class="flex flex-wrap gap-2"
+                                data-epi-edit={isCmsEdit ? 'BankingTopic' : undefined}
+                            >
+                                {page.BankingTopic?.map((topic) => (
+                                    <span class="badge badge-primary badge-outline badge-lg">
+                                        {bankingTopicLabels[topic ?? ''] ?? topic}
+                                    </span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+                </div>
+
+                <!-- Sidebar (1/3) -->
+                <aside class="space-y-6">
+
+                    <!-- Registration + Pricing card -->
+                    <div class="card bg-base-100 border border-base-300 shadow-md rounded-2xl lg:sticky lg:top-6">
+                        <div class="card-body gap-5">
+
+                            {dateTimeDisplay && (
+                                <div>
+                                    <p class="text-xs font-semibold uppercase tracking-widest text-base-content/50 mb-1">
+                                        Date &amp; Time
+                                    </p>
+                                    <p class="text-sm font-medium text-base-content">
+                                        {dateTimeDisplay}
+                                    </p>
+                                </div>
+                            )}
+
+                            {hasPricing && (
+                                <div class="border-t border-base-300 pt-4 space-y-3">
+                                    {page?.MemberPrice && (
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-base-content/70">Member Price</span>
+                                            <span
+                                                class="text-base font-bold text-base-content"
+                                                data-epi-edit={isCmsEdit ? 'MemberPrice' : undefined}
+                                            >
+                                                {page.MemberPrice}
+                                            </span>
+                                        </div>
+                                    )}
+                                    {page?.NonMemberPrice && (
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-base-content/70">Non-Member Price</span>
+                                            <span
+                                                class="text-base font-bold text-base-content"
+                                                data-epi-edit={isCmsEdit ? 'NonMemberPrice' : undefined}
+                                            >
+                                                {page.NonMemberPrice}
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {page?.WebinarUrl && (
+                                <div class={hasPricing ? 'border-t border-base-300 pt-4' : ''}>
+                                    <a
+                                        href={page.WebinarUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-primary w-full"
+                                        data-epi-edit={isCmsEdit ? 'WebinarUrl' : undefined}
+                                    >
+                                        Register Now
+                                    </a>
+                                </div>
+                            )}
+
+                            {page?.ProductId && (
+                                <p
+                                    class="text-xs text-base-content/40 text-center"
+                                    data-epi-edit={isCmsEdit ? 'ProductId' : undefined}
+                                >
+                                    Product ID: {page.ProductId}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    <!-- Supporting Downloads -->
+                    {hasAssets && (
+                        <div class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-base font-bold mb-1">Downloads</h2>
+                                <ul
+                                    class="space-y-2"
+                                    data-epi-edit={isCmsEdit ? 'SupportingAssets' : undefined}
+                                >
+                                    {page.SupportingAssets?.map((asset) => {
+                                        const url = (asset as any)?.item?.Url || asset?.url?.default;
+                                        const name =
+                                            (asset as any)?.item?._metadata?.displayName ||
+                                            url?.split('/').pop() ||
+                                            'Download';
+                                        return url ? (
+                                            <li>
+                                                <a
+                                                    href={url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="flex items-center gap-2 text-sm text-primary hover:underline"
+                                                >
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="h-4 w-4 flex-shrink-0"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                                                        />
+                                                    </svg>
+                                                    {name}
+                                                </a>
+                                            </li>
+                                        ) : null;
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                    )}
+                </aside>
+            </div>
+        </main>
+
+        <!-- JSON-LD Schema markup -->
+        {hasSchema && page.Schema?.map((schema) => (
+            <Fragment set:html={`<script type="application/ld+json">${schema}<\/script>`} />
+        ))}
+    </div>
+</Layout>

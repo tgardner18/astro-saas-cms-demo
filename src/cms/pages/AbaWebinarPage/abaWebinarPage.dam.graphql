@@ -1,0 +1,35 @@
+fragment AbaWebinarPage on AbaWebinarPage {
+    _metadata {
+        ...PageUrl
+        published
+        displayName
+    }
+    WebinarTitle
+    StartDateTime
+    EndDateTime
+    Restrictions
+    Description {
+        html
+    }
+    WebinarUrl
+    Speakers
+    SupportingAssets {
+        ...ContentUrl
+        ...ContentReferenceItem
+    }
+    ProductId
+    NonMemberPrice
+    MemberPrice
+    CeCreditsAvailable
+    CreditsDescription {
+        html
+    }
+    BankingTopic
+    Schema
+    SeoSettings {
+        ...PageSeoSettingsProperty
+    }
+    PageAdminSettings {
+        ...PageAdminSettingsProperty
+    }
+}

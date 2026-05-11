@@ -1,0 +1,242 @@
+{
+	"key": "AbaWebinarPage",
+	"displayName": "ABA Webinar",
+	"description": "Page for ABA webinar listings with registration, pricing, CE credits, and speaker information.",
+	"baseType": "_page",
+	"sortOrder": 0,
+	"mayContainTypes": ["*"],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [],
+	"properties": {
+		"WebinarTitle": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Webinar Title",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "searchable",
+			"editorSettings": {}
+		},
+		"StartDateTime": {
+			"type": "dateTime",
+			"displayName": "Start Date & Time",
+			"description": "Webinar start date and time (e.g., July 4, 2026 3:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 20,
+			"indexingType": "queryable",
+			"editorSettings": {}
+		},
+		"EndDateTime": {
+			"type": "dateTime",
+			"displayName": "End Date & Time",
+			"description": "Webinar end date and time (e.g., July 4, 2026 4:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 30,
+			"indexingType": "queryable",
+			"editorSettings": {}
+		},
+		"Restrictions": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Restrictions",
+			"description": "Access restrictions for this webinar",
+			"localized": false,
+			"required": true,
+			"group": "Information",
+			"sortOrder": 40,
+			"indexingType": "queryable",
+			"editorSettings": {},
+			"enum": [
+				{ "displayName": "None", "value": "none" },
+				{ "displayName": "Bank Member", "value": "bankMember" }
+			]
+		},
+		"Description": {
+			"type": "richText",
+			"displayName": "Description",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 50,
+			"indexingType": "searchable",
+			"editorSettings": {}
+		},
+		"WebinarUrl": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Webinar URL",
+			"description": "URL for webinar registration or access",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 60,
+			"editorSettings": {}
+		},
+		"Speakers": {
+			"type": "array",
+			"displayName": "Speakers",
+			"description": "List of webinar speakers — one entry per speaker (e.g., Jane Doe, VP of Finance, First National Bank)",
+			"localized": true,
+			"required": false,
+			"group": "Speakers",
+			"sortOrder": 10,
+			"editorSettings": {},
+			"items": {
+				"type": "string",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"SupportingAssets": {
+			"type": "array",
+			"displayName": "Supporting Assets",
+			"description": "Downloadable files and supporting materials",
+			"localized": false,
+			"required": false,
+			"group": "Assets",
+			"sortOrder": 10,
+			"editorSettings": {},
+			"items": {
+				"type": "contentReference",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"ProductId": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Product ID",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"editorSettings": {}
+		},
+		"NonMemberPrice": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Non-Member Price",
+			"description": "Price for non-members (e.g., $299.00)",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 20,
+			"editorSettings": {}
+		},
+		"MemberPrice": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Member Price",
+			"description": "Price for ABA members (e.g., $199.00)",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 30,
+			"editorSettings": {}
+		},
+		"CeCreditsAvailable": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "CE Credits Available",
+			"description": "Select all applicable CE credit types",
+			"localized": false,
+			"required": false,
+			"group": "Credits",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"editorSettings": {},
+			"items": {
+				"type": "string",
+				"enum": [
+					{ "displayName": "CPE", "value": "CPE" },
+					{ "displayName": "CTFA", "value": "CTFA" },
+					{ "displayName": "Not Applicable", "value": "notApplicable" }
+				],
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"CreditsDescription": {
+			"type": "richText",
+			"displayName": "Credits Description",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Credits",
+			"sortOrder": 20,
+			"editorSettings": {}
+		},
+		"BankingTopic": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "Banking Topic",
+			"description": "Select all applicable banking topics",
+			"localized": false,
+			"required": false,
+			"group": "Topics",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"editorSettings": {},
+			"items": {
+				"type": "string",
+				"enum": [
+					{ "displayName": "Advocacy", "value": "advocacy" },
+					{ "displayName": "Health Savings Accounts", "value": "healthSavingsAccounts" },
+					{ "displayName": "Leadership", "value": "leadership" },
+					{ "displayName": "Securities", "value": "securities" },
+					{ "displayName": "Trust Investments", "value": "trustInvestments" },
+					{ "displayName": "Wealth Management", "value": "wealthManagement" }
+				],
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"Schema": {
+			"type": "array",
+			"displayName": "Schema",
+			"description": "JSON-LD schema markup strings — one script block per entry",
+			"localized": false,
+			"required": false,
+			"group": "Schema",
+			"sortOrder": 10,
+			"editorSettings": {},
+			"items": {
+				"type": "string",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"SeoSettings": {
+			"type": "component",
+			"contentType": "PageSeoSettings",
+			"displayName": "SEO Settings",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "SeoSettings",
+			"sortOrder": 10,
+			"editorSettings": {}
+		},
+		"PageAdminSettings": {
+			"type": "component",
+			"contentType": "PageAdminSettings",
+			"displayName": "Page Admin Settings",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "AdminSettings",
+			"sortOrder": 10,
+			"editorSettings": {}
+		}
+	}
+}
