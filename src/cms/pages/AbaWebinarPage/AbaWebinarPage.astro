@@ -402,7 +402,7 @@ const pageClass = 'page-aba-webinar';
                     {hasAssets && isPastWebinar && (
                         <div class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
                             <div class="card-body">
-                                <h2 class="card-title text-base font-bold mb-1">Downloads</h2>
+                                <h2 class="card-title text-2xl font-bold mb-1">Downloads</h2>
 
                                 {/* Logged in: show asset links */}
                                 <template x-if="$store.auth?.isLoggedIn">
@@ -449,7 +449,7 @@ const pageClass = 'page-aba-webinar';
                                 {/* Not logged in: sign-in prompt */}
                                 <template x-if="!$store.auth?.isLoggedIn">
                                     <div class="space-y-3">
-                                        <p class="text-sm text-base-content/60 italic">
+                                        <p class="text-lg text-base-content/60 italic">
                                             ABA Bank Members can access webinar downloads after signing in.
                                         </p>
                                         <button
@@ -466,8 +466,8 @@ const pageClass = 'page-aba-webinar';
                     {hasAssets && !isPastWebinar && (
                         <div class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
                             <div class="card-body">
-                                <h2 class="card-title text-base font-bold mb-1">Downloads</h2>
-                                <p class="text-sm text-base-content/60 italic">
+                                <h2 class="card-title text-2xl font-bold mb-1">Downloads</h2>
+                                <p class="text-lg text-base-content/60 italic">
                                     Supporting assets will be available once the webinar has completed.
                                 </p>
                             </div>
