@@ -351,7 +351,24 @@ const pageClass = 'page-aba-webinar';
                                 </div>
                             )}
 
-                            {page?.WebinarUrl && (
+                            {/* Non-restricted upcoming webinars: auth-aware Register / Purchase CTA */}
+                            {page?.Restrictions !== 'bankMember' && page?.WebinarUrl && !isPastWebinar && (
+                                <div class={hasPricing ? 'border-t border-base-300 pt-4' : ''}>
+                                    <a
+                                        href={page.WebinarUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-primary w-full"
+                                        data-epi-edit={isCmsEdit ? 'WebinarUrl' : undefined}
+                                        x-text="$store.auth?.isLoggedIn ? 'Purchase' : 'Register'"
+                                    >
+                                        Register
+                                    </a>
+                                </div>
+                            )}
+
+                            {/* Past webinars and restricted pages: static CTA */}
+                            {page?.WebinarUrl && (isPastWebinar || page?.Restrictions === 'bankMember') && (
                                 <div class={hasPricing ? 'border-t border-base-300 pt-4' : ''}>
                                     <a
                                         href={page.WebinarUrl}
