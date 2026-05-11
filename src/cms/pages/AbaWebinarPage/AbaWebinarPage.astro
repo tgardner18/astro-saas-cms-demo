@@ -403,44 +403,63 @@ const pageClass = 'page-aba-webinar';
                         <div class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
                             <div class="card-body">
                                 <h2 class="card-title text-base font-bold mb-1">Downloads</h2>
-                                <ul
-                                    class="space-y-2"
-                                    data-epi-edit={isCmsEdit ? 'SupportingAssets' : undefined}
-                                >
-                                    {page.SupportingAssets?.map((asset) => {
-                                        const url = asset?.url?.default || asset?.url?.hierarchical;
-                                        const name =
-                                            (asset as any)?.item?._metadata?.displayName ||
-                                            url?.split('/').pop() ||
-                                            'Download';
-                                        return url ? (
-                                            <li>
-                                                <a
-                                                    href={url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    class="flex items-center gap-2 text-sm text-primary hover:underline"
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        class="h-4 w-4 flex-shrink-0"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke="currentColor"
+
+                                {/* Logged in: show asset links */}
+                                <template x-if="$store.auth?.isLoggedIn">
+                                    <ul
+                                        class="space-y-2"
+                                        data-epi-edit={isCmsEdit ? 'SupportingAssets' : undefined}
+                                    >
+                                        {page.SupportingAssets?.map((asset) => {
+                                            const url = asset?.url?.default || asset?.url?.hierarchical;
+                                            const name =
+                                                (asset as any)?.item?._metadata?.displayName ||
+                                                url?.split('/').pop() ||
+                                                'Download';
+                                            return url ? (
+                                                <li>
+                                                    <a
+                                                        href={url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="flex items-center gap-2 text-sm text-primary hover:underline"
                                                     >
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-                                                        />
-                                                    </svg>
-                                                    {name}
-                                                </a>
-                                            </li>
-                                        ) : null;
-                                    })}
-                                </ul>
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-4 w-4 flex-shrink-0"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                                                            />
+                                                        </svg>
+                                                        {name}
+                                                    </a>
+                                                </li>
+                                            ) : null;
+                                        })}
+                                    </ul>
+                                </template>
+
+                                {/* Not logged in: sign-in prompt */}
+                                <template x-if="!$store.auth?.isLoggedIn">
+                                    <div class="space-y-3">
+                                        <p class="text-sm text-base-content/60 italic">
+                                            ABA Bank Members can access webinar downloads after signing in.
+                                        </p>
+                                        <button
+                                            @click="$store.auth.modalOpen = true"
+                                            class="btn btn-primary btn-sm w-full"
+                                        >
+                                            Sign In to Access Downloads
+                                        </button>
+                                    </div>
+                                </template>
                             </div>
                         </div>
                     )}
