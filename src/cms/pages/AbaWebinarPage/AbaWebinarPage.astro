@@ -1,7 +1,6 @@
 ---
 import type { Locales } from 'astro';
 import { Fragment } from 'astro/jsx-runtime';
-import { format } from 'date-fns';
 import type { AbaWebinarPageFragment } from '../../../../__generated/sdk';
 import { getOptimizelySdk } from '../../../graphql/getSdk';
 import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
@@ -27,11 +26,17 @@ const page = optiResponse?._Page?.item as AbaWebinarPageFragment;
 
 const startDate = page?.StartDateTime ? new Date(page.StartDateTime as string) : null;
 const endDate = page?.EndDateTime ? new Date(page.EndDateTime as string) : null;
-const formattedDate = startDate ? format(startDate, 'MMMM d, yyyy') : '';
-const formattedStartTime = startDate ? format(startDate, 'h:mm a') : '';
-const formattedEndTime = endDate ? format(endDate, 'h:mm a') : '';
-const dateTimeDisplay = formattedDate
-    ? `${formattedDate} ${formattedStartTime}${formattedEndTime ? `–${formattedEndTime}` : ''} EST`
+
+const estDateFmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', month: 'long', day: 'numeric', year: 'numeric' });
+const estTimeFmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit', hour12: true });
+const estTzFmt   = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' });
+
+const formattedDate      = startDate ? estDateFmt.format(startDate) : '';
+const formattedStartTime = startDate ? estTimeFmt.format(startDate) : '';
+const formattedEndTime   = endDate   ? estTimeFmt.format(endDate)   : '';
+const tzAbbr             = startDate ? (estTzFmt.formatToParts(startDate).find(p => p.type === 'timeZoneName')?.value ?? 'ET') : 'ET';
+const dateTimeDisplay    = formattedDate
+    ? `${formattedDate} ${formattedStartTime}${formattedEndTime ? `–${formattedEndTime}` : ''} ${tzAbbr}`
     : '';
 
 const ceCreditsLabels: Record<string, string> = {
@@ -89,25 +94,31 @@ const pageClass = 'page-aba-webinar';
         >
             <div class="mx-auto max-w-screen-xl px-4 2xl:px-0 py-10 lg:py-14">
 
-                <div class="flex flex-wrap items-center gap-2 mb-4">
+                    <!-- Row 1: type pill -->
+                <div class="mb-3">
                     <span class="badge badge-outline text-white border-white/50 badge-lg font-semibold tracking-wide">
                         Webinar
                     </span>
-                    {page?.Restrictions === 'bankMember' && (
-                        <span class="badge badge-warning badge-lg font-semibold">
-                            ABA Bank Members Only
-                        </span>
-                    )}
+                </div>
+
+                <!-- Row 2: date + restrictions -->
+                <div class="flex flex-wrap items-center gap-3 mb-5">
                     {dateTimeDisplay && (
                         <span
-                            class="text-white/70 text-sm font-medium"
+                            class="text-white/80 text-sm font-medium"
                             data-epi-edit={isCmsEdit ? 'StartDateTime' : undefined}
                         >
                             {dateTimeDisplay}
                         </span>
                     )}
+                    {page?.Restrictions === 'bankMember' && (
+                        <span class="badge badge-warning badge-md font-semibold">
+                            ABA Bank Members Only
+                        </span>
+                    )}
                 </div>
 
+                <!-- Row 3: title -->
                 <h1
                     class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight max-w-4xl"
                     data-epi-edit={isCmsEdit ? 'WebinarTitle' : undefined}

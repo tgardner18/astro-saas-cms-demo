@@ -156,10 +156,25 @@ const isRtl = rtlLangs.includes(currentLang.split('-')[0]);
         <script>
             import Alpine from 'alpinejs';
 
-            // Make Alpine available globally
             window.Alpine = Alpine;
 
-            // Start Alpine
+            Alpine.store('auth', {
+                isLoggedIn: false,
+                modalOpen: false,
+                init() {
+                    this.isLoggedIn = localStorage.getItem('aba_member') === 'true';
+                },
+                login() {
+                    this.isLoggedIn = true;
+                    this.modalOpen = false;
+                    localStorage.setItem('aba_member', 'true');
+                },
+                logout() {
+                    this.isLoggedIn = false;
+                    localStorage.removeItem('aba_member');
+                },
+            });
+
             Alpine.start();
         </script>
     </body>
