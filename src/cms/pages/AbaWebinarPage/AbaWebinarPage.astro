@@ -65,6 +65,8 @@ const hasSpeakers = (page?.Speakers?.length ?? 0) > 0;
 const hasAssets = (page?.SupportingAssets?.length ?? 0) > 0;
 const hasSchema = (page?.Schema?.length ?? 0) > 0;
 
+const isPastWebinar = startDate ? startDate < new Date() : false;
+
 const pageClass = 'page-aba-webinar';
 ---
 
@@ -81,25 +83,33 @@ const pageClass = 'page-aba-webinar';
     <div class={pageClass}>
 
         <!-- Page header band -->
-        <div class="bg-base-200 border-b border-base-300">
+        <div
+            class="border-b border-base-300"
+            style="background-color: #2a2a2a; background-image: url('https://www.aba.com/~/media/aba/images/backgrounds/background-pattern__dark-gray2x.png'); background-repeat: repeat;"
+        >
             <div class="mx-auto max-w-screen-xl px-4 2xl:px-0 py-10 lg:py-14">
 
-                <div class="flex flex-wrap items-center gap-2 mb-5">
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                    <span class="badge badge-outline text-white border-white/50 badge-lg font-semibold tracking-wide">
+                        Webinar
+                    </span>
                     {page?.Restrictions === 'bankMember' && (
                         <span class="badge badge-warning badge-lg font-semibold">
                             ABA Bank Members Only
                         </span>
                     )}
                     {dateTimeDisplay && (
-                        <span class="badge badge-ghost badge-lg"
-                            data-epi-edit={isCmsEdit ? 'StartDateTime' : undefined}>
+                        <span
+                            class="text-white/70 text-sm font-medium"
+                            data-epi-edit={isCmsEdit ? 'StartDateTime' : undefined}
+                        >
                             {dateTimeDisplay}
                         </span>
                     )}
                 </div>
 
                 <h1
-                    class="text-3xl md:text-4xl lg:text-5xl font-bold text-base-content leading-tight max-w-4xl"
+                    class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight max-w-4xl"
                     data-epi-edit={isCmsEdit ? 'WebinarTitle' : undefined}
                 >
                     {page?.WebinarTitle || page?._metadata?.displayName}
@@ -192,10 +202,10 @@ const pageClass = 'page-aba-webinar';
                 </div>
 
                 <!-- Sidebar (1/3) -->
-                <aside class="space-y-6">
+                <aside class="space-y-6 lg:sticky lg:top-6 self-start">
 
                     <!-- Registration + Pricing card -->
-                    <div class="card bg-base-100 border border-base-300 shadow-md rounded-2xl lg:sticky lg:top-6">
+                    <div class="card bg-base-100 border border-base-300 shadow-md rounded-2xl">
                         <div class="card-body gap-5">
 
                             {dateTimeDisplay && (
@@ -245,7 +255,7 @@ const pageClass = 'page-aba-webinar';
                                         class="btn btn-primary w-full"
                                         data-epi-edit={isCmsEdit ? 'WebinarUrl' : undefined}
                                     >
-                                        Register Now
+                                        {isPastWebinar ? 'View On-Demand' : 'Register Now'}
                                     </a>
                                 </div>
                             )}
@@ -271,7 +281,7 @@ const pageClass = 'page-aba-webinar';
                                     data-epi-edit={isCmsEdit ? 'SupportingAssets' : undefined}
                                 >
                                     {page.SupportingAssets?.map((asset) => {
-                                        const url = (asset as any)?.item?.Url || asset?.url?.default;
+                                        const url = asset?.url?.default || asset?.url?.hierarchical;
                                         const name =
                                             (asset as any)?.item?._metadata?.displayName ||
                                             url?.split('/').pop() ||
