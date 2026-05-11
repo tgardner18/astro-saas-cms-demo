@@ -70,6 +70,11 @@
     ul {
         @apply list-inside list-disc;
     }
+
+    li{
+        list-style-position: outside
+    }
+
     ol {
         @apply list-inside list-decimal;
     }
