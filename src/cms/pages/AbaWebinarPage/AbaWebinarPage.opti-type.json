@@ -1,12 +1,14 @@
 {
 	"key": "AbaWebinarPage",
 	"displayName": "ABA Webinar",
-	"description": "Page for ABA webinar listings with registration, pricing, CE credits, and speaker information.",
-	"baseType": "_page",
+	"description": "",
+	"baseType": "page",
+	"isContract": false,
 	"sortOrder": 0,
-	"mayContainTypes": ["*"],
+	"mayContainTypes": [],
 	"mediaFileExtensions": [],
 	"compositionBehaviors": [],
+	"contracts": [],
 	"properties": {
 		"WebinarTitle": {
 			"type": "string",
@@ -18,67 +20,8 @@
 			"group": "Information",
 			"sortOrder": 10,
 			"indexingType": "searchable",
-			"editorSettings": {}
-		},
-		"StartDateTime": {
-			"type": "dateTime",
-			"displayName": "Start Date & Time",
-			"description": "Webinar start date and time (e.g., July 4, 2026 3:00 PM EST)",
-			"localized": false,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 20,
-			"indexingType": "queryable",
-			"editorSettings": {}
-		},
-		"EndDateTime": {
-			"type": "dateTime",
-			"displayName": "End Date & Time",
-			"description": "Webinar end date and time (e.g., July 4, 2026 4:00 PM EST)",
-			"localized": false,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 30,
-			"indexingType": "queryable",
-			"editorSettings": {}
-		},
-		"Restrictions": {
-			"type": "string",
-			"format": "selectOne",
-			"displayName": "Restrictions",
-			"description": "Access restrictions for this webinar",
-			"localized": false,
-			"required": true,
-			"group": "Information",
-			"sortOrder": 40,
-			"indexingType": "queryable",
-			"editorSettings": {},
-			"enum": [
-				{ "displayName": "None", "value": "none" },
-				{ "displayName": "Bank Member", "value": "bankMember" }
-			]
-		},
-		"Description": {
-			"type": "richText",
-			"displayName": "Description",
-			"description": "",
-			"localized": true,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 50,
-			"indexingType": "searchable",
-			"editorSettings": {}
-		},
-		"WebinarUrl": {
-			"type": "string",
-			"format": "shortString",
-			"displayName": "Webinar URL",
-			"description": "URL for webinar registration or access",
-			"localized": false,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 60,
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"Speakers": {
 			"type": "array",
@@ -88,7 +31,8 @@
 			"required": false,
 			"group": "Speakers",
 			"sortOrder": 10,
-			"editorSettings": {},
+			"allowedTypes": [],
+			"restrictedTypes": [],
 			"items": {
 				"type": "string",
 				"allowedTypes": [],
@@ -103,7 +47,8 @@
 			"required": false,
 			"group": "Assets",
 			"sortOrder": 10,
-			"editorSettings": {},
+			"allowedTypes": [],
+			"restrictedTypes": [],
 			"items": {
 				"type": "contentReference",
 				"allowedTypes": [],
@@ -120,29 +65,8 @@
 			"group": "Commerce",
 			"sortOrder": 10,
 			"indexingType": "queryable",
-			"editorSettings": {}
-		},
-		"NonMemberPrice": {
-			"type": "string",
-			"format": "shortString",
-			"displayName": "Non-Member Price",
-			"description": "Price for non-members (e.g., $299.00)",
-			"localized": false,
-			"required": false,
-			"group": "Commerce",
-			"sortOrder": 20,
-			"editorSettings": {}
-		},
-		"MemberPrice": {
-			"type": "string",
-			"format": "shortString",
-			"displayName": "Member Price",
-			"description": "Price for ABA members (e.g., $199.00)",
-			"localized": false,
-			"required": false,
-			"group": "Commerce",
-			"sortOrder": 30,
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"CeCreditsAvailable": {
 			"type": "array",
@@ -154,48 +78,139 @@
 			"group": "Credits",
 			"sortOrder": 10,
 			"indexingType": "queryable",
-			"editorSettings": {},
+			"allowedTypes": [],
+			"restrictedTypes": [],
 			"items": {
 				"type": "string",
 				"enum": [
-					{ "displayName": "CPE", "value": "CPE" },
-					{ "displayName": "CTFA", "value": "CTFA" },
-					{ "displayName": "Not Applicable", "value": "notApplicable" }
+					{
+						"value": "CPE",
+						"displayName": "CPE"
+					},
+					{
+						"value": "CTFA",
+						"displayName": "CTFA"
+					},
+					{
+						"value": "notApplicable",
+						"displayName": "Not Applicable"
+					}
 				],
 				"allowedTypes": [],
 				"restrictedTypes": []
 			}
 		},
-		"CreditsDescription": {
-			"type": "richText",
-			"displayName": "Credits Description",
-			"description": "",
-			"localized": true,
-			"required": false,
-			"group": "Credits",
-			"sortOrder": 20,
-			"editorSettings": {}
-		},
-		"BankingTopic": {
+		"Audience": {
 			"type": "array",
 			"format": "selectMany",
-			"displayName": "Banking Topic",
-			"description": "Select all applicable banking topics",
+			"displayName": "Audience",
+			"description": "Select all applicable audience types",
 			"localized": false,
-			"required": false,
-			"group": "Topics",
+			"required": true,
+			"group": "Audience",
 			"sortOrder": 10,
 			"indexingType": "queryable",
-			"editorSettings": {},
+			"allowedTypes": [],
+			"restrictedTypes": [],
 			"items": {
 				"type": "string",
 				"enum": [
-					{ "displayName": "Advocacy", "value": "advocacy" },
-					{ "displayName": "Health Savings Accounts", "value": "healthSavingsAccounts" },
-					{ "displayName": "Leadership", "value": "leadership" },
-					{ "displayName": "Securities", "value": "securities" },
-					{ "displayName": "Trust Investments", "value": "trustInvestments" },
-					{ "displayName": "Wealth Management", "value": "wealthManagement" }
+					{
+						"value": "Bank Counsel",
+						"displayName": "Bank Counsel"
+					},
+					{
+						"value": "CFPs",
+						"displayName": "CFPs"
+					},
+					{
+						"value": "Chief Risk Officers",
+						"displayName": "Chief Risk Officers"
+					},
+					{
+						"value": "CISPs",
+						"displayName": "CISPs"
+					},
+					{
+						"value": "CERPS",
+						"displayName": "CERPS"
+					},
+					{
+						"value": "Compliance Officers and Managers",
+						"displayName": "Compliance Officers and Managers"
+					},
+					{
+						"value": "CPAs",
+						"displayName": "CPAs"
+					},
+					{
+						"value": "CRCMs",
+						"displayName": "CRCMs"
+					},
+					{
+						"value": "CRSPs",
+						"displayName": "CRSPs"
+					},
+					{
+						"value": "CTFAs",
+						"displayName": "CTFAs"
+					},
+					{
+						"value": "Estate Planners",
+						"displayName": "Estate Planners"
+					},
+					{
+						"value": "Financial Planners",
+						"displayName": "Financial Planners"
+					},
+					{
+						"value": "Private Bankers",
+						"displayName": "Private Bankers"
+					},
+					{
+						"value": "Risk Auditors",
+						"displayName": "Risk Auditors"
+					},
+					{
+						"value": "Risk Managers",
+						"displayName": "Risk Managers"
+					},
+					{
+						"value": "Senior Bank Managers",
+						"displayName": "Senior Bank Managers"
+					},
+					{
+						"value": "Senior Risk Executives and Board of Directors",
+						"displayName": "Senior Risk Executives and Board of Directors"
+					},
+					{
+						"value": "Trust and Fiduciary Advisors",
+						"displayName": "Trust and Fiduciary Advisors"
+					},
+					{
+						"value": "Trust Counsel",
+						"displayName": "Trust Counsel"
+					},
+					{
+						"value": "Trust Department Managers",
+						"displayName": "Trust Department Managers"
+					},
+					{
+						"value": "Trust Officers",
+						"displayName": "Trust Officers"
+					},
+					{
+						"value": "Trust Tax Professionals",
+						"displayName": "Trust Tax Professionals"
+					},
+					{
+						"value": "Wealth Management Advisors",
+						"displayName": "Wealth Management Advisors"
+					},
+					{
+						"value": "Wealth Managers",
+						"displayName": "Wealth Managers"
+					}
 				],
 				"allowedTypes": [],
 				"restrictedTypes": []
@@ -209,7 +224,8 @@
 			"required": false,
 			"group": "Schema",
 			"sortOrder": 10,
-			"editorSettings": {},
+			"allowedTypes": [],
+			"restrictedTypes": [],
 			"items": {
 				"type": "string",
 				"allowedTypes": [],
@@ -225,7 +241,8 @@
 			"required": false,
 			"group": "SeoSettings",
 			"sortOrder": 10,
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
 		},
 		"PageAdminSettings": {
 			"type": "component",
@@ -236,7 +253,114 @@
 			"required": false,
 			"group": "AdminSettings",
 			"sortOrder": 10,
-			"editorSettings": {}
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"StartDateTime": {
+			"type": "dateTime",
+			"displayName": "Start Date & Time",
+			"description": "Webinar start date and time (e.g., July 4, 2026 3:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 20,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"NonMemberPrice": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Non-Member Price",
+			"description": "Price for non-members (e.g., $299.00)",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 20,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"CreditsDescription": {
+			"type": "richText",
+			"displayName": "Credits Description",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Credits",
+			"sortOrder": 20,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"EndDateTime": {
+			"type": "dateTime",
+			"displayName": "End Date & Time",
+			"description": "Webinar end date and time (e.g., July 4, 2026 4:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 30,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"MemberPrice": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Member Price",
+			"description": "Price for ABA members (e.g., $199.00)",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 30,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Restrictions": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Restrictions",
+			"description": "Access restrictions for this webinar",
+			"localized": false,
+			"required": true,
+			"group": "Information",
+			"sortOrder": 40,
+			"indexingType": "queryable",
+			"enum": [
+				{
+					"value": "none",
+					"displayName": "None"
+				},
+				{
+					"value": "bankMember",
+					"displayName": "Bank Member"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Description": {
+			"type": "richText",
+			"displayName": "Description",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 50,
+			"indexingType": "searchable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"WebinarUrl": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Webinar URL",
+			"description": "URL for webinar registration or access",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 60,
+			"allowedTypes": [],
+			"restrictedTypes": []
 		}
 	}
 }

@@ -57,7 +57,10 @@ contentTypesListSorted?.forEach(async (contentType) => {
         const contentTypeKeyCapitalized = capitalize(sanitizedKey);
 
         // Now organize based on type following folder structure based on baseType
-        const baseType = cleanContentType.baseType;
+        // Optimizely API returns underscore-prefixed base types (e.g. "_page"), strip it for
+        // consistent comparisons and so pulled files match local convention ("page", "component", etc.)
+        const baseType = (cleanContentType.baseType ?? '').replace(/^_/, '');
+        cleanContentType.baseType = baseType;
 
         if (baseType === 'page') {
             // Pages go in pages folder

@@ -45,14 +45,6 @@ const ceCreditsLabels: Record<string, string> = {
     notApplicable: 'Not Applicable',
 };
 
-const bankingTopicLabels: Record<string, string> = {
-    advocacy: 'Advocacy',
-    healthSavingsAccounts: 'Health Savings Accounts',
-    leadership: 'Leadership',
-    securities: 'Securities',
-    trustInvestments: 'Trust Investments',
-    wealthManagement: 'Wealth Management',
-};
 
 const graphType =
     page?.SeoSettings?.GraphType && page?.SeoSettings?.GraphType !== '-'
@@ -65,7 +57,7 @@ const extPreviewEnabled = page?.PageAdminSettings?.EnableExternalPreview ?? fals
 
 const hasPricing = !!(page?.MemberPrice || page?.NonMemberPrice);
 const hasCredits = (page?.CeCreditsAvailable?.length ?? 0) > 0;
-const hasTopics = (page?.BankingTopic?.length ?? 0) > 0;
+const hasAudience = (page?.Audience?.length ?? 0) > 0;
 const hasSpeakers = (page?.Speakers?.length ?? 0) > 0;
 const hasAssets = (page?.SupportingAssets?.length ?? 0) > 0;
 const hasSchema = (page?.Schema?.length ?? 0) > 0;
@@ -250,17 +242,17 @@ const pageClass = 'page-aba-webinar';
                         </section>
                     )}
 
-                    <!-- Banking Topics -->
-                    {hasTopics && (
+                    <!-- Audience -->
+                    {hasAudience && (
                         <section>
-                            <h2 class="text-lg font-semibold text-base-content mb-3">Banking Topics</h2>
+                            <h2 class="text-lg font-semibold text-base-content mb-3">Audience</h2>
                             <div
                                 class="flex flex-wrap gap-2"
-                                data-epi-edit={isCmsEdit ? 'BankingTopic' : undefined}
+                                data-epi-edit={isCmsEdit ? 'Audience' : undefined}
                             >
-                                {page.BankingTopic?.map((topic) => (
-                                    <span class="badge badge-primary badge-outline badge-lg">
-                                        {bankingTopicLabels[topic ?? ''] ?? topic}
+                                {page.Audience?.map((audience) => (
+                                    <span class="badge badge-primary badge-outline border px-3 py-4 text-sm font-medium">
+                                        {audience}
                                     </span>
                                 ))}
                             </div>

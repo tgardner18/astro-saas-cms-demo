@@ -23,7 +23,7 @@ fragment AbaWebinarPage on AbaWebinarPage {
     CreditsDescription {
         html
     }
-    BankingTopic
+    Audience
     Schema
     SeoSettings {
         ...PageSeoSettingsProperty
