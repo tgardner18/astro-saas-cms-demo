@@ -198,7 +198,7 @@ const pageClass = 'page-aba-webinar';
                     {hasSpeakers && (
                         <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
                             <div class="card-body">
-                                <h2 class="card-title text-xl font-bold mb-2">Speakers</h2>
+                                <h2 class="card-title text-3xl font-bold mb-2">Speakers</h2>
                                 <ul
                                     class="space-y-3"
                                     data-epi-edit={isCmsEdit ? 'Speakers' : undefined}
@@ -218,14 +218,14 @@ const pageClass = 'page-aba-webinar';
                     {(hasCredits || page?.CreditsDescription?.html) && (
                         <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
                             <div class="card-body">
-                                <h2 class="card-title text-xl font-bold mb-2">CE Credits</h2>
+                                <h2 class="card-title text-3xl font-bold mb-2">CE Credits</h2>
                                 {hasCredits && (
                                     <div
                                         class="flex flex-wrap gap-2 mb-4"
                                         data-epi-edit={isCmsEdit ? 'CeCreditsAvailable' : undefined}
                                     >
                                         {page.CeCreditsAvailable?.map((credit) => (
-                                            <span class="badge badge-outline badge-lg font-medium">
+                                            <span class="badge badge-outline badge-lg text-primary font-bold">
                                                 {ceCreditsLabels[credit ?? ''] ?? credit}
                                             </span>
                                         ))}
@@ -233,7 +233,7 @@ const pageClass = 'page-aba-webinar';
                                 )}
                                 {page?.CreditsDescription?.html && (
                                     <div
-                                        class="prose dark:prose-invert max-w-none text-md"
+                                        class="prose dark:prose-invert max-w-none text-lg"
                                         data-epi-edit={isCmsEdit ? 'CreditsDescription' : undefined}
                                         set:html={page.CreditsDescription.html}
                                     />
@@ -246,7 +246,7 @@ const pageClass = 'page-aba-webinar';
                     {hasAudience && (
                         <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
                             <div class="card-body">
-                                <h2 class="card-title text-xl font-bold mb-2">Who Should Attend</h2>
+                                <h2 class="card-title text-3xl font-bold mb-2">Who Should Attend</h2>
                                 <ul
                                     class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5"
                                     data-epi-edit={isCmsEdit ? 'Audience' : undefined}
@@ -256,7 +256,7 @@ const pageClass = 'page-aba-webinar';
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                                             </svg>
-                                            <span class="text-base-content text-base">{audience}</span>
+                                            <span class="text-base-content text-lg text-primary">{audience}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -274,10 +274,10 @@ const pageClass = 'page-aba-webinar';
 
                             {dateTimeDisplay && (
                                 <div>
-                                    <p class="text-sm font-semibold uppercase tracking-widest text-base-content/50 mb-1">
+                                    <p class="text-md font-semibold uppercase tracking-widest text-base-content/50 mb-1">
                                         Date &amp; Time
                                     </p>
-                                    <p class="text-md font-medium text-base-content">
+                                    <p class="text-lg font-medium text-primary">
                                         {dateTimeDisplay}
                                     </p>
                                 </div>
@@ -314,9 +314,9 @@ const pageClass = 'page-aba-webinar';
                                             )}
                                             {page?.NonMemberPrice && (
                                                 <div class="flex justify-between items-center px-1 pt-1">
-                                                    <span class="text-sm text-base-content/40">Regular Price</span>
+                                                    <span class="text-md text-base-content/40">Regular Price</span>
                                                     <span
-                                                        class="text-sm text-base-content/40 line-through"
+                                                        class="text-md text-base-content/40 line-through"
                                                         data-epi-edit={isCmsEdit ? 'NonMemberPrice' : undefined}
                                                     >
                                                         {page.NonMemberPrice}
