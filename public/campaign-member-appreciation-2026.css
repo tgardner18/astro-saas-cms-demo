@@ -164,12 +164,46 @@ header.sticky {
 }
 
 
-/* ── Footer – Campaign Accent ───────────────────────────────── */
+/* ── Footer – Campaign Gradient Skin ───────────────────────── */
+
+/* Orange-to-navy gradient background */
+footer {
+  background: linear-gradient(
+    135deg,
+    var(--mam-orange)  -8%,
+    var(--mam-navy)    32%,
+    var(--mam-navy-2) 100%
+  ) !important;
+}
+
+/* Rainbow stripe at the very top of the footer */
 footer::before {
   content: '';
   display: block;
   height: 4px;
   background: var(--mam-gradient);
+}
+
+/* Turn the CMS logo white so it reads on the dark background */
+footer img {
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+}
+
+/* Footer body text */
+footer p {
+  color: rgba(255, 255, 255, 0.72) !important;
+  opacity: 1 !important;
+}
+
+/* Footer nav links and social icon anchors */
+footer ul li a {
+  color: rgba(255, 255, 255, 0.65) !important;
+  opacity: 1 !important;
+}
+
+footer ul li a:hover {
+  color: var(--mam-gold) !important;
 }
 
 
