@@ -1,6 +1,5 @@
 ---
 import type { Locales } from 'astro';
-import { Fragment } from 'astro/jsx-runtime';
 import type { AbaWebinarPageFragment } from '../../../../__generated/sdk';
 import { getOptimizelySdk } from '../../../graphql/getSdk';
 import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
@@ -60,7 +59,7 @@ const hasCredits = (page?.CeCreditsAvailable?.length ?? 0) > 0;
 const hasAudience = (page?.Audience?.length ?? 0) > 0;
 const hasSpeakers = (page?.Speakers?.length ?? 0) > 0;
 const hasAssets = (page?.SupportingAssets?.length ?? 0) > 0;
-const hasSchema = (page?.Schema?.length ?? 0) > 0;
+const hasSchema = !!page?.ContentSchema?.html;
 
 const isPastWebinar = startDate ? startDate < new Date() : false;
 
@@ -479,8 +478,6 @@ const pageClass = 'page-aba-webinar';
         </div>
 
         <!-- JSON-LD Schema markup -->
-        {hasSchema && page.Schema?.map((schema) => (
-            <Fragment set:html={`<script type="application/ld+json">${schema}<\/script>`} />
-        ))}
+        {hasSchema && <Fragment set:html={page.ContentSchema!.html} />}
     </div>
 </Layout>

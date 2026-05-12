@@ -24,7 +24,9 @@ fragment AbaWebinarPage on AbaWebinarPage {
         html
     }
     Audience
-    Schema
+    ContentSchema {
+        html
+    }
     SeoSettings {
         ...PageSeoSettingsProperty
     }

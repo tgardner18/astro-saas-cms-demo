@@ -10,6 +10,17 @@
 	"compositionBehaviors": [],
 	"contracts": [],
 	"properties": {
+		"ContentSchema": {
+			"type": "richText",
+			"displayName": "GEO Schema",
+			"description": "JSON-LD structured schema. Use available agents to help with this. ",
+			"localized": false,
+			"required": false,
+			"group": "Schema",
+			"sortOrder": 0,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
 		"WebinarTitle": {
 			"type": "string",
 			"format": "shortString",
@@ -212,22 +223,6 @@
 						"displayName": "Wealth Managers"
 					}
 				],
-				"allowedTypes": [],
-				"restrictedTypes": []
-			}
-		},
-		"Schema": {
-			"type": "array",
-			"displayName": "Schema",
-			"description": "JSON-LD schema markup strings — one script block per entry",
-			"localized": false,
-			"required": false,
-			"group": "Schema",
-			"sortOrder": 10,
-			"allowedTypes": [],
-			"restrictedTypes": [],
-			"items": {
-				"type": "string",
 				"allowedTypes": [],
 				"restrictedTypes": []
 			}
