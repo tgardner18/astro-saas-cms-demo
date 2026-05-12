@@ -88,7 +88,7 @@ export default defineConfig({
                 context: 'server',
                 access: 'secret',
                 optional: true,
-                default: "https://api.zaius.com"
+                default: 'https://api.zaius.com',
             }),
             OPTIMIZELY_DATA_PLATFORM_PRIVATE_KEY: envField.string({
                 context: 'server',
@@ -284,6 +284,14 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Playfair Display',
                 cssVariable: '--font-playfair-display',
+                weights: [
+                    '400',
+                    '500',
+                    '600',
+                    '700',
+                    '800',
+                    '900',
+                ],
             },
             {
                 provider: fontProviders.google(),
@@ -294,6 +302,16 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Poppins',
                 cssVariable: '--font-poppins',
+                weights: [
+                    '200',
+                    '300',
+                    '400',
+                    '500',
+                    '600',
+                    '700',
+                    '800',
+                    '900',
+                ],
             },
             {
                 provider: fontProviders.google(),

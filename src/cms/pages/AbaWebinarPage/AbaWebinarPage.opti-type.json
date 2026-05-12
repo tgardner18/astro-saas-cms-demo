@@ -1,0 +1,361 @@
+{
+	"key": "AbaWebinarPage",
+	"displayName": "ABA Webinar",
+	"description": "",
+	"baseType": "page",
+	"isContract": false,
+	"sortOrder": 0,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [],
+	"contracts": [],
+	"properties": {
+		"WebinarTitle": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Webinar Title",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 9,
+			"indexingType": "searchable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"WebinarUrl": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Webinar URL",
+			"description": "URL for webinar registration or access",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 9,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"StartDateTime": {
+			"type": "dateTime",
+			"displayName": "Start Date & Time",
+			"description": "Webinar start date and time (e.g., July 4, 2026 3:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"EndDateTime": {
+			"type": "dateTime",
+			"displayName": "End Date & Time",
+			"description": "Webinar end date and time (e.g., July 4, 2026 4:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Restrictions": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Restrictions",
+			"description": "Access restrictions for this webinar",
+			"localized": false,
+			"required": true,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"enum": [
+				{
+					"value": "none",
+					"displayName": "None"
+				},
+				{
+					"value": "bankMember",
+					"displayName": "Bank Member"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Description": {
+			"type": "richText",
+			"displayName": "Description",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "searchable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Audience": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "Audience",
+			"description": "Select all applicable audience types",
+			"localized": false,
+			"required": true,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "string",
+				"enum": [
+					{
+						"value": "Bank Counsel",
+						"displayName": "Bank Counsel"
+					},
+					{
+						"value": "CFPs",
+						"displayName": "CFPs"
+					},
+					{
+						"value": "Chief Risk Officers",
+						"displayName": "Chief Risk Officers"
+					},
+					{
+						"value": "CISPs",
+						"displayName": "CISPs"
+					},
+					{
+						"value": "CERPS",
+						"displayName": "CERPS"
+					},
+					{
+						"value": "Compliance Officers and Managers",
+						"displayName": "Compliance Officers and Managers"
+					},
+					{
+						"value": "CPAs",
+						"displayName": "CPAs"
+					},
+					{
+						"value": "CRCMs",
+						"displayName": "CRCMs"
+					},
+					{
+						"value": "CRSPs",
+						"displayName": "CRSPs"
+					},
+					{
+						"value": "CTFAs",
+						"displayName": "CTFAs"
+					},
+					{
+						"value": "Estate Planners",
+						"displayName": "Estate Planners"
+					},
+					{
+						"value": "Financial Planners",
+						"displayName": "Financial Planners"
+					},
+					{
+						"value": "Private Bankers",
+						"displayName": "Private Bankers"
+					},
+					{
+						"value": "Risk Auditors",
+						"displayName": "Risk Auditors"
+					},
+					{
+						"value": "Risk Managers",
+						"displayName": "Risk Managers"
+					},
+					{
+						"value": "Senior Bank Managers",
+						"displayName": "Senior Bank Managers"
+					},
+					{
+						"value": "Senior Risk Executives and Board of Directors",
+						"displayName": "Senior Risk Executives and Board of Directors"
+					},
+					{
+						"value": "Trust and Fiduciary Advisors",
+						"displayName": "Trust and Fiduciary Advisors"
+					},
+					{
+						"value": "Trust Counsel",
+						"displayName": "Trust Counsel"
+					},
+					{
+						"value": "Trust Department Managers",
+						"displayName": "Trust Department Managers"
+					},
+					{
+						"value": "Trust Officers",
+						"displayName": "Trust Officers"
+					},
+					{
+						"value": "Trust Tax Professionals",
+						"displayName": "Trust Tax Professionals"
+					},
+					{
+						"value": "Wealth Management Advisors",
+						"displayName": "Wealth Management Advisors"
+					},
+					{
+						"value": "Wealth Managers",
+						"displayName": "Wealth Managers"
+					}
+				],
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"Speakers": {
+			"type": "array",
+			"displayName": "Speakers",
+			"description": "List of webinar speakers — one entry per speaker (e.g., Jane Doe, VP of Finance, First National Bank)",
+			"localized": true,
+			"required": false,
+			"group": "Speakers",
+			"sortOrder": 11,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "string",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"SupportingAssets": {
+			"type": "array",
+			"displayName": "Supporting Assets",
+			"description": "Downloadable files and supporting materials",
+			"localized": false,
+			"required": false,
+			"group": "Assets",
+			"sortOrder": 12,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "contentReference",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"ProductId": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Product ID",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 13,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"NonMemberPrice": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Non-Member Price",
+			"description": "Price for non-members (e.g., $299.00)",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 14,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"MemberPrice": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Member Price",
+			"description": "Price for ABA members (e.g., $199.00)",
+			"localized": false,
+			"required": false,
+			"group": "Commerce",
+			"sortOrder": 14,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"CeCreditsAvailable": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "CE Credits Available",
+			"description": "Select all applicable CE credit types",
+			"localized": false,
+			"required": false,
+			"group": "Credits",
+			"sortOrder": 16,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "string",
+				"enum": [
+					{
+						"value": "CPE",
+						"displayName": "CPE"
+					},
+					{
+						"value": "CTFA",
+						"displayName": "CTFA"
+					},
+					{
+						"value": "notApplicable",
+						"displayName": "Not Applicable"
+					}
+				],
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"CreditsDescription": {
+			"type": "richText",
+			"displayName": "Credits Description",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Credits",
+			"sortOrder": 16,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"ContentSchema": {
+			"type": "richText",
+			"displayName": "GEO Schema",
+			"description": "JSON-LD structured schema. Use available agents to help with this. ",
+			"localized": false,
+			"required": false,
+			"group": "Schema",
+			"sortOrder": 30,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"SeoSettings": {
+			"type": "component",
+			"contentType": "PageSeoSettings",
+			"displayName": "SEO Settings",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "SeoSettings",
+			"sortOrder": 499,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"PageAdminSettings": {
+			"type": "component",
+			"contentType": "PageAdminSettings",
+			"displayName": "Page Admin Settings",
+			"description": "",
+			"localized": false,
+			"required": false,
+			"group": "AdminSettings",
+			"sortOrder": 500,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		}
+	}
+}

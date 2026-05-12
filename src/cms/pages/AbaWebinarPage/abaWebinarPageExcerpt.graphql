@@ -1,0 +1,11 @@
+fragment AbaWebinarExcerpt on AbaWebinarPage {
+    _metadata {
+        ...PageUrl
+    }
+    WebinarTitle
+    StartDateTime
+    EndDateTime
+    CeCreditsAvailable
+    Audience
+    Restrictions
+}

@@ -1,0 +1,59 @@
+{
+	"key": "AbaWebinarList",
+	"displayName": "ABA Webinar List",
+	"description": "Displays a filterable, date-sorted list of ABA webinar pages.",
+	"baseType": "_component",
+	"sortOrder": 100,
+	"mayContainTypes": [],
+	"mediaFileExtensions": [],
+	"compositionBehaviors": [
+		"sectionEnabled",
+		"elementEnabled"
+	],
+	"properties": {
+		"Title": {
+			"type": "string",
+			"displayName": "Section Title",
+			"description": "Optional heading displayed above the webinar list",
+			"localized": true,
+			"required": false,
+			"group": "Content",
+			"sortOrder": 0,
+			"indexingType": "searchable",
+			"editorSettings": {}
+		},
+		"NumberOfWebinars": {
+			"type": "integer",
+			"displayName": "Maximum Webinars to Show",
+			"description": "How many webinars to fetch (default: 100)",
+			"localized": false,
+			"required": false,
+			"group": "Content",
+			"sortOrder": 100,
+			"editorSettings": {},
+			"minimum": 1
+		},
+		"WebinarRoot": {
+			"type": "contentReference",
+			"displayName": "Webinar Root",
+			"description": "Section of the site to pull webinars from",
+			"localized": false,
+			"required": false,
+			"group": "Content",
+			"sortOrder": 200,
+			"editorSettings": {},
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"ShowUpcomingOnly": {
+			"type": "boolean",
+			"displayName": "Show Upcoming Webinars Only",
+			"description": "When enabled, hides webinars whose start date has already passed",
+			"localized": false,
+			"required": false,
+			"group": "Content",
+			"sortOrder": 300,
+			"editorSettings": {}
+		}
+	}
+}

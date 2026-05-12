@@ -1,0 +1,11 @@
+fragment AbaWebinarList on AbaWebinarList {
+    Title
+    NumberOfWebinars
+    WebinarRoot {
+        url {
+            default
+            base
+        }
+    }
+    ShowUpcomingOnly
+}

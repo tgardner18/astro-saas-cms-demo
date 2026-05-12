@@ -1,0 +1,487 @@
+---
+import type { Locales } from 'astro';
+import type { AbaWebinarPageFragment } from '../../../../__generated/sdk';
+import { getOptimizelySdk } from '../../../graphql/getSdk';
+import type { ContentPayload } from '../../../graphql/shared/ContentPayload';
+import Layout from '../../../layouts/Layout.astro';
+import { isEditContext } from '../../shared/utils.ts';
+
+const isCmsEdit = isEditContext(Astro.url);
+
+export interface Props {
+    contentPayload: ContentPayload;
+}
+
+const { contentPayload } = Astro.props as Props;
+
+const optiResponse = await getOptimizelySdk(contentPayload).pageById({
+    key: contentPayload.key,
+    //@ts-ignore
+    loc: contentPayload.loc as Locales,
+    ver: contentPayload.ver,
+});
+
+const page = optiResponse?._Page?.item as AbaWebinarPageFragment;
+
+const startDate = page?.StartDateTime ? new Date(page.StartDateTime as string) : null;
+const endDate = page?.EndDateTime ? new Date(page.EndDateTime as string) : null;
+
+const estDateFmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', month: 'long', day: 'numeric', year: 'numeric' });
+const estTimeFmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit', hour12: true });
+const estTzFmt   = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' });
+
+const formattedDate      = startDate ? estDateFmt.format(startDate) : '';
+const formattedStartTime = startDate ? estTimeFmt.format(startDate) : '';
+const formattedEndTime   = endDate   ? estTimeFmt.format(endDate)   : '';
+const tzAbbr             = startDate ? (estTzFmt.formatToParts(startDate).find(p => p.type === 'timeZoneName')?.value ?? 'ET') : 'ET';
+const dateTimeDisplay    = formattedDate
+    ? `${formattedDate} ${formattedStartTime}${formattedEndTime ? `–${formattedEndTime}` : ''} ${tzAbbr}`
+    : '';
+
+const ceCreditsLabels: Record<string, string> = {
+    CPE: 'CPE',
+    CTFA: 'CTFA',
+    notApplicable: 'Not Applicable',
+};
+
+
+const graphType =
+    page?.SeoSettings?.GraphType && page?.SeoSettings?.GraphType !== '-'
+        ? page.SeoSettings.GraphType
+        : 'website';
+const defaultUrl = page?._metadata?.url?.default || '';
+const hierarchicalUrl =
+    page?._metadata?.url?.type === 'SIMPLE' ? page?._metadata?.url?.hierarchical : '';
+const extPreviewEnabled = page?.PageAdminSettings?.EnableExternalPreview ?? false;
+
+const hasPricing = !!(page?.MemberPrice || page?.NonMemberPrice);
+const hasCredits = (page?.CeCreditsAvailable?.length ?? 0) > 0;
+const hasAudience = (page?.Audience?.length ?? 0) > 0;
+const hasSpeakers = (page?.Speakers?.length ?? 0) > 0;
+const hasAssets = (page?.SupportingAssets?.length ?? 0) > 0;
+const schemaJson = page?.ContentSchema?.html
+    ? page.ContentSchema.html.replace(/<[^>]*>/g, '').trim()
+    : null;
+const hasSchema = !!schemaJson;
+
+const isPastWebinar = startDate ? startDate < new Date() : false;
+
+const parsePriceNum = (price: string | null | undefined): number | null => {
+    if (!price) return null;
+    const n = parseFloat(price.replace(/[^0-9.]/g, ''));
+    return isNaN(n) ? null : n;
+};
+const memberPriceNum = parsePriceNum(page?.MemberPrice);
+const nonMemberPriceNum = parsePriceNum(page?.NonMemberPrice);
+const savingsPct =
+    memberPriceNum !== null && nonMemberPriceNum !== null && nonMemberPriceNum > memberPriceNum
+        ? Math.round(((nonMemberPriceNum - memberPriceNum) / nonMemberPriceNum) * 100)
+        : null;
+
+const pageClass = 'page-aba-webinar';
+---
+
+<Layout
+    title={page?.SeoSettings?.MetaTitle ?? page?.WebinarTitle ?? page?._metadata?.displayName ?? 'ABA Webinar'}
+    description={page?.SeoSettings?.MetaDescription ?? page?.WebinarTitle ?? ''}
+    graphtype={graphType}
+    indexing={page?.SeoSettings?.Indexing ?? false}
+    contentPayload={contentPayload}
+    defaultUrl={defaultUrl}
+    hierarchicalUrl={hierarchicalUrl ?? ''}
+    extPreviewEnabled={extPreviewEnabled}
+>
+    <div class={pageClass}>
+
+        <!-- Page header band -->
+        <div
+            class="border-b border-base-300"
+            style="background-color: #2a2a2a; background-image: url('https://www.aba.com/~/media/aba/images/backgrounds/background-pattern__dark-gray2x.png'); background-repeat: repeat;"
+        >
+            <div class="mx-auto max-w-screen-xl px-4 2xl:px-0 py-10 lg:py-14">
+
+                    <!-- Row 1: type pill -->
+                <div class="mb-3">
+                    <span class="badge badge-outline text-white border-white/50 badge-lg font-semibold tracking-wide">
+                        Webinar
+                    </span>
+                </div>
+
+                <!-- Row 2: date + restrictions -->
+                <div class="flex flex-wrap items-center gap-3 mb-5">
+                    {dateTimeDisplay && (
+                        <span
+                            class="text-white/80 text-lg font-bold"
+                            data-epi-edit={isCmsEdit ? 'StartDateTime' : undefined}
+                        >
+                            {dateTimeDisplay}
+                        </span>
+                    )}
+                    {page?.Restrictions === 'bankMember' && (
+                        <span class="badge badge-warning badge-md font-semibold">
+                            ABA Bank Members Only
+                        </span>
+                    )}
+                </div>
+
+                <!-- Row 3: title -->
+                <h1
+                    class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight max-w-4xl"
+                    data-epi-edit={isCmsEdit ? 'WebinarTitle' : undefined}
+                >
+                    {page?.WebinarTitle || page?._metadata?.displayName}
+                </h1>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div x-data>
+            {page?.Restrictions === 'bankMember' && (
+                <div x-show="!$store.auth?.isLoggedIn" class="border-b border-base-300">
+                    <div class="py-14 text-center">
+                        <h2 class="text-2xl font-bold text-base-content mb-8">Sign In To Continue Reading</h2>
+                        <div class="flex justify-center gap-4 mb-10">
+                            <button
+                                @click="$store.auth.modalOpen = true"
+                                class="btn btn-primary btn-lg rounded-full px-10 uppercase tracking-widest text-sm"
+                            >
+                                Sign In
+                            </button>
+                            <a
+                                href="#"
+                                class="btn btn-outline btn-primary btn-lg rounded-full px-10 uppercase tracking-widest text-sm"
+                            >
+                                Register
+                            </a>
+                        </div>
+                        <div class="mx-auto max-w-screen-xl px-4 2xl:px-0 opacity-20 pointer-events-none select-none">
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                                <div class="lg:col-span-2 space-y-3">
+                                    <div class="h-4 bg-base-300 rounded w-4/5"></div>
+                                    <div class="h-4 bg-base-300 rounded w-full"></div>
+                                    <div class="h-4 bg-base-300 rounded w-3/4"></div>
+                                    <div class="h-4 bg-base-300 rounded w-11/12"></div>
+                                    <div class="h-4 bg-base-300 rounded w-3/5"></div>
+                                    <div class="h-6 bg-base-300 rounded w-1/4 mt-6"></div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="h-4 bg-base-300 rounded w-full"></div>
+                                    <div class="h-4 bg-base-300 rounded w-4/5"></div>
+                                    <div class="h-4 bg-base-300 rounded w-3/5"></div>
+                                    <div class="h-4 bg-base-300 rounded w-11/12"></div>
+                                    <div class="h-4 bg-base-300 rounded w-1/2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        <main
+            class="mx-auto max-w-screen-xl px-4 2xl:px-0 py-10 lg:py-14"
+            {...(page?.Restrictions === 'bankMember' ? {'x-show': '$store.auth?.isLoggedIn'} : {})}
+        >
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+                <!-- Primary content (2/3) -->
+                <div class="lg:col-span-2 space-y-10">
+
+                    <!-- Description -->
+                    {page?.Description?.html && (
+                        <section>
+                            <article
+                                class="prose dark:prose-invert md:prose-lg lg:prose-xl max-w-none prose-img:rounded-2xl"
+                                data-epi-edit={isCmsEdit ? 'Description' : undefined}
+                                set:html={page.Description.html}
+                            />
+                        </section>
+                    )}
+
+                    <!-- Speakers -->
+                    {hasSpeakers && (
+                        <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-3xl font-bold mb-2">Speakers</h2>
+                                <ul
+                                    class="space-y-3"
+                                    data-epi-edit={isCmsEdit ? 'Speakers' : undefined}
+                                >
+                                    {page.Speakers?.map((speaker) => (
+                                        <li class="flex items-start gap-3">
+                                            <span class="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+                                            <span class="text-base-content text-md">{speaker}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </section>
+                    )}
+
+                    <!-- CE Credits -->
+                    {(hasCredits || page?.CreditsDescription?.html) && (
+                        <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-3xl font-bold mb-2">CE Credits</h2>
+                                {hasCredits && (
+                                    <div
+                                        class="flex flex-wrap gap-2 mb-4"
+                                        data-epi-edit={isCmsEdit ? 'CeCreditsAvailable' : undefined}
+                                    >
+                                        {page.CeCreditsAvailable?.map((credit) => (
+                                            <span class="badge badge-outline badge-lg text-primary font-bold">
+                                                {ceCreditsLabels[credit ?? ''] ?? credit}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                                {page?.CreditsDescription?.html && (
+                                    <div
+                                        class="prose dark:prose-invert max-w-none text-md"
+                                        data-epi-edit={isCmsEdit ? 'CreditsDescription' : undefined}
+                                        set:html={page.CreditsDescription.html}
+                                    />
+                                )}
+                            </div>
+                        </section>
+                    )}
+
+                    <!-- Audience -->
+                    {hasAudience && (
+                        <section class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-3xl font-bold mb-2">Who Should Attend</h2>
+                                <ul
+                                    class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5"
+                                    data-epi-edit={isCmsEdit ? 'Audience' : undefined}
+                                >
+                                    {page.Audience?.map((audience) => (
+                                        <li class="flex items-center gap-2.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span class="text-base-content text-md text-primary">{audience}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </section>
+                    )}
+                </div>
+
+                <!-- Sidebar (1/3) -->
+                <aside class="space-y-6 lg:sticky lg:top-6 self-start">
+
+                    <!-- Registration + Pricing card -->
+                    <div class="card bg-base-100 border border-base-300 shadow-md rounded-2xl">
+                        <div class="card-body gap-5">
+
+                            {dateTimeDisplay && (
+                                <div>
+                                    <p class="text-md font-semibold uppercase tracking-widest text-base-content/50 mb-1">
+                                        Date &amp; Time
+                                    </p>
+                                    <p class="text-md font-bold text-primary">
+                                        {dateTimeDisplay}
+                                    </p>
+                                </div>
+                            )}
+
+                            {hasPricing && (
+                                <div class="border-t border-base-300 pt-4" x-data>
+
+                                    {/* Logged in: highlight member price as "Your Price" with savings callout */}
+                                    <template x-if="$store.auth?.isLoggedIn">
+                                        <div class="space-y-2">
+                                            {page?.MemberPrice && (
+                                                <div class="rounded-xl bg-success/10 border border-success/40 p-4">
+                                                    <p class="text-xs font-bold uppercase tracking-widest text-black mb-2">Your Price</p>
+                                                    <div class="flex items-center justify-between gap-3">
+                                                        <span
+                                                            class="text-3xl font-extrabold text-success"
+                                                            data-epi-edit={isCmsEdit ? 'MemberPrice' : undefined}
+                                                        >
+                                                            {page.MemberPrice}
+                                                        </span>
+                                                        {savingsPct !== null && (
+                                                            <span class="badge badge-success badge-lg font-bold text-sm px-3 whitespace-nowrap">
+                                                                Save {savingsPct}%
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    {savingsPct !== null && page?.NonMemberPrice && (
+                                                        <p class="text-xs text-black mt-1.5 font-medium">
+                                                            {savingsPct}% off the {page.NonMemberPrice} regular price
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            )}
+                                            {page?.NonMemberPrice && (
+                                                <div class="flex justify-between items-center px-1 pt-1">
+                                                    <span class="text-md text-base-content/40">Regular Price</span>
+                                                    <span
+                                                        class="text-md text-base-content/40 line-through"
+                                                        data-epi-edit={isCmsEdit ? 'NonMemberPrice' : undefined}
+                                                    >
+                                                        {page.NonMemberPrice}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </template>
+
+                                    {/* Not logged in: standard member / non-member price rows */}
+                                    <template x-if="!$store.auth?.isLoggedIn">
+                                        <div class="space-y-3">
+                                            {page?.MemberPrice && (
+                                                <div class="flex justify-between items-center">
+                                                    <span class="text-md text-base-content/70">Member Price</span>
+                                                    <span
+                                                        class="text-base font-bold text-base-content"
+                                                        data-epi-edit={isCmsEdit ? 'MemberPrice' : undefined}
+                                                    >
+                                                        {page.MemberPrice}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {page?.NonMemberPrice && (
+                                                <div class="flex justify-between items-center">
+                                                    <span class="text-md text-base-content/70">Non-Member Price</span>
+                                                    <span
+                                                        class="text-base font-bold text-base-content"
+                                                        data-epi-edit={isCmsEdit ? 'NonMemberPrice' : undefined}
+                                                    >
+                                                        {page.NonMemberPrice}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </template>
+                                </div>
+                            )}
+
+                            {/* Non-restricted upcoming webinars: auth-aware Register / Purchase CTA */}
+                            {page?.Restrictions !== 'bankMember' && page?.WebinarUrl && !isPastWebinar && (
+                                <div class={hasPricing ? 'border-t border-base-300 pt-4' : ''}>
+                                    <a
+                                        href={page.WebinarUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-primary w-full"
+                                        data-epi-edit={isCmsEdit ? 'WebinarUrl' : undefined}
+                                        x-text="$store.auth?.isLoggedIn ? 'Purchase' : 'Register'"
+                                    >
+                                        Register
+                                    </a>
+                                </div>
+                            )}
+
+                            {/* Past webinars and restricted pages: static CTA */}
+                            {page?.WebinarUrl && (isPastWebinar || page?.Restrictions === 'bankMember') && (
+                                <div class={hasPricing ? 'border-t border-base-300 pt-4' : ''}>
+                                    <a
+                                        href={page.WebinarUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-primary w-full"
+                                        data-epi-edit={isCmsEdit ? 'WebinarUrl' : undefined}
+                                    >
+                                        {isPastWebinar ? 'View On-Demand' : 'Register Now'}
+                                    </a>
+                                </div>
+                            )}
+
+                            {page?.ProductId && (
+                                <p
+                                    class="text-sm text-base-content/40 text-center"
+                                    data-epi-edit={isCmsEdit ? 'ProductId' : undefined}
+                                >
+                                    Product ID: {page.ProductId}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    <!-- Supporting Downloads -->
+                    {hasAssets && isPastWebinar && (
+                        <div class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-2xl font-bold mb-1">Downloads</h2>
+
+                                {/* Logged in: show asset links */}
+                                <template x-if="$store.auth?.isLoggedIn">
+                                    <ul
+                                        class="space-y-2"
+                                        data-epi-edit={isCmsEdit ? 'SupportingAssets' : undefined}
+                                    >
+                                        {page.SupportingAssets?.map((asset) => {
+                                            const url = asset?.url?.default || asset?.url?.hierarchical;
+                                            const name =
+                                                (asset as any)?.item?._metadata?.displayName ||
+                                                url?.split('/').pop() ||
+                                                'Download';
+                                            return url ? (
+                                                <li>
+                                                    <a
+                                                        href={url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="flex items-center gap-2 text-sm text-primary hover:underline"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-4 w-4 flex-shrink-0"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                                                            />
+                                                        </svg>
+                                                        {name}
+                                                    </a>
+                                                </li>
+                                            ) : null;
+                                        })}
+                                    </ul>
+                                </template>
+
+                                {/* Not logged in: sign-in prompt */}
+                                <template x-if="!$store.auth?.isLoggedIn">
+                                    <div class="space-y-3">
+                                        <p class="text-md text-base-content/60 italic">
+                                            ABA Bank Members can access webinar downloads after signing in.
+                                        </p>
+                                        <button
+                                            @click="$store.auth.modalOpen = true"
+                                            class="btn btn-primary btn-sm w-full"
+                                        >
+                                            Sign In to Access Downloads
+                                        </button>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    )}
+                    {hasAssets && !isPastWebinar && (
+                        <div class="card bg-base-100 border border-base-300 rounded-2xl shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title text-2xl font-bold mb-1">Downloads</h2>
+                                <p class="text-md text-base-content/60 italic">
+                                    Supporting assets will be available once the webinar has completed.
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                </aside>
+            </div>
+        </main>
+        </div>
+
+    </div>
+    <Fragment slot="head">
+        {hasSchema && <Fragment set:html={`<script type="application/ld+json">${schemaJson}</script>`} />}
+    </Fragment>
+</Layout>

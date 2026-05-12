@@ -1,6 +1,7 @@
 ---
 import type { ContentPayload } from '../../graphql/shared/ContentPayload';
 import ArticlePageCard from '../pages/ArticlePage/ArticlePageCard.astro';
+import AbaWebinarList from './AbaWebinarListComponent/AbaWebinarList.astro';
 import ArticleList from './ArticleListComponent/ArticleList.astro';
 import Button from './ButtonComponent/Button.astro';
 import DamAssetList from './DamAssetListComponent/DamAssetList.astro';
@@ -131,6 +132,17 @@ const componentType = component._metadata.types[0];
             contentPayload={contentPayload}
             data={component}
             displaySettings={displaySettings}
+        />
+    )
+}
+{
+    componentType === 'AbaWebinarList' && (
+        <AbaWebinarList
+            key={data?.key}
+            contentPayload={contentPayload}
+            data={component}
+            displaySettings={displaySettings}
+            displayTemplateKey={displayTemplateKey}
         />
     )
 }
