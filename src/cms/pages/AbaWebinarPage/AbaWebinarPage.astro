@@ -206,7 +206,7 @@ const pageClass = 'page-aba-webinar';
                                     {page.Speakers?.map((speaker) => (
                                         <li class="flex items-start gap-3">
                                             <span class="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                                            <span class="text-base-content text-lg">{speaker}</span>
+                                            <span class="text-base-content text-md">{speaker}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -233,7 +233,7 @@ const pageClass = 'page-aba-webinar';
                                 )}
                                 {page?.CreditsDescription?.html && (
                                     <div
-                                        class="prose dark:prose-invert max-w-none text-lg"
+                                        class="prose dark:prose-invert max-w-none text-md"
                                         data-epi-edit={isCmsEdit ? 'CreditsDescription' : undefined}
                                         set:html={page.CreditsDescription.html}
                                     />
@@ -256,7 +256,7 @@ const pageClass = 'page-aba-webinar';
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                                             </svg>
-                                            <span class="text-base-content text-lg text-primary">{audience}</span>
+                                            <span class="text-base-content text-md text-primary">{audience}</span>
                                         </li>
                                     ))}
                                 </ul>
