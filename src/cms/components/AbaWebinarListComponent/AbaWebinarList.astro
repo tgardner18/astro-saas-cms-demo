@@ -293,58 +293,73 @@ const componentClass = 'component-aba-webinar-list';
 </div>
 
 <script>
+// @ts-nocheck
+const _abaWebinarListDef = () => ({
+    allWebinars: [],
+    selectedAudience: [],
+    selectedCredits: [],
+    audienceOpen: false,
+    creditsOpen: false,
+
+    init() {
+        this.allWebinars = JSON.parse(this.$el.getAttribute('data-webinars') || '[]');
+    },
+
+    get allAudiences() {
+        const s = new Set();
+        this.allWebinars.forEach(w => w.audience?.forEach(a => a && s.add(a)));
+        return [...s].sort();
+    },
+
+    get allCredits() {
+        const s = new Set();
+        this.allWebinars.forEach(w => w.credits?.forEach(c => c && s.add(c)));
+        return [...s].sort();
+    },
+
+    get filteredWebinars() {
+        return this.allWebinars.filter(w => {
+            const aMatch = this.selectedAudience.length === 0
+                || w.audience?.some(a => this.selectedAudience.includes(a));
+            const cMatch = this.selectedCredits.length === 0
+                || w.credits?.some(c => this.selectedCredits.includes(c));
+            return aMatch && cMatch;
+        });
+    },
+
+    toggleAudience(val) {
+        const i = this.selectedAudience.indexOf(val);
+        if (i === -1) this.selectedAudience.push(val);
+        else this.selectedAudience.splice(i, 1);
+    },
+
+    toggleCredit(val) {
+        const i = this.selectedCredits.indexOf(val);
+        if (i === -1) this.selectedCredits.push(val);
+        else this.selectedCredits.splice(i, 1);
+    },
+
+    clearAll() {
+        this.selectedAudience = [];
+        this.selectedCredits = [];
+        this.audienceOpen = false;
+        this.creditsOpen = false;
+    },
+});
+
+// Fresh page load: Alpine hasn't started yet, wait for it
 document.addEventListener('alpine:init', () => {
-    Alpine.data('abaWebinarList', () => ({
-        allWebinars: [],
-        selectedAudience: [],
-        selectedCredits: [],
-        audienceOpen: false,
-        creditsOpen: false,
+    Alpine.data('abaWebinarList', _abaWebinarListDef);
+});
 
-        init() {
-            this.allWebinars = JSON.parse(this.$el.getAttribute('data-webinars') || '[]');
-        },
-
-        get allAudiences() {
-            const s = new Set();
-            this.allWebinars.forEach(w => w.audience?.forEach(a => a && s.add(a)));
-            return [...s].sort();
-        },
-
-        get allCredits() {
-            const s = new Set();
-            this.allWebinars.forEach(w => w.credits?.forEach(c => c && s.add(c)));
-            return [...s].sort();
-        },
-
-        get filteredWebinars() {
-            return this.allWebinars.filter(w => {
-                const aMatch = this.selectedAudience.length === 0
-                    || w.audience?.some(a => this.selectedAudience.includes(a));
-                const cMatch = this.selectedCredits.length === 0
-                    || w.credits?.some(c => this.selectedCredits.includes(c));
-                return aMatch && cMatch;
-            });
-        },
-
-        toggleAudience(val) {
-            const i = this.selectedAudience.indexOf(val);
-            if (i === -1) this.selectedAudience.push(val);
-            else this.selectedAudience.splice(i, 1);
-        },
-
-        toggleCredit(val) {
-            const i = this.selectedCredits.indexOf(val);
-            if (i === -1) this.selectedCredits.push(val);
-            else this.selectedCredits.splice(i, 1);
-        },
-
-        clearAll() {
-            this.selectedAudience = [];
-            this.selectedCredits = [];
-            this.audienceOpen = false;
-            this.creditsOpen = false;
-        },
-    }));
+// View-transition navigation: Alpine is already running, so alpine:init never
+// fires again. Register the blueprint and manually init any new elements.
+// This listener persists on document across swaps, covering all future visits.
+document.addEventListener('astro:page-load', () => {
+    if (!window.Alpine) return;
+    Alpine.data('abaWebinarList', _abaWebinarListDef);
+    document.querySelectorAll('[x-data="abaWebinarList"]').forEach(el => {
+        if (!el._x_dataStack) Alpine.initTree(el);
+    });
 });
 </script>
