@@ -10,21 +10,81 @@
 	"compositionBehaviors": [],
 	"contracts": [],
 	"properties": {
-		"ContentSchema": {
-			"type": "richText",
-			"displayName": "GEO Schema",
-			"description": "JSON-LD structured schema. Use available agents to help with this. ",
-			"localized": false,
-			"required": false,
-			"group": "Schema",
-			"sortOrder": 0,
-			"allowedTypes": [],
-			"restrictedTypes": []
-		},
 		"WebinarTitle": {
 			"type": "string",
 			"format": "shortString",
 			"displayName": "Webinar Title",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 9,
+			"indexingType": "searchable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"WebinarUrl": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Webinar URL",
+			"description": "URL for webinar registration or access",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 9,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"StartDateTime": {
+			"type": "dateTime",
+			"displayName": "Start Date & Time",
+			"description": "Webinar start date and time (e.g., July 4, 2026 3:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"EndDateTime": {
+			"type": "dateTime",
+			"displayName": "End Date & Time",
+			"description": "Webinar end date and time (e.g., July 4, 2026 4:00 PM EST)",
+			"localized": false,
+			"required": false,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Restrictions": {
+			"type": "string",
+			"format": "selectOne",
+			"displayName": "Restrictions",
+			"description": "Access restrictions for this webinar",
+			"localized": false,
+			"required": true,
+			"group": "Information",
+			"sortOrder": 10,
+			"indexingType": "queryable",
+			"enum": [
+				{
+					"value": "none",
+					"displayName": "None"
+				},
+				{
+					"value": "bankMember",
+					"displayName": "Bank Member"
+				}
+			],
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"Description": {
+			"type": "richText",
+			"displayName": "Description",
 			"description": "",
 			"localized": true,
 			"required": false,
@@ -34,83 +94,6 @@
 			"allowedTypes": [],
 			"restrictedTypes": []
 		},
-		"Speakers": {
-			"type": "array",
-			"displayName": "Speakers",
-			"description": "List of webinar speakers — one entry per speaker (e.g., Jane Doe, VP of Finance, First National Bank)",
-			"localized": true,
-			"required": false,
-			"group": "Speakers",
-			"sortOrder": 10,
-			"allowedTypes": [],
-			"restrictedTypes": [],
-			"items": {
-				"type": "string",
-				"allowedTypes": [],
-				"restrictedTypes": []
-			}
-		},
-		"SupportingAssets": {
-			"type": "array",
-			"displayName": "Supporting Assets",
-			"description": "Downloadable files and supporting materials",
-			"localized": false,
-			"required": false,
-			"group": "Assets",
-			"sortOrder": 10,
-			"allowedTypes": [],
-			"restrictedTypes": [],
-			"items": {
-				"type": "contentReference",
-				"allowedTypes": [],
-				"restrictedTypes": []
-			}
-		},
-		"ProductId": {
-			"type": "string",
-			"format": "shortString",
-			"displayName": "Product ID",
-			"description": "",
-			"localized": false,
-			"required": false,
-			"group": "Commerce",
-			"sortOrder": 10,
-			"indexingType": "queryable",
-			"allowedTypes": [],
-			"restrictedTypes": []
-		},
-		"CeCreditsAvailable": {
-			"type": "array",
-			"format": "selectMany",
-			"displayName": "CE Credits Available",
-			"description": "Select all applicable CE credit types",
-			"localized": false,
-			"required": false,
-			"group": "Credits",
-			"sortOrder": 10,
-			"indexingType": "queryable",
-			"allowedTypes": [],
-			"restrictedTypes": [],
-			"items": {
-				"type": "string",
-				"enum": [
-					{
-						"value": "CPE",
-						"displayName": "CPE"
-					},
-					{
-						"value": "CTFA",
-						"displayName": "CTFA"
-					},
-					{
-						"value": "notApplicable",
-						"displayName": "Not Applicable"
-					}
-				],
-				"allowedTypes": [],
-				"restrictedTypes": []
-			}
-		},
 		"Audience": {
 			"type": "array",
 			"format": "selectMany",
@@ -118,7 +101,7 @@
 			"description": "Select all applicable audience types",
 			"localized": false,
 			"required": true,
-			"group": "Audience",
+			"group": "Information",
 			"sortOrder": 10,
 			"indexingType": "queryable",
 			"allowedTypes": [],
@@ -227,38 +210,47 @@
 				"restrictedTypes": []
 			}
 		},
-		"SeoSettings": {
-			"type": "component",
-			"contentType": "PageSeoSettings",
-			"displayName": "SEO Settings",
+		"Speakers": {
+			"type": "array",
+			"displayName": "Speakers",
+			"description": "List of webinar speakers — one entry per speaker (e.g., Jane Doe, VP of Finance, First National Bank)",
+			"localized": true,
+			"required": false,
+			"group": "Speakers",
+			"sortOrder": 11,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "string",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"SupportingAssets": {
+			"type": "array",
+			"displayName": "Supporting Assets",
+			"description": "Downloadable files and supporting materials",
+			"localized": false,
+			"required": false,
+			"group": "Assets",
+			"sortOrder": 12,
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "contentReference",
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"ProductId": {
+			"type": "string",
+			"format": "shortString",
+			"displayName": "Product ID",
 			"description": "",
 			"localized": false,
 			"required": false,
-			"group": "SeoSettings",
-			"sortOrder": 10,
-			"allowedTypes": [],
-			"restrictedTypes": []
-		},
-		"PageAdminSettings": {
-			"type": "component",
-			"contentType": "PageAdminSettings",
-			"displayName": "Page Admin Settings",
-			"description": "",
-			"localized": false,
-			"required": false,
-			"group": "AdminSettings",
-			"sortOrder": 10,
-			"allowedTypes": [],
-			"restrictedTypes": []
-		},
-		"StartDateTime": {
-			"type": "dateTime",
-			"displayName": "Start Date & Time",
-			"description": "Webinar start date and time (e.g., July 4, 2026 3:00 PM EST)",
-			"localized": false,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 20,
+			"group": "Commerce",
+			"sortOrder": 13,
 			"indexingType": "queryable",
 			"allowedTypes": [],
 			"restrictedTypes": []
@@ -271,30 +263,7 @@
 			"localized": false,
 			"required": false,
 			"group": "Commerce",
-			"sortOrder": 20,
-			"allowedTypes": [],
-			"restrictedTypes": []
-		},
-		"CreditsDescription": {
-			"type": "richText",
-			"displayName": "Credits Description",
-			"description": "",
-			"localized": true,
-			"required": false,
-			"group": "Credits",
-			"sortOrder": 20,
-			"allowedTypes": [],
-			"restrictedTypes": []
-		},
-		"EndDateTime": {
-			"type": "dateTime",
-			"displayName": "End Date & Time",
-			"description": "Webinar end date and time (e.g., July 4, 2026 4:00 PM EST)",
-			"localized": false,
-			"required": false,
-			"group": "Information",
-			"sortOrder": 30,
-			"indexingType": "queryable",
+			"sortOrder": 14,
 			"allowedTypes": [],
 			"restrictedTypes": []
 		},
@@ -306,54 +275,85 @@
 			"localized": false,
 			"required": false,
 			"group": "Commerce",
+			"sortOrder": 14,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"CeCreditsAvailable": {
+			"type": "array",
+			"format": "selectMany",
+			"displayName": "CE Credits Available",
+			"description": "Select all applicable CE credit types",
+			"localized": false,
+			"required": false,
+			"group": "Credits",
+			"sortOrder": 16,
+			"indexingType": "queryable",
+			"allowedTypes": [],
+			"restrictedTypes": [],
+			"items": {
+				"type": "string",
+				"enum": [
+					{
+						"value": "CPE",
+						"displayName": "CPE"
+					},
+					{
+						"value": "CTFA",
+						"displayName": "CTFA"
+					},
+					{
+						"value": "notApplicable",
+						"displayName": "Not Applicable"
+					}
+				],
+				"allowedTypes": [],
+				"restrictedTypes": []
+			}
+		},
+		"CreditsDescription": {
+			"type": "richText",
+			"displayName": "Credits Description",
+			"description": "",
+			"localized": true,
+			"required": false,
+			"group": "Credits",
+			"sortOrder": 16,
+			"allowedTypes": [],
+			"restrictedTypes": []
+		},
+		"ContentSchema": {
+			"type": "richText",
+			"displayName": "GEO Schema",
+			"description": "JSON-LD structured schema. Use available agents to help with this. ",
+			"localized": false,
+			"required": false,
+			"group": "Schema",
 			"sortOrder": 30,
 			"allowedTypes": [],
 			"restrictedTypes": []
 		},
-		"Restrictions": {
-			"type": "string",
-			"format": "selectOne",
-			"displayName": "Restrictions",
-			"description": "Access restrictions for this webinar",
-			"localized": false,
-			"required": true,
-			"group": "Information",
-			"sortOrder": 40,
-			"indexingType": "queryable",
-			"enum": [
-				{
-					"value": "none",
-					"displayName": "None"
-				},
-				{
-					"value": "bankMember",
-					"displayName": "Bank Member"
-				}
-			],
-			"allowedTypes": [],
-			"restrictedTypes": []
-		},
-		"Description": {
-			"type": "richText",
-			"displayName": "Description",
+		"SeoSettings": {
+			"type": "component",
+			"contentType": "PageSeoSettings",
+			"displayName": "SEO Settings",
 			"description": "",
-			"localized": true,
+			"localized": false,
 			"required": false,
-			"group": "Information",
-			"sortOrder": 50,
-			"indexingType": "searchable",
+			"group": "SeoSettings",
+			"sortOrder": 499,
 			"allowedTypes": [],
 			"restrictedTypes": []
 		},
-		"WebinarUrl": {
-			"type": "string",
-			"format": "shortString",
-			"displayName": "Webinar URL",
-			"description": "URL for webinar registration or access",
+		"PageAdminSettings": {
+			"type": "component",
+			"contentType": "PageAdminSettings",
+			"displayName": "Page Admin Settings",
+			"description": "",
 			"localized": false,
 			"required": false,
-			"group": "Information",
-			"sortOrder": 60,
+			"group": "AdminSettings",
+			"sortOrder": 500,
 			"allowedTypes": [],
 			"restrictedTypes": []
 		}
