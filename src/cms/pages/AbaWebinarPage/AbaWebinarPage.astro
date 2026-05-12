@@ -59,7 +59,10 @@ const hasCredits = (page?.CeCreditsAvailable?.length ?? 0) > 0;
 const hasAudience = (page?.Audience?.length ?? 0) > 0;
 const hasSpeakers = (page?.Speakers?.length ?? 0) > 0;
 const hasAssets = (page?.SupportingAssets?.length ?? 0) > 0;
-const hasSchema = !!page?.ContentSchema?.html;
+const schemaJson = page?.ContentSchema?.html
+    ? page.ContentSchema.html.replace(/<[^>]*>/g, '').trim()
+    : null;
+const hasSchema = !!schemaJson;
 
 const isPastWebinar = startDate ? startDate < new Date() : false;
 
@@ -478,5 +481,7 @@ const pageClass = 'page-aba-webinar';
         </div>
 
     </div>
-    {hasSchema && <Fragment slot="head" set:html={page.ContentSchema!.html} />}
+    <Fragment slot="head">
+        {hasSchema && <Fragment set:html={`<script type="application/ld+json">${schemaJson}</script>`} />}
+    </Fragment>
 </Layout>
