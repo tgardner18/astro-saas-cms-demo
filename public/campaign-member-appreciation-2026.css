@@ -1,0 +1,210 @@
+/* ================================================================
+   ABA — Member Appreciation Month 2026
+   Campaign Brand Treatment Stylesheet
+   ================================================================
+   Load this file via the CMS external styles field to apply the
+   brand treatment to any page or site-wide.
+
+   Palette (from 2026MemberAppreciationMonth.jpg):
+     Navy   #1b1a38   Orange #e8681a   Gold   #f5b827
+     Teal   #00b5a0   Green  #2a8547   Coral  #e8304a
+     Purple #7b5ea7
+   ================================================================ */
+
+
+/* ── Custom Properties ─────────────────────────────────────── */
+:root {
+  --mam-navy:    #1b1a38;
+  --mam-navy-2:  #252357;
+  --mam-orange:  #e8681a;
+  --mam-gold:    #f5b827;
+  --mam-green:   #2a8547;
+  --mam-teal:    #00b5a0;
+  --mam-coral:   #e8304a;
+  --mam-purple:  #7b5ea7;
+  --mam-banner-h: 52px;
+  --mam-gradient: linear-gradient(
+    90deg,
+    var(--mam-orange),
+    var(--mam-gold),
+    var(--mam-green),
+    var(--mam-teal),
+    var(--mam-coral),
+    var(--mam-purple)
+  );
+}
+
+
+/* ── Campaign Banner Strip (fixed, top of every page) ──────── */
+body {
+  padding-top: var(--mam-banner-h);
+}
+
+body::before {
+  content: 'Member Appreciation Month 2026  —  Celebrating the strength of ABA membership';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--mam-banner-h);
+  display: block;
+  line-height: var(--mam-banner-h);
+  padding: 0 1.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Orange glow gradient bleeds in from the right over the campaign photo */
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent          0%,
+      transparent          48%,
+      rgba(232,104,26,0.45) 68%,
+      rgba(232,104,26,0.80) 84%,
+      rgba(232,104,26,0.95) 100%
+    ),
+    url('/2026MemberAppreciationMonth.jpg'),
+    linear-gradient(100deg, var(--mam-navy) 0%, var(--mam-navy-2) 100%);
+  background-position: 0 0, right center, 0 0;
+  background-size: 100% 100%, auto 140%, 100% 100%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  border-bottom: 3px solid transparent;
+  border-image: var(--mam-gradient) 1;
+  z-index: 75;
+}
+
+/* Header sticks below the campaign banner */
+header.sticky {
+  top: var(--mam-banner-h) !important;
+}
+
+
+/* ── Login Modal – Campaign Skin ──────────────────────────── */
+
+/* Left branded panel: navy + campaign photo overlay */
+.max-w-3xl > div:first-child {
+  position: relative;
+  background-color: var(--mam-navy) !important;
+  background-image:
+    linear-gradient(165deg, rgba(27,26,56,0.50) 0%, rgba(27,26,56,0.82) 55%),
+    url('/2026MemberAppreciationMonth.jpg') !important;
+  background-size: 100% 100%, 260% auto !important;
+  background-position: 0 0, right bottom !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden;
+}
+
+/* Rainbow stripe along the top of the left panel */
+.max-w-3xl > div:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--mam-gradient);
+  z-index: 2;
+}
+
+/* Member Appreciation badge — injected above the copyright */
+.max-w-3xl > div:first-child::after {
+  content: '★  Member Appreciation Month 2026';
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mam-gold);
+  padding: 0.38rem 0.8rem;
+  border: 1px solid rgba(245, 184, 39, 0.45);
+  border-radius: 100px;
+  width: fit-content;
+  background: rgba(245, 184, 39, 0.1);
+  animation: mam-badge-glow 2.8s ease-in-out infinite;
+}
+
+@keyframes mam-badge-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(245,184,39,0.15); }
+  50%       { box-shadow: 0 0 18px rgba(245,184,39,0.50), 0 0 4px rgba(245,184,39,0.30); }
+}
+
+/* Gradient text on the left-panel headline */
+.max-w-3xl > div:first-child h2 {
+  background: linear-gradient(90deg, #ffffff 20%, var(--mam-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Swap accent bar from white/30 to campaign gradient */
+.max-w-3xl > div:first-child .space-y-4 > div:first-child {
+  background: var(--mam-gradient) !important;
+  opacity: 0.9 !important;
+}
+
+/* Modal card outer glow / accent ring */
+.max-w-3xl.rounded-2xl {
+  box-shadow:
+    0 0 0 3px var(--mam-orange),
+    0 25px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* "Continue as ABA Bank Member" CTA — swap ABA blue for campaign orange */
+.max-w-3xl button[style*="background-color"],
+.max-w-3xl .btn[style*="003b71"],
+.max-w-3xl .btn[style*="background-color"] {
+  background: linear-gradient(135deg, var(--mam-orange) 0%, var(--mam-coral) 100%) !important;
+  background-color: var(--mam-orange) !important;
+  border: none !important;
+}
+
+
+/* ── Footer – Campaign Accent ───────────────────────────────── */
+footer::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: var(--mam-gradient);
+}
+
+
+/* ── Webinar List & Event Pages ─────────────────────────────── */
+
+.page-aba-webinar .text-primary,
+.component-aba-webinar-list .text-primary {
+  color: var(--mam-orange) !important;
+}
+
+.page-aba-webinar [class*="bg-primary"],
+.component-aba-webinar-list [class*="bg-primary"] {
+  background-color: var(--mam-orange) !important;
+}
+
+/* Header band on webinar detail page */
+.page-aba-webinar > div:first-child {
+  background-image:
+    url('/2026MemberAppreciationMonth.jpg'),
+    linear-gradient(135deg, var(--mam-navy) 0%, var(--mam-navy-2) 100%) !important;
+  background-position: right center, 0 0 !important;
+  background-size: auto 100%, 100% 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+
+/* ── Mobile adjustments ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  body::before {
+    content: 'Member Appreciation Month 2026';
+    font-size: 0.65rem;
+    padding: 0 1rem;
+  }
+
+  :root {
+    --mam-banner-h: 44px;
+  }
+}
