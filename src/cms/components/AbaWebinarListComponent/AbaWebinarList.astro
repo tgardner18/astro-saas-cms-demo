@@ -57,8 +57,10 @@ const serializedItems = allItems
             day:       startDate ? dayFmt.format(startDate) : '',
             startTime: startDate ? timeFmt.format(startDate) : '',
             endTime:   endDate   ? timeFmt.format(endDate)   : '',
-            credits:   (item.CeCreditsAvailable ?? []).filter(Boolean) as string[],
-            audience:  (item.Audience ?? []).filter(Boolean) as string[],
+            credits:    (item.CeCreditsAvailable ?? []).filter(c => c && c !== 'notApplicable') as string[],
+            noCredits:  (item.CeCreditsAvailable ?? []).some(c => c === 'notApplicable'),
+            audience:   (item.Audience ?? []).filter(Boolean) as string[],
+            memberOnly: item.Restrictions === 'bankMember',
         };
     });
 
@@ -213,11 +215,11 @@ const componentClass = 'component-aba-webinar-list';
             </p>
 
             <!-- Webinar list -->
-            <div class="rounded-2xl border border-base-200 overflow-hidden divide-y divide-base-200">
+            <div class="space-y-3">
 
                 <!-- Items -->
                 <template x-for="(webinar, idx) in filteredWebinars" :key="webinar.url + idx">
-                    <div class="flex items-center gap-4 sm:gap-5 px-4 sm:px-5 py-4 bg-base-100 hover:bg-base-50 transition-colors duration-150 group">
+                    <div class="flex items-center gap-4 sm:gap-5 px-4 sm:px-5 py-4 bg-base-100 rounded-xl border border-base-200 shadow-sm hover:shadow-md transition-shadow duration-150 group">
 
                         <!-- Date badge -->
                         <div class="flex-shrink-0 w-12 text-center select-none">
@@ -231,17 +233,23 @@ const componentClass = 'component-aba-webinar-list';
                         <div class="flex-1 min-w-0">
                             <a
                                 :href="webinar.url"
-                                class="text-sm sm:text-base font-semibold text-primary hover:underline leading-snug line-clamp-2 group-hover:text-primary/80 transition-colors"
+                                class="text-base sm:text-lg font-semibold text-primary hover:underline leading-snug line-clamp-2 group-hover:text-primary/80 transition-colors"
                                 x-text="webinar.title"
                             ></a>
                             <div class="flex flex-wrap items-center gap-1.5 mt-1.5">
-                                <template x-if="webinar.credits.length === 0">
+                                <template x-if="webinar.memberOnly">
+                                    <span class="inline-flex items-center rounded-full bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-xs font-semibold text-amber-700">Member Only</span>
+                                </template>
+                                <template x-if="webinar.noCredits && webinar.credits.length === 0">
                                     <span class="text-xs text-base-content/40 italic">Not applicable</span>
+                                </template>
+                                <template x-if="!webinar.noCredits && webinar.credits.length === 0">
+                                    <span class="text-xs text-base-content/40 italic">Credits not available</span>
                                 </template>
                                 <template x-for="credit in webinar.credits" :key="credit">
                                     <span
                                         class="inline-flex items-center rounded-md bg-base-200 px-2 py-0.5 text-xs font-semibold text-base-content/70"
-                                        x-text="credit"
+                                        x-text="credit + ' available'"
                                     ></span>
                                 </template>
                             </div>
@@ -250,10 +258,7 @@ const componentClass = 'component-aba-webinar-list';
                         <!-- Time -->
                         <div class="flex-shrink-0 text-right hidden sm:block">
                             <template x-if="webinar.startTime">
-                                <div>
-                                    <span class="block text-sm font-medium text-base-content/70 whitespace-nowrap" x-text="webinar.startTime + (webinar.endTime ? '–' + webinar.endTime : '')"></span>
-                                    <span class="block text-xs text-base-content/40 mt-0.5">ET</span>
-                                </div>
+                                <span class="block text-sm font-medium text-base-content/70 whitespace-nowrap" x-text="webinar.startTime + (webinar.endTime ? '–' + webinar.endTime : '') + ' ET'"></span>
                             </template>
                             <template x-if="!webinar.startTime">
                                 <span class="text-xs text-base-content/30">TBD</span>

@@ -7,4 +7,5 @@ fragment AbaWebinarExcerpt on AbaWebinarPage {
     EndDateTime
     CeCreditsAvailable
     Audience
+    Restrictions
 }
