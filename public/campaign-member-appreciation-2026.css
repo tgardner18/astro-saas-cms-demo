@@ -207,29 +207,6 @@ footer ul li a:hover {
 }
 
 
-/* ── Webinar List & Event Pages ─────────────────────────────── */
-
-.page-aba-webinar .text-primary,
-.component-aba-webinar-list .text-primary {
-  color: var(--mam-orange) !important;
-}
-
-.page-aba-webinar [class*="bg-primary"],
-.component-aba-webinar-list [class*="bg-primary"] {
-  background-color: var(--mam-orange) !important;
-}
-
-/* Header band on webinar detail page */
-.page-aba-webinar > div:first-child {
-  background-image:
-    url('/2026MemberAppreciationMonth.jpg'),
-    linear-gradient(135deg, var(--mam-navy) 0%, var(--mam-navy-2) 100%) !important;
-  background-position: right center, 0 0 !important;
-  background-size: auto 100%, 100% 100% !important;
-  background-repeat: no-repeat !important;
-}
-
-
 /* ── Mobile adjustments ─────────────────────────────────────── */
 @media (max-width: 640px) {
   body::before {
