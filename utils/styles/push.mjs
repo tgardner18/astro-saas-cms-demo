@@ -1,4 +1,4 @@
-import { createClient } from '@remkoj/optimizely-cms-api';
+import { createCmsApiClient } from '../cms-api-client.mjs';
 import fg from 'fast-glob';
 import fs from 'fs/promises';
 import path from 'path';
@@ -12,15 +12,9 @@ const directoryToFindStylesIn = fg.convertPathToPattern(path.resolve(
 )); // looking for pattern *.opti-style.json
 const clientId = process.env.OPTIMIZELY_CLIENT_ID;
 const clientSecret = process.env.OPTIMIZELY_CLIENT_SECRET;
-const cmsUrl = process.env.OPTIMIZELY_CMS_URL;
 
 // Create an instance of the client
-const config = {
-    base: new URL(cmsUrl),
-    clientId: clientId,
-    clientSecret: clientSecret,
-};
-const client = createClient(config);
+const client = createCmsApiClient({ clientId, clientSecret });
 
 /**
  * Find all files matching a pattern in the specified directory
@@ -71,11 +65,10 @@ const styleNameArg = process.argv[2];
         const nodeType = styleDefinition.nodeType;
 
         try {
-            try {
-                await client.displayTemplates.displayTemplatesCreate(styleDefinition);
-            } catch {
-                await client.displayTemplates.displayTemplatesPatch(styleKey, styleDefinition, true);
-            }
+            await client.displayTemplates.put(
+                styleKey,
+                styleDefinition
+            );
             console.log(
                 `✅ Template with styleKey: ${styleKey}, contentType: ${contentType}, nodeType: ${nodeType} has been updated`
             );
@@ -112,11 +105,10 @@ const styleNameArg = process.argv[2];
             const nodeType = styleDefinition.nodeType;
             
             try {
-                try {
-                    await client.displayTemplates.displayTemplatesCreate(styleDefinition);
-                } catch {
-                    await client.displayTemplates.displayTemplatesPatch(styleKey, styleDefinition, true);
-                }
+                await client.displayTemplates.put(
+                    styleKey,
+                    styleDefinition
+                );
                 console.log(
                     `✅ Template with styleKey: ${styleKey}, contentType: ${contentType}, nodeType: ${nodeType} has been updated`
                 );
