@@ -1,0 +1,23 @@
+query getAbaWebinars(
+    $loc: [Locales]
+    $limit: Int! = 100
+    $site: String
+    $status: String! = "Published"
+    $rootUrl: String
+) {
+    AbaWebinarPage(
+        locale: $loc
+        orderBy: { StartDateTime: ASC }
+        limit: $limit
+        where: {
+            _metadata: {
+                status: { eq: $status }
+                url: { base: { eq: $site }, default: { startsWith: $rootUrl } }
+            }
+        }
+    ) {
+        items {
+            ...AbaWebinarExcerpt
+        }
+    }
+}

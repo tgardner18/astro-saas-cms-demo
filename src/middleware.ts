@@ -113,8 +113,9 @@ async function getPlaceholders(domain: string, locale: Locales): Promise<Map<str
     for (const config of response.PlaceholdersConfiguration.items) {
       if (config.Placeholders) {
         for (const placeholder of config.Placeholders) {
-          if (placeholder.Key && placeholder.Value) {
-            placeholders.set(placeholder.Key, placeholder.Value);
+          const p = placeholder as any;
+          if (p?.Key && p?.Value) {
+            placeholders.set(p.Key, p.Value);
           }
         }
       }
