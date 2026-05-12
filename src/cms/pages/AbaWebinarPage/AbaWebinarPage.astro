@@ -477,7 +477,6 @@ const pageClass = 'page-aba-webinar';
         </main>
         </div>
 
-        <!-- JSON-LD Schema markup -->
-        {hasSchema && <Fragment set:html={page.ContentSchema!.html} />}
     </div>
+    {hasSchema && <Fragment slot="head" set:html={page.ContentSchema!.html} />}
 </Layout>
