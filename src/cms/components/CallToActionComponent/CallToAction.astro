@@ -26,7 +26,7 @@ const ctaButtonStyles = getButtonStyles(displaySettings, false); // false: butto
 const componentClass = 'component-cta';
 ---
 
-<div class="m-4 flex gap-4 flex-wrap" class:list={componentClass} data-epi-block-id={isCmsEdit && key || undefined}>
+<div class="m-4 flex gap-4 flex-wrap [justify-content:inherit]" class:list={componentClass} data-epi-block-id={isCmsEdit && key || undefined}>
     {
         data.Links?.map((link, i) => {
             const buttonLink = getLink(link as ButtonLinkData, currentDomain);
