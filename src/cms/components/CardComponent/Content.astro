@@ -52,7 +52,7 @@ const cssTextClasses = {
 const cssClassesCallToAction = {
     textOnRight: 'z-20 mt-8 flex gap-2 flex-wrap',
     textOnLeft: 'z-20 mt-8 flex gap-2 flex-wrap',
-    textAboveCard: 'z-20 mt-8 flex justify-center gap-2 flex-wrap',
+    textAboveCard: 'z-20 mt-auto pt-8 flex justify-center gap-2 flex-wrap',
     textBelowCard: 'z-20 mt-8 flex justify-center gap-2 flex-wrap',
     hover: 'z-20 mt-8 flex justify-center gap-2 flex-wrap',
 };
@@ -108,11 +108,11 @@ const overlayContentClasses = isHoverMode
     : '';
 
 // For full split layout, content takes exactly 50% with background applied
-const containerClasses = isFullSplit 
+const containerClasses = isFullSplit
     ? `w-full md:w-1/2 flex flex-col justify-center p-8 md:p-12 lg:p-16 ${cardTextAlignmentStyle} overflow-hidden`
     : isHoverMode
     ? 'absolute inset-0' // Container for positioning both heading and overlay
-    : `${widthClass || 'flex-1'} ${cssClassesForSection} ${cardTextAlignmentStyle} ${verticalAlignClass || 'self-center'}`;
+    : `${widthClass || 'flex-1'} ${cssClassesForSection} ${cardTextAlignmentStyle} ${verticalAlignClass || 'self-center'}${displayAs === 'textAboveCard' ? ' flex flex-col' : ''}`;
 
 // Build final classes including global styles for split mode
 const contentClasses = isFullSplit
