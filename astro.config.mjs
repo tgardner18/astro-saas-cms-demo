@@ -274,6 +274,7 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Oswald',
                 cssVariable: '--font-oswald',
+                weights: [200, 300, 400, 500, 600, 700],
             },
             {
                 provider: fontProviders.google(),
@@ -284,14 +285,6 @@ export default defineConfig({
                 provider: fontProviders.google(),
                 name: 'Playfair Display',
                 cssVariable: '--font-playfair-display',
-                weights: [
-                    '400',
-                    '500',
-                    '600',
-                    '700',
-                    '800',
-                    '900',
-                ],
             },
             {
                 provider: fontProviders.google(),
