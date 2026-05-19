@@ -28,7 +28,12 @@ const carouselId = `carousel-row-${Math.random().toString(36).substring(2, 9)}`;
 const paginationId = `${carouselId}-pagination`;
 ---
 
-<div class="carousel-row-outer-wrapper relative">
+<!--
+    The outer wrapper breaks out of any Section/Row padding via the
+    full-bleed technique (100vw + left: 50% + margin-left: -50vw).
+    body { overflow-x: hidden } in global.css prevents a scrollbar.
+-->
+<div class="carousel-row-outer-wrapper">
     <section
         id={carouselId}
         class={`splide ${isContentCarousel ? 'content-carousel' : 'standard-carousel'} ${styleConfig.carouselHeight} ${styleConfig.carouselWidth}`}
@@ -62,25 +67,54 @@ const paginationId = `${carouselId}-pagination`;
     </section>
 
     <!-- External pagination rendered below the carousel -->
-    <div id={paginationId} class="carousel-external-dots" role="tablist" aria-label="Carousel navigation"></div>
+    <div
+        id={paginationId}
+        class="carousel-external-dots"
+        role="tablist"
+        aria-label="Carousel navigation"
+    ></div>
 </div>
 
 <style>
+    /* ── Full-bleed: escape Section (p-2 sm:p-3 md:p-4) and Row (p-1) padding ── */
     .carousel-row-outer-wrapper {
         position: relative;
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+        overflow-x: hidden;
     }
 
-    /* Force equal heights for all slides */
+    /* ── Splide base ── */
+    .splide {
+        width: 100% !important;
+    }
+
     .splide__track,
     .splide__list {
         height: 100%;
+        width: 100%;
     }
 
     .splide__slide {
         height: auto;
     }
 
-    /* Content carousel styles - equal heights for multiple items */
+    /* ── Standard carousel (full-image hero slides) ── */
+    .standard-carousel .splide__slide {
+        display: flex;
+        align-items: stretch;
+        /* Responsive height: scales with viewport, capped top and bottom */
+        min-height: clamp(260px, 38vw, 560px);
+    }
+
+    .standard-carousel .carousel-row-slide-content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* ── Content carousel (card/multi-item) ── */
     .content-carousel .splide__slide {
         display: flex !important;
         align-items: stretch;
@@ -104,30 +138,16 @@ const paginationId = `${carouselId}-pagination`;
         height: 100%;
     }
 
-    /* Standard carousel styles - centered content */
-    .standard-carousel .splide__slide {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 400px;
-    }
-
-    .standard-carousel .carousel-row-slide-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-    }
-
-    /* Arrow styling — flush to the edges, subtle gray */
+    /* ── Arrows: flush to left/right edges, subtle light-gray ── */
     :global(.splide__arrow) {
-        background: rgba(220, 220, 220, 0.85) !important;
+        background: rgba(210, 210, 210, 0.88) !important;
         border: none !important;
         border-radius: 2px !important;
-        width: 2.5rem !important;
-        height: 3.5rem !important;
-        z-index: 10;
+        width: 2.25rem !important;
+        height: 3.25rem !important;
+        z-index: 20;
         opacity: 1 !important;
+        transition: background 0.2s ease !important;
     }
 
     :global(.splide__arrow--prev) {
@@ -139,22 +159,66 @@ const paginationId = `${carouselId}-pagination`;
     }
 
     :global(.splide__arrow svg) {
-        fill: #333 !important;
-        width: 1rem !important;
-        height: 1rem !important;
+        fill: #444 !important;
+        width: 0.875rem !important;
+        height: 0.875rem !important;
     }
 
     :global(.splide__arrow:hover) {
-        background: rgba(200, 200, 200, 0.95) !important;
+        background: rgba(190, 190, 190, 0.98) !important;
     }
 
-    /* External pagination dots below the carousel */
+    /* ── Hero inside standard carousel: anchor to bottom-left ── */
+    :global(.standard-carousel .component-hero) {
+        align-items: flex-end !important;
+    }
+
+    /* Replace full-image overlay with a readable gradient bar at the bottom */
+    :global(.standard-carousel .hero-overlay) {
+        background-color: transparent !important;
+        background-image: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.48) 38%,
+            transparent 68%
+        ) !important;
+    }
+
+    /* Content block: bottom-left, reasonable max-width */
+    :global(.standard-carousel .hero-content) {
+        width: 100% !important;
+        max-width: 58% !important;
+        padding-bottom: 2.5rem !important;
+        padding-left: 2rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Responsive heading size */
+    :global(.standard-carousel .component-hero h1) {
+        font-size: clamp(1.4rem, 3.8vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Mobile: wider content block, tighter padding */
+    @media (max-width: 640px) {
+        :global(.standard-carousel .hero-content) {
+            max-width: 88% !important;
+            padding-left: 1rem !important;
+            padding-bottom: 1.25rem !important;
+        }
+
+        .standard-carousel .splide__slide {
+            min-height: 220px;
+        }
+    }
+
+    /* ── External pagination dots below carousel ── */
     .carousel-external-dots {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
-        padding: 1rem 0;
+        padding: 0.875rem 0;
     }
 
     .carousel-external-dots:empty {
@@ -165,7 +229,7 @@ const paginationId = `${carouselId}-pagination`;
         width: 0.75rem;
         height: 0.75rem;
         border-radius: 50%;
-        background: color-mix(in oklch, var(--color-primary) 40%, transparent);
+        background: color-mix(in oklch, var(--color-primary) 38%, transparent);
         border: none;
         cursor: pointer;
         padding: 0;
@@ -174,14 +238,14 @@ const paginationId = `${carouselId}-pagination`;
 
     .carousel-external-dots :global(.carousel-dot.is-active) {
         background: var(--color-primary);
-        transform: scale(1.25);
+        transform: scale(1.3);
     }
 
     .carousel-external-dots :global(.carousel-dot:hover) {
         background: color-mix(in oklch, var(--color-primary) 65%, transparent);
     }
 
-    /* Ensure cards and sections fill height properly */
+    /* Cards/sections inside slides fill height */
     .splide__slide :global(.card),
     .splide__slide :global(.section) {
         height: 100%;
@@ -208,22 +272,22 @@ const paginationId = `${carouselId}-pagination`;
             const dotsContainer = paginationId ? document.getElementById(paginationId) : null;
 
             const isContentMode = carousel.getAttribute('data-content-mode') === 'true';
-            const showArrows = carousel.getAttribute('data-show-arrows') === 'true';
+            const showArrows    = carousel.getAttribute('data-show-arrows') === 'true';
             const showPagination = carousel.getAttribute('data-show-pagination') === 'true';
             const enableAutoplay = carousel.getAttribute('data-autoplay') === 'true';
-            const autoplayDelay = parseInt(carousel.getAttribute('data-autoplay-delay') || '5000');
-            const enableLoop = carousel.getAttribute('data-loop') === 'true';
+            const autoplayDelay  = parseInt(carousel.getAttribute('data-autoplay-delay') || '5000');
+            const enableLoop     = carousel.getAttribute('data-loop') === 'true';
             const transitionSpeed = parseInt(carousel.getAttribute('data-transition-speed') || '500');
 
-            const itemsDesktop = parseInt(carousel.getAttribute('data-items-desktop') || '3');
-            const itemsTablet = parseInt(carousel.getAttribute('data-items-tablet') || '2');
-            const itemsMobile = parseInt(carousel.getAttribute('data-items-mobile') || '1');
-            const spaceBetween = parseInt(carousel.getAttribute('data-space-between') || '24');
+            const itemsDesktop  = parseInt(carousel.getAttribute('data-items-desktop') || '3');
+            const itemsTablet   = parseInt(carousel.getAttribute('data-items-tablet') || '2');
+            const itemsMobile   = parseInt(carousel.getAttribute('data-items-mobile') || '1');
+            const spaceBetween  = parseInt(carousel.getAttribute('data-space-between') || '24');
 
-            let config: any = {
+            const config: any = {
                 type: enableLoop ? 'loop' : 'slide',
                 arrows: showArrows,
-                pagination: false, // always disable built-in; we render external dots
+                pagination: false, // using external dots
                 autoplay: enableAutoplay,
                 interval: autoplayDelay,
                 pauseOnHover: true,
@@ -238,7 +302,7 @@ const paginationId = `${carouselId}-pagination`;
                 config.gap = `${spaceBetween}px`;
                 config.breakpoints = {
                     1023: { perPage: itemsTablet, gap: `${spaceBetween}px` },
-                    767: { perPage: itemsMobile, gap: `${spaceBetween}px` },
+                    767:  { perPage: itemsMobile, gap: `${spaceBetween}px` },
                 };
                 config.height = 'auto';
                 config.heightRatio = 0;
@@ -257,6 +321,7 @@ const paginationId = `${carouselId}-pagination`;
 
             const splideInstance = new (window as any).Splide(carousel, config);
 
+            // Build external dot pagination
             if (dotsContainer && showPagination) {
                 splideInstance.on('mounted', () => {
                     const count = splideInstance.length;
@@ -273,8 +338,7 @@ const paginationId = `${carouselId}-pagination`;
                 });
 
                 splideInstance.on('moved', (newIndex: number) => {
-                    const dots = dotsContainer.querySelectorAll('.carousel-dot');
-                    dots.forEach((dot, i) => {
+                    dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
                         dot.classList.toggle('is-active', i === newIndex);
                     });
                 });

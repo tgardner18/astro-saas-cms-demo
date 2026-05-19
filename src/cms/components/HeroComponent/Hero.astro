@@ -82,10 +82,10 @@ const componentClass = 'component-hero';
     }
 
     <!-- Dark Overlay for Better Readability -->
-    <div class="absolute inset-0" class:list={backgroundOpacityClass}></div>
+    <div class="hero-overlay absolute inset-0" class:list={backgroundOpacityClass}></div>
 
     <!-- Content -->
-    <div class="relative z-10 px-6" class:list={textClasses}>
+    <div class="hero-content relative z-10 px-6" class:list={textClasses}>
         <h1 class="text-5xl font-bold md:text-6xl" class:list={textClasses}>{data?.Heading}</h1>
         <p class="mx-auto mt-4 text-xl" class:list={textClasses}>
             {data?.SubHeading}
