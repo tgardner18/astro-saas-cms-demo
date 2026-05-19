@@ -25,40 +25,51 @@ const isContentCarousel = styleConfig.carouselMode === 'content';
 
 // Create a unique ID for this specific carousel instance
 const carouselId = `carousel-row-${Math.random().toString(36).substring(2, 9)}`;
+const paginationId = `${carouselId}-pagination`;
 ---
 
-<section
-    id={carouselId}
-    class={`splide ${isContentCarousel ? 'content-carousel' : 'standard-carousel'} ${styleConfig.carouselHeight} ${styleConfig.carouselWidth}`}
-    aria-label="Carousel Row"
-    data-content-mode={isContentCarousel ? 'true' : 'false'}
-    data-show-arrows={styleConfig.showNavigation.toString()}
-    data-show-pagination={styleConfig.showPagination.toString()}
-    data-autoplay={styleConfig.enableAutoplay.toString()}
-    data-autoplay-delay={styleConfig.autoplayDelay.toString()}
-    data-loop={styleConfig.enableLoop.toString()}
-    data-items-desktop={styleConfig.itemsPerViewDesktop.toString()}
-    data-items-tablet={styleConfig.itemsPerViewTablet.toString()}
-    data-items-mobile={styleConfig.itemsPerViewMobile.toString()}
-    data-space-between={styleConfig.spaceBetween.toString()}
-    data-transition-speed={styleConfig.transitionSpeed.toString()}
->
-    <div class="splide__track">
-        <ul class="splide__list">
-            {
-                items?.map((item: any) => (
-                    <li class={`splide__slide ${styleConfig.carouselHeight}`}>
-                        <div class={`carousel-row-slide-content w-full h-full ${isContentCarousel ? 'p-2' : ''}`}>
-                            <Elements contentPayload={contentPayload} data={item} />
-                        </div>
-                    </li>
-                ))
-            }
-        </ul>
-    </div>
-</section>
+<div class="carousel-row-outer-wrapper relative">
+    <section
+        id={carouselId}
+        class={`splide ${isContentCarousel ? 'content-carousel' : 'standard-carousel'} ${styleConfig.carouselHeight} ${styleConfig.carouselWidth}`}
+        aria-label="Carousel Row"
+        data-pagination-id={paginationId}
+        data-content-mode={isContentCarousel ? 'true' : 'false'}
+        data-show-arrows={styleConfig.showNavigation.toString()}
+        data-show-pagination={styleConfig.showPagination.toString()}
+        data-autoplay={styleConfig.enableAutoplay.toString()}
+        data-autoplay-delay={styleConfig.autoplayDelay.toString()}
+        data-loop={styleConfig.enableLoop.toString()}
+        data-items-desktop={styleConfig.itemsPerViewDesktop.toString()}
+        data-items-tablet={styleConfig.itemsPerViewTablet.toString()}
+        data-items-mobile={styleConfig.itemsPerViewMobile.toString()}
+        data-space-between={styleConfig.spaceBetween.toString()}
+        data-transition-speed={styleConfig.transitionSpeed.toString()}
+    >
+        <div class="splide__track">
+            <ul class="splide__list">
+                {
+                    items?.map((item: any) => (
+                        <li class={`splide__slide ${styleConfig.carouselHeight}`}>
+                            <div class={`carousel-row-slide-content w-full h-full ${isContentCarousel ? 'p-2' : ''}`}>
+                                <Elements contentPayload={contentPayload} data={item} />
+                            </div>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </section>
+
+    <!-- External pagination rendered below the carousel -->
+    <div id={paginationId} class="carousel-external-dots" role="tablist" aria-label="Carousel navigation"></div>
+</div>
 
 <style>
+    .carousel-row-outer-wrapper {
+        position: relative;
+    }
+
     /* Force equal heights for all slides */
     .splide__track,
     .splide__list {
@@ -108,40 +119,66 @@ const carouselId = `carousel-row-${Math.random().toString(36).substring(2, 9)}`;
         width: 100%;
     }
 
-    /* Arrow styling */
-    .splide__arrow {
-        background: rgba(0, 0, 0, 0.7) !important;
+    /* Arrow styling — flush to the edges, subtle gray */
+    :global(.splide__arrow) {
+        background: rgba(220, 220, 220, 0.85) !important;
         border: none !important;
-        border-radius: 50% !important;
-        width: 3rem !important;
-        height: 3rem !important;
+        border-radius: 2px !important;
+        width: 2.5rem !important;
+        height: 3.5rem !important;
         z-index: 10;
+        opacity: 1 !important;
     }
 
-    .splide__arrow svg {
-        fill: white !important;
-        width: 1.5rem !important;
-        height: 1.5rem !important;
+    :global(.splide__arrow--prev) {
+        left: 0 !important;
     }
 
-    /* Pagination styling */
-    .splide__pagination {
-        bottom: 1rem !important;
-        z-index: 10;
+    :global(.splide__arrow--next) {
+        right: 0 !important;
     }
 
-    .splide__pagination__page {
-        background: rgba(255, 255, 255, 0.5) !important;
-        border: none !important;
-        border-radius: 50% !important;
-        width: 0.75rem !important;
-        height: 0.75rem !important;
-        margin: 0 0.25rem !important;
+    :global(.splide__arrow svg) {
+        fill: #333 !important;
+        width: 1rem !important;
+        height: 1rem !important;
     }
 
-    .splide__pagination__page.is-active {
-        background: white !important;
-        transform: scale(1.3);
+    :global(.splide__arrow:hover) {
+        background: rgba(200, 200, 200, 0.95) !important;
+    }
+
+    /* External pagination dots below the carousel */
+    .carousel-external-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+
+    .carousel-external-dots:empty {
+        display: none;
+    }
+
+    .carousel-external-dots :global(.carousel-dot) {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        background: color-mix(in oklch, var(--color-primary) 40%, transparent);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .carousel-external-dots :global(.carousel-dot.is-active) {
+        background: var(--color-primary);
+        transform: scale(1.25);
+    }
+
+    .carousel-external-dots :global(.carousel-dot:hover) {
+        background: color-mix(in oklch, var(--color-primary) 65%, transparent);
     }
 
     /* Ensure cards and sections fill height properly */
@@ -162,14 +199,14 @@ const carouselId = `carousel-row-${Math.random().toString(36).substring(2, 9)}`;
 
 <script>
     document.addEventListener('astro:page-load', function () {
-        // Find all carousel row instances
         const carousels = document.querySelectorAll('.splide');
 
         carousels.forEach((carousel) => {
-            // Skip if already initialized
             if ((carousel as any).splide) return;
 
-            // Get configuration from data attributes
+            const paginationId = carousel.getAttribute('data-pagination-id');
+            const dotsContainer = paginationId ? document.getElementById(paginationId) : null;
+
             const isContentMode = carousel.getAttribute('data-content-mode') === 'true';
             const showArrows = carousel.getAttribute('data-show-arrows') === 'true';
             const showPagination = carousel.getAttribute('data-show-pagination') === 'true';
@@ -178,17 +215,15 @@ const carouselId = `carousel-row-${Math.random().toString(36).substring(2, 9)}`;
             const enableLoop = carousel.getAttribute('data-loop') === 'true';
             const transitionSpeed = parseInt(carousel.getAttribute('data-transition-speed') || '500');
 
-            // Content carousel specific settings
             const itemsDesktop = parseInt(carousel.getAttribute('data-items-desktop') || '3');
             const itemsTablet = parseInt(carousel.getAttribute('data-items-tablet') || '2');
             const itemsMobile = parseInt(carousel.getAttribute('data-items-mobile') || '1');
             const spaceBetween = parseInt(carousel.getAttribute('data-space-between') || '24');
 
-            // Build configuration
             let config: any = {
                 type: enableLoop ? 'loop' : 'slide',
                 arrows: showArrows,
-                pagination: showPagination,
+                pagination: false, // always disable built-in; we render external dots
                 autoplay: enableAutoplay,
                 interval: autoplayDelay,
                 pauseOnHover: true,
@@ -199,37 +234,55 @@ const carouselId = `carousel-row-${Math.random().toString(36).substring(2, 9)}`;
             };
 
             if (isContentMode) {
-                // Content carousel with responsive breakpoints
                 config.perPage = itemsDesktop;
                 config.gap = `${spaceBetween}px`;
                 config.breakpoints = {
-                    1023: {
-                        perPage: itemsTablet,
-                        gap: `${spaceBetween}px`,
-                    },
-                    767: {
-                        perPage: itemsMobile,
-                        gap: `${spaceBetween}px`,
-                    },
+                    1023: { perPage: itemsTablet, gap: `${spaceBetween}px` },
+                    767: { perPage: itemsMobile, gap: `${spaceBetween}px` },
                 };
-                // Force equal heights across all visible slides
                 config.height = 'auto';
                 config.heightRatio = 0;
                 config.fixedHeight = false;
             } else {
-                // Standard carousel - one slide at a time with auto height
                 config.perPage = 1;
                 config.gap = 0;
                 config.height = 'auto';
                 config.heightRatio = 0;
             }
 
-            // Initialize Splide
-            if (typeof (window as any).Splide !== 'undefined') {
-                new (window as any).Splide(carousel, config).mount();
-            } else {
+            if (typeof (window as any).Splide === 'undefined') {
                 console.error('Splide is not loaded');
+                return;
             }
+
+            const splideInstance = new (window as any).Splide(carousel, config);
+
+            if (dotsContainer && showPagination) {
+                splideInstance.on('mounted', () => {
+                    const count = splideInstance.length;
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < count; i++) {
+                        const dot = document.createElement('button');
+                        dot.setAttribute('role', 'tab');
+                        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                        dot.classList.add('carousel-dot');
+                        if (i === 0) dot.classList.add('is-active');
+                        dot.addEventListener('click', () => splideInstance.go(i));
+                        dotsContainer.appendChild(dot);
+                    }
+                });
+
+                splideInstance.on('moved', (newIndex: number) => {
+                    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('is-active', i === newIndex);
+                    });
+                });
+            } else if (dotsContainer) {
+                dotsContainer.style.display = 'none';
+            }
+
+            splideInstance.mount();
         });
     });
 </script>
